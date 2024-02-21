@@ -1,0 +1,1762 @@
+# ----------------------------------------
+# Exportação do CSV de relatório
+# Conta: Tribuna do Norte
+# Propriedade: https://tribunadonorte.com.br – GA4
+# ----------------------------------------
+#  
+# Data de início: 20220101
+# Data de término: 20221231
+ID do país,Usuários
+AD,53
+AE,360
+AO,1853
+AR,5584
+AT,475
+AU,1760
+BD,105
+BE,1050
+BG,110
+BO,644
+BR,6037217
+CA,4358
+CH,2192
+CI,71
+CL,910
+CN,760
+CO,1755
+CR,110
+CU,58
+CV,359
+CZ,173
+DE,5608
+DK,1457
+DO,101
+DZ,42
+EC,184
+EE,40
+EG,158
+ES,6329
+FI,311
+FR,7148
+GB,6754
+GF,78
+GR,249
+GT,82
+GW,104
+HK,224
+HN,67
+HR,113
+HU,2452
+ID,2112
+IE,4712
+IL,338
+IN,908
+IQ,39
+IR,144
+IS,44
+IT,6635
+JP,2090
+KE,44
+KR,200
+KW,39
+KZ,56
+LB,58
+LU,217
+MA,101
+MT,62
+MX,896
+MY,115
+MZ,1255
+NG,114
+NI,104
+NL,3696
+NO,24252
+NZ,411
+PA,194
+PE,499
+PH,159
+PK,120
+PL,333
+PT,34301
+PY,1584
+QA,118
+RO,133
+RS,87
+RU,1243
+SA,230
+SE,10286
+SG,193
+SK,52
+SN,51
+SR,71
+ST,43
+SV,46
+TG,63
+TH,140
+TL,70
+TR,414
+TW,79
+UA,182
+US,97588
+UY,761
+VE,141
+VN,115
+ZA,229
+
+# Data de início: 20220101
+# Data de término: 20221231
+País,Usuários
+BR,6037217
+US,97588
+PT,34301
+NO,24252
+SE,10286
+FR,7148
+GB,6754
+
+#  
+# Data de início: 20220101
+# Data de término: 20221231
+Cidade,Usuários
+Natal,1399633
+Sao Paulo,630142
+Rio de Janeiro,280551
+Fortaleza,221431
+Parnamirim,197481
+Recife,185566
+Joao Pessoa,166569
+Brasilia,128080
+Belo Horizonte,112508
+Mossoro,102450
+Salvador,99155
+Curitiba,86715
+Porto Alegre,75979
+Belem,54967
+Campinas,51217
+Goiania,44334
+Caico,42581
+Sao Jose de Mipibu,40023
+Currais Novos,38245
+Ceara-Mirim,36734
+Manaus,36337
+Sao Goncalo do Amarante,36256
+Ashburn,32725
+Santa Cruz,30229
+Macaiba,29404
+Florianopolis,29204
+Sao Luis,26875
+Maceio,23326
+Acu,23230
+Assu,22879
+Campo Grande,21786
+Campina Grande,21714
+Londrina,21001
+Joinville,19546
+Teresina,18954
+Cuiaba,18911
+Uberlandia,18799
+Sao Jose dos Campos,18645
+Aracaju,16737
+Maringa,16121
+Vila Velha,15643
+Guarulhos,15352
+Santo Andre,14762
+Sao Miguel,14317
+Feira de Santana,13920
+Ribeirao Preto,13715
+Sao Bernardo do Campo,13112
+Niteroi,12952
+Osasco,12491
+Santos,12297
+Caxias do Sul,12169
+Sorocaba,12113
+Lisbon,12017
+Montes Claros,11791
+Juazeiro do Norte,10812
+Vitoria da Conquista,10667
+Juiz de Fora,10539
+Blumenau,10522
+Caruaru,10446
+Palmas,10427
+Limoeiro do Norte,10176
+Jundiai,9870
+Vitoria,9795
+Sao Goncalo,9473
+Cotia,9299
+Duque de Caxias,9266
+Contagem,9167
+Anapolis,8995
+Sao Jose do Rio Preto,8883
+Nova Iguacu,8861
+Ponta Grossa,8826
+Jaboatao dos Guararapes,8227
+Cascavel,8081
+Sete Lagoas,7965
+Cachoeiro de Itapemirim,7895
+Rio Verde,7887
+Guarabira,7886
+Petropolis,7861
+Serra,7779
+Franca,7661
+Porto Velho,7271
+Praia Grande,6756
+Itajai,6754
+Macapa,6728
+Petrolina,6676
+Novo Gama,6590
+Bauru,6575
+Paulista,6412
+Presidente Prudente,6344
+Porto,6291
+Piracicaba,6215
+Ananindeua,6149
+Campos dos Goytacazes,6127
+Cabo Frio,6020
+Porto Seguro,5889
+Machado,5873
+Volta Redonda,5818
+Foz do Iguacu,5686
+Olinda,5611
+Dracena,5597
+Indaiatuba,5485
+Americana,5481
+Forest City,5451
+Imperatriz,5449
+Mogi das Cruzes,5440
+Criciuma,5410
+Canoas,5381
+Rolandia,5374
+Barueri,5367
+Sao Jose,5160
+Governador Valadares,5074
+Sao Mateus do Sul,4998
+Uberaba,4984
+Pelotas,4968
+Boa Vista,4954
+Caratinga,4932
+Santa Rosa,4914
+Aparecida de Goiania,4912
+Sao Carlos,4811
+Santa Maria,4740
+Xangri-la,4736
+Rio Branco,4697
+Concordia,4687
+Arapiraca,4685
+Betim,4658
+Ipatinga,4649
+Pouso Alegre,4647
+Palhoca,4526
+Marilia,4488
+Dublin,4478
+Jequie,4434
+Araraquara,4428
+Macae,4406
+Rio das Ostras,4384
+Embu,4381
+Sumare,4279
+Chapeco,4236
+13635,4227
+Marica,4227
+Lauro de Freitas,4225
+Taubate,4197
+Sao Francisco de Paula,4170
+Caucaia,4147
+Sao Vicente,4138
+Limeira,4059
+Sao Jose dos Pinhais,4048
+Camacari,4047
+Serra Talhada,4023
+Cajazeiras,4000
+Sobral,3924
+Maua,3852
+Bom Despacho,3829
+Tubarao,3813
+Buenos Aires,3806
+Sao Joao de Meriti,3793
+Guaruja,3779
+Jacarei,3745
+Patos,3706
+Valparaiso de Goias,3618
+Patrocinio,3560
+Itapetininga,3536
+Monte Aprazivel,3533
+Novo Hamburgo,3525
+Itaquaquecetuba,3510
+Carapicuiba,3490
+Gravatai,3481
+Diadema,3466
+Garanhuns,3450
+Hortolandia,3441
+Aracatuba,3434
+Belford Roxo,3433
+Ribeirao das Neves,3433
+Rio Grande,3381
+Barreiras,3352
+Pocos de Caldas,3332
+Nova Friburgo,3301
+Guara,3280
+Dourados,3258
+Itabuna,3214
+Santarem,3200
+Vitoria de Santo Antao,3193
+Balneario Camboriu,3163
+Divinopolis,3153
+Patos de Minas,3146
+Prineville,3144
+Santa Luzia,3136
+Catole do Rocha,3102
+Passo Fundo,3100
+Taboao da Serra,3060
+Tiangua,3042
+Crato,2959
+Suzano,2959
+Curitibanos,2954
+Teixeira de Freitas,2950
+Paris,2946
+Paulo Afonso,2931
+Rondonopolis,2926
+Maracanau,2879
+Aguas Lindas de Goias,2872
+Cabo de Santo Agostinho,2857
+Sao Leopoldo,2846
+Castanhal,2780
+Parnaiba,2771
+Rio Claro,2758
+Itu,2735
+Maraba,2727
+New York,2717
+Iguatu,2690
+Araguaina,2668
+Linhares,2642
+Parauapebas,2639
+Sinop,2631
+Itaborai,2620
+Jau,2610
+Caraguatatuba,2602
+Colombo,2566
+Viamao,2554
+Itabira,2538
+Barbacena,2524
+Juazeiro,2501
+Erechim,2489
+Santa Cruz do Sul,2486
+Conselheiro Lafaiete,2438
+Rio do Sul,2436
+Irece,2434
+Jaragua do Sul,2416
+Pindamonhangaba,2414
+Aracati,2399
+Ilheus,2399
+Braganca Paulista,2390
+Lages,2375
+Cabedelo,2372
+London,2363
+Garca,2355
+Alagoinhas,2352
+Ourinhos,2332
+Guaratingueta,2331
+Botucatu,2327
+Camaragibe,2323
+Itajuba,2288
+Carpina,2287
+Goiana,2286
+Resende,2271
+Muriae,2249
+Teresopolis,2225
+Varginha,2223
+Birigui,2218
+Torres,2209
+Altoona,2206
+Mage,2206
+Lagarto,2202
+Itapevi,2198
+Itaperuna,2188
+Gravata,2170
+Apucarana,2159
+Atibaia,2153
+Eusebio,2152
+Guarapuava,2147
+Angra dos Reis,2140
+Brusque,2128
+Pombal,2116
+Araras,2111
+Milan,2107
+Barra Mansa,2103
+Itapipoca,2099
+Toledo,2099
+Araruama,2084
+Mococa,2081
+Sao Joao del Rei,2072
+Ituiutaba,2071
+Nilopolis,2071
+Osorio,2065
+Guarapari,2053
+Santa Rita,2051
+Catanduva,2038
+Ubatuba,2002
+Santana de Parnaiba,1987
+Valinhos,1984
+Teofilo Otoni,1956
+Crateus,1941
+Guanambi,1941
+Sao Caetano do Sul,1938
+Varzea Grande,1919
+Lavras,1915
+Colatina,1905
+Tres Lagoas,1898
+Sertaozinho,1893
+Joao Monlevade,1885
+Lulea,1876
+Campo Largo,1875
+Araucaria,1868
+Sao Pedro da Aldeia,1837
+Itapetinga,1835
+Bento Goncalves,1831
+Ji-Parana,1827
+Barretos,1806
+Umuarama,1773
+Caxias,1769
+Santa Barbara d'Oeste,1756
+Tatui,1756
+Catalao,1747
+Francisco Beltrao,1747
+Alegrete,1745
+Alfenas,1744
+Mesquita,1725
+Cruz das Almas,1716
+Santo Antonio de Jesus,1712
+Ararangua,1691
+Sao Mateus,1691
+Itanhaem,1684
+Nova Serrana,1682
+Salgueiro,1679
+Passos,1677
+Mamanguape,1670
+Venancio Aires,1666
+Francisco Morato,1664
+Valenca,1649
+Luanda,1648
+Itatiba,1644
+Altamira,1643
+Sao Lourenco da Mata,1641
+Sao Joao Batista,1636
+Ibirite,1635
+Russas,1634
+Paranagua,1629
+Vila Nova da Telha,1623
+Araguari,1618
+Ipojuca,1616
+Araxa,1614
+Luziania,1613
+Sao Joao da Boa Vista,1586
+Silva Jardim,1583
+Saquarema,1582
+Frederico Westphalen,1573
+Santa Cruz do Capibaribe,1573
+Formosa,1569
+Nova Lima,1568
+Sarandi,1559
+Kansas City,1558
+Lajeado,1558
+Eunapolis,1555
+Bom Jesus da Lapa,1547
+Igarassu,1538
+Salto,1537
+Arcoverde,1533
+Vilhena,1528
+Janauba,1527
+Fort Worth,1526
+Sapucaia do Sul,1526
+Jacobina,1523
+Araripina,1522
+Imbituba,1522
+Paulinia,1508
+Uba,1508
+Paco do Lumiar,1500
+Pato Branco,1484
+Quixada,1481
+Pinhais,1471
+Madrid,1463
+Biguacu,1452
+Votuporanga,1447
+Olimpia,1444
+Sao Jose de Ribamar,1444
+Fazenda Rio Grande,1440
+Irati,1440
+Itabaiana,1432
+Queimados,1429
+Alvorada,1420
+Bayeux,1408
+Marechal Candido Rondon,1400
+Sao Sebastiao,1393
+Paranavai,1391
+Taquara,1391
+Porto Uniao,1390
+Balsas,1382
+Para de Minas,1375
+Lins,1373
+Assis,1371
+Timon,1371
+Itapeva,1364
+Timoteo,1360
+Itapema,1349
+Mogi Guacu,1349
+Abaetetuba,1345
+Lagoa Santa,1343
+Miami,1333
+Itaguai,1330
+Serrinha,1327
+Santiago,1314
+Avare,1310
+Ijui,1301
+Curvelo,1299
+Sapiranga,1299
+Paracatu,1285
+Poa,1283
+Marituba,1269
+Vinhedo,1265
+Ibitinga,1262
+Itaberaba,1261
+Registro,1261
+Rio Largo,1258
+Cachoeirinha,1253
+Simoes Filho,1252
+Arapongas,1250
+Aquiraz,1247
+Cubatao,1241
+Surubim,1231
+Cacador,1229
+Gramado,1227
+Primavera do Leste,1225
+Santo Angelo,1223
+Peruibe,1216
+Viana,1211
+Sorriso,1209
+Brumado,1202
+Barcelona,1197
+Ariquemes,1194
+Vacaria,1191
+Cidade Ocidental,1188
+Bonito,1185
+Bage,1181
+Bebedouro,1181
+Diamantina,1181
+Carazinho,1179
+Caldas Novas,1175
+Guaiba,1175
+Sao Francisco do Sul,1171
+Fernandopolis,1168
+Camboriu,1159
+Itauna,1154
+Abreu e Lima,1150
+Pirassununga,1149
+Rio Bonito,1149
+Tres Coracoes,1149
+Sao Lourenco,1145
+Votorantim,1144
+Caceres,1112
+Santos Dumont,1111
+Trindade,1101
+Planaltina,1094
+Mirassol,1086
+Navegantes,1085
+Vespasiano,1085
+Tangara da Serra,1082
+Cacoal,1081
+Lagoa da Prata,1074
+Franco da Rocha,1072
+Gurupi,1067
+Formiga,1064
+Lorena,1060
+Taquari,1052
+Clevelandia,1048
+Luis Eduardo Magalhaes,1045
+Itupeva,1043
+Marataizes,1039
+Varzea Paulista,1039
+Monteiro,1034
+Toronto,1033
+Penedo,1028
+Ponta Pora,1021
+Jatai,1020
+Palmeira dos Indios,1020
+Leme,1016
+Braco do Norte,1013
+Cajamar,1001
+Cataguases,1000
+Cambe,996
+Senador Canedo,990
+Andradina,989
+Coronel Fabriciano,982
+Campo Bom,976
+Seropedica,966
+Maranguape,963
+Queimadas,963
+Joacaba,955
+Piraquara,953
+Tres Rios,950
+Xanxere,943
+Itapecerica da Serra,942
+5551,939
+Moji-Mirim,938
+Penapolis,935
+Marechal Deodoro,934
+Itaocara,930
+Castro,924
+Almirante Tamandare,921
+Rome,921
+Atlanta,920
+Laranjeiras do Sul,919
+Barra do Pirai,918
+Extrema,915
+Gaspar,915
+Barcarena,914
+Candeias,914
+Mongagua,911
+Maputo,909
+Pirapora,903
+Lajedo,902
+Canela,899
+Santa Ines,899
+Tijucas,897
+Aracuai,890
+Palmares,886
+Redencao,886
+Caieiras,884
+Bacabal,876
+Novo Horizonte,870
+Palmeira,870
+Domingos Martins,866
+Paragominas,863
+Coronel Vivida,862
+Acarau,861
+Belo Jardim,857
+Pontal,856
+Clementina,852
+Campo Mourao,851
+Sabara,840
+Horizonte,834
+Lencois Paulista,832
+Cerquilho,831
+Cianorte,829
+Ouro Preto,822
+Laguna,820
+Dias d'Avila,817
+Jaguariuna,817
+Bezerros,816
+Cacapava,814
+Boituva,810
+Santana do Ipanema,803
+Montenegro,800
+Ribeirao Pires,795
+Acailandia,791
+Leopoldina,791
+Frutal,788
+Bertioga,787
+Matao,787
+Pinhao,785
+Amsterdam,783
+Cameta,781
+Pacajus,778
+Boston,773
+Monte Mor,771
+Anchieta,768
+Pinheiro,759
+Tramandai,755
+Aruja,754
+Itapira,752
+Los Angeles,752
+Congonhas,751
+Zurich,751
+Paraiso do Tocantins,750
+Agudos,749
+Amparo,749
+Sao Bento do Sul,749
+Matinhos,741
+Cachoeira do Sul,737
+Campo Belo,734
+Nova Andradina,731
+Medianeira,721
+Barra do Corda,718
+Ivaipora,710
+Tupa,710
+Santo Antonio do Descoberto,709
+Braga,705
+Iguaba Grande,703
+Pedro Leopoldo,702
+Tobias Barreto,702
+Vila Nova de Gaia,702
+Sao Roque,701
+Jaragua,700
+Inhumas,699
+Esteio,694
+Campos do Jordao,693
+Mariana,692
+Itumbiara,691
+Amargosa,690
+Jaboticabal,690
+Sao Miguel dos Campos,687
+Moscow,683
+Almada,678
+Faxinal,678
+Igarape,678
+Bogota,677
+Manhuacu,676
+Nova Mutum,674
+Ibipora,672
+Estancia,670
+Aracruz,666
+Icara,663
+Canoinhas,661
+Nova Vicosa,660
+Farroupilha,659
+Ibiuna,657
+Frankfurt,647
+Mangueirinha,646
+Pontal do Parana,646
+Oslo Municipality,645
+Guararema,644
+Ampere,640
+Santana,640
+Montevideo,636
+Ouro Branco,636
+Pacatuba,635
+Morada Nova,634
+Dois Vizinhos,632
+Berlin,622
+Carangola,619
+San Antonio,619
+Guaratuba,615
+Boa Esperanca,614
+Soledade,612
+Oliveira,610
+Estancia Velha,609
+Dois Irmaos,604
+Ilhabela,603
+Jandira,603
+Brisbane,602
+Campo Limpo Paulista,601
+Catu,598
+Mairipora,597
+Porto Real,595
+Cornelio Procopio,592
+Itacoatiara,590
+Montreal,588
+Cruzeiro do Sul,587
+Sao Borja,586
+Porto Belo,584
+Porto Nacional,582
+Asuncion,581
+Ibiruba,581
+Amadora,578
+Goioere,578
+Morrinhos,575
+62530,574
+Jacarezinho,568
+Japeri,568
+Louveira,567
+Cambui,566
+Mangaratiba,563
+Porto Feliz,558
+Santo Estevao,556
+Jarinu,555
+Uniao dos Palmares,554
+Guaira,553
+Iguape,551
+Juina,550
+Paraguacu Paulista,550
+Santo Antonio da Platina,550
+Cravinhos,548
+Paraty,547
+Monte Alto,546
+Campina Grande do Sul,545
+Sao Gabriel da Palha,544
+Seabra,541
+Sant'Ana do Livramento,538
+Capanema,534
+Orlando,533
+Santa Cruz do Rio Pardo,533
+Moreno,532
+Teodoro Sampaio,531
+Penha,527
+5008,526
+Chapadinha,521
+Macaubas,518
+Des Moines,517
+Serrana,517
+Caetite,515
+Mata de Sao Joao,514
+Campo Novo do Parecis,512
+Arcos,511
+Armacao dos Buzios,511
+Sao Luiz Gonzaga,511
+Paraisopolis,509
+Esmeraldas,505
+Indaial,503
+Taquaritinga,502
+Parobe,499
+Sao Francisco,499
+Piumhi,498
+Mairinque,497
+Jaguariaiva,496
+Montanha,496
+6161,495
+Santa Fe do Sul,493
+Chapadao do Sul,492
+Porto Ferreira,492
+Cosmopolis,490
+Joao Pinheiro,487
+Artur Nogueira,485
+Setubal Municipality,485
+Jose Bonifacio,481
+Pedreira,481
+Barra Bonita,480
+Paracambi,479
+Brumadinho,476
+Bandeirantes,474
+Bombinhas,474
+Jacutinga,474
+Capivari,469
+Santa Isabel,469
+Matozinhos,467
+Xinguara,467
+Coimbra,465
+Pederneiras,465
+Visconde do Rio Branco,464
+Cheyenne,461
+Capao Bonito,460
+Sao Pedro,460
+Alverca do Ribatejo,459
+Chicago,459
+Itapolis,455
+Picarras,453
+Tres Passos,453
+Paudalho,450
+Jandaia do Sul,446
+Presidente Venceslau,444
+Palmeira das Missoes,443
+Bady Bassitt,441
+Sydney,441
+Colider,439
+Maravilha,439
+Propria,438
+Garibaldi,435
+Cristalina,434
+Marau,433
+Piraju,431
+Campos Novos,430
+Itabirito,427
+Prudentopolis,426
+Campo Formoso,424
+Pojuca,424
+Mandaguari,423
+4372,421
+Mauriti,418
+Capinzal,415
+Ipira,414
+Teutonia,413
+Sao Benedito,411
+Seville,407
+Portao,405
+Bariri,403
+Ibaiti,400
+Miracema,400
+Santa Izabel do Para,399
+Pilar do Sul,398
+Salto de Pirapora,397
+Jaguaruna,395
+15124,389
+Aparecida,388
+Panambi,388
+Nova Esperanca,387
+Tres de Maio,387
+54970,385
+Nova Odessa,385
+Vancouver,384
+Ouro Fino,383
+Stockholm,383
+Mirandopolis,382
+Ouro Preto do Oeste,382
+Pirapozinho,379
+Muzambinho,378
+Rancharia,376
+Sao Domingos de Rana,373
+Porangatu,372
+84166,370
+Andradas,370
+Breves,369
+Sombrio,368
+Piedade,367
+Marialva,365
+Alem Paraiba,363
+Quincy,363
+Santo Antonio da Patrulha,363
+Sao Manuel,363
+Cordeiropolis,359
+Sao Joao da Barra,359
+Assis Chateaubriand,357
+Embu-Guacu,357
+Regente Feijo,357
+Jardinopolis,356
+Tres Marias,356
+Itatiaia,355
+Santaluz,352
+Sao Lourenco do Sul,352
+Taquarituba,352
+Washington,352
+Coromandel,350
+Tremembe,348
+Turvo,347
+Vienna,347
+Xaxim,347
+Pirajui,346
+Cacapava do Sul,344
+Estrela,344
+Sao Lourenco do Oeste,344
+Colorado,343
+Batatais,342
+Pitanga,341
+Pilar,340
+Caete,333
+Manhumirim,331
+Mateus Leme,331
+Tiete,331
+Vassouras,331
+Carlos Barbosa,330
+Medellin,329
+Agua Boa,325
+Braganca,325
+Santa Cruz de la Sierra,325
+Aracoiaba da Serra,324
+Sousa,321
+Arraial do Cabo,320
+Ilha Solteira,320
+7090,319
+Tapejara,319
+Anicuns,318
+Simao Dias,317
+Duartina,316
+Candelaria,315
+Bambui,314
+Assai,312
+Conchal,312
+Juatuba,312
+Promissao,312
+Santana do Livramento,312
+Sao Joaquim da Barra,312
+Lapa,310
+1154,309
+Holambra,307
+Nova Petropolis,306
+Pinhalzinho,306
+Jardim,305
+92364,303
+Igarapava,303
+Sananduva,303
+Toritama,303
+89032,300
+Mexico City,300
+Guaramirim,297
+Houston,297
+Praia,297
+Dallas,296
+Ivinhema,296
+Alexania,294
+Guimaraes,294
+Lagoa Vermelha,294
+Rio das Pedras,292
+Aracariguama,290
+Barao de Cocais,290
+Guapore,290
+Sao Sebastiao do Cai,287
+Timbo,287
+Palmitos,285
+Tanabi,285
+Brussels,284
+Marseille,284
+Orlandia,284
+San Jose,284
+Sintra,284
+Tefe,284
+Brotas,282
+Paranaiba,282
+Florence,281
+Hamburg,281
+San Francisco,281
+Serafina Correa,281
+Munich,279
+Sao Sebastiao do Passe,279
+Bom Jesus dos Perdoes,278
+Funchal,278
+Valencia,278
+Maragogi,276
+Tupi Paulista,276
+Feliz,275
+Bologna,274
+Gunungsitoli Barat,272
+Santa Vitoria do Palmar,272
+Gresik Regency,270
+Guapimirim,269
+Turin,266
+Cananeia,265
+Nao-Me-Toque,265
+Ubirata,264
+Guariba,263
+Buritama,262
+Dubai,260
+Dois Corregos,259
+Helsinki,259
+Albufeira,258
+Barra Velha,258
+Canarana,258
+Getulio Vargas,256
+Imbituva,255
+Povoa de Varzim,255
+Santa Adelia,255
+Cordoba,253
+Santa Terezinha de Itaipu,252
+Realeza,251
+Sobradinho,251
+Igrejinha,249
+Sao Marcos,249
+Aveiro,248
+Cassia,248
+Viseu,248
+Borda da Mata,247
+Philadelphia,247
+Leiria,246
+Piuma,246
+Antwerp,244
+Chopinzinho,243
+Coffeyville,242
+Flores da Cunha,241
+Rosario do Sul,239
+Conceicao de Macabu,238
+Nova Santa Rita,238
+Altonia,237
+Itaqui,237
+Santa Helena,237
+Santo Anastacio,237
+Vicosa,236
+Faro,234
+Genoa,234
+Santa Rita do Passa Quatro,234
+91477,233
+Baixo Guandu,231
+Apiai,229
+Cascais,228
+Columbus,227
+Tres Pontas,227
+Ponte Nova,226
+Cerro Largo,224
+Siqueira Campos,224
+Quatro Barras,223
+Barra do Garcas,222
+Santo Antonio de Posse,222
+Ceu Azul,221
+Itaitinga,220
+Monte Siao,220
+Ituporanga,218
+Jaguarao,218
+Rosario,218
+Uruguaiana,218
+Rio Pardo,217
+Fraiburgo,216
+Cachoeira Paulista,214
+Goiatuba,214
+Osaka,214
+Carlopolis,213
+Barreiro,212
+Tapes,212
+Arroio do Meio,210
+Sao Joaquim de Bicas,210
+Camanducaia,208
+Maia,208
+Camaqua,207
+Picos,207
+Triunfo,207
+Itirapina,206
+Pereira Barreto,205
+Corbelia,204
+Itapemirim,204
+Oeiras,201
+Lausanne,200
+Portimao,200
+Rotterdam,200
+Vargem Grande Paulista,200
+62153,199
+Auckland,198
+Cinambo,198
+Juquitiba,198
+Butia,197
+Novato,197
+Venice,196
+Quedas do Iguacu,195
+Santa Rosa do Sul,195
+Terra Roxa,195
+Bergen Municipality,194
+Cajati,194
+Carmo do Paranaiba,194
+Melbourne,193
+Arapoti,192
+Pirai,192
+Cajuru,191
+Istanbul,191
+Angatuba,190
+Iracemapolis,188
+Dom Pedrito,187
+Presidente Getulio,187
+Stuttgart,187
+Antonina,186
+Barracao,186
+Nova Hartz,186
+Cerqueira Cesar,185
+Santa Isabel do Para,185
+Tres Coroas,185
+Las Vegas,184
+Tangua,184
+Malaga,183
+Nova Londrina,183
+Copenhagen,182
+Palmital,182
+Vazante,182
+Slough,180
+Cunha,179
+Rio Branco do Sul,178
+Seattle,177
+Pompeia,176
+Casca,175
+Budapest,174
+Paraguacu,174
+North Bergen,173
+Casimiro de Abreu,172
+Pirai do Sul,172
+Monte Santo de Minas,170
+Naples,170
+Sao Jose da Lapa,167
+Sao Jose do Vale do Rio Preto,167
+Bradford,166
+Iturama,166
+Lagos,166
+Rio Negrinho,166
+Cologne,165
+The Hague,165
+Rio Negro,163
+Calgary,162
+Seixal,162
+Setubal,161
+Candido Mota,160
+Jacupiranga,160
+Cambara,159
+Senhor do Bonfim,159
+Athens,158
+Adelaide,156
+Brodowski,155
+Cagliari,155
+Catania,155
+Santana do Paraiso,155
+Aquidauana,154
+Barrinha,154
+Campos Gerais,154
+Codo,154
+Eloi Mendes,153
+Alpinopolis,152
+Matelandia,151
+Viana do Castelo,151
+Santa Clara,150
+62264,149
+Luxembourg,149
+Conceicao das Alagoas,148
+Montijo,148
+Cesario Lange,147
+Garuva,147
+Espumoso,146
+Rutland Township,146
+Beira,145
+Hyderabad,145
+Matosinhos,145
+Espinho,144
+Pitangueiras,143
+Tucurui,143
+Capela do Alto,142
+Eindhoven,140
+Itaparica,140
+Lyon,140
+Palermo,140
+Panama City,140
+Tel Aviv-Yafo,140
+Bilbao,139
+Charlotte,138
+Geneva,138
+Corumba,136
+Perdoes,136
+Ponta Delgada,136
+Queluz,135
+Sacavem,135
+Confins,134
+Newark,134
+Sao Joao da Madeira,134
+Sao Sebastiao do Paraiso,134
+Singapore,134
+Martinopolis,133
+Quebec City,133
+Warsaw,132
+Hialeah Gardens,130
+Nuestra Senora de La Paz,130
+Abelardo Luz,129
+Santo Tirso,129
+Algueirao–Mem Martins,128
+Arroio do Tigre,128
+Bengaluru,128
+Naaldwijk,128
+Nepomuceno,128
+Alta Floresta,125
+Ituverava,125
+Portland,125
+Sao Lourenco da Serra,125
+Itamaraca,124
+Barranquilla,123
+Ipora,123
+Vila Nova de Famalicao,123
+Bordeaux,122
+Evora,122
+Mar del Plata,122
+Valladolid,122
+Vila do Conde,122
+Las Palmas de Gran Canaria,121
+Nagoya,121
+Ottawa,121
+Phoenix,121
+Riyadh,121
+Rolim de Moura,121
+Presidente Epitacio,120
+Ribeirao do Pinhal,119
+Lucas do Rio Verde,118
+Luz,118
+Reserva,118
+Tehran,117
+Terra Rica,117
+Cork,116
+Doha,116
+Mumbai,116
+Edinburgh,115
+Mafra,115
+Presidente Olegario,115
+Sao Cosme,115
+Clifton,114
+San Diego,114
+Barbalha,113
+Guararapes,113
+Barra de Sao Francisco,112
+Birmingham,112
+Bom Jardim,111
+Cangucu,111
+Greerton,111
+Santa Fe,110
+Carambei,109
+Cochabamba,109
+Bom Jesus do Itabapoana,108
+La Plata,108
+Papagaios,108
+Denver,106
+Wenceslau Braz,106
+Bom Principio,105
+Cali,105
+Pesqueira,105
+Prata,105
+Bissau,104
+Porecatu,104
+Morro Agudo,103
+Palmela,103
+Bern,102
+Biritiba-Mirim,102
+Jales,102
+Gothenburg,101
+Managua,101
+Pescara,100
+Charqueada,99
+Haarlem,99
+Tupaciguara,99
+Cairns,97
+Entroncamento,97
+Ibate,97
+Torres Vedras,97
+Verona,97
+Prague,96
+Sao Miguel do Oeste,96
+Girua,95
+Paicandu,95
+Videira,95
+Caninde,94
+Figueira da Foz,93
+Ortigueira,93
+Vigo,92
+Cachoeiras de Macacu,91
+Padua,91
+Pompano Beach,91
+Sheffield,91
+Quata,90
+Fatima,88
+Joanopolis,88
+Marinha Grande,88
+Quixeramobim,88
+Cruzeiro do Oeste,87
+Itaituba,87
+Nashville,87
+Osvaldo Cruz,87
+Sao Jose do Rio Pardo,87
+Itamaraju,86
+Monte Alegre do Sul,86
+Perth,86
+Rondon,86
+St. Louis,86
+46273,85
+9151,85
+Iuna,85
+Pistoia,85
+Goianesia,84
+Tampa,84
+Biritiba Mirim,83
+Castelo Branco,83
+Estoril,83
+Quirinopolis,83
+Austin,82
+Brescia,82
+Cruz Alta,82
+Edmonton,82
+Felgueiras,82
+Gibsons,82
+Mineiros,82
+Abu Dhabi,81
+Cairo,81
+Dusseldorf,81
+52222,80
+Nova Venecia,80
+Telemaco Borba,80
+Astorga,79
+Plymouth,79
+Rio Maior,79
+Croydon,78
+Secaucus,78
+Antofagasta,77
+Baltimore,77
+Havana,77
+Jacksonville,77
+Palma,77
+Santo Antonio de Padua,77
+Deerfield Beach,76
+Itarare,76
+Piripiri,76
+Richmond,76
+Americo Brasiliense,75
+Bangkok,75
+Liege,75
+Saint Petersburg,75
+Unai,75
+Zaragoza,75
+Laranjal Paulista,74
+Manchester,74
+Mendoza,74
+Navirai,74
+Carregado,73
+Covilha,73
+Ghent,73
+Guarda,73
+Ico,73
+Pimenta Bueno,73
+Sherbrooke,73
+Escada,72
+Kissimmee,72
+Agueda,71
+Cruzeiro,71
+Paramaribo,71
+Zug,71
+Burnaby,70
+Castilho,70
+Offenbach,70
+Salt Lake City,70
+Winnipeg,70
+Abadiania,69
+Adamantina,69
+Ankara,69
+Bukit Malintang,69
+Cambridge,69
+Perafita,69
+Quadra,69
+San Juan,69
+Boydton,68
+Capinopolis,68
+Fort Lauderdale,68
+Sines,68
+Cape Town,67
+Ilhavo,67
+Kuala Lumpur,67
+Quito,67
+Sao Simao,67
+Abidjan,66
+Charleroi,66
+Framingham,66
+Pitangui,66
+Salta,66
+Santa Vitoria,66
+San Miguel de Tucuman,65
+Pontes e Lacerda,64
+Wolverhampton,64
+Bloomington,63
+Borborema,63
+Danbury,63
+Granada,63
+Lome,63
+Sao Gabriel,63
+Strasbourg,63
+Basel,62
+Bucharest,62
+Bulle,62
+Caracas,62
+Lanus Oeste,62
+Palotina,62
+Sofia,62
+Lagoa Formosa,61
+Lille,61
+Elias Fausto,60
+Guatemala City,60
+Lugano,60
+Angra do Heroismo,59
+Bari,59
+Charqueadas,59
+Clinton,59
+Garopaba,59
+Greenville,59
+Lucerne,59
+Senges,59
+Shibuya City,59
+Areal,58
+Jakarta,58
+Liverpool,58
+Thun,58
+Toulouse,58
+Trondheim Municipality,58
+Four Corners,57
+Kyiv,56
+Marbella,56
+Monte Carmelo,56
+Utrecht,56
+Zagreb,56
+Delhi,55
+Espirito Santo do Pinhal,55
+Alicante,54
+Bristol,54
+Santo Amaro,54
+Frauenfeld,53
+Januaria,53
+Schroeder,53
+Bruges,52
+Cayenne,52
+Corrientes,52
+Jeddah,52
+Mississauga,52
+San Carlos de Bariloche,52
+Hanover,51
+Loanda,51
+Nice,51
+Seoul,51
+Serra Negra,51
+Aberdeen,50
+Dakar,50
+Forquilhinha,50
+Halifax Regional Municipality,50
+Sandalfoot Cove,50
+Beirut,49
+Belgrade,49
+Englewood,49
+Hamilton,49
+Lowell,49
+Santo Domingo,49
+Terrassa,49
+Ararica,48
+Arlington,48
+Chennai,48
+Loule,48
+Monte Alegre,48
+Oxford,48
+Worcester,48
+Bridgeport,47
+Hamamatsu,47
+Ipero,47
+Jaru,47
+Mandaguacu,47
+Morro da Fumaca,47
+Raleigh,47
+Miami Beach,46
+Port St. Lucie,46
+Stavanger Municipality,46
+Trento,46
+Beja,45
+Casablanca,45
+Dresden,45
+Goose Creek,45
+Johannesburg,45
+Margate,45
+Tavira,45
+Vina del Mar,45
+Barnstable,44
+Boardman,44
+Campos Altos,44
+Coconut Creek,44
+Gallarate,44
+Ho Chi Minh City,44
+Kitchener,44
+Paty do Alferes,44
+Boca Raton,43
+Dhaka,43
+Graz,43
+Izmir,43
+Rimini,43
+Salem,43
+Winterthur,43
+Busan,42
+Girona,42
+Medford,42
+Middletown,42
+Rio Grande da Serra,42
+Sao Tome,42
+Shanghai,42
+Temuco,42
+Tomar,42
+Bucaramanga,41
+Leeds,41
+Malmo,41
+Minneapolis,41
+Munster,41
+Paco de Arcos,41
+Sao Francisco do Conde,41
+Surrey,41
+Coral Springs,40
+Leipzig,40
+Lucca,40
+Lyss,40
+Pinheiral,40
+San Mateo,40
+Terra de Areia,40
+Alvares Machado,39
+Casa Branca,39
+Colorado Springs,39
+Gainesville,39
+Georgetown,39
+Karlsruhe,39
+Modena,39
+Trieste,39
+Ubud,39
+Vitoria-Gasteiz,39
+Ceres,38
+Charleston,38
+Conceicao da Barra,38
+Merida,38
+Monterrey,38
+Nairobi,38
+Nuremberg,38
+Pamplona,38
+Sarzedo,38
+Springfield,38
+Faisalabad,37
+Honolulu,37
+Ipameri,37
+Montpellier,37
+Stoke-on-Trent,37
+Vargem Grande do Sul,37
+Victoria,37
+
+#  
+# Data de início: 20220101
+# Data de término: 20221231
+Gênero,Usuários
+male,696493
+female,601661
+
+#  
+# Data de início: 20220101
+# Data de término: 20221231
+Interesses,Usuários
+News & Politics/Avid News Readers,768394
+Food & Dining/Cooking Enthusiasts/30 Minute Chefs,736365
+Shoppers/Value Shoppers,617249
+Lifestyles & Hobbies/Green Living Enthusiasts,576487
+Sports & Fitness/Sports Fans,575468
+News & Politics/Avid News Readers/Entertainment News Enthusiasts,568877
+Shoppers/Luxury Shoppers,539719
+Lifestyles & Hobbies/Family-Focused,536594
+Sports & Fitness/Health & Fitness Buffs,534556
+Lifestyles & Hobbies/Business Professionals,525911
+Media & Entertainment/TV Lovers,520005
+Home & Garden/Do-It-Yourselfers,486763
+Lifestyles & Hobbies/Outdoor Enthusiasts,486368
+Media & Entertainment/Book Lovers,484229
+Shoppers/Bargain Hunters,480878
+Media & Entertainment/Movie Lovers,477396
+News & Politics/Avid News Readers/Avid Local News Readers,457677
+Sports & Fitness/Sports Fans/Soccer Fans,450931
+News & Politics/Avid News Readers/Avid Political News Readers,450709
+Travel/Travel Buffs,447953
+Lifestyles & Hobbies/Shutterbugs,419530
+Food & Dining/Foodies,407989
+Lifestyles & Hobbies/Fashionistas,399157
+Lifestyles & Hobbies/Art & Theater Aficionados,373536
+Beauty & Wellness/Beauty Mavens,372559
+Technology/Technophiles,368901
+Beauty & Wellness/Frequently Visits Salons,359189
+Banking & Finance/Avid Investors,353515
+Vehicles & Transportation/Auto Enthusiasts,341856
+Home & Garden/Home Decor Enthusiasts,341543
+Travel/Business Travelers,333307
+Technology/Mobile Enthusiasts,318962
+Food & Dining/Frequently Dines Out/Diners by Meal/Frequently Eats Lunch Out,284719
+Shoppers/Shoppers by Store Type/Convenience Store Shoppers,264947
+Lifestyles & Hobbies/Frequently Attends Live Events,260204
+Media & Entertainment/Music Lovers,258175
+Technology/Social Media Enthusiasts,249004
+Food & Dining/Fast Food Cravers,243585
+Media & Entertainment/TV Lovers/TV Drama Fans,240690
+Food & Dining/Coffee Shop Regulars,239568
+Lifestyles & Hobbies/Pet Lovers,238485
+Shoppers/Shoppers by Store Type/Department Store Shoppers,237740
+Food & Dining/Cooking Enthusiasts/Aspiring Chefs,218072
+Shoppers/Shopping Enthusiasts,203534
+Lifestyles & Hobbies/Nightlife Enthusiasts,184918
+"Media & Entertainment/TV Lovers/Game, Reality & Talk Show Fans",177820
+News & Politics/Avid News Readers/Avid Business News Readers,174989
+Media & Entertainment/Light TV Viewers,163359
+Food & Dining/Cooking Enthusiasts,162071
+Media & Entertainment/Comics & Animation Fans,158724
+Food & Dining/Frequently Dines Out/Diners by Meal/Frequently Eats Dinner Out,147691
+Media & Entertainment/Gamers,147381
+Media & Entertainment/Music Lovers/World Music Fans,128629
+Food & Dining/Frequently Dines Out/Diners by Meal/Frequently Eats Breakfast Out,127724
+Media & Entertainment/Music Lovers/Fans of Latin Music,104852
+Lifestyles & Hobbies/Thrill Seekers,89292
+Travel/Travel Buffs/Beachbound Travelers,78087
+Media & Entertainment/Movie Lovers/Action & Adventure Movie Fans,77194
+Media & Entertainment/Music Lovers/Pop Music Fans,62996
+Media & Entertainment/Music Lovers/Rock Music Fans,57743
+Sports & Fitness/Sports Fans/Motor Sports Enthusiasts,57524
+Media & Entertainment/Gamers/Hardcore Gamers,56673
+Media & Entertainment/Movie Lovers/Sci-Fi & Fantasy Movie Fans,49360
+Vehicles & Transportation/Auto Enthusiasts/Truck & SUV Enthusiasts,48752
+Vehicles & Transportation/Auto Enthusiasts/Motorcycle Enthusiasts,46822
+Media & Entertainment/Gamers/Casual & Social Gamers,44364
+Vehicles & Transportation/Auto Enthusiasts/Performance & Luxury Vehicle Enthusiasts,42277
+Media & Entertainment/TV Lovers/TV Comedy Fans,40864
+Media & Entertainment/Music Lovers/Country Music Fans,38215
+Media & Entertainment/Music Lovers/Rap & Hip Hop Fans,36954
+Sports & Fitness/Sports Fans/Tennis Enthusiasts,34988
+Media & Entertainment/Movie Lovers/Romance & Drama Movie Fans,34678
+Sports & Fitness/Sports Fans/Racquetball Enthusiasts,33690
+Sports & Fitness/Sports Fans/Fight & Wrestling Fans,32485
+Sports & Fitness/Sports Fans/Basketball Fans,30283
+Media & Entertainment/Movie Lovers/Family Movie Fans,26733
+Media & Entertainment/Gamers/Action Game Fans,26624
+Sports & Fitness/Sports Fans/Fans of American Football,26192
+Media & Entertainment/Gamers/Shooter Game Fans,22429
+Media & Entertainment/Movie Lovers/Horror Movie Fans,22171
+Travel/Travel Buffs/Family Vacationers,21307
+Media & Entertainment/Gamers/Roleplaying Game Fans,21006
+Media & Entertainment/Music Lovers/Indie & Alternative Rock Fans,20763
+Media & Entertainment/Gamers/Adventure & Strategy Game Fans,20546
+Sports & Fitness/Sports Fans/Water Sports Enthusiasts,19920
+Travel/Travel Buffs/Luxury Travelers,18844
+Media & Entertainment/Movie Lovers/Comedy Movie Fans,18671
+Media & Entertainment/TV Lovers/Sci-Fi & Fantasy TV Fans,16919
+Lifestyles & Hobbies/Pet Lovers/Dog Lovers,16320
+Media & Entertainment/Music Lovers/Metalheads,16198
+Sports & Fitness/Sports Fans/Baseball Fans,15184
+Media & Entertainment/Music Lovers/Electronic Dance Music Fans,15147
+Media & Entertainment/TV Lovers/Family Television Fans,12582
+Sports & Fitness/Sports Fans/Boating & Sailing Enthusiasts,12258
+Sports & Fitness/Sports Fans/Cycling Enthusiasts,11229
+Travel,10333
+Sports & Fitness/Sports Fans/Running Enthusiasts,9084
+Sports & Fitness/Sports Fans/Hockey Fans,9061
+Media & Entertainment/Gamers/Driving & Racing Game Fans,8883
+Sports & Fitness/Sports Fans/Cricket Enthusiasts,8221
+Sports & Fitness/Sports Fans/Golf Enthusiasts,7737
+News & Politics/Avid News Readers/Women's Media Fans,6906
+Sports & Fitness/Sports Fans/Rugby Enthusiasts,6444
+Media & Entertainment/Music Lovers/Classical Music Enthusiasts,6398
+Beauty & Wellness,5899
+Sports & Fitness/Sports Fans/Swimming Enthusiasts,5633
+Media & Entertainment/Gamers/Sports Game Fans,5522
+Sports & Fitness/Sports Fans/Winter Sports Enthusiasts,5314
+Food & Dining/Frequently Dines Out/Diners by Meal,5154
+News & Politics/Avid News Readers/Avid World News Readers,5117
+Shoppers/Shoppers by Store Type,4449
+Lifestyles & Hobbies/Pet Lovers/Cat Lovers,4421
+Media & Entertainment/Music Lovers/Jazz Enthusiasts,4291
+Media & Entertainment/Music Lovers/Folk & Traditional Music Enthusiasts,4004
+Home & Garden,3870
+Travel/Travel Buffs/Snowbound Travelers,3503
+Media & Entertainment/Movie Lovers/Fans of South Asian Film,2961
+Media & Entertainment/Music Lovers/Blues Fans,2032
+Media & Entertainment/TV Lovers/Documentary & Nonfiction TV Fans,1883
+Vehicles & Transportation,1796
+Banking & Finance,1675
+Sports & Fitness/Sports Fans/Fans of Australian Football,1354
+Shoppers/Shoppers by Store Type/Superstore Shoppers,1142
+Food & Dining,1103
+News & Politics/Avid News Readers/Men's Media Fans,807
+Sports & Fitness/Sports Fans/Skiing Enthusiasts,603
+Technology,383
+Sports & Fitness,202
+Food & Dining/Frequently Dines Out,136
+Shoppers,132
+Lifestyles & Hobbies,54
+Media & Entertainment,52
+News & Politics,43
+
+#  
+# Data de início: 20220101
+# Data de término: 20221231
+Idade,Usuários
+25-34,328650
+35-44,314843
+45-54,229337
+18-24,226942
+55-64,189536
+65+,148559
+
+#  
+# Data de início: 20220101
+# Data de término: 20221231
+Idioma,Usuários
+Portuguese,5925894
+English,329570
+Spanish,16073
+Italian,7130
+French,6384
+German,3813
+Norwegian Bokmål,1213
+Dutch,1168
+Russian,1072
+Chinese,808
+Swedish,564
+Aragonese,537
+Japanese,397
+Arabic,267
+Polish,207
+Turkish,205
+Catalan,203
+Korean,167
+Danish,138
+Indonesian,130
+Hebrew,85
+Vietnamese,82
+Romanian,76
+Czech,72
+Hungarian,67
+Greek,63
+Afrikaans,59
+Finnish,50
+Croatian,49
+Thai,41
+Azerbaijani,40
+Bulgarian,40
+Serbian,38
+Amharic,37
