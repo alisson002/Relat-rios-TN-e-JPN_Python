@@ -61,6 +61,8 @@ ig_seg_2024_perdeu = [5485,0]
 ig_alcance_2024 = [542064,0]
 ig_vivitas_2024 = [151885,0]
 
+ig_seg_2024_total = [529865,0]
+
 fb_seg_2023 = [524,401,1316,362,386,273,293,223,172,186,248,455]
 fb_seg_2023_perdeu = [97,72,102,54,50,42,63,53,44,73,146,152]
 fb_alcance_2023 = [506283,459876,655223,310292,338973,250577,333882,258987,259921,336781,389143,492038]
@@ -70,6 +72,8 @@ fb_seg_2024 = [628,0]
 fb_seg_2024_perdeu = [162,0]
 fb_alcance_2024 = [467889,0]
 fb_vivitas_2024 = [32152,0]
+
+fb_seg_2024_total = [332603,0]
 
 tw_seg_2023 = [1649,863,2823,2825,392,347,519,997,1454,1864,2169,2599]
 #tw_seg_2023_perdeu = []
@@ -81,6 +85,8 @@ tw_seg_2024_perdeu = [890,0] #sabe a quantidade que perdeu de acordo com a difer
 tw_impressões_2024 = [455800,0]
 tw_engajamentos_2024 = [13186,0]
 
+tw_seg_2024_total = [311129,0]
+
 yb_inc_2023 = [147,222,467,257,277,287,343,323,240,275,277,310]
 yb_inc_2023_perdeu = [48,68,81,42,56,61,65,64,55,46,63,62]
 yb_visualizacoes_2023 = [34722,72406,102836,64296,66046,69167,83169,73401,53691,53629,78371,66752]
@@ -91,6 +97,7 @@ yb_inc_2024_perdeu = [85,0]
 yb_visualizacoes_2024 = [132377,0]
 yb_horas_2024 = [2338.8,0]
 
+yb_inc_2024_total = [34000,0]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Tribuna do Norte', numbering=False)):
@@ -99,19 +106,19 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
             # Adiciona a tabela de resultados
             with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
                 
-                table.add_row((MultiRow(2, data='Portal'), '819.084', '3.503.660', '279.000'))
+                table.add_row((MultiRow(2, data='Portal'), GR.formataNumero(portal_novosUsuarios_2024[-1]), GR.formataNumero(portal_visualizacoes_2024[-1]), GR.formataNumero(portal_usuariosRescorrentes_2024Analytics[-1])))
                 table.add_row(('', 'novos usuários', 'visualizações', 'usuários recorrentes'))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='Instagram'), '1404', '542.064', '151.879'))
+                table.add_row((MultiRow(2, data='Instagram'), GR.formataNumero(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]), GR.formataNumero(ig_alcance_2024[-1]), GR.formataNumero(ig_vivitas_2024[-2])))
                 table.add_row(('', 'novos seguidores', 'contas atingidas', 'visitas ao perfil'))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='Facebook'), '112', '467.889', '32.152'))
+                table.add_row((MultiRow(2, data='Facebook'), GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]), GR.formataNumero(fb_alcance_2024[-1]), GR.formataNumero(fb_vivitas_2024[-1])))
                 table.add_row(('', 'novos seguidores', 'contas atingidas', 'visitas ao perfil'))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='Twitter'), '1977', '455.800', '13.186'))
+                table.add_row((MultiRow(2, data='Twitter'), GR.formataNumero(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]), GR.formataNumero(tw_impressões_2024[-1]), GR.formataNumero(tw_engajamentos_2024[-1])))
                 table.add_row(('', 'novos seguidores', 'impressões', 'engajamentos'))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='Youtube'), '400', '132.064', '2330'))
+                table.add_row((MultiRow(2, data='Youtube'), GR.formataNumero(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]), GR.formataNumero(yb_visualizacoes_2024[-1]), GR.formataNumero(yb_horas_2024[-1])))
                 table.add_row(('', 'novos inscritos', 'visualizações', 'horas de exibição'))
                 
 
@@ -121,24 +128,24 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
             itemize.add_item("Ao todo, a Tribuna do Norte entregou seu conteúdo para, aproximadamente, 829.760 novas contas, entre Portal, Instagram, Twitter, Facebook e YouTube.")
             itemize.add_item(Command('textbf', arguments='Instagram'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item("Total de seguidores atual: 529.865. Total de seguidores dezembro/2023: 528.459")
-                sublist.add_item("Seguidores adquiridos no mês: 6697. Deixaram de seguir: 5293.")
-                sublist.add_item("Taxa de fixação: 21%")
+                sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(ig_seg_2024_total[-1])}. Total de seguidores no mês anterior: {GR.formataNumero(ig_seg_2024_total[-2])}")
+                sublist.add_item(f"Seguidores adquiridos no mês: {GR.formataNumero(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]+ig_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(ig_seg_2024_perdeu[-1])}.")
+                sublist.add_item(f"Taxa de fixação: {GR.fixacao(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]+ig_seg_2024_perdeu[-1],ig_seg_2024_perdeu[-1])}")
             itemize.add_item(Command('textbf', arguments='Facebook'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item("Total de seguidores atual: 332.603. Total de seguidores dezembro/2023: 332.491")
-                sublist.add_item("Seguidores adquiridos no mês: 628. Deixaram de seguir: 516.")
-                sublist.add_item("Taxa de fixação: 18%")
+                sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(fb_seg_2024_total[-1])}. Total de seguidores no mês anterior: {GR.formataNumero(fb_seg_2024_total[-2])}")
+                sublist.add_item(f"Seguidores adquiridos no mês: {GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(fb_seg_2024_perdeu[-1])}.")
+                sublist.add_item(f"Taxa de fixação: {GR.fixacao(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1],fb_seg_2024_perdeu[-1])}")
             itemize.add_item(Command('textbf', arguments='Twitter'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item("Total de seguidores atual: 311.129. Total de seguidores dezembro/2023: 309.152")
-                sublist.add_item("Seguidores adquiridos no mês: 2867. Deixaram de seguir: 890.")
-                sublist.add_item("Taxa de fixação: 69%")
+                sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(tw_seg_2024_total[-1])}. Total de seguidores no mês anterior: {GR.formataNumero(tw_seg_2024_total[-2])}")
+                sublist.add_item(f"Seguidores adquiridos no mês: {GR.formataNumero(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]+tw_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(tw_seg_2024_perdeu[-1])}.")
+                sublist.add_item(f"Taxa de fixação: {GR.fixacao(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]+tw_seg_2024_perdeu[-1],tw_seg_2024_perdeu[-1])}")
             itemize.add_item(Command('textbf', arguments='YouTube'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item("Total de seguidores atual: 34.000. Total de seguidores dezembro/2023: 33.600")
-                sublist.add_item("Seguidores adquiridos no mês: 484. Deixaram de seguir: 84")
-                sublist.add_item("Taxa de fixação: 83%")
+                sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(yb_inc_2024_total[-1])}. Total de seguidores no mês anterior: {GR.formataNumero(yb_inc_2024_total[-2])}")
+                sublist.add_item(f"Seguidores adquiridos no mês: {GR.formataNumero(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]+yb_inc_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(yb_inc_2024_perdeu[-1])}")
+                sublist.add_item(f"Taxa de fixação: {GR.fixacao(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]+yb_inc_2024_perdeu[-1],yb_inc_2024_perdeu[-1])}")
 
 doc.append(NewPage())
 
@@ -716,6 +723,6 @@ with doc.create(Itemize()) as itemize:
 #     page.append(NoEscape(' O algoritmo do Facebook prioriza os conteúdos que geram mais interações, como curtidas, comentários e compartilhamentos. Ele também considera o grau de relacionamento entre os usuários e as contas que eles seguem, mostrando mais publicações de amigos e familiares do que de páginas. Além disso, o Facebook leva em conta a relevância e a atualidade dos conteúdos, dando mais destaque para as notícias e os assuntos do momento.'))
                     
 # Gera o arquivo LaTeX
-doc.generate_pdf('Relatório-TN_Jan-2024', clean_tex=True)
+doc.generate_pdf('Relatório-TN_Fev-2024', clean_tex=True)
 
 print("Relatório em LaTeX gerado com sucesso!")

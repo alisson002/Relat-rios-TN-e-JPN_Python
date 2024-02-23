@@ -7,6 +7,14 @@ from datetime import datetime
 import matplotlib.dates as mdates
 import csv
 
+def formataNumero(numero):
+    numero_formatado = '{:,}'.format(numero).replace(',', '.')
+    return numero_formatado
+
+def fixacao(atual, anterior):
+    taxa = (atual-anterior)/atual
+    return f'{str(round((taxa*100),2)).replace('.', ',')}%'
+
 def origemPortal():
 
     '''
