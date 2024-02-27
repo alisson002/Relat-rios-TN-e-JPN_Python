@@ -15,6 +15,48 @@ def fixacao(atual, anterior):
     taxa = (atual-anterior)/atual
     return f'{str(round((taxa*100),2)).replace('.', ',')}%'
 
+def crescimento(atual, antigo):
+    taxa = ((atual - antigo) / abs(antigo))
+    if taxa > 0:
+        return f'+{str(round((taxa*100),2)).replace('.', ',')}%'
+    return f'{str(round((taxa*100),2)).replace('.', ',')}%'
+
+def primeirosElementos(string):
+    # Encontra a posição do primeiro '.'
+    dot_index = string.find('.')
+    
+    # Se não houver '.', retorna a string inteira e 0 como o número de elementos após o '.'
+    if dot_index == -1:
+        return string, 0
+    
+    # Retorna a parte da string antes do primeiro '.' 
+    before_dot = string[:dot_index]
+    
+    return before_dot
+
+def contaElementos(primeirosElementos):
+    # Remove os pontos da string
+    string_without_dots = primeirosElementos.replace('.', '')
+    # Conta a quantidade de elementos na string sem os pontos
+    element_count = len(string_without_dots)
+    return element_count
+
+def extensso(contaElementos):
+    # if contaElementos == 2:
+    #     texto = ''
+    # elif contaElementos == 3:
+    #     texto = ''
+    if contaElementos >=4 and contaElementos<=6:
+        texto = 'Mil'
+    elif contaElementos >=7 and contaElementos<=9:
+        texto = 'Milhões'
+    else:
+        texto = ''
+    return texto
+
+def numeroPorExtensso(numero):
+    return f"{primeirosElementos(formataNumero(numero))} {extensso(contaElementos(formataNumero(numero)))}"
+
 def origemPortal():
 
     '''
