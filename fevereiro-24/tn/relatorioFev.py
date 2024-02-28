@@ -752,6 +752,29 @@ with doc.create(Itemize()) as itemize:
 #     page.append(NoEscape(r'\hspace{4em}-'))
 #     page.append(Command('textbf', arguments='Facebook: '))
 #     page.append(NoEscape(' O algoritmo do Facebook prioriza os conteúdos que geram mais interações, como curtidas, comentários e compartilhamentos. Ele também considera o grau de relacionamento entre os usuários e as contas que eles seguem, mostrando mais publicações de amigos e familiares do que de páginas. Além disso, o Facebook leva em conta a relevância e a atualidade dos conteúdos, dando mais destaque para as notícias e os assuntos do momento.'))
+
+doc.append(NewPage())
+
+with doc.create(MiniPage(align='c')):
+    doc.append(MediumText(("Observações")))
+
+with doc.create(Itemize()) as itemize:
+            # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
+            itemize.add_item('Sessões:')
+            #doc.append(NoEscape(r'\newline'))
+            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+                sublist.add_item(NoEscape(f'Por padrão, a sessão é encerrada após 30 minutos de inatividade, mas é possível ajustar esse limite para que ela dure de alguns segundos a várias horas.'))
+            with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
+                sublist.add_item(NoEscape('O Google Analytics começa a contar a partir do momento em que um usuário acessa seu site. Se depois de 30 minutos este usuário não fizer uma interação, a sessão é finalizada. No entanto, toda vez que ocorre uma interação com um elemento (como um evento, interação de rede social ou uma nova página), o Google Analytics reinicia o tempo de vencimento adicionando 30 minutos a partir do momento da interação.\n Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
+            with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
+                sublist.add_item(NoEscape('Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
+                with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
+                    subsublist.add_item(NoEscape('Vencimento por tempo:'))
+                    # with subsublist.create(Enumerate(enumeration_symbol=r"○")) as subsubsublist:
+                    #     subsubsublist.add_item(NoEscape('Depois de 30 minutos de inatividade;'))
+                    #     subsubsublist.add_item(NoEscape('À meia-noite.'))
+                    # subsublist.add_item(NoEscape('Mudança de campanha::'))
+                    # subsubsublist.add_item(NoEscape('Se um usuário entra por uma campanha, sai e depois volta para outra. (Fecha o site e entra novamente).'))
                     
 # Gera o arquivo LaTeX
 doc.generate_pdf('Relatório-TN_Fev-2024', clean_tex=True)
