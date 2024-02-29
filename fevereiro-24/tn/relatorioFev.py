@@ -1,4 +1,4 @@
-from pylatex import Document, Section, Subsection, Command, Tabular, Itemize, Enumerate, LineBreak, LargeText, MiniPage, MediumText, MultiRow, NewPage, Subsubsection, SmallText, FootnoteText, NoEscape, Figure, MiniPage
+from pylatex import Document, Section, Subsection, Command, Tabular, Itemize, Enumerate, LineBreak, LargeText, MiniPage, MediumText, MultiRow, NewPage, Subsubsection, SmallText, FootnoteText, NoEscape, Figure, MiniPage, Math
 from pylatex.utils import bold
 import graficosRelatorio as GR
 import pandas as pd
@@ -770,12 +770,32 @@ with doc.create(Itemize()) as itemize:
                 sublist.add_item(NoEscape('Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
                 with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
                     subsublist.add_item(NoEscape('Vencimento por tempo:'))
-                    # with subsublist.create(Enumerate(enumeration_symbol=r"○")) as subsubsublist:
-                    #     subsubsublist.add_item(NoEscape('Depois de 30 minutos de inatividade;'))
-                    #     subsubsublist.add_item(NoEscape('À meia-noite.'))
-                    # subsublist.add_item(NoEscape('Mudança de campanha::'))
-                    # subsubsublist.add_item(NoEscape('Se um usuário entra por uma campanha, sai e depois volta para outra. (Fecha o site e entra novamente).'))
-                    
+                    with subsublist.create(Enumerate(enumeration_symbol=r"•")) as subsubsublist:
+                        subsubsublist.add_item(NoEscape('Depois de 30 minutos de inatividade;'))
+                        subsubsublist.add_item(NoEscape('À meia-noite.'))
+                with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
+                    subsublist.add_item(NoEscape('Mudança de campanha::'))
+                    with subsublist.create(Enumerate(enumeration_symbol=r"•")) as subsubsublist:
+                        subsubsublist.add_item(NoEscape('Se um usuário entra por uma campanha, sai e depois volta para outra. (Fecha o site e entra novamente, por exemplo).'))
+
+with doc.create(Itemize()) as itemize:
+            # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
+            itemize.add_item('Calculos de porcentagem:')
+            #doc.append(NoEscape(r'\newline'))
+            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+                sublist.add_item(NoEscape(r'\textbf{Variação:} \Large{\left\(\frac{Mês\ Atual\ -\ Mês\ Anterior}{|Mês\ Anterior|}\right\)}\normalsize * 100.'))
+            with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
+                sublist.add_item(NoEscape(r'O cálculo é feito dessa forma pois quero saber  qual a diferença, em porcentagem, do valor atual em relação ao anterior, seja esse valor anterior o do mês passado ou o do mesmo mês no ano passado. Em outras palavras, quero saber o quanto o valor do mês atual cresceu ou diminuiu em ralação ao outro.'))
+                sublist.add_item(NoEscape(r'Caso a variação do mês atual com o anterior seja de +10,6\%, além da constatação óbvia de que é um número 10,6\% maior, também quer dizer que essa porcentagem equivale a 10,6\% do valor do mês anterior. Ou seja, se somarmos o valor equivalente a essa porcentagem ao mês anterior o resultado será o valor do mês atual (ou pelo menos algo MUITO próximo).'))
+                sublist.add_item(NoEscape(r'Por exemplo: se no mês atual o portal teve 957 novos seguidores e o anterior 586, isso quer dizer que o mês atual teve aumento de,  aproxiamdamente, 63,33\%. E sabendo que 63,33\% de 586 é, aproximadamente, 371, podemos provar que 957 - 371 = 586 ou que 586 + 371 = 957.'))
+            
+            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+                sublist.add_item(NoEscape(r'\textbf{Taxa de fixação:} \Large{\left\(\frac{Total\ de\ novos\ seg.\ no\ mês\ -\ Total\ de\ seg.\ perdidos\ no\ mês}{Total\ de\ novos\ seg.\ no\ mês}\right\)}\normalsize * 100.'))
+            with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
+                sublist.add_item(NoEscape(r'Nesse cálculo eu quero saber quantos por cento do total de seguidores ganhos continuaram seguindo a rede social em questão.'))
+                sublist.add_item(NoEscape(r'É importante obeservar que as pessoas que deixaram de seguir não fazem parte apenas dos mesmos que seguiram durante o mês analisado (caso o cálculo ou o texto passem essa impressão), ou apenas dos usuários que já seguiam antes. E saber de qual grupo faz parte a pessoa que deixou de seguir é um dado que não é possível de se obter.'))
+            
+
 # Gera o arquivo LaTeX
 doc.generate_pdf('Relatório-TN_Fev-2024', clean_tex=True)
 
