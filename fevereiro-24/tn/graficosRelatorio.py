@@ -21,6 +21,19 @@ def crescimento(atual, antigo):
         return f'+{str(round((taxa*100),2)).replace('.', ',')}%'
     return f'{str(round((taxa*100),2)).replace('.', ',')}%'
 
+# def primeirosElementos(string):
+#     # Encontra a posição do primeiro '.'
+#     dot_index = string.find('.')
+    
+#     # Se não houver '.', retorna a string inteira e 0 como o número de elementos após o '.'
+#     if dot_index == -1:
+#         return string, 0
+    
+#     # Retorna a parte da string antes do primeiro '.' 
+#     before_dot = string[:dot_index]
+    
+#     return before_dot
+
 def primeirosElementos(string):
     # Encontra a posição do primeiro '.'
     dot_index = string.find('.')
@@ -31,8 +44,19 @@ def primeirosElementos(string):
     
     # Retorna a parte da string antes do primeiro '.' 
     before_dot = string[:dot_index]
+    after_dot = string[dot_index+1:dot_index+3]  # Removendo o ponto decimal e incluindo dois dígitos após o ponto
+    # print(string[dot_index+2])
+    # print(string[dot_index+1:dot_index+3])
+    # Convertendo a parte depois do '.' em uma lista para poder modificá-la
+    after_dot_list = list(after_dot)
     
-    return before_dot
+    if int(after_dot_list[1]) >= 6:
+        after_dot_list[0] = str(int(after_dot_list[0]) + 1)
+    
+    # Convertendo a lista de volta para uma string
+    after_dot_modified = "".join(after_dot_list)
+    
+    return before_dot + ',' + after_dot_modified[0]
 
 def contaElementos(primeirosElementos):
     # Remove os pontos da string
@@ -47,9 +71,9 @@ def extensso(contaElementos):
     # elif contaElementos == 3:
     #     texto = ''
     if contaElementos >=4 and contaElementos<=6:
-        texto = 'Mil'
+        texto = 'mil'
     elif contaElementos >=7 and contaElementos<=9:
-        texto = 'Milhões'
+        texto = 'milhões'
     else:
         texto = ''
     return texto
@@ -1189,7 +1213,7 @@ def visualizacoesCidadeYTB():
     return visualizacoesCidadeYTB_plot_path
 
 def engajamentoTW():
-    tw = pd.read_csv('twitterJan24.csv')
+    tw = pd.read_csv('twitter.csv')
 
     twFiltrado = tw[['Data','engajamentos','impressões', 'seguiram']]
     twFiltrado['Data'] = pd.to_datetime(twFiltrado['Data']).dt.strftime('%d-%m-%Y')
@@ -1224,7 +1248,7 @@ def engajamentoTW():
     return engajamentoTW_plot_path
 
 def impressoesTW():
-    tw = pd.read_csv('twitterJan24.csv')
+    tw = pd.read_csv('twitter.csv')
 
     twFiltrado = tw[['Data','engajamentos','impressões', 'seguiram']]
     twFiltrado['Data'] = pd.to_datetime(twFiltrado['Data']).dt.strftime('%d-%m-%Y')
@@ -1259,7 +1283,7 @@ def impressoesTW():
     return impressoesTW_plot_path
 
 def seguidoresTW():
-    tw = pd.read_csv('twitterJan24.csv')
+    tw = pd.read_csv('twitter.csv')
 
     twFiltrado = tw[['Data','engajamentos','impressões', 'seguiram']]
     twFiltrado['Data'] = pd.to_datetime(twFiltrado['Data']).dt.strftime('%d-%m-%Y')

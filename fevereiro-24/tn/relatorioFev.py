@@ -44,64 +44,64 @@ portal_visualizacoes_2023 = [5043133,2880374,9257203,5981878,6426837,5382596,611
 ,5531690,4401142,2948640,3120290] # mesmo valor na tabela e no analytics
 portal_novosUsuarios_2023 = [635446,629702,837845,629077,639599,436361,586337,606078,573317,956925,747908,803205] # mesmo valor na tabela e no analytics
 
-portal_usuariosUnicos_2024Table = [1633738,0]
-portal_usuariosRescorrentes_2024Table = [723672,0]
-portal_usuariosUnicos_2024Analytics = [1100000,0]
-portal_usuariosRescorrentes_2024Analytics = [279000,0]
-portal_visualizacoes_2024 = [3503660,0] # mesmo valor na tabela e no analytics
-portal_novosUsuarios_2024 = [819084,0] # mesmo valor na tabela e no analytics
+portal_usuariosUnicos_2024Table = [1633738,1440822]
+portal_usuariosRescorrentes_2024Table = [723672,551399]
+portal_usuariosUnicos_2024Analytics = [1100000,970000]
+portal_usuariosRescorrentes_2024Analytics = [279000,248000]
+portal_visualizacoes_2024 = [3503660,2645684] # mesmo valor na tabela e no analytics
+portal_novosUsuarios_2024 = [819084,778346] # mesmo valor na tabela e no analytics
 
 ig_seg_2023 = [1240,8640,22600,6150,3514,5242,6672,5785,7315,6451,6106,5683]
 ig_seg_2023_perdeu = [0,0,0,0,2794,4279,5165,4624,4585,4906,4988,4763]
 ig_alcance_2023 = [669864,642671,715617,569749,541961,533116,570764,530776,515617,571695,543975,582262]
 ig_vivitas_2023 = [205736,245144,739332,162899,156869,128295,142502,147638,143376,132933,135058,129676]
 
-ig_seg_2024 = [6931,0]
-ig_seg_2024_perdeu = [5485,0]
-ig_alcance_2024 = [542064,0]
-ig_vivitas_2024 = [151885,0]
+ig_seg_2024 = [6931,5816]
+ig_seg_2024_perdeu = [5485,4945]
+ig_alcance_2024 = [542064,658917]
+ig_vivitas_2024 = [151885,144742]
 
-ig_seg_2024_total = [529865,0]
+ig_seg_2024_total = [529865,530797]
 
 fb_seg_2023 = [524,401,1316,362,386,273,293,223,172,186,248,455]
 fb_seg_2023_perdeu = [97,72,102,54,50,42,63,53,44,73,146,152]
 fb_alcance_2023 = [506283,459876,655223,310292,338973,250577,333882,258987,259921,336781,389143,492038]
 fb_vivitas_2023 = [30707,24425,81866,36040,34809,29306,26755,27793,26507,25099,29348,29167]
 
-fb_seg_2024 = [628,0]
-fb_seg_2024_perdeu = [162,0]
-fb_alcance_2024 = [467889,0]
-fb_vivitas_2024 = [32152,0]
+fb_seg_2024 = [628,389]
+fb_seg_2024_perdeu = [162,162]
+fb_alcance_2024 = [467889,390008]
+fb_vivitas_2024 = [32152,31459]
 
-fb_seg_2024_total = [332603,0]
+fb_seg_2024_total = [332603,332614]
 
 tw_seg_2023 = [1649,863,2823,2825,392,347,519,997,1454,1864,2169,2599]
 #tw_seg_2023_perdeu = []
 tw_impressões_2023 = [0,578375,1305007,1196504,1043859,1029266,782790,587558,285029,354720,391759,429655]
 tw_engajamentos_2023 = [0,11089,31977,20510,20347,19405,16967,13004,8337,8112,9825,10816]
 
-tw_seg_2024 = [2867,0]
-tw_seg_2024_perdeu = [890,0] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
-tw_impressões_2024 = [455800,0]
-tw_engajamentos_2024 = [13186,0]
+tw_seg_2024 = [2867,2002]
+tw_impressões_2024 = [455800,421287]
+tw_engajamentos_2024 = [13186,11223]
 
-tw_seg_2024_total = [311129,0]
+tw_seg_2024_total = [311129,312006]
+tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 yb_inc_2023 = [147,222,467,257,277,287,343,323,240,275,277,310]
 yb_inc_2023_perdeu = [48,68,81,42,56,61,65,64,55,46,63,62]
 yb_visualizacoes_2023 = [34722,72406,102836,64296,66046,69167,83169,73401,53691,53629,78371,66752]
 yb_horas_2023 = [844.7,1415.3,2890.7,1938.2,2018.3,2290.2,2405.9,1759.1,1389.1,1420.0,1690.8,1553.0]
 
-yb_inc_2024 = [415,0]
-yb_inc_2024_perdeu = [85,0]
-yb_visualizacoes_2024 = [132377,0]
-yb_horas_2024 = [2338.8,0]
+yb_inc_2024 = [415,614]
+yb_inc_2024_perdeu = [85,84]
+yb_visualizacoes_2024 = [132377,137318]
+yb_horas_2024 = [2338.8,4193.7]
 
-yb_inc_2024_total = [34000,0]
+yb_inc_2024_total = [34000,34500]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Tribuna do Norte', numbering=False)):
-    with doc.create(Subsection('Resultados de janeiro/2024', numbering=False)):
+    with doc.create(Subsection('Resultados de fevereiro/2024', numbering=False)):
         with doc.create(MiniPage(align='c')):
             # Adiciona a tabela de resultados
             with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
@@ -109,7 +109,7 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 table.add_row((MultiRow(2, data='Portal'), GR.formataNumero(portal_novosUsuarios_2024[-1]), GR.formataNumero(portal_visualizacoes_2024[-1]), GR.formataNumero(portal_usuariosRescorrentes_2024Analytics[-1])))
                 table.add_row(('', 'novos usuários', 'visualizações', 'usuários recorrentes'))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='Instagram'), GR.formataNumero(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]), GR.formataNumero(ig_alcance_2024[-1]), GR.formataNumero(ig_vivitas_2024[-2])))
+                table.add_row((MultiRow(2, data='Instagram'), GR.formataNumero(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]), GR.formataNumero(ig_alcance_2024[-1]), GR.formataNumero(ig_vivitas_2024[-1])))
                 table.add_row(('', 'novos seguidores', 'contas atingidas', 'visitas ao perfil'))
                 table.add_hline()
                 table.add_row((MultiRow(2, data='Facebook'), GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]), GR.formataNumero(fb_alcance_2024[-1]), GR.formataNumero(fb_vivitas_2024[-1])))
@@ -753,47 +753,47 @@ with doc.create(Itemize()) as itemize:
 #     page.append(Command('textbf', arguments='Facebook: '))
 #     page.append(NoEscape(' O algoritmo do Facebook prioriza os conteúdos que geram mais interações, como curtidas, comentários e compartilhamentos. Ele também considera o grau de relacionamento entre os usuários e as contas que eles seguem, mostrando mais publicações de amigos e familiares do que de páginas. Além disso, o Facebook leva em conta a relevância e a atualidade dos conteúdos, dando mais destaque para as notícias e os assuntos do momento.'))
 
-doc.append(NewPage())
+# doc.append(NewPage())
 
-with doc.create(MiniPage(align='c')):
-    doc.append(MediumText(("Observações")))
+# with doc.create(MiniPage(align='c')):
+#     doc.append(MediumText(("Observações")))
 
-with doc.create(Itemize()) as itemize:
-            # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
-            itemize.add_item('Sessões:')
-            #doc.append(NoEscape(r'\newline'))
-            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item(NoEscape(f'Por padrão, a sessão é encerrada após 30 minutos de inatividade, mas é possível ajustar esse limite para que ela dure de alguns segundos a várias horas.'))
-            with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
-                sublist.add_item(NoEscape('O Google Analytics começa a contar a partir do momento em que um usuário acessa seu site. Se depois de 30 minutos este usuário não fizer uma interação, a sessão é finalizada. No entanto, toda vez que ocorre uma interação com um elemento (como um evento, interação de rede social ou uma nova página), o Google Analytics reinicia o tempo de vencimento adicionando 30 minutos a partir do momento da interação.\n Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
-            with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
-                sublist.add_item(NoEscape('Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
-                with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
-                    subsublist.add_item(NoEscape('Vencimento por tempo:'))
-                    with subsublist.create(Enumerate(enumeration_symbol=r"•")) as subsubsublist:
-                        subsubsublist.add_item(NoEscape('Depois de 30 minutos de inatividade;'))
-                        subsubsublist.add_item(NoEscape('À meia-noite.'))
-                with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
-                    subsublist.add_item(NoEscape('Mudança de campanha::'))
-                    with subsublist.create(Enumerate(enumeration_symbol=r"•")) as subsubsublist:
-                        subsubsublist.add_item(NoEscape('Se um usuário entra por uma campanha, sai e depois volta para outra. (Fecha o site e entra novamente, por exemplo).'))
+# with doc.create(Itemize()) as itemize:
+#             # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
+#             itemize.add_item('Sessões:')
+#             #doc.append(NoEscape(r'\newline'))
+#             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+#                 sublist.add_item(NoEscape(f'Por padrão, a sessão é encerrada após 30 minutos de inatividade, mas é possível ajustar esse limite para que ela dure de alguns segundos a várias horas.'))
+#             with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
+#                 sublist.add_item(NoEscape('O Google Analytics começa a contar a partir do momento em que um usuário acessa seu site. Se depois de 30 minutos este usuário não fizer uma interação, a sessão é finalizada. No entanto, toda vez que ocorre uma interação com um elemento (como um evento, interação de rede social ou uma nova página), o Google Analytics reinicia o tempo de vencimento adicionando 30 minutos a partir do momento da interação.\n Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
+#             with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
+#                 sublist.add_item(NoEscape('Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
+#                 with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
+#                     subsublist.add_item(NoEscape('Vencimento por tempo:'))
+#                     with subsublist.create(Enumerate(enumeration_symbol=r"•")) as subsubsublist:
+#                         subsubsublist.add_item(NoEscape('Depois de 30 minutos de inatividade;'))
+#                         subsubsublist.add_item(NoEscape('À meia-noite.'))
+#                 with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
+#                     subsublist.add_item(NoEscape('Mudança de campanha::'))
+#                     with subsublist.create(Enumerate(enumeration_symbol=r"•")) as subsubsublist:
+#                         subsubsublist.add_item(NoEscape('Se um usuário entra por uma campanha, sai e depois volta para outra. (Fecha o site e entra novamente, por exemplo).'))
 
-with doc.create(Itemize()) as itemize:
-            # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
-            itemize.add_item('Calculos de porcentagem:')
-            #doc.append(NoEscape(r'\newline'))
-            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item(NoEscape(r'\textbf{Variação:} \Large{\left\(\frac{Mês\ Atual\ -\ Mês\ Anterior}{|Mês\ Anterior|}\right\)}\normalsize * 100.'))
-            with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
-                sublist.add_item(NoEscape(r'O cálculo é feito dessa forma pois quero saber  qual a diferença, em porcentagem, do valor atual em relação ao anterior, seja esse valor anterior o do mês passado ou o do mesmo mês no ano passado. Em outras palavras, quero saber o quanto o valor do mês atual cresceu ou diminuiu em ralação ao outro.'))
-                sublist.add_item(NoEscape(r'Caso a variação do mês atual com o anterior seja de +10,6\%, além da constatação óbvia de que é um número 10,6\% maior, também quer dizer que essa porcentagem equivale a 10,6\% do valor do mês anterior. Ou seja, se somarmos o valor equivalente a essa porcentagem ao mês anterior o resultado será o valor do mês atual (ou pelo menos algo MUITO próximo).'))
-                sublist.add_item(NoEscape(r'Por exemplo: se no mês atual o portal teve 957 novos seguidores e o anterior 586, isso quer dizer que o mês atual teve aumento de,  aproxiamdamente, 63,33\%. E sabendo que 63,33\% de 586 é, aproximadamente, 371, podemos provar que 957 - 371 = 586 ou que 586 + 371 = 957.'))
+# with doc.create(Itemize()) as itemize:
+#             # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
+#             itemize.add_item('Calculos de porcentagem:')
+#             #doc.append(NoEscape(r'\newline'))
+#             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+#                 sublist.add_item(NoEscape(r'\textbf{Variação:} \Large{\left\(\frac{Mês\ Atual\ -\ Mês\ Anterior}{|Mês\ Anterior|}\right\)}\normalsize * 100.'))
+#             with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
+#                 sublist.add_item(NoEscape(r'O cálculo é feito dessa forma pois quero saber  qual a diferença, em porcentagem, do valor atual em relação ao anterior, seja esse valor anterior o do mês passado ou o do mesmo mês no ano passado. Em outras palavras, quero saber o quanto o valor do mês atual cresceu ou diminuiu em ralação ao outro.'))
+#                 sublist.add_item(NoEscape(r'Caso a variação do mês atual com o anterior seja de +10,6\%, além da constatação óbvia de que é um número 10,6\% maior, também quer dizer que essa porcentagem equivale a 10,6\% do valor do mês anterior. Ou seja, se somarmos o valor equivalente a essa porcentagem ao mês anterior o resultado será o valor do mês atual (ou pelo menos algo MUITO próximo).'))
+#                 sublist.add_item(NoEscape(r'Por exemplo: se no mês atual o portal teve 957 novos seguidores e o anterior 586, isso quer dizer que o mês atual teve aumento de,  aproxiamdamente, 63,33\%. E sabendo que 63,33\% de 586 é, aproximadamente, 371, podemos provar que 957 - 371 = 586 ou que 586 + 371 = 957.'))
             
-            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item(NoEscape(r'\textbf{Taxa de fixação:} \Large{\left\(\frac{Total\ de\ novos\ seg.\ no\ mês\ -\ Total\ de\ seg.\ perdidos\ no\ mês}{Total\ de\ novos\ seg.\ no\ mês}\right\)}\normalsize * 100.'))
-            with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
-                sublist.add_item(NoEscape(r'Nesse cálculo eu quero saber quantos por cento do total de seguidores ganhos continuaram seguindo a rede social em questão.'))
-                sublist.add_item(NoEscape(r'É importante obeservar que as pessoas que deixaram de seguir não fazem parte apenas dos mesmos que seguiram durante o mês analisado (caso o cálculo ou o texto passem essa impressão), ou apenas dos usuários que já seguiam antes. E saber de qual grupo faz parte a pessoa que deixou de seguir é um dado que não é possível de se obter.'))
+#             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+#                 sublist.add_item(NoEscape(r'\textbf{Taxa de fixação:} \Large{\left\(\frac{Total\ de\ novos\ seg.\ no\ mês\ -\ Total\ de\ seg.\ perdidos\ no\ mês}{Total\ de\ novos\ seg.\ no\ mês}\right\)}\normalsize * 100.'))
+#             with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
+#                 sublist.add_item(NoEscape(r'Nesse cálculo eu quero saber quantos por cento do total de seguidores ganhos continuaram seguindo a rede social em questão.'))
+#                 sublist.add_item(NoEscape(r'É importante obeservar que as pessoas que deixaram de seguir não fazem parte apenas dos mesmos que seguiram durante o mês analisado (caso o cálculo ou o texto passem essa impressão), ou apenas dos usuários que já seguiam antes. E saber de qual grupo faz parte a pessoa que deixou de seguir é um dado que não é possível de se obter.'))
             
 
 # Gera o arquivo LaTeX
