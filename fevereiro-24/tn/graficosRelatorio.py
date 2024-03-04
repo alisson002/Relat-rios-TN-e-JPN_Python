@@ -34,7 +34,14 @@ def crescimento(atual, antigo):
     
 #     return before_dot
 
-def primeirosElementos(string):
+def primeirosElementos(numero):
+    
+    # Verifica se o número é menor que 1000
+    if numero < 1000:
+        # Retorna apenas a parte inteira do número
+        return str(numero)
+    
+    string = formataNumero(numero)
     # Encontra a posição do primeiro '.'
     dot_index = string.find('.')
     
@@ -56,6 +63,9 @@ def primeirosElementos(string):
     # Convertendo a lista de volta para uma string
     after_dot_modified = "".join(after_dot_list)
     
+    if after_dot_modified[0] == '0':
+        return before_dot
+    
     return before_dot + ',' + after_dot_modified[0]
 
 def contaElementos(primeirosElementos):
@@ -76,10 +86,11 @@ def extensso(contaElementos):
         texto = 'milhões'
     else:
         texto = ''
+        pass
     return texto
 
 def numeroPorExtensso(numero):
-    return f"{primeirosElementos(formataNumero(numero))} {extensso(contaElementos(formataNumero(numero)))}"
+    return f"{primeirosElementos((numero))} {extensso(contaElementos(formataNumero(numero)))}"
 
 def origemPortal():
 
@@ -238,6 +249,8 @@ def top15():
     # Lê o arquivo CSV, ignorando linhas com problemas
     #df = pd.read_csv(nome_arquivo, encoding='utf-8', skiprows=8)
 
+    import csv
+
     def encontrar_frase_em_csv(nome_arquivo, frase_procurada):
         try:
             with open(nome_arquivo, 'r', newline='', encoding='utf-8') as arquivo_csv:
@@ -266,7 +279,7 @@ def top15():
     # Filtrar apenas as linhas que representam notícias
     #df = df[df['Página de destino + string de consulta'].str.contains('-')& ~df['Página de destino + string de consulta'].str.contains('/quem-somos/')]
 
-    excluded_keywords = ['/quem-somos/', '/plantao-de-noticias/']
+    excluded_keywords = ['/quem-somos/', '/plantao-de-noticias/','/colunas/','/alex-medeiros/']
     df = df[df['Página de destino + string de consulta'].str.contains('-') & ~df['Página de destino + string de consulta'].str.contains('|'.join(excluded_keywords))]
 
     df['Impressões orgânicas da Pesquisa Google'] = pd.to_numeric(df['Impressões orgânicas da Pesquisa Google'], errors='coerce')
@@ -282,12 +295,12 @@ def top15():
 
     # Criar o gráfico de barras horizontais com o tema do Seaborn
     sns.set_theme()
-    plt.figure(figsize=(12, 8))
+    plt.figure(figsize=(10, 6))
     bars = plt.barh(range(1, 16), df['Impressões orgânicas da Pesquisa Google'], color=sns.color_palette('Spectral', n_colors=15))
 
     # # Adicionar os nomes das notícias no início das barras
     for bar, label in zip(bars, df['Texto']):
-        plt.text(int(df['Impressões orgânicas da Pesquisa Google'][0])*0.006, bar.get_y() + bar.get_height() / 2, label, va='center', ha='left', fontsize=10)
+        plt.text(int(df['Impressões orgânicas da Pesquisa Google'][0])*0.006, bar.get_y() + bar.get_height() / 2, label, va='center', ha='left', fontsize=8)
 
     plt.xlabel('Impressões')
     plt.title('Top 15 Notícias Mais Pesquisadas no Google')
@@ -1045,7 +1058,7 @@ def dadosIG():
 
     visitasIG['Data'] = pd.to_datetime(visitasIG['Data']).dt.strftime('%d-%m-%Y')
 
-    visitasIG['Seguidores do Instagram'] = visitasIG['Seguidores do Instagram']*25
+    visitasIG['Seguidores do Instagram'] = visitasIG['Seguidores do Instagram']*30
 
     # SEGUIDORES
     inicio_seguidoresIG = encontrar_frase_em_csv_meta('Novos seguidores e curtidas.csv', 'Novos seguidores do Instagram')

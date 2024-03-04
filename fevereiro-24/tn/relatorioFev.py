@@ -118,14 +118,14 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 table.add_row((MultiRow(2, data='Twitter'), GR.formataNumero(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]), GR.formataNumero(tw_impressões_2024[-1]), GR.formataNumero(tw_engajamentos_2024[-1])))
                 table.add_row(('', 'novos seguidores', 'impressões', 'engajamentos'))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='Youtube'), GR.formataNumero(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]), GR.formataNumero(yb_visualizacoes_2024[-1]), GR.formataNumero(yb_horas_2024[-1])))
+                table.add_row((MultiRow(2, data='Youtube'), GR.formataNumero(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]), GR.formataNumero(yb_visualizacoes_2024[-1]), '4.194'))
                 table.add_row(('', 'novos inscritos', 'visualizações', 'horas de exibição'))
                 
 
         # Adiciona informações extras
         # Adiciona uma lista com marcadores
         with doc.create(Itemize()) as itemize:
-            itemize.add_item("Ao todo, a Tribuna do Norte entregou seu conteúdo para, aproximadamente, 829.760 novas contas, entre Portal, Instagram, Twitter, Facebook e YouTube.")
+            itemize.add_item(f"Ao todo, a Tribuna do Norte entregou seu conteúdo para, aproximadamente, {GR.formataNumero(portal_novosUsuarios_2024[1]+(ig_seg_2024_total[-1]-ig_seg_2024_total[-2])+(fb_seg_2024_total[-1]-fb_seg_2024_total[-2])+(tw_seg_2024_total[-1]-tw_seg_2024_total[-2])+(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]))} novas contas, entre Portal, Instagram, Twitter, Facebook e YouTube.")
             itemize.add_item(Command('textbf', arguments='Instagram'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(ig_seg_2024_total[-1])}. Total de seguidores no mês anterior: {GR.formataNumero(ig_seg_2024_total[-2])}")
@@ -700,7 +700,7 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
 visualizacoesIdadeYTB_plot_path = GR.visualizacoesIdadeYTB()
 # Adiciona uma seção ao documento
 with doc.create(Section('', numbering=False)):
-    doc.append("YouTube: visualizações por faixa etári a")
+    doc.append("YouTube: visualizações por faixa etária")
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
@@ -748,36 +748,38 @@ with doc.create(Itemize()) as itemize:
                 sublist.add_item(NoEscape(r'\textbf{Twitter:} O algoritmo do Twitter tem duas formas de exibir os conteúdos: o modo cronológico e o modo destacado. No modo cronológico, o usuário vê os tweets mais recentes em ordem de publicação. No modo destacado, o usuário vê os tweets mais relevantes para ele, de acordo com o seu perfil, as suas interações e os assuntos do momento. O Twitter também mostra os tweets mais populares e mais comentados na seção “O que está acontecendo”;'))
                 sublist.add_item(NoEscape(r'\textbf{YouTube:} O algoritmo do YouTube tem como objetivo aumentar o tempo de permanência dos usuários na plataforma, recomendando os vídeos que eles têm mais chances de assistir e se engajar. Para isso, ele considera fatores como o histórico de visualização, as preferências, as inscrições, a localização e o feedback dos usuários. Ele também leva em conta a qualidade e a relevância dos vídeos, analisando aspectos como o título, descrição, tags, miniaturas e os metadados.'))
 
-# with doc.create(MiniPage(width=r'\textwidth', pos='t!')) as page:
-#     page.append(NoEscape(r'\hspace{4em}-'))
-#     page.append(Command('textbf', arguments='Facebook: '))
-#     page.append(NoEscape(' O algoritmo do Facebook prioriza os conteúdos que geram mais interações, como curtidas, comentários e compartilhamentos. Ele também considera o grau de relacionamento entre os usuários e as contas que eles seguem, mostrando mais publicações de amigos e familiares do que de páginas. Além disso, o Facebook leva em conta a relevância e a atualidade dos conteúdos, dando mais destaque para as notícias e os assuntos do momento.'))
+doc.append(NewPage())
 
-# doc.append(NewPage())
+with doc.create(MiniPage(align='c')):
+    doc.append(MediumText(("Observações")))
 
-# with doc.create(MiniPage(align='c')):
-#     doc.append(MediumText(("Observações")))
-
-# with doc.create(Itemize()) as itemize:
-#             # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
-#             itemize.add_item('Sessões:')
-#             #doc.append(NoEscape(r'\newline'))
-#             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-#                 sublist.add_item(NoEscape(f'Por padrão, a sessão é encerrada após 30 minutos de inatividade, mas é possível ajustar esse limite para que ela dure de alguns segundos a várias horas.'))
-#             with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
-#                 sublist.add_item(NoEscape('O Google Analytics começa a contar a partir do momento em que um usuário acessa seu site. Se depois de 30 minutos este usuário não fizer uma interação, a sessão é finalizada. No entanto, toda vez que ocorre uma interação com um elemento (como um evento, interação de rede social ou uma nova página), o Google Analytics reinicia o tempo de vencimento adicionando 30 minutos a partir do momento da interação.\n Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
-#             with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
-#                 sublist.add_item(NoEscape('Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
-#                 with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
-#                     subsublist.add_item(NoEscape('Vencimento por tempo:'))
-#                     with subsublist.create(Enumerate(enumeration_symbol=r"•")) as subsubsublist:
-#                         subsubsublist.add_item(NoEscape('Depois de 30 minutos de inatividade;'))
-#                         subsubsublist.add_item(NoEscape('À meia-noite.'))
-#                 with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
-#                     subsublist.add_item(NoEscape('Mudança de campanha::'))
-#                     with subsublist.create(Enumerate(enumeration_symbol=r"•")) as subsubsublist:
-#                         subsubsublist.add_item(NoEscape('Se um usuário entra por uma campanha, sai e depois volta para outra. (Fecha o site e entra novamente, por exemplo).'))
-
+with doc.create(Itemize()) as itemize:
+            # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
+            itemize.add_item('Sessões:')
+            #doc.append(NoEscape(r'\newline'))
+            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+                sublist.add_item(NoEscape(f'Por padrão, a sessão é encerrada após 30 minutos de inatividade, mas é possível ajustar esse limite para que ela dure de alguns segundos a várias horas.'))
+            with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
+                sublist.add_item(NoEscape('O Google Analytics começa a contar a partir do momento em que um usuário acessa seu site. Se depois de 30 minutos este usuário não fizer uma interação, a sessão é finalizada. No entanto, toda vez que ocorre uma interação com um elemento (como um evento, interação de rede social ou uma nova página), o Google Analytics reinicia o tempo de vencimento adicionando 30 minutos a partir do momento da interação.\n Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
+            with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
+                sublist.add_item(NoEscape('Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
+                with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
+                    subsublist.add_item(NoEscape('Vencimento por tempo:'))
+                    with subsublist.create(Enumerate(enumeration_symbol=r"•")) as subsubsublist:
+                        subsubsublist.add_item(NoEscape('Depois de 30 minutos de inatividade;'))
+                        subsubsublist.add_item(NoEscape('À meia-noite.'))
+                with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
+                    subsublist.add_item(NoEscape('Mudança de campanha::'))
+                    with subsublist.create(Enumerate(enumeration_symbol=r"•")) as subsubsublist:
+                        subsubsublist.add_item(NoEscape('Se um usuário entra por uma campanha, sai e depois volta para outra. (Fecha o site e entra novamente, por exemplo).'))
+            itemize.add_item('Seguidores:')
+            with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
+                sublist.add_item(NoEscape(f'É  possível observar que o número de novos seguidores ou inscritos adquiridos nos mês pode diferir um pouco na primeira tabela, na descrição dela e em cada uma das tabelas seguintes das respectivas redes sociais.'))
+                sublist.add_item(NoEscape(f'Nas tabelas de cada rede social está a quantidade total de usuários que seguiram ao logo do mês analisado, mas nesse caso é o dado que foi informado diretamente pela rede social em questão. Chamaremos esse dado de "follows" e os que deixaram de seguir de "unfollows", para uma melhor identificação.'))
+                sublist.add_item(NoEscape(f'Na primeira tabela do relatório está o númere referente a quantidade de seguidores que realmente continuaram seguindo a(o) página/perfil/canal ao final do mês. Logo abaixo, o dado "Seguidores adquiridos no mês:" é a quantidade total de usuários que seguiram ao logo do mês analisado. Nesses dois casos os valores são obtidos atraves da quantidade total de seguidores no mês atual e anterior e quantos usuários deixaram de seguir no mês atual.'))
+                sublist.add_item(NoEscape(f'Por exemplo: se subtrairmos a quantidade total de seguidores do mês atual pela anterior e somarmos isso a quantos deixaram de seguir (atual - anterior + unfollow), teremos a quantidade total de "Seguidores adquiridos no mês:". Esse valor seria o mesmo dado de seguidores adquiridos que está nas tabelas de cada rede social (follows). E a quantidade de usuários que continuaram seguindo a página seria apenas a diferença do total de seguidores do mês atual e anterior (atual - anterior), que deveria dar no mesmo de subtrair "follows" por "unfollows" (follows - unfollows). Para que fique mais claro, a diferença entre "follows" e "unfollows" somada a quantidade total de seguidores do mês anterior deveria ser igual a quantidade total do mês atual (follows - unfollows + total seg. anterior = total seg. atual).'))
+                sublist.add_item(NoEscape(f'Todos esses dados são fornecidos pelas próprias plataformas, mas eles podem acabar sendo um pouco diferentes para sua respectiva rede social.'))
+            itemize.add_item('Top15 notícias mais pesquisadas: as impressões são referentes a quantidade de vezes que uma pesquisa sobre determinado assunto foi realizada e foi possível visualizar o link da notícia no portal do TN entre os resultados.')
 # with doc.create(Itemize()) as itemize:
 #             # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
 #             itemize.add_item('Calculos de porcentagem:')
@@ -794,8 +796,8 @@ with doc.create(Itemize()) as itemize:
 #             with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
 #                 sublist.add_item(NoEscape(r'Nesse cálculo eu quero saber quantos por cento do total de seguidores ganhos continuaram seguindo a rede social em questão.'))
 #                 sublist.add_item(NoEscape(r'É importante obeservar que as pessoas que deixaram de seguir não fazem parte apenas dos mesmos que seguiram durante o mês analisado (caso o cálculo ou o texto passem essa impressão), ou apenas dos usuários que já seguiam antes. E saber de qual grupo faz parte a pessoa que deixou de seguir é um dado que não é possível de se obter.'))
-            
-
+                
+                
 # Gera o arquivo LaTeX
 doc.generate_pdf('Relatório-TN_Fev-2024', clean_tex=True)
 
