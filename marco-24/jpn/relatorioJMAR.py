@@ -419,6 +419,6 @@ with doc.create(Itemize()) as itemize:
                 sublist.add_item(NoEscape(f'Todos esses dados são fornecidos pelas próprias plataformas, mas eles podem acabar sendo um pouco diferentes para sua respectiva rede social.'))
 
 # Gera o arquivo LaTeX
-doc.generate_pdf('Relatório-JPNews_Jan-2024', clean_tex=True)
+doc.generate_pdf(r'C:\Users\Usuario\Documents\Repositórios\Relatórios\JPN\Relatório-JPNews_Mar-2024', clean_tex=True)
 
 print("Relatório em LaTeX gerado com sucesso!")
