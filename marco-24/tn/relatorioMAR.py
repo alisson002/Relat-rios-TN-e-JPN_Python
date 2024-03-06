@@ -799,6 +799,6 @@ with doc.create(Itemize()) as itemize:
                 
                 
 # Gera o arquivo LaTeX
-doc.generate_pdf('Relatório-TN_Fev-2024', clean_tex=True)
+doc.generate_pdf(r'C:\Users\Usuario\Documents\Repositórios\Relatórios\TN\Relatório-TN_Mar-2024', clean_tex=True)
 
 print("Relatório em LaTeX gerado com sucesso!")

@@ -565,7 +565,7 @@ def visualizacoesCidadeYTB():
     return visualizacoesCidadeYTB_plot_path
 
 def engajamentoTW():
-    tw = pd.read_csv('twitterJan24.csv')
+    tw = pd.read_csv('twitter.csv')
 
     twFiltrado = tw[['Data','engajamentos','impressões', 'seguiram']]
     twFiltrado['Data'] = pd.to_datetime(twFiltrado['Data']).dt.strftime('%d-%m-%Y')
@@ -600,7 +600,7 @@ def engajamentoTW():
     return engajamentoTW_plot_path
 
 def impressoesTW():
-    tw = pd.read_csv('twitterJan24.csv')
+    tw = pd.read_csv('twitter.csv')
 
     twFiltrado = tw[['Data','engajamentos','impressões', 'seguiram']]
     twFiltrado['Data'] = pd.to_datetime(twFiltrado['Data']).dt.strftime('%d-%m-%Y')
@@ -635,7 +635,7 @@ def impressoesTW():
     return impressoesTW_plot_path
 
 def seguidoresTW():
-    tw = pd.read_csv('twitterJan24.csv')
+    tw = pd.read_csv('twitter.csv')
 
     twFiltrado = tw[['Data','engajamentos','impressões', 'seguiram']]
     twFiltrado['Data'] = pd.to_datetime(twFiltrado['Data']).dt.strftime('%d-%m-%Y')
