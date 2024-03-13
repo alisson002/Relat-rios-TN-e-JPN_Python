@@ -85,7 +85,7 @@ tw_impressões_2024 = [455800,421287]
 tw_engajamentos_2024 = [13186,11223]
 
 tw_seg_2024_total = [311129,312006]
-tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
+tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 yb_inc_2023 = [147,222,467,257,277,287,343,323,240,275,277,310]
 yb_inc_2023_perdeu = [48,68,81,42,56,61,65,64,55,46,63,62]
@@ -95,7 +95,7 @@ yb_horas_2023 = [844.7,1415.3,2890.7,1938.2,2018.3,2290.2,2405.9,1759.1,1389.1,1
 yb_inc_2024 = [415,614]
 yb_inc_2024_perdeu = [85,84]
 yb_visualizacoes_2024 = [132377,137318]
-yb_horas_2024 = [2338.8,4193.7]
+yb_horas_2024 = [2338.8,4194]
 
 yb_inc_2024_total = [34000,34500]
 
@@ -118,7 +118,7 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 table.add_row((MultiRow(2, data='Twitter'), GR.formataNumero(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]), GR.formataNumero(tw_impressões_2024[-1]), GR.formataNumero(tw_engajamentos_2024[-1])))
                 table.add_row(('', 'novos seguidores', 'impressões', 'engajamentos'))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='Youtube'), GR.formataNumero(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]), GR.formataNumero(yb_visualizacoes_2024[-1]), '4.194'))
+                table.add_row((MultiRow(2, data='Youtube'), GR.formataNumero(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]), GR.formataNumero(yb_visualizacoes_2024[-1]), GR.formataNumero(yb_horas_2024[-1])))
                 table.add_row(('', 'novos inscritos', 'visualizações', 'horas de exibição'))
                 
 
@@ -162,11 +162,11 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
                 table.add_row((MultiRow(2, data='Janeiro'), '819 mil', '3,5 milhões', '279 mil'))
                 table.add_row(('', FootnoteText('+2% | +29%'), FootnoteText('+13% | -30%'), FootnoteText('-3,5% | +37,4%')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='Fevereiro'), GR.numeroPorExtensso(portal_novosUsuarios_2024[1]), GR.numeroPorExtensso(portal_visualizacoes_2024[1]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[1])))
+                table.add_row((MultiRow(2, data='Fevereiro'), GR.numeroPorExtensso(portal_novosUsuarios_2024[2]), GR.numeroPorExtensso(portal_visualizacoes_2024[2]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[2])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(portal_novosUsuarios_2024[1],portal_novosUsuarios_2024[0])} | {GR.crescimento(portal_novosUsuarios_2024[1],portal_novosUsuarios_2023[1])}'), FootnoteText(f'{GR.crescimento(portal_visualizacoes_2024[1],portal_visualizacoes_2024[0])} | {GR.crescimento(portal_visualizacoes_2024[1],portal_visualizacoes_2023[1])}'), FootnoteText(f'{GR.crescimento(portal_usuariosRescorrentes_2024Analytics[1],portal_usuariosRescorrentes_2024Analytics[0])} | {GR.crescimento(portal_usuariosRescorrentes_2024Analytics[1],portal_usuariosRescorrentes_2023Analytics[1])}')))
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Março'), GR.numeroPorExtensso(portal_novosUsuarios_2024[]), GR.numeroPorExtensso(portal_visualizacoes_2024[]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(portal_novosUsuarios_2024[],portal_novosUsuarios_2024[])} | {GR.crescimento(portal_novosUsuarios_2024[],portal_novosUsuarios_2023[])}'), FootnoteText(f'{GR.crescimento(portal_visualizacoes_2024[],portal_visualizacoes_2024[])} | {GR.crescimento(portal_visualizacoes_2024[],portal_visualizacoes_2023[])}'), FootnoteText(f'{GR.crescimento(portal_usuariosRescorrentes_2024Analytics[],portal_usuariosRescorrentes_2024Analytics[])} | {GR.crescimento(portal_usuariosRescorrentes_2024Analytics[],portal_usuariosRescorrentes_2023Analytics[])}')))
+                table.add_hline()
+                table.add_row((MultiRow(2, data='Março'), GR.numeroPorExtensso(portal_novosUsuarios_2024[1]), GR.numeroPorExtensso(portal_visualizacoes_2024[1]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[1])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(portal_novosUsuarios_2024[2],portal_novosUsuarios_2024[1])} | {GR.crescimento(portal_novosUsuarios_2024[2],portal_novosUsuarios_2023[2])}'), FootnoteText(f'{GR.crescimento(portal_visualizacoes_2024[2],portal_visualizacoes_2024[1])} | {GR.crescimento(portal_visualizacoes_2024[2],portal_visualizacoes_2023[2])}'), FootnoteText(f'{GR.crescimento(portal_usuariosRescorrentes_2024Analytics[2],portal_usuariosRescorrentes_2024Analytics[1])} | {GR.crescimento(portal_usuariosRescorrentes_2024Analytics[2],portal_usuariosRescorrentes_2023Analytics[2])}')))
                 # table.add_hline()
                 # table.add_row((MultiRow(2, data='Abril'), GR.numeroPorExtensso(portal_novosUsuarios_2024[]), GR.numeroPorExtensso(portal_visualizacoes_2024[]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[])))
                 # table.add_row(('', FootnoteText(f'{GR.crescimento(portal_novosUsuarios_2024[],portal_novosUsuarios_2024[])} | {GR.crescimento(portal_novosUsuarios_2024[],portal_novosUsuarios_2023[])}'), FootnoteText(f'{GR.crescimento(portal_visualizacoes_2024[],portal_visualizacoes_2024[])} | {GR.crescimento(portal_visualizacoes_2024[],portal_visualizacoes_2023[])}'), FootnoteText(f'{GR.crescimento(portal_usuariosRescorrentes_2024Analytics[],portal_usuariosRescorrentes_2024Analytics[])} | {GR.crescimento(portal_usuariosRescorrentes_2024Analytics[],portal_usuariosRescorrentes_2023Analytics[])}')))
@@ -297,9 +297,9 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
                 table.add_hline()
                 table.add_row((MultiRow(2, data='Fevereiro'), GR.numeroPorExtensso(ig_seg_2024[1]), GR.numeroPorExtensso(ig_alcance_2024[1]), GR.numeroPorExtensso(ig_vivitas_2024[1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[1],ig_seg_2024[0])} | {GR.crescimento(ig_seg_2024[1],ig_seg_2023[1])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[1],ig_alcance_2024[0])} | {GR.crescimento(ig_alcance_2024[1],ig_alcance_2023[1])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[1],ig_vivitas_2024[0])} | {GR.crescimento(ig_vivitas_2024[1],ig_vivitas_2023[1])}')))
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Março'), GR.numeroPorExtensso(ig_seg_2024[]), GR.numeroPorExtensso(ig_alcance_2024[]), GR.numeroPorExtensso(ig_vivitas_2024[])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[],ig_seg_2024[])} | {GR.crescimento(ig_seg_2024[],ig_seg_2023[])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[],ig_alcance_2024[])} | {GR.crescimento(ig_alcance_2024[],ig_alcance_2023[])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[],ig_vivitas_2024[])} | {GR.crescimento(ig_vivitas_2024[],ig_vivitas_2023[])}')))
+                table.add_hline()
+                table.add_row((MultiRow(2, data='Março'), GR.numeroPorExtensso(ig_seg_2024[2]), GR.numeroPorExtensso(ig_alcance_2024[2]), GR.numeroPorExtensso(ig_vivitas_2024[2])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[2],ig_seg_2024[1])} | {GR.crescimento(ig_seg_2024[2],ig_seg_2023[2])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[2],ig_alcance_2024[1])} | {GR.crescimento(ig_alcance_2024[2],ig_alcance_2023[2])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[2],ig_vivitas_2024[1])} | {GR.crescimento(ig_vivitas_2024[2],ig_vivitas_2023[2])}')))
                 # table.add_hline()
                 # table.add_row((MultiRow(2, data='Abril'), GR.numeroPorExtensso(ig_seg_2024[]), GR.numeroPorExtensso(ig_alcance_2024[]), GR.numeroPorExtensso(ig_vivitas_2024[])))
                 # table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[],ig_seg_2024[])} | {GR.crescimento(ig_seg_2024[],ig_seg_2023[])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[],ig_alcance_2024[])} | {GR.crescimento(ig_alcance_2024[],ig_alcance_2023[])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[],ig_vivitas_2024[])} | {GR.crescimento(ig_vivitas_2024[],ig_vivitas_2023[])}')))
@@ -369,10 +369,10 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
                 table.add_row(('', FootnoteText('+38% | +20%'), FootnoteText('-5% | -7,5%'), FootnoteText('+9,6% | +4,2%')))
                 table.add_hline()
                 table.add_row((MultiRow(2, data='Fevereiro'), GR.numeroPorExtensso(fb_seg_2024[1]), GR.numeroPorExtensso(fb_alcance_2024[1]), GR.numeroPorExtensso(fb_vivitas_2024[1])))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[1],fb_seg_2024[0])} | {GR.crescimento(fb_seg_2024[1],fb_seg_2023[1])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[1],fb_alcance_2024[0])} | {GR.crescimento(fb_vivitas_2024[1],fb_alcance_2023[1])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[1],fb_vivitas_2024[0])} | {GR.crescimento(fb_vivitas_2024[1],fb_vivitas_2023[1])}')))
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Março'), GR.numeroPorExtensso(fb_seg_2024[]), GR.numeroPorExtensso(fb_alcance_2024[]), GR.numeroPorExtensso(fb_vivitas_2024[])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[],fb_seg_2024[])} | {GR.crescimento(fb_seg_2024[],fb_seg_2023[])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[],fb_alcance_2024[])} | {GR.crescimento(fb_vivitas_2024[],fb_alcance_2023[])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[],fb_vivitas_2024[])} | {GR.crescimento(fb_vivitas_2024[],fb_vivitas_2023[])}')))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[1],fb_seg_2024[0])} | {GR.crescimento(fb_seg_2024[1],fb_seg_2023[1])}'), FootnoteText(f'{GR.crescimento(fb_alcance_2024[1],fb_alcance_2024[0])} | {GR.crescimento(fb_alcance_2024[1],fb_alcance_2023[1])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[1],fb_vivitas_2024[0])} | {GR.crescimento(fb_vivitas_2024[1],fb_vivitas_2023[1])}')))
+                table.add_hline()
+                table.add_row((MultiRow(2, data='Março'), GR.numeroPorExtensso(fb_seg_2024[2]), GR.numeroPorExtensso(fb_alcance_2024[2]), GR.numeroPorExtensso(fb_vivitas_2024[2])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[2],fb_seg_2024[1])} | {GR.crescimento(fb_seg_2024[2],fb_seg_2023[2])}'), FootnoteText(f'{GR.crescimento(fb_alcance_2024[2],fb_alcance_2024[1])} | {GR.crescimento(fb_alcance_2024[2],fb_alcance_2023[2])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[2],fb_vivitas_2024[1])} | {GR.crescimento(fb_vivitas_2024[2],fb_vivitas_2023[2])}')))
                 # table.add_hline()
                 # table.add_row((MultiRow(2, data='Abril'), GR.numeroPorExtensso(fb_seg_2024[]), GR.numeroPorExtensso(fb_alcance_2024[]), GR.numeroPorExtensso(fb_vivitas_2024[])))
                 # table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[],fb_seg_2024[])} | {GR.crescimento(fb_seg_2024[],fb_seg_2023[])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[],fb_alcance_2024[])} | {GR.crescimento(fb_vivitas_2024[],fb_alcance_2023[])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[],fb_vivitas_2024[])} | {GR.crescimento(fb_vivitas_2024[],fb_vivitas_2023[])}')))
@@ -537,9 +537,9 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
                 table.add_hline()
                 table.add_row((MultiRow(2, data='Fevereiro'), GR.numeroPorExtensso(tw_seg_2024[1]), GR.numeroPorExtensso(tw_impressões_2024[1]), GR.numeroPorExtensso(tw_engajamentos_2024[1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[1],tw_seg_2024[0])} | {GR.crescimento(tw_seg_2024[1],tw_seg_2023[1])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[1],tw_impressões_2024[0])} | {GR.crescimento(tw_impressões_2024[1],tw_impressões_2023[1])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[1],tw_engajamentos_2024[0])} | {GR.crescimento(tw_engajamentos_2024[1],tw_engajamentos_2023[1])}')))
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Março'), GR.numeroPorExtensso(tw_seg_2024[]), GR.numeroPorExtensso(tw_impressões_2024[]), GR.numeroPorExtensso(tw_engajamentos_2024[])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[],tw_seg_2024[])} | {GR.crescimento(tw_seg_2024[],tw_seg_2023[])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[],tw_impressões_2024[])} | {GR.crescimento(tw_impressões_2024[],tw_impressões_2023[])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[],tw_engajamentos_2024[])} | {GR.crescimento(tw_engajamentos_2024[],tw_engajamentos_2023[])}')))
+                table.add_hline()
+                table.add_row((MultiRow(2, data='Março'), GR.numeroPorExtensso(tw_seg_2024[2]), GR.numeroPorExtensso(tw_impressões_2024[2]), GR.numeroPorExtensso(tw_engajamentos_2024[2])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[2],tw_seg_2024[1])} | {GR.crescimento(tw_seg_2024[2],tw_seg_2023[2])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[2],tw_impressões_2024[1])} | {GR.crescimento(tw_impressões_2024[2],tw_impressões_2023[2])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[2],tw_engajamentos_2024[1])} | {GR.crescimento(tw_engajamentos_2024[2],tw_engajamentos_2023[2])}')))
                 # table.add_hline()
                 # table.add_row((MultiRow(2, data='Abril'), GR.numeroPorExtensso(tw_seg_2024[]), GR.numeroPorExtensso(tw_impressões_2024[]), GR.numeroPorExtensso(tw_engajamentos_2024[])))
                 # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[],tw_seg_2024[])} | {GR.crescimento(tw_seg_2024[],tw_seg_2023[])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[],tw_impressões_2024[])} | {GR.crescimento(tw_impressões_2024[],tw_impressões_2023[])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[],tw_engajamentos_2024[])} | {GR.crescimento(tw_engajamentos_2024[],tw_engajamentos_2023[])}')))
@@ -651,10 +651,9 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
                 table.add_hline()
                 table.add_row((MultiRow(2, data='Fevereiro'), GR.numeroPorExtensso(yb_inc_2024[1]), GR.numeroPorExtensso(yb_visualizacoes_2024[1]), GR.numeroPorExtensso(yb_horas_2024[1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[1],yb_inc_2024[0])} | {GR.crescimento(yb_inc_2024[1],yb_inc_2023[1])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[1],yb_visualizacoes_2024[0])} | {GR.crescimento(yb_visualizacoes_2024[1],yb_visualizacoes_2023[1])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[1],yb_horas_2024[0])} | {GR.crescimento(yb_horas_2024[1],yb_horas_2023[1])}')))
-                # table.add_hline()
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Março'), GR.numeroPorExtensso(yb_inc_2024[]), GR.numeroPorExtensso(yb_visualizacoes_2024[]), GR.numeroPorExtensso(yb_horas_2024[])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[],yb_inc_2024[])} | {GR.crescimento(yb_inc_2024[],yb_inc_2023[])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[],yb_visualizacoes_2024[])} | {GR.crescimento(yb_visualizacoes_2024[],yb_visualizacoes_2023[])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[],yb_horas_2024[])} | {GR.crescimento(yb_horas_2024[],yb_horas_2023[])}')))
+                table.add_hline()
+                table.add_row((MultiRow(2, data='Março'), GR.numeroPorExtensso(yb_inc_2024[2]), GR.numeroPorExtensso(yb_visualizacoes_2024[2]), GR.numeroPorExtensso(yb_horas_2024[2])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[2],yb_inc_2024[1])} | {GR.crescimento(yb_inc_2024[2],yb_inc_2023[2])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[2],yb_visualizacoes_2024[1])} | {GR.crescimento(yb_visualizacoes_2024[2],yb_visualizacoes_2023[2])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[2],yb_horas_2024[1])} | {GR.crescimento(yb_horas_2024[2],yb_horas_2023[2])}')))
                 # table.add_hline()
                 # table.add_row((MultiRow(2, data='Abril'), GR.numeroPorExtensso(yb_inc_2024[]), GR.numeroPorExtensso(yb_visualizacoes_2024[]), GR.numeroPorExtensso(yb_horas_2024[])))
                 # table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[],yb_inc_2024[])} | {GR.crescimento(yb_inc_2024[],yb_inc_2023[])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[],yb_visualizacoes_2024[])} | {GR.crescimento(yb_visualizacoes_2024[],yb_visualizacoes_2023[])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[],yb_horas_2024[])} | {GR.crescimento(yb_horas_2024[],yb_horas_2023[])}')))
