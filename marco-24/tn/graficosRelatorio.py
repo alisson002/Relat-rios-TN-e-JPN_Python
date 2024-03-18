@@ -812,13 +812,43 @@ def encontrar_frase_em_csv_meta(nome_arquivo, frase_procurada):
         return -1
 
 def curtidasFB():
-    # CURTIDAS
-    final_seguidoresFB = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Novos seguidores e curtidas.csv', 'Novos seguidores do Instagram')
+    # # CURTIDAS
+    # final_seguidoresFB = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Novos seguidores e curtidas.csv', 'Novos seguidores do Instagram')
 
-    seguidoresFB = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Novos seguidores e curtidas.csv', skiprows=2, encoding='utf-16', skip_blank_lines=True, nrows=final_seguidoresFB-4).dropna()
+    # seguidoresFB = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Novos seguidores e curtidas.csv', skiprows=2, encoding='utf-16', skip_blank_lines=True, nrows=final_seguidoresFB-4).dropna()
+
+    # seguidoresFB['Data'] = pd.to_datetime(seguidoresFB['Data']).dt.strftime('%d-%m-%Y')
+    
+    # # Configurando o tema do Seaborn
+    # sns.set_theme(style="darkgrid")
+
+    # # Criando o gráfico de linhas
+    # plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
+
+    # # Definindo a paleta de cores desejada
+    # cores = ["#5874af", "#3b5998", "#2f55a4"]
+
+    # # Plotando o gráfico de linhas
+    # sns.lineplot(x="Data", y="Novas curtidas da Página do Facebook", data=seguidoresFB, label="seguidores", linewidth=2.5, color=cores[0])
+
+    # # Ajustando o intervalo entre as datas no eixo x
+    # plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
+
+    # plt.xticks(rotation=-90)
+
+    # # Adicionando rótulos e título ao gráfico
+    # plt.xlabel("Data")
+    # plt.ylabel("Curtidas")
+    # plt.title("Curtidas no Facebook")
+
+    # plt.legend()
+    
+    inicio_seguidoresFB = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidores')
+
+    seguidoresFB = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', skiprows=inicio_seguidoresFB, encoding='utf-16', skip_blank_lines=True)
 
     seguidoresFB['Data'] = pd.to_datetime(seguidoresFB['Data']).dt.strftime('%d-%m-%Y')
-    
+
     # Configurando o tema do Seaborn
     sns.set_theme(style="darkgrid")
 
@@ -826,10 +856,10 @@ def curtidasFB():
     plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
 
     # Definindo a paleta de cores desejada
-    cores = ["#5874af", "#3b5998", "#2f55a4"]
+    cores = ["#5874af", "#E1306C", "#FCAF45"]
 
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y="Novas curtidas da Página do Facebook", data=seguidoresFB, label="seguidores", linewidth=2.5, color=cores[0])
+    sns.lineplot(x="Data", y="Primary", data=seguidoresFB, label="seguidores", linewidth=2.5, color=cores[0])
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
@@ -838,8 +868,8 @@ def curtidasFB():
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
-    plt.ylabel("Curtidas")
-    plt.title("Curtidas no Facebook")
+    plt.ylabel("Seguidores")
+    plt.title("Novos seguidores no FB")
 
     plt.legend()
 
@@ -868,7 +898,7 @@ def visitasFB():
     cores = ["#5874af", "#3b5998", "#2f55a4"]
 
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y="Curtidas na Página do Facebook", data=visitasFB, label="visitas", linewidth=2.5, color=cores[1])
+    sns.lineplot(x="Data", y="Primary", data=visitasFB, label="visitas", linewidth=2.5, color=cores[1])
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
@@ -909,7 +939,7 @@ def alcanceFB():
     cores = ["#5874af", "#3b5998", "#2f55a4"]
 
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y="Alcance no Facebook", data=alcanceFB, label="alcance", linewidth=2.5, color=cores[2])
+    sns.lineplot(x="Data", y="Primary", data=alcanceFB, label="alcance", linewidth=2.5, color=cores[2])
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
@@ -931,10 +961,18 @@ def alcanceFB():
     return alcanceFB_plot_path
 
 def seguidoresIG():
-    # SEGUIDORES
-    inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Novos seguidores e curtidas.csv', 'Novos seguidores do Instagram')
+    # # SEGUIDORES
+    # inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Novos seguidores e curtidas.csv', 'Novos seguidores do Instagram')
 
-    seguidoresIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Novos seguidores e curtidas.csv', skiprows=inicio_seguidoresIG, encoding='utf-16', skip_blank_lines=True)
+    # seguidoresIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Novos seguidores e curtidas.csv', skiprows=inicio_seguidoresIG, encoding='utf-16', skip_blank_lines=True)
+
+    # seguidoresIG['Data'] = pd.to_datetime(seguidoresIG['Data']).dt.strftime('%d-%m-%Y')
+    
+    inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidos no Instagram')
+
+    final_segIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidores')
+    print(final_segIG)
+    seguidoresIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', skiprows=inicio_seguidoresIG, encoding='utf-16', skip_blank_lines=True,nrows=final_segIG-4).dropna()
 
     seguidoresIG['Data'] = pd.to_datetime(seguidoresIG['Data']).dt.strftime('%d-%m-%Y')
     
@@ -948,7 +986,7 @@ def seguidoresIG():
     cores = ["#833AB4", "#E1306C", "#FCAF45"]
 
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y="Seguidores", data=seguidoresIG, label="seguidores", linewidth=2.5, color=cores[0])
+    sns.lineplot(x="Data", y="Primary", data=seguidoresIG, label="seguidores", linewidth=2.5, color=cores[0])
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
@@ -970,7 +1008,13 @@ def seguidoresIG():
     return seguidoresIG_plot_path, seguidoresIG
 
 def visitasIG():
-    # VISITAS
+    # # VISITAS
+    # inicio_visitasIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Visitas.csv', 'Visitas ao perfil do Instagram')
+
+    # visitasIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Visitas.csv', skiprows=inicio_visitasIG, encoding='utf-16', skip_blank_lines=True)
+
+    # visitasIG['Data'] = pd.to_datetime(visitasIG['Data']).dt.strftime('%d-%m-%Y')
+    
     inicio_visitasIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Visitas.csv', 'Visitas ao perfil do Instagram')
 
     visitasIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Visitas.csv', skiprows=inicio_visitasIG, encoding='utf-16', skip_blank_lines=True)
@@ -987,7 +1031,7 @@ def visitasIG():
     cores = ["#833AB4", "#E1306C", "#FCAF45"]
 
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y="Seguidores do Instagram", data=visitasIG, label="visitas", linewidth=2.5, color=cores[1])
+    sns.lineplot(x="Data", y="Primary", data=visitasIG, label="visitas", linewidth=2.5, color=cores[1])
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
@@ -1007,7 +1051,13 @@ def visitasIG():
     return visitasIG_plot_path, visitasIG
 
 def alcanceIG():
-    # ALCANCE
+    # # ALCANCE
+    # inicio_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Alcance.csv', 'Alcance do Instagram')
+
+    # alcanceIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Alcance.csv', skiprows=inicio_alcanceIG, encoding='utf-16', skip_blank_lines=True)
+
+    # alcanceIG['Data'] = pd.to_datetime(alcanceIG['Data']).dt.strftime('%d-%m-%Y')
+    
     inicio_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Alcance.csv', 'Alcance do Instagram')
 
     alcanceIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Alcance.csv', skiprows=inicio_alcanceIG, encoding='utf-16', skip_blank_lines=True)
@@ -1024,7 +1074,7 @@ def alcanceIG():
     cores = ["#833AB4", "#E1306C", "#FCAF45"]
 
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y="Alcance do Instagram", data=alcanceIG, label="alcance", linewidth=2.5, color=cores[2])
+    sns.lineplot(x="Data", y="Primary", data=alcanceIG, label="alcance", linewidth=2.5, color=cores[2])
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
@@ -1043,31 +1093,59 @@ def alcanceIG():
     
     return alcanceIG_plot_path, alcanceIG
 
-def dadosIG():
-    # ALCANCE
-    inicio_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Alcance.csv', 'Alcance do Instagram')
+def dadosIG(intVisistas, intSeg):
+    # # ALCANCE
+    # inicio_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Alcance.csv', 'Alcance do Instagram')
 
-    alcanceIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Alcance.csv', skiprows=inicio_alcanceIG, encoding='utf-16', skip_blank_lines=True)
+    # alcanceIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Alcance.csv', skiprows=inicio_alcanceIG, encoding='utf-16', skip_blank_lines=True)
+
+    # alcanceIG['Data'] = pd.to_datetime(alcanceIG['Data']).dt.strftime('%d-%m-%Y')
+
+    # # VISITAS
+    # inicio_visitasIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Visitas.csv', 'Visitas ao perfil do Instagram')
+
+    # visitasIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Visitas.csv', skiprows=inicio_visitasIG, encoding='utf-16', skip_blank_lines=True)
+
+    # visitasIG['Data'] = pd.to_datetime(visitasIG['Data']).dt.strftime('%d-%m-%Y')
+
+    # visitasIG['Seguidores do Instagram'] = visitasIG['Seguidores do Instagram']*30
+
+    # # SEGUIDORES
+    # inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Novos seguidores e curtidas.csv', 'Novos seguidores do Instagram')
+
+    # seguidoresIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Novos seguidores e curtidas.csv', skiprows=inicio_seguidoresIG, encoding='utf-16', skip_blank_lines=True)
+
+    # seguidoresIG['Data'] = pd.to_datetime(seguidoresIG['Data']).dt.strftime('%d-%m-%Y')
+
+    # seguidoresIG['Seguidores'] = seguidoresIG['Seguidores']*500
+    
+    # NOVA VERSÃO PARA O NOVO FORMATO DO CSV COM 'PRIMARY' em uma das colunas e com o IG vindo primeiro no csv dos seguidores
+    # ALCANCE
+    inicio_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Alcance2.csv', 'Alcance do Instagram')
+
+    alcanceIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Alcance2.csv', skiprows=inicio_alcanceIG, encoding='utf-16', skip_blank_lines=True)
 
     alcanceIG['Data'] = pd.to_datetime(alcanceIG['Data']).dt.strftime('%d-%m-%Y')
 
     # VISITAS
-    inicio_visitasIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Visitas.csv', 'Visitas ao perfil do Instagram')
+    inicio_visitasIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Visitas2.csv', 'Visitas ao perfil do Instagram')
 
-    visitasIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Visitas.csv', skiprows=inicio_visitasIG, encoding='utf-16', skip_blank_lines=True)
+    visitasIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Visitas2.csv', skiprows=inicio_visitasIG, encoding='utf-16', skip_blank_lines=True)
 
     visitasIG['Data'] = pd.to_datetime(visitasIG['Data']).dt.strftime('%d-%m-%Y')
 
-    visitasIG['Seguidores do Instagram'] = visitasIG['Seguidores do Instagram']*30
+    visitasIG['Primary'] = visitasIG['Primary']*intVisistas
 
     # SEGUIDORES
-    inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Novos seguidores e curtidas.csv', 'Novos seguidores do Instagram')
+    inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidos no Instagram')
 
-    seguidoresIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Novos seguidores e curtidas.csv', skiprows=inicio_seguidoresIG, encoding='utf-16', skip_blank_lines=True)
+    final_segIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidores')
+    print(final_segIG)
+    seguidoresIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', skiprows=inicio_seguidoresIG, encoding='utf-16', skip_blank_lines=True,nrows=final_segIG-4).dropna()
 
     seguidoresIG['Data'] = pd.to_datetime(seguidoresIG['Data']).dt.strftime('%d-%m-%Y')
 
-    seguidoresIG['Seguidores'] = seguidoresIG['Seguidores']*500
+    seguidoresIG['Primary'] = seguidoresIG['Primary']*intSeg
 
 
     # social_media_data['Data'] = pd.to_datetime(social_media_data['Data'])
@@ -1084,9 +1162,9 @@ def dadosIG():
     cores = ["#833AB4", "#E1306C", "#FCAF45"]
 
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y="Seguidores", data=seguidoresIG, label="seguidores", linewidth=2.5, color=cores[0])
-    sns.lineplot(x="Data", y="Seguidores do Instagram", data=visitasIG, label="visitas", linewidth=2.5, color=cores[1])
-    sns.lineplot(x="Data", y="Alcance do Instagram", data=alcanceIG, label="alcance", linewidth=2.5, color=cores[2])
+    sns.lineplot(x="Data", y="Primary", data=seguidoresIG, label="seguidores", linewidth=2.5, color=cores[0])
+    sns.lineplot(x="Data", y="Primary", data=visitasIG, label="visitas", linewidth=2.5, color=cores[1])
+    sns.lineplot(x="Data", y="Primary", data=alcanceIG, label="alcance", linewidth=2.5, color=cores[2])
 
     # Ajustando o intervalo entre as datas no eixo x
     #plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia

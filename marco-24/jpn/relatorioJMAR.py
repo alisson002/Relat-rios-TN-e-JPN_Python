@@ -206,7 +206,7 @@ with doc.create(Section('', numbering=False)):
     with doc.create(Figure(position='h!')) as plot:
         plot.add_image(alcanceIG_plot_path, width=NoEscape(r'0.7\textwidth'))
 
-dadosIG_plot_path = GR.dadosIG()
+dadosIG_plot_path = GR.dadosIG(45,200)
 
 # Adiciona uma seção ao documento
 with doc.create(Section('', numbering=False)):

@@ -510,7 +510,7 @@ with doc.create(Section('', numbering=False)):
 
 doc.append(NewPage())
 
-dadosIG_plot_path = GR.dadosIG()
+dadosIG_plot_path = GR.dadosIG(30,500)
 
 # Adiciona uma seção ao documento
 with doc.create(Section('', numbering=False)):
