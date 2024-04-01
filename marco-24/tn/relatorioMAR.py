@@ -44,47 +44,47 @@ portal_visualizacoes_2023 = [5043133,2880374,9257203,5981878,6426837,5382596,611
 ,5531690,4401142,2948640,3120290] # mesmo valor na tabela e no analytics
 portal_novosUsuarios_2023 = [635446,629702,837845,629077,639599,436361,586337,606078,573317,956925,747908,803205] # mesmo valor na tabela e no analytics
 
-portal_usuariosUnicos_2024Table = [1633738,1440822]
-portal_usuariosRescorrentes_2024Table = [723672,551399]
-portal_usuariosUnicos_2024Analytics = [1100000,970000]
-portal_usuariosRescorrentes_2024Analytics = [279000,248000]
-portal_visualizacoes_2024 = [3503660,2645684] # mesmo valor na tabela e no analytics
-portal_novosUsuarios_2024 = [819084,778346] # mesmo valor na tabela e no analytics
+portal_usuariosUnicos_2024Table = [1633738,1440822,1360093]
+portal_usuariosRescorrentes_2024Table = [723672,551399,610932]
+portal_usuariosUnicos_2024Analytics = [1100000,970000,872000]
+portal_usuariosRescorrentes_2024Analytics = [279000,248000,233000]
+portal_visualizacoes_2024 = [3503660,2645684,3109309] # mesmo valor na tabela e no analytics
+portal_novosUsuarios_2024 = [819084,778346,726313] # mesmo valor na tabela e no analytics
 
 ig_seg_2023 = [1240,8640,22600,6150,3514,5242,6672,5785,7315,6451,6106,5683]
 ig_seg_2023_perdeu = [0,0,0,0,2794,4279,5165,4624,4585,4906,4988,4763]
 ig_alcance_2023 = [669864,642671,715617,569749,541961,533116,570764,530776,515617,571695,543975,582262]
 ig_vivitas_2023 = [205736,245144,739332,162899,156869,128295,142502,147638,143376,132933,135058,129676]
 
-ig_seg_2024 = [6931,5816]
-ig_seg_2024_perdeu = [5485,4945]
-ig_alcance_2024 = [542064,658917]
-ig_vivitas_2024 = [151885,144742]
+ig_seg_2024 = [6931,5816,5835]
+ig_seg_2024_perdeu = [5485,4945,4587]
+ig_alcance_2024 = [542064,658917,633648]
+ig_vivitas_2024 = [151885,144742,131296]
 
-ig_seg_2024_total = [529865,530797]
+ig_seg_2024_total = [529865,530797,532444]
 
 fb_seg_2023 = [524,401,1316,362,386,273,293,223,172,186,248,455]
 fb_seg_2023_perdeu = [97,72,102,54,50,42,63,53,44,73,146,152]
 fb_alcance_2023 = [506283,459876,655223,310292,338973,250577,333882,258987,259921,336781,389143,492038]
 fb_vivitas_2023 = [30707,24425,81866,36040,34809,29306,26755,27793,26507,25099,29348,29167]
 
-fb_seg_2024 = [628,389]
-fb_seg_2024_perdeu = [162,162]
-fb_alcance_2024 = [467889,390008]
-fb_vivitas_2024 = [32152,31459]
+fb_seg_2024 = [628,389,188]
+fb_seg_2024_perdeu = [162,162,176]
+fb_alcance_2024 = [467889,390008,197628]
+fb_vivitas_2024 = [32152,31459,31499]
 
-fb_seg_2024_total = [332603,332614]
+fb_seg_2024_total = [332603,332614,332419]
 
 tw_seg_2023 = [1649,863,2823,2825,392,347,519,997,1454,1864,2169,2599]
 #tw_seg_2023_perdeu = []
 tw_impressões_2023 = [0,578375,1305007,1196504,1043859,1029266,782790,587558,285029,354720,391759,429655]
 tw_engajamentos_2023 = [0,11089,31977,20510,20347,19405,16967,13004,8337,8112,9825,10816]
 
-tw_seg_2024 = [2867,2002]
-tw_impressões_2024 = [455800,421287]
-tw_engajamentos_2024 = [13186,11223]
+tw_seg_2024 = [2867,2002,2084]
+tw_impressões_2024 = [455800,421287,420268]
+tw_engajamentos_2024 = [13186,11223,12340]
 
-tw_seg_2024_total = [311129,312006]
+tw_seg_2024_total = [311129,312006,312146]
 tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 yb_inc_2023 = [147,222,467,257,277,287,343,323,240,275,277,310]
@@ -92,12 +92,12 @@ yb_inc_2023_perdeu = [48,68,81,42,56,61,65,64,55,46,63,62]
 yb_visualizacoes_2023 = [34722,72406,102836,64296,66046,69167,83169,73401,53691,53629,78371,66752]
 yb_horas_2023 = [844.7,1415.3,2890.7,1938.2,2018.3,2290.2,2405.9,1759.1,1389.1,1420.0,1690.8,1553.0]
 
-yb_inc_2024 = [415,614]
-yb_inc_2024_perdeu = [85,84]
-yb_visualizacoes_2024 = [132377,137318]
-yb_horas_2024 = [2338.8,4194]
+yb_inc_2024 = [415,614,1506]
+yb_inc_2024_perdeu = [85,84,110]
+yb_visualizacoes_2024 = [132377,137318,371375]
+yb_horas_2024 = [2339,4194,5135]
 
-yb_inc_2024_total = [34000,34500]
+yb_inc_2024_total = [34000,34500,35940]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Tribuna do Norte', numbering=False)):
@@ -448,15 +448,15 @@ with doc.create(Section('', numbering=False)):
 
 doc.append(NewPage())
 
-# curtidasFB_plot_path = GR.curtidasFB()
+curtidasFB_plot_path = GR.curtidasFB()
 
-# # Adiciona uma seção ao documento
-# with doc.create(Section('', numbering=False)):
-#     doc.append("FB: curtidas ao longo do mês")
-#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-#     # Adiciona a figura ao documento
-#     with doc.create(Figure(position='H')) as plot:
-#         plot.add_image(curtidasFB_plot_path, width=NoEscape(r'0.45\textwidth'))
+# Adiciona uma seção ao documento
+with doc.create(Section('', numbering=False)):
+    doc.append("FB: curtidas ao longo do mês")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='H')) as plot:
+        plot.add_image(curtidasFB_plot_path, width=NoEscape(r'0.75 \textwidth'))
 
 visitasFB_plot_path = GR.visitasFB()
 
