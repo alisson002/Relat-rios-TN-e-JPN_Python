@@ -104,7 +104,7 @@ def fePublico_FBIG():
 
     Ações: Exportar (dropdown) >>> Exportar como csv
     '''
-    save_dir = "C:/Users/Usuario/Desktop/relatorioPyJPN"
+    save_dir = "C:/Users/Usuario/Documents/Repositórios/Imagens/JPN"
     os.makedirs(save_dir, exist_ok=True)
     
     idade = pd.read_csv(r"C:\Users\Usuario\Documents\Repositórios\csv\JPN\Público.csv", skiprows= 13, encoding='utf-16')
@@ -271,15 +271,14 @@ def encontrar_frase_em_csv_meta(nome_arquivo, frase_procurada):
 
 def seguidoresIG():
     # SEGUIDORES
-    inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidos no Instagram')
-
-    final_segIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidores')
-    print(final_segIG)
-    seguidoresIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', skiprows=inicio_seguidoresIG, encoding='utf-16', skip_blank_lines=True,nrows=final_segIG-4).dropna()
+    inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Seguidores.csv', 'Seguidos no Instagram')
+    #final_visitasIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Visitas.csv', 'Seguidos no Instagram')
+    seguidoresIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Seguidores.csv', skiprows=inicio_seguidoresIG, encoding='utf-16', skip_blank_lines=True,)
 
     seguidoresIG['Data'] = pd.to_datetime(seguidoresIG['Data']).dt.strftime('%d-%m-%Y')
-    
+
     # Configurando o tema do Seaborn
+    #custom = {"axes.facecolor": "black"}
     sns.set_theme(style="darkgrid")
 
     # Criando o gráfico de linhas
@@ -312,12 +311,13 @@ def seguidoresIG():
 
 def visitasIG():
     # VISITAS
-    inicio_visitasIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Visitas.csv', 'Visitas ao perfil do Instagram')
+    inicio_visitasIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Visitas.csv', 'Visitas ao perfil do Instagram')
+    final_visitasIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Visitas.csv', 'Visitas ao Facebook')
 
-    visitasIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Visitas.csv', skiprows=inicio_visitasIG, encoding='utf-16', skip_blank_lines=True)
+    visitasIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Visitas.csv', skiprows=inicio_visitasIG, encoding='utf-16', skip_blank_lines=True,nrows=final_visitasIG-5)
 
     visitasIG['Data'] = pd.to_datetime(visitasIG['Data']).dt.strftime('%d-%m-%Y')
-    
+
     # Configurando o tema do Seaborn
     sns.set_theme(style="darkgrid")
 
@@ -348,12 +348,12 @@ def visitasIG():
     return visitasIG_plot_path, visitasIG
 
 def alcanceIG():
-    inicio_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Alcance.csv', 'Alcance do Instagram')
+    inicio_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Alcance.csv', 'Alcance do Instagram')
 
-    alcanceIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Alcance.csv', skiprows=inicio_alcanceIG, encoding='utf-16', skip_blank_lines=True)
+    alcanceIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Alcance.csv', skiprows=inicio_alcanceIG, encoding='utf-16', skip_blank_lines=True)
 
     alcanceIG['Data'] = pd.to_datetime(alcanceIG['Data']).dt.strftime('%d-%m-%Y')
-    
+
     # Configurando o tema do Seaborn
     sns.set_theme(style="darkgrid")
 
@@ -384,31 +384,32 @@ def alcanceIG():
     return alcanceIG_plot_path, alcanceIG
 
 def dadosIG(intVisistas,intSeg):
-    inicio_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Alcance2.csv', 'Alcance do Instagram')
+    # ALCANCE
+    inicio_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Alcance.csv', 'Alcance do Instagram')
 
-    alcanceIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Alcance2.csv', skiprows=inicio_alcanceIG, encoding='utf-16', skip_blank_lines=True)
+    alcanceIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Alcance.csv', skiprows=inicio_alcanceIG, encoding='utf-16', skip_blank_lines=True)
 
     alcanceIG['Data'] = pd.to_datetime(alcanceIG['Data']).dt.strftime('%d-%m-%Y')
 
     # VISITAS
-    inicio_visitasIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Visitas2.csv', 'Visitas ao perfil do Instagram')
+    inicio_visitasIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Visitas.csv', 'Visitas ao perfil do Instagram')
 
-    visitasIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Visitas2.csv', skiprows=inicio_visitasIG, encoding='utf-16', skip_blank_lines=True)
+    final_visitasIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Visitas.csv', 'Visitas ao Facebook')
+
+    visitasIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Visitas.csv', skiprows=inicio_visitasIG, encoding='utf-16', skip_blank_lines=True,nrows=final_visitasIG-5)
 
     visitasIG['Data'] = pd.to_datetime(visitasIG['Data']).dt.strftime('%d-%m-%Y')
 
-    visitasIG['Primary'] = visitasIG['Primary']*intVisistas
+    visitasIG['Primary'] = visitasIG['Primary']*80
 
     # SEGUIDORES
-    inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidos no Instagram')
+    inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Seguidores.csv', 'Seguidos no Instagram')
 
-    final_segIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidores')
-    print(final_segIG)
-    seguidoresIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', skiprows=inicio_seguidoresIG, encoding='utf-16', skip_blank_lines=True,nrows=final_segIG-4).dropna()
+    seguidoresIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Seguidores.csv', skiprows=inicio_seguidoresIG, encoding='utf-16', skip_blank_lines=True)
 
     seguidoresIG['Data'] = pd.to_datetime(seguidoresIG['Data']).dt.strftime('%d-%m-%Y')
 
-    seguidoresIG['Primary'] = seguidoresIG['Primary']*intSeg
+    seguidoresIG['Primary'] = seguidoresIG['Primary']*300
 
 
     # social_media_data['Data'] = pd.to_datetime(social_media_data['Data'])
@@ -592,7 +593,7 @@ def engajamentoTW():
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
     #plt.ylabel("Alcance")
-    plt.title("Engajamento do Twitter ao longo do mês")
+    plt.title("Engajamento do Twitter")
 
     plt.legend()
     
@@ -627,7 +628,7 @@ def impressoesTW():
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
     #plt.ylabel("Alcance")
-    plt.title("Impressões do Twitter ao longo do mês")
+    plt.title("Impressões do Twitter")
 
     plt.legend()
     
@@ -662,7 +663,7 @@ def seguidoresTW():
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
     #plt.ylabel("Alcance")
-    plt.title("Novos seguidores do Twitter ao longo do mês")
+    plt.title("Novos seguidores do Twitter")
 
     plt.legend()
 

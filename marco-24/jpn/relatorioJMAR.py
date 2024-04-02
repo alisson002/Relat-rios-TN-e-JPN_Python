@@ -14,7 +14,7 @@ with doc.create(MiniPage(align='c')):
         doc.append(LineBreak())
         doc.append(LineBreak())
         doc.append(LineBreak())
-        doc.append(MediumText(("Fevereiro de 2024")))
+        doc.append(MediumText(("Março de 2024")))
         doc.append(LineBreak())
 
 ig_seg_2023_og = [39,302,2011,237,217,290,258,260,255,178,221,259] #apenas os valores de jun e nov mudaram pela plataforma
@@ -23,12 +23,12 @@ ig_seg_2023_perdeu = [0,0,0,0,0,142,241,202,236,204,194,226]
 ig_alcance_2023 = [21733,15091,25147,17005,14844,19697,29758,16139,13015,11219,24345,65525]
 ig_vivitas_2023 = [1641,1213,10131,1105,1436,1780,1193,1297,1372,1246,1468,1902]
 
-ig_seg_2024 = [306,265]
-ig_seg_2024_perdeu = [230,240]
-ig_alcance_2024 = [26399,32188]
-ig_vivitas_2024 = [1646,2176]
+ig_seg_2024 = [306,265,353]
+ig_seg_2024_perdeu = [230,240,207]
+ig_alcance_2024 = [26399,32188,111983]
+ig_vivitas_2024 = [1646,2176,2272]
 
-ig_seg_2024_total = [28290,28326]
+ig_seg_2024_total = [28290,28326,28467]
 
 tw_seg_2023_og = [151,-30,62,-5,-5,-36,-2,7,1,20-18,6]
 tw_impressões_2023_og = [55700,39500,60300,99800,53900,55800,46300,51900,35000,35400,28500,27500]
@@ -39,28 +39,28 @@ tw_seg_2023 = [151,-30,62,-5,-5,-36,26,87,40,68,51,62] #dados da tabela disponí
 tw_impressões_2023 = [55700,39500,51586,45839,53858,55765,46258,51901,34972,35441,28486,27474]
 tw_engajamentos_2023 = [700,578,982,706,848,890,769,847,558,574,473,489]
 
-tw_seg_2024 = [32,60]
-tw_impressões_2024 = [35684,28801]
-tw_engajamentos_2024 = [589,518]
+tw_seg_2024 = [32,60,61]
+tw_impressões_2024 = [35684,28801,29837]
+tw_engajamentos_2024 = [589,518,595]
 
-tw_seg_2024_total = [27820,27808]
-tw_seg_2024_perdeu = [58,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
+tw_seg_2024_total = [27820,27808,27751]
+tw_seg_2024_perdeu = [58,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 yb_inc_2023 = [948,418,760,356,516,411,371,387,258,259,495,172]
 yb_inc_2023_perdeu = [258,152,154,103,139,117,117,123,121,113,111,105]
 yb_visualizacoes_2023 = [247874,108139,146070,86068,148727,118942,107559,94221,52970,51953,166181,23359]
 yb_horas_2023 = [24389,8349,12020,7839,11011,9419,9362,8893,5907,5131,12228,3396]
 
-yb_inc_2024 = [501,286]
-yb_inc_2024_perdeu = [130,111]
-yb_visualizacoes_2024 = [97513,81437]
-yb_horas_2024 = [7077,6209]
+yb_inc_2024 = [501,286,450]
+yb_inc_2024_perdeu = [130,111,119]
+yb_visualizacoes_2024 = [97513,81437,102095]
+yb_horas_2024 = [7077,6209,8204]
 
-yb_inc_2024_total = [33338,33513]
+yb_inc_2024_total = [33338,33513,33912]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Jovem Pan News', numbering=False)):
-    with doc.create(Subsection('Resultados de fevereiro/2024', numbering=False)):
+    with doc.create(Subsection('Resultados de março/2024', numbering=False)):
         with doc.create(MiniPage(align='c')):
             # Adiciona a tabela de resultados
             with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
