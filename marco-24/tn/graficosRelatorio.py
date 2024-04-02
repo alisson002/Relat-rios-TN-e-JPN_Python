@@ -12,7 +12,9 @@ def formataNumero(numero):
     return numero_formatado
 
 def fixacao(atual, anterior):
-    taxa = (atual-anterior)/atual
+    taxa = (atual-anterior)/abs(atual)
+    if taxa > 0:
+        return f'{str(round((taxa*100),2)).replace('.', ',')}%'
     return f'{str(round((taxa*100),2)).replace('.', ',')}%'
 
 def crescimento(atual, antigo):
@@ -127,7 +129,7 @@ def origemPortal():
         elif '(direct) / (none)' in row['Origem / mídia da sessão']:
             return 'Acesso Direto'
         else:
-            return 'outras'
+            return 'outros'
 
     df['Midia'] = df.apply(agrupar_por_midia, axis=1)
 

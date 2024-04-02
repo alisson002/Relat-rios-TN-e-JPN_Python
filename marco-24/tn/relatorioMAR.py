@@ -29,7 +29,7 @@ with doc.create(MiniPage(align='c')):
         doc.append(LineBreak())
         doc.append(LineBreak())
         doc.append(LineBreak())
-        doc.append(MediumText(("Fevereiro de 2024")))
+        doc.append(MediumText(("Março de 2024")))
         doc.append(LineBreak())
 
 # f'{p.get_height():.1f}%'
@@ -101,7 +101,7 @@ yb_inc_2024_total = [34000,34500,35940]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Tribuna do Norte', numbering=False)):
-    with doc.create(Subsection('Resultados de fevereiro/2024', numbering=False)):
+    with doc.create(Subsection('Resultados de março/2024', numbering=False)):
         with doc.create(MiniPage(align='c')):
             # Adiciona a tabela de resultados
             with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
@@ -162,10 +162,10 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
                 table.add_row((MultiRow(2, data='Janeiro'), '819 mil', '3,5 milhões', '279 mil'))
                 table.add_row(('', FootnoteText('+2% | +29%'), FootnoteText('+13% | -30%'), FootnoteText('-3,5% | +37,4%')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='Fevereiro'), GR.numeroPorExtensso(portal_novosUsuarios_2024[2]), GR.numeroPorExtensso(portal_visualizacoes_2024[2]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[2])))
+                table.add_row((MultiRow(2, data='Fevereiro'), GR.numeroPorExtensso(portal_novosUsuarios_2024[1]), GR.numeroPorExtensso(portal_visualizacoes_2024[1]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(portal_novosUsuarios_2024[1],portal_novosUsuarios_2024[0])} | {GR.crescimento(portal_novosUsuarios_2024[1],portal_novosUsuarios_2023[1])}'), FootnoteText(f'{GR.crescimento(portal_visualizacoes_2024[1],portal_visualizacoes_2024[0])} | {GR.crescimento(portal_visualizacoes_2024[1],portal_visualizacoes_2023[1])}'), FootnoteText(f'{GR.crescimento(portal_usuariosRescorrentes_2024Analytics[1],portal_usuariosRescorrentes_2024Analytics[0])} | {GR.crescimento(portal_usuariosRescorrentes_2024Analytics[1],portal_usuariosRescorrentes_2023Analytics[1])}')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='Março'), GR.numeroPorExtensso(portal_novosUsuarios_2024[1]), GR.numeroPorExtensso(portal_visualizacoes_2024[1]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[1])))
+                table.add_row((MultiRow(2, data='Março'), GR.numeroPorExtensso(portal_novosUsuarios_2024[2]), GR.numeroPorExtensso(portal_visualizacoes_2024[2]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[2])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(portal_novosUsuarios_2024[2],portal_novosUsuarios_2024[1])} | {GR.crescimento(portal_novosUsuarios_2024[2],portal_novosUsuarios_2023[2])}'), FootnoteText(f'{GR.crescimento(portal_visualizacoes_2024[2],portal_visualizacoes_2024[1])} | {GR.crescimento(portal_visualizacoes_2024[2],portal_visualizacoes_2023[2])}'), FootnoteText(f'{GR.crescimento(portal_usuariosRescorrentes_2024Analytics[2],portal_usuariosRescorrentes_2024Analytics[1])} | {GR.crescimento(portal_usuariosRescorrentes_2024Analytics[2],portal_usuariosRescorrentes_2023Analytics[2])}')))
                 # table.add_hline()
                 # table.add_row((MultiRow(2, data='Abril'), GR.numeroPorExtensso(portal_novosUsuarios_2024[3]), GR.numeroPorExtensso(portal_visualizacoes_2024[3]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[3])))
@@ -223,6 +223,10 @@ with doc.create(Subsection('', numbering=False)):
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(GR.origem_plot_path, width=NoEscape(r'1\textwidth'))
 
+with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+            itemize.add_item('O acesso direto representa os usuários que digitaram a URL da Tribuna do Norte diretamente no navegador,adicionaram o site aos favoritos ou clicaram diretamente em um link compartilhado, desta forma, indo diretamente para o site sem precisar pesquisa-lo.')
+            itemize.add_item('As outras informações representam o acesso através da plataforma indicada pelo título da respectiva barra.')
+
 doc.append(NewPage())
 
 # TOP10 PORTAL
@@ -234,7 +238,7 @@ with doc.create(Subsection('', numbering=False)):
 
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.top10_plot_path, width=NoEscape(r'0.8\textwidth'))
+        plot.add_image(GR.top10_plot_path, width=NoEscape(r'0.9\textwidth'))
         
 # TOP15 PORTAL
 GR.top15()
@@ -452,7 +456,7 @@ curtidasFB_plot_path = GR.curtidasFB()
 
 # Adiciona uma seção ao documento
 with doc.create(Section('', numbering=False)):
-    doc.append("FB: curtidas ao longo do mês")
+    doc.append("FB: novos seguidores ao longo do mês")
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
@@ -478,6 +482,8 @@ with doc.create(Section('', numbering=False)):
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(alcanceFB_plot_path, width=NoEscape(r'0.75\textwidth'))
 
+doc.append(NewPage())
+
 seguidoresIG_plot_path, seguidoresIG = GR.seguidoresIG()
 
 # Adiciona uma seção ao documento
@@ -486,7 +492,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.45\textwidth'))
+        plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.75\textwidth'))
 
 visitasIG_plot_path, visitasIG = GR.visitasIG()
 
@@ -496,7 +502,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(visitasIG_plot_path, width=NoEscape(r'0.45\textwidth'))
+        plot.add_image(visitasIG_plot_path, width=NoEscape(r'0.75\textwidth'))
 
 alcanceIG_plot_path, alcanceIG = GR.alcanceIG()
 
@@ -506,7 +512,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(alcanceIG_plot_path, width=NoEscape(r'0.45\textwidth'))
+        plot.add_image(alcanceIG_plot_path, width=NoEscape(r'0.75\textwidth'))
 
 doc.append(NewPage())
 
@@ -779,6 +785,7 @@ with doc.create(Itemize()) as itemize:
                 sublist.add_item(NoEscape(f'Por exemplo: se subtrairmos a quantidade total de seguidores do mês atual pela anterior e somarmos isso a quantos deixaram de seguir (atual - anterior + unfollow), teremos a quantidade total de "Seguidores adquiridos no mês:". Esse valor seria o mesmo dado de seguidores adquiridos que está nas tabelas de cada rede social (follows). E a quantidade de usuários que continuaram seguindo a página seria apenas a diferença do total de seguidores do mês atual e anterior (atual - anterior), que deveria dar no mesmo de subtrair "follows" por "unfollows" (follows - unfollows). Para que fique mais claro, a diferença entre "follows" e "unfollows" somada a quantidade total de seguidores do mês anterior deveria ser igual a quantidade total do mês atual (follows - unfollows + total seg. anterior = total seg. atual).'))
                 sublist.add_item(NoEscape(f'Todos esses dados são fornecidos pelas próprias plataformas, mas eles podem acabar sendo um pouco diferentes para sua respectiva rede social.'))
             itemize.add_item('Top15 notícias mais pesquisadas: as impressões são referentes a quantidade de vezes que uma pesquisa sobre determinado assunto foi realizada e foi possível visualizar o link da notícia no portal do TN entre os resultados.')
+            
 # with doc.create(Itemize()) as itemize:
 #             # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
 #             itemize.add_item('Calculos de porcentagem:')
