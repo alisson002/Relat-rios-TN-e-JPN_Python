@@ -160,7 +160,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(fePublico_FBIG_plot_path, width=NoEscape(r'0.8\textwidth'))
+        plot.add_image(fePublico_FBIG_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 doc.append(NewPage())
 
@@ -172,7 +172,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(publicoCidades_plot_path, width=NoEscape(r'0.8\textwidth'))
+        plot.add_image(publicoCidades_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 seguidoresIG_plot_path, seguidoresIG = GR.seguidoresIG()
 
@@ -182,7 +182,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.8\textwidth'))
+        plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.75\textwidth'))
 
 doc.append(NewPage())
 
@@ -194,7 +194,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(visitasIG_plot_path, width=NoEscape(r'0.7\textwidth'))
+        plot.add_image(visitasIG_plot_path, width=NoEscape(r'0.75\textwidth'))
 
 alcanceIG_plot_path, alcanceIG = GR.alcanceIG()
 
@@ -204,7 +204,9 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(alcanceIG_plot_path, width=NoEscape(r'0.7\textwidth'))
+        plot.add_image(alcanceIG_plot_path, width=NoEscape(r'0.75\textwidth'))
+        
+doc.append(NewPage())
 
 dadosIG_plot_path = GR.dadosIG(45,200)
 
@@ -397,6 +399,15 @@ with doc.create(Section('', numbering=False)):
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
         plot.add_image(visualizacoesCidadeYTB_plot_path, width=NoEscape(r'0.7\textwidth'))
+
+conteudoYTB_plot_path = GR.conteudoYTB()
+# Adiciona uma seção ao documento
+with doc.create(Section('', numbering=False)):
+    doc.append("YouTube: conteudos com mais visualizações")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='h!')) as plot:
+        plot.add_image(conteudoYTB_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 
 doc.append(NewPage())

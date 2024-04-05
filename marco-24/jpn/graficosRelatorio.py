@@ -348,6 +348,7 @@ def visitasIG():
     return visitasIG_plot_path, visitasIG
 
 def alcanceIG():
+    # ALCANCE
     inicio_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Alcance.csv', 'Alcance do Instagram')
 
     alcanceIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\Alcance.csv', skiprows=inicio_alcanceIG, encoding='utf-16', skip_blank_lines=True)
@@ -521,7 +522,7 @@ def generoYTB():
 
     # Plotar o gráfico de pizza usando Matplotlib
     plt.pie(generoytb['Visualizações (%)'], labels=generoytb['Gênero do espectador'], autopct='%1.1f%%', startangle=90, colors=sns.color_palette("light:#787878"))
-
+    
     # Adicionar título
     plt.title('Sexo dos usuários do YouTube')
     
@@ -566,6 +567,68 @@ def visualizacoesCidadeYTB():
     plt.savefig(visualizacoesCidadeYTB_plot_path, bbox_inches="tight")
     
     return visualizacoesCidadeYTB_plot_path
+
+def conteudoYTB():
+    conteudo = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\conteudoYTB.csv')
+    conteudo=conteudo.dropna()
+    # Função para agrupar os usuários por mídia
+    def agrupar_por_midia(row):
+        if '🔴' in row['Título do vídeo']:
+            return 'Transmissão de Jogo'
+        elif 'JORNAL DA MANHÃ' in row['Título do vídeo']:
+            return 'Jornal da Manhã'
+        # elif 'Jornal da Manhã' in row['Título do vídeo']:
+        #     return 'Jornal da Manhã'
+        elif 'TRIBUNA ESPORTE' in row['Título do vídeo']:
+            return 'Tribuna Esporte'
+        # elif 'Tribuna Esporte' in row['Título do vídeo']:
+        #     return 'Tribuna Esporte'
+        elif 'TRIBUNA LIVRE' in row['Título do vídeo']:
+            return 'Tribuna Livre'
+        # elif 'Tribuna Livre' in row['Título do vídeo']:
+        #     return 'Tribuna Livre'
+        elif 'BATE PRONTO' in row['Título do vídeo']:
+            return 'Bate Pronto'
+        # elif 'Bate Pronto' in row['Título do vídeo']:
+        #     return 'Bate Pronto'
+    conteudo['Midia'] = conteudo.apply(agrupar_por_midia, axis=1)
+
+    agrupado = conteudo.groupby('Midia')['Visualizações'].sum().reset_index().sort_values(by='Visualizações',ascending=False)
+    # agrupado['Visualizações'] = agrupado['Visualizações'].astype(int)
+    # agrupado.sort_values(by='Visualizações',ascending=False)
+    sns.set_theme(style="whitegrid")
+
+    # Criar o gráfico de barras com a paleta "magma"
+    plt.figure(figsize=(12, 6))
+    ax = sns.barplot(x='Visualizações', y='Midia', data=agrupado, palette="blend:#77BAB5,#7794BA,#77AABB,#77BA9F,#777FBA")#"blend:#7AB,#EDA"
+
+    # Adicionar rótulos diretamente acima de cada barra
+    # for p in ax.patches:
+    #     ax.annotate(f'{p.get_height()}', (p.get_x() + p.get_width() / 2., p.get_height()),
+    #                 ha='center', va='center', fontsize=10, color='black', xytext=(0, 5),
+    #                 textcoords='offset points')
+
+    # Adicionar percentuais
+    for i, p in enumerate(plt.gca().patches):
+        percentage = p.get_width()
+        plt.text(p.get_x() + p.get_width() + 0.02, p.get_y() + p.get_height() / 2, f"{percentage:.0f}", ha='left', va='center', size=10)
+
+    # Adicionar rótulos e título
+    plt.xlabel('Conteúdo')
+    plt.ylabel('Visualizações')
+    plt.title('Conteudos com mais visualizações')
+
+
+    # Ajustar os rótulos do eixo Y para valores correspondentes
+    #plt.yticks(range(0, max(visualizacoes)+100000, 200000))
+
+    # Desativar a notação científica no eixo Y
+    plt.ticklabel_format(axis='x', style='plain')
+    
+    conteudoYTB_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/JPN/conteudoYTB.png"
+    plt.savefig(conteudoYTB_plot_path, bbox_inches="tight")
+    
+    return conteudoYTB_plot_path
 
 def engajamentoTW():
     tw = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\twitter.csv')
