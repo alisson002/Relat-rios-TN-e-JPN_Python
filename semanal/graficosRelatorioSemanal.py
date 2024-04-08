@@ -4,8 +4,30 @@ from matplotlib.patches import Patch
 import seaborn as sns
 import numpy as np
 from datetime import datetime
+import datetime
 import matplotlib.dates as mdates
 import csv
+
+def ultimo_sabado():
+    hoje = datetime.date.today()
+    dia_da_semana = hoje.weekday()  # Retorna um número de 0 (segunda-feira) a 6 (domingo)
+    if dia_da_semana == 0: #segunda
+        dias_para_subtrair = (dia_da_semana + 2) % 7  # Dias a subtrair para chegar ao último sabado
+    elif dia_da_semana == 1: #terça
+        dias_para_subtrair = (dia_da_semana + 3) % 7  # Dias a subtrair para chegar ao último sabado
+    ultimo_domingo = hoje - datetime.timedelta(days=dias_para_subtrair)
+    return ultimo_domingo.strftime("%d-%m-%Y")
+
+def penultimo_domingo():
+    hoje = datetime.date.today()
+    dia_da_semana = hoje.weekday()  # Retorna um número de 0 (segunda-feira) a 6 (domingo)
+    if dia_da_semana == 0: #segunda
+        dias_para_subtrair = (dia_da_semana + 8) % 7  # Dias a subtrair para chegar ao último sabado
+    elif dia_da_semana == 1: #terça
+        dias_para_subtrair = (dia_da_semana + 9) % 7  # Dias a subtrair para chegar ao último sabado
+    ultimo_domingo = hoje - datetime.timedelta(days=dias_para_subtrair)
+    penultimo_domingo = ultimo_domingo - datetime.timedelta(days=7)
+    return penultimo_domingo.strftime("%d-%m-%Y")
 
 def formataNumero(numero):
     numero_formatado = '{:,}'.format(numero).replace(',', '.')
@@ -183,8 +205,8 @@ def top10():
     Ações: Compartilhar esse relatorio (icone) >>> Fazer o download do arquivo >>> Fazer download do CSV
 
     '''
-
-    
+    # Ler o DataFrame diretamente do arquivo CSV, começando da linha 10
+    df = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\top10.csv', skiprows=9)
 
     # Filtrar apenas as linhas que representam notícias
     df = df[df['Caminho da página e classe da tela'].str.contains('-')]
@@ -207,7 +229,7 @@ def top10():
 
     # Adicionar os rótulos (números de visualizações e nomes das notícias) diretamente nas barras
     for i, (value, name) in enumerate(zip(df['Visualizações'], df['Noticia'])):
-        ax.text(int(df['Visualizações'][3])*0.006, i, f'{name} - {value}', va='center', ha='left', fontsize=8)
+        ax.text(int(df['Visualizações'][3])*0.006, i, f'{name} - {value}', va='center', ha='left', fontsize=9)
 
 
     # Modificar os ticks do eixo Y para números de 1 a 10
@@ -301,7 +323,7 @@ def top15():
 
     # Adicionar os nomes das notícias no início das barras
     for bar, label in zip(bars, df['Texto']):
-        plt.text(int(df['Impressões orgânicas da Pesquisa Google'][0])*0.006, bar.get_y() + bar.get_height() / 2, label, va='center', ha='left', fontsize=8)
+        plt.text(int(df['Impressões orgânicas da Pesquisa Google'][0])*0.006, bar.get_y() + bar.get_height() / 2, label, va='center', ha='left', fontsize=9)
 
     plt.xlabel('Impressões')
     plt.title('Top 15 Notícias Mais Pesquisadas no Google')
@@ -461,7 +483,7 @@ def visualizacoesUsuarios():
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
     #plt.ylabel("Alcance | Visitas | Seguidores")
-    plt.title("Dados do portal do mês de ???")
+    plt.title("Dados semanais do portal")
 
     #plt.yticks([])
 
@@ -526,7 +548,7 @@ def faixaEtaria():
     # Adicionar rótulos diretamente acima de cada barra
     for p in ax.patches:
         ax.annotate(f'{p.get_height():,.0f}', (p.get_x() + p.get_width() / 2., p.get_height()),
-                    ha='center', va='center', fontsize=10, color='black', xytext=(0, 5),
+                    ha='center', va='center', fontsize=12, color='black', xytext=(0, 5),
                     textcoords='offset points')
 
     # Adicionar rótulos e título
@@ -599,7 +621,7 @@ def faixaEtaria_desconhecidaAndTotal():
     # Adicionar rótulos diretamente acima de cada barra
     for p in ax.patches:
         ax.annotate(f'{p.get_height():,.0f}', (p.get_x() + p.get_width() / 2., p.get_height()),
-                    ha='center', va='center', fontsize=10, color='black', xytext=(0, 5),
+                    ha='center', va='center', fontsize=12, color='black', xytext=(0, 5),
                     textcoords='offset points')
 
     # Adicionar rótulos e título
@@ -894,10 +916,12 @@ def visitasFB():
 
 def alcanceFB():
     # ALCANCE
+    final_alcanceFB = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', 'Alcance do Instagram')
+
     inicio_alcanceFB = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', 'Alcance no Facebook')
 
-    alcanceFB = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', skiprows=inicio_alcanceFB, encoding='utf-16', skip_blank_lines=True).dropna()
-
+    alcanceFB = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', skiprows=inicio_alcanceFB, encoding='utf-16', skip_blank_lines=True, nrows=final_alcanceFB-4).dropna()
+    
     alcanceFB['Data'] = pd.to_datetime(alcanceFB['Data']).dt.strftime('%d-%m-%Y')
 
     # Configurando o tema do Seaborn
@@ -930,6 +954,68 @@ def alcanceFB():
     plt.savefig(alcanceFB_plot_path, bbox_inches="tight")
     
     return alcanceFB_plot_path
+
+def dadosFB():
+    # ALCANCE
+    final_alcanceFB = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', 'Alcance do Instagram')
+    inicio_alcanceFB = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', 'Alcance no Facebook')
+
+    alcanceFB = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', skiprows=inicio_alcanceFB, encoding='utf-16', skip_blank_lines=True,nrows=final_alcanceFB-4).dropna()
+    #alcanceFB = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', skiprows=inicio_alcanceFB, encoding='utf-16', skip_blank_lines=True).dropna().iloc[0:7]
+
+    alcanceFB['Data'] = pd.to_datetime(alcanceFB['Data']).dt.strftime('%d-%m-%Y')
+
+    # VISITAS
+    final_visitasFB = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Visitas.csv', 'Visitas ao perfil do Instagram')
+
+    visitasFB = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Visitas.csv', skiprows=2, encoding='utf-16', skip_blank_lines=True, nrows=final_visitasFB-4).dropna()
+
+    visitasFB['Data'] = pd.to_datetime(visitasFB['Data']).dt.strftime('%d-%m-%Y')
+
+    visitasFB['Primary'] = visitasFB['Primary']*15
+
+    # CURTIDAS
+    final_seguidoresFB = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Seguidores.csv', 'Seguidos no Instagram')
+
+    seguidoresFB = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Seguidores.csv', skiprows=2, encoding='utf-16', skip_blank_lines=True, nrows=final_seguidoresFB-4).dropna()
+
+    seguidoresFB['Data'] = pd.to_datetime(seguidoresFB['Data']).dt.strftime('%d-%m-%Y')
+
+    seguidoresFB['Primary'] = seguidoresFB['Primary']*1000
+
+    # Configurando o tema do Seaborn
+    sns.set_theme(style="darkgrid")
+
+    # Criando o gráfico de linhas
+    plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
+
+    # Definindo a paleta de cores desejada
+    cores = ["#5874af", "#2F79A3", "#2f55a4"]
+
+    # Plotando o gráfico de linhas
+    #sns.lineplot(x="Data", y="Novas curtidas da Página do Facebook", data=seguidoresFB, label="seguidores", linewidth=2.5, color=cores[0])
+    sns.lineplot(x="Data", y="Primary", data=visitasFB, label="visitas", linewidth=2.5, color=cores[1])
+    sns.lineplot(x="Data", y="Primary", data=alcanceFB, label="alcance", linewidth=2.5, color=cores[2])
+    sns.lineplot(x="Data", y="Primary", data=seguidoresFB, label="seguidores", linewidth=2.5, color=cores[0])
+
+    # Ajustando o intervalo entre as datas no eixo x
+    plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
+
+    plt.xticks(rotation=-90)
+
+    # Adicionando rótulos e título ao gráfico
+    plt.xlabel("Data")
+    plt.ylabel("Alcance | Visitas | Seguidores")
+    plt.title("Dados do facebook")
+
+    plt.yticks([])
+
+    plt.legend()
+    
+    dadosFB_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/dadosFB.png"
+    plt.savefig(dadosFB_plot_path, bbox_inches="tight")
+    
+    return dadosFB_plot_path
 
 def seguidoresIG():
     # # SEGUIDORES
@@ -1010,11 +1096,10 @@ def visitasIG():
     return visitasIG_plot_path, visitasIG
 
 def alcanceIG():
-    # # ALCANCE
-    
-    final_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', 'Alcance no Facebook')
+    #final_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', 'Alcance no Facebook')
+    inicio_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', 'Alcance do Instagram')
 
-    alcanceIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', skiprows=2, encoding='utf-16', skip_blank_lines=True, nrows=final_alcanceIG-5)
+    alcanceIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', skiprows=inicio_alcanceIG, encoding='utf-16', skip_blank_lines=True) #, nrows=final_alcanceIG-5
 
     alcanceIG['Data'] = pd.to_datetime(alcanceIG['Data']).dt.strftime('%d-%m-%Y')
 
@@ -1050,9 +1135,10 @@ def alcanceIG():
 def dadosIG(intVisistas, intSeg):
     
     # ALCANCE
-    final_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', 'Alcance no Facebook')
+    #final_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', 'Alcance no Facebook')
+    inicio_alcanceIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', 'Alcance do Instagram')
 
-    alcanceIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', skiprows=2, encoding='utf-16', skip_blank_lines=True, nrows=final_alcanceIG-5)
+    alcanceIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Alcance.csv', skiprows=inicio_alcanceIG, encoding='utf-16', skip_blank_lines=True) #, nrows=final_alcanceIG-5
 
     alcanceIG['Data'] = pd.to_datetime(alcanceIG['Data']).dt.strftime('%d-%m-%Y')
 
@@ -1063,7 +1149,7 @@ def dadosIG(intVisistas, intSeg):
 
     visitasIG['Data'] = pd.to_datetime(visitasIG['Data']).dt.strftime('%d-%m-%Y')
 
-    visitasIG['Primary'] = visitasIG['Primary']*35
+    visitasIG['Primary'] = visitasIG['Primary']*intVisistas
 
     # SEGUIDORES
     inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\Seguidores.csv', 'Seguidos no Instagram')
@@ -1074,7 +1160,7 @@ def dadosIG(intVisistas, intSeg):
 
     seguidoresIG['Data'] = pd.to_datetime(seguidoresIG['Data']).dt.strftime('%d-%m-%Y')
 
-    seguidoresIG['Primary'] = seguidoresIG['Primary']*550
+    seguidoresIG['Primary'] = seguidoresIG['Primary']*intSeg
 
 
     # social_media_data['Data'] = pd.to_datetime(social_media_data['Data'])
@@ -1145,7 +1231,7 @@ def engajamentoTW():
     plt.legend()
 
     # Exibindo o gráfico
-    plt.show()
+    #plt.show()
     
     engajamentoTW_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/engajamentoTW.png"
     plt.savefig(engajamentoTW_plot_path, bbox_inches="tight")
