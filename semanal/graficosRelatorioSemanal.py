@@ -167,8 +167,8 @@ def origemPortal():
         'Acesso Direto': '#FF4D02',
         'google': '#F4B400',
         'outras': '#000',
-        'facebook': '#1877f2',
         'instagram': '#bc2a8d',
+        'facebook': '#1877f2',
         'twitter': '#1DA1F2',
         'bing': '#50bf40',
         'yahoo': '#008373'
@@ -323,7 +323,7 @@ def top15():
 
     # Adicionar os nomes das notícias no início das barras
     for bar, label in zip(bars, df['Texto']):
-        plt.text(int(df['Impressões orgânicas da Pesquisa Google'][0])*0.006, bar.get_y() + bar.get_height() / 2, label, va='center', ha='left', fontsize=9)
+        plt.text(int(df['Impressões orgânicas da Pesquisa Google'][5])*0.006, bar.get_y() + bar.get_height() / 2, label, va='center', ha='left', fontsize=9)
 
     plt.xlabel('Impressões')
     plt.title('Top 15 Notícias Mais Pesquisadas no Google')
@@ -981,7 +981,7 @@ def dadosFB():
 
     seguidoresFB['Data'] = pd.to_datetime(seguidoresFB['Data']).dt.strftime('%d-%m-%Y')
 
-    seguidoresFB['Primary'] = seguidoresFB['Primary']*1000
+    seguidoresFB['Primary'] = seguidoresFB['Primary']*800
 
     # Configurando o tema do Seaborn
     sns.set_theme(style="darkgrid")

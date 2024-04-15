@@ -17,48 +17,48 @@ with doc.create(MiniPage(align='c')):
         doc.append(MediumText(("Relatório semanal")))
         doc.append(LineBreak())
 
-portal_usuariosUnicos_2024Table = [276184,441269]
-portal_usuariosRescorrentes_2024Table = [123944,197378]
-portal_usuariosUnicos_2024Analytics = [213000,331000]
-portal_usuariosRescorrentes_2024Analytics = [73000,113000]
-portal_visualizacoes_2024 = [621206,965340] # mesmo valor na tabela e no analytics
-portal_novosUsuarios_2024 = [147518,242760] # mesmo valor na tabela e no analytics
+portal_usuariosUnicos_2024Table = [276184,441269,455979]
+portal_usuariosRescorrentes_2024Table = [123944,197378,172485]
+portal_usuariosUnicos_2024Analytics = [213000,331000,370000]
+portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000]
+portal_visualizacoes_2024 = [621206,965340,924908] # mesmo valor na tabela e no analytics
+portal_novosUsuarios_2024 = [147518,242760,278732] # mesmo valor na tabela e no analytics
 
 #INSTAGRAM
-ig_seg_2024 = [1299,2685]
-ig_seg_2024_perdeu = [1040,1165]
-ig_alcance_2024 = [330170,619778]
-ig_vivitas_2024 = [24896,53103]
+ig_seg_2024 = [1299,2685,1476]
+ig_seg_2024_perdeu = [1040,1165,1080]
+ig_alcance_2024 = [330170,619778,394150]
+ig_vivitas_2024 = [24896,53103,28198]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-ig_seg_2024_total = [532444,533616]
+ig_seg_2024_total = [532444,533616,534049]
 
 #FACEBOOK
-fb_seg_2024 = [30,61]
-fb_seg_2024_perdeu = [34,35]
-fb_alcance_2024 = [64958,88738]
-fb_vivitas_2024 = [6500,7686]
+fb_seg_2024 = [30,61,71]
+fb_seg_2024_perdeu = [34,35,44]
+fb_alcance_2024 = [64958,88738,112464]
+fb_vivitas_2024 = [6500,7686,8158]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-fb_seg_2024_total = [332419,332392]
+fb_seg_2024_total = [332419,332392,332389]
 
 #TWITTER
-tw_seg_2024 = [359,455]
-tw_impressões_2024 = [86012,102051]
-tw_engajamentos_2024 = [2390,3324]
+tw_seg_2024 = [359,455,1249]
+tw_impressões_2024 = [86012,102051,96123]
+tw_engajamentos_2024 = [2390,3324,3242]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-tw_seg_2024_total = [312146,312041]
-tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
+tw_seg_2024_total = [312146,312041,312437]
+tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 #YOUTUBE
-yb_inc_2024 = [505,241]
-yb_inc_2024_perdeu = [30,15]
-yb_visualizacoes_2024 = [134255,69730]
-yb_horas_2024 = [1785,1114]
+yb_inc_2024 = [505,241,552]
+yb_inc_2024_perdeu = [30,15,31]
+yb_visualizacoes_2024 = [134255,69730,149424]
+yb_horas_2024 = [1785,1114,2142]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-yb_inc_2024_total = [35940,36167]
+yb_inc_2024_total = [35940,36167,36685]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Tribuna do Norte', numbering=False)):
@@ -121,8 +121,21 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
                 table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
                 table.add_hline()
                 table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}'), GR.numeroPorExtensso(portal_novosUsuarios_2024[-1]), GR.numeroPorExtensso(portal_visualizacoes_2024[-1]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[-1])))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(portal_novosUsuarios_2024[1],portal_novosUsuarios_2024[-2])}'), FootnoteText(f'{GR.crescimento(portal_visualizacoes_2024[-1],portal_visualizacoes_2024[-2])}'), FootnoteText(f'{GR.crescimento(portal_usuariosRescorrentes_2024Analytics[-1],portal_usuariosRescorrentes_2024Analytics[-2])}')))
-
+                table.add_row(('', FootnoteText(f'{GR.crescimento(portal_novosUsuarios_2024[-1],portal_novosUsuarios_2024[-2])}'), FootnoteText(f'{GR.crescimento(portal_visualizacoes_2024[-1],portal_visualizacoes_2024[-2])}'), FootnoteText(f'{GR.crescimento(portal_usuariosRescorrentes_2024Analytics[-1],portal_usuariosRescorrentes_2024Analytics[-2])}')))
+        
+        # Adiciona informações extras
+        # Adiciona uma lista com marcadores
+        with doc.create(Itemize()) as itemize:
+            # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
+            itemize.add_item('Legenda:')
+            #doc.append(NoEscape(r'\newline'))
+            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+                sublist.add_item(NoEscape(r'\textbf{Usuários únicos:} Número de usuários únicos que interagiram com seu site ou app. É qualquer usuário que tenha uma sessão engajada ou quando o Google Analytics coleta o evento "first_open", que é quando o usuário abre o site pela primeira vez dentro do período especificado;'))
+                sublist.add_item(NoEscape(r'\textbf{Novos usuários:} Número de novos usuários únicos que visitaram o site ou app pela primeira vez;'))
+                sublist.add_item(NoEscape(r'\textbf{Usuários recorrentes:} Número de usuários que iniciaram pelo menos uma sessão anterior, independentemente de ter sido ou não uma sessão engajada no período especificado;'))
+                sublist.add_item(NoEscape(r'\textbf{Visualizações:} Quantas telas do app para dispositivos móveis ou páginas da Web seus usuários acessaram. Exibições repetidas de uma única tela ou página são consideradas. Nesse caso tembém deve ser lavada em consideração a informação de que Jonathas fez alterações em relação as exibições repetidas;'))
+                sublist.add_item(NoEscape(r'\textbf{Sessões engajadas:} correspondem ao número de sessões com mais de 10 segundos, que geraram um ou mais eventos de conversão ou tiveram duas ou mais visualizações de página/tela.'))
+                
 doc.preamble.append(NoEscape(r'\usepackage{graphicx}'))
 doc.preamble.append(NoEscape(r'\usepackage{float}'))
 
@@ -321,7 +334,7 @@ with doc.create(Section('', numbering=False)):
 
 doc.append(NewPage())
 
-dadosIG_plot_path = GR.dadosIG(25,300)
+dadosIG_plot_path = GR.dadosIG(30,350)
 
 # Adiciona uma seção ao documento
 with doc.create(Section('', numbering=False)):
