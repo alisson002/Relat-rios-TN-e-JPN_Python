@@ -14,7 +14,7 @@ def ultimo_sabado():
     if dia_da_semana == 0: #segunda
         dias_para_subtrair = (dia_da_semana + 2) % 7  # Dias a subtrair para chegar ao último sabado
     elif dia_da_semana == 1: #terça
-        dias_para_subtrair = (dia_da_semana + 3) % 7  # Dias a subtrair para chegar ao último sabado
+        dias_para_subtrair = (dia_da_semana + 2) % 7  # Dias a subtrair para chegar ao último sabado
     ultimo_domingo = hoje - datetime.timedelta(days=dias_para_subtrair)
     return ultimo_domingo.strftime("%d-%m-%Y")
 
@@ -24,7 +24,7 @@ def penultimo_domingo():
     if dia_da_semana == 0: #segunda
         dias_para_subtrair = (dia_da_semana + 8) % 7  # Dias a subtrair para chegar ao último sabado
     elif dia_da_semana == 1: #terça
-        dias_para_subtrair = (dia_da_semana + 9) % 7  # Dias a subtrair para chegar ao último sabado
+        dias_para_subtrair = (dia_da_semana + 8) % 7  # Dias a subtrair para chegar ao último sabado
     ultimo_domingo = hoje - datetime.timedelta(days=dias_para_subtrair)
     penultimo_domingo = ultimo_domingo - datetime.timedelta(days=7)
     return penultimo_domingo.strftime("%d-%m-%Y")
