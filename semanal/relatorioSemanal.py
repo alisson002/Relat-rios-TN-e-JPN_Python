@@ -17,48 +17,48 @@ with doc.create(MiniPage(align='c')):
         doc.append(MediumText(("Relatório semanal")))
         doc.append(LineBreak())
 
-portal_usuariosUnicos_2024Table = [276184,441269,455979]
-portal_usuariosRescorrentes_2024Table = [123944,197378,172485]
-portal_usuariosUnicos_2024Analytics = [213000,331000,370000]
-portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000]
-portal_visualizacoes_2024 = [621206,965340,924908] # mesmo valor na tabela e no analytics
-portal_novosUsuarios_2024 = [147518,242760,278732] # mesmo valor na tabela e no analytics
+portal_usuariosUnicos_2024Table = [276184,441269,455979,340868]
+portal_usuariosRescorrentes_2024Table = [123944,197378,172485,156579]
+portal_usuariosUnicos_2024Analytics = [213000,331000,370000,261000]
+portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000,92000]
+portal_visualizacoes_2024 = [621206,965340,924908,765698] # mesmo valor na tabela e no analytics
+portal_novosUsuarios_2024 = [147518,242760,278732,177038] # mesmo valor na tabela e no analytics
 
 #INSTAGRAM
-ig_seg_2024 = [1299,2685,1476]
-ig_seg_2024_perdeu = [1040,1165,1080]
-ig_alcance_2024 = [330170,619778,394150]
-ig_vivitas_2024 = [24896,53103,28198]
+ig_seg_2024 = [1299,2685,1476,1499]
+ig_seg_2024_perdeu = [1040,1165,1080,1114]
+ig_alcance_2024 = [330170,619778,394150,368303]
+ig_vivitas_2024 = [24896,53103,28198,27847]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-ig_seg_2024_total = [532444,533616,534049]
+ig_seg_2024_total = [532444,533616,534049,534392]
 
 #FACEBOOK
-fb_seg_2024 = [30,61,71]
-fb_seg_2024_perdeu = [34,35,44]
-fb_alcance_2024 = [64958,88738,112464]
-fb_vivitas_2024 = [6500,7686,8158]
+fb_seg_2024 = [30,61,71,42]
+fb_seg_2024_perdeu = [34,35,44,35]
+fb_alcance_2024 = [64958,88738,112464,63173]
+fb_vivitas_2024 = [6500,7686,8158,6718]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-fb_seg_2024_total = [332419,332392,332389]
+fb_seg_2024_total = [332419,332392,332389,332334]
 
 #TWITTER
-tw_seg_2024 = [359,455,1249]
-tw_impressões_2024 = [86012,102051,96123]
-tw_engajamentos_2024 = [2390,3324,3242]
+tw_seg_2024 = [359,455,1249,892]
+tw_impressões_2024 = [86012,102051,96123,100004]
+tw_engajamentos_2024 = [2390,3324,3242,3257]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-tw_seg_2024_total = [312146,312041,312437]
-tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
+tw_seg_2024_total = [312146,312041,312437,312722]
+tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 #YOUTUBE
-yb_inc_2024 = [505,241,552]
-yb_inc_2024_perdeu = [30,15,31]
-yb_visualizacoes_2024 = [134255,69730,149424]
-yb_horas_2024 = [1785,1114,2142]
+yb_inc_2024 = [505,241,552,155]
+yb_inc_2024_perdeu = [30,15,31,17]
+yb_visualizacoes_2024 = [134255,69730,149424,40127]
+yb_horas_2024 = [1785,1114,2142,671]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-yb_inc_2024_total = [35940,36167,36685]
+yb_inc_2024_total = [35940,36167,36685,36863]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Tribuna do Norte', numbering=False)):
@@ -97,7 +97,8 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(fb_seg_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(fb_seg_2024_total[-2])}")
                 sublist.add_item(f"Seguidores adquiridos na semana: {GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(fb_seg_2024_perdeu[-1])}.")
                 sublist.add_item(f"Taxa de fixação: {GR.fixacao(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1],fb_seg_2024_perdeu[-1])}")
-                sublist.add_item(f"Obs.: nesse caso, a taxa de fixação negatíva se trata de uma diferença relmente baixa, visto que tanto 'Seguidores adquiridos na semana' quanto 'Deixaram de seguir' são números positivos, potanto, quanto mais distante de zero maior ela seria. Só seria interpretada como maior, quanto mais próximo de zero, e menor, quanto mais distante de zero, em casos onde 'Seguidores adquiridos na semana' é um número negativo, fazendo com que ele seja somado a 'Deixaram de seguir' no calcula da diferença.")
+                # sublist.add_item(f"Obs.: nesse caso, a taxa de fixação negatíva se trata de uma diferença relmente baixa, visto que tanto 'Seguidores adquiridos na semana' quanto 'Deixaram de seguir' são números positivos, potanto, quanto mais distante de zero maior ela seria. Só seria interpretada como maior, quanto mais próximo de zero, e menor, quanto mais distante de zero, em casos onde 'Seguidores adquiridos na semana' é um número negativo, fazendo com que ele seja somado a 'Deixaram de seguir' no calcula da diferença.")
+                sublist.add_item(f"O número de seguidores do Facebook apenas caiu nas ultimas 3 semanas.")
             itemize.add_item(Command('textbf', arguments='Twitter'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(tw_seg_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(tw_seg_2024_total[-2])}")
@@ -179,6 +180,16 @@ with doc.create(Subsection('', numbering=False)):
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(GR.top15_plot_path, width=NoEscape(r'0.9\textwidth'))
+
+# TOP15 PORTAL
+GR.top15cliques()
+# Adiciona uma seção ao documento
+with doc.create(Subsection('', numbering=False)):
+    doc.append("Portal: 15 notícias com mais cliques pelo google")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='H')) as plot:
+        plot.add_image(GR.top15cliques_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 # VISUALIZAÇÕES E USUÁRIOS PORTAL
 GR.visualizacoesUsuarios()

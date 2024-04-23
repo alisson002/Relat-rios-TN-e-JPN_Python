@@ -323,7 +323,7 @@ def top15():
 
     # Adicionar os nomes das notícias no início das barras
     for bar, label in zip(bars, df['Texto']):
-        plt.text(int(df['Impressões orgânicas da Pesquisa Google'][5])*0.006, bar.get_y() + bar.get_height() / 2, label, va='center', ha='left', fontsize=9)
+        plt.text(int(df['Impressões orgânicas da Pesquisa Google'][0])*0.006, bar.get_y() + bar.get_height() / 2, label, va='center', ha='left', fontsize=9)
 
     plt.xlabel('Impressões')
     plt.title('Top 15 Notícias Mais Pesquisadas no Google')
@@ -334,6 +334,91 @@ def top15():
     plt.savefig(top15_plot_path, bbox_inches="tight")
 
 top15_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/top15.png"
+
+def top15cliques():
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+
+    '''
+    LINK: https://analytics.google.com/
+
+    https://analytics.google.com/analytics/web/#/p308444970/reports/dashboard?params=_u..nav%3Dmaui%26_u.comparisonOption%3Ddisabled%26_u.date00%3D20231101%26_u.date01%3D20231130&r=lifecycle-acquisition-overview&ruid=lifecycle-acquisition-overview,life-cycle,acquisition&collectionId=life-cycle
+
+    CAMINHO: barra lateral > Relatórios > Aquisição (dropdown) > Visão geral
+
+    Compartilhar esse relatorio (icone) >>> Fazer o download do arquivo >>> Fazer download do CSV
+
+    '''
+
+    # Nome do arquivo CSV
+    nome_arquivo = r'C:\Users\Usuario\Documents\Repositórios\csv\TN\top15cliques.csv'
+
+    # Lê o arquivo CSV, ignorando linhas com problemas
+    #df = pd.read_csv(nome_arquivo, encoding='utf-8', skiprows=8)
+
+    import csv
+
+    def encontrar_frase_em_csv(nome_arquivo, frase_procurada):
+        try:
+            with open(nome_arquivo, 'r', newline='', encoding='utf-8') as arquivo_csv:
+                leitor_csv = csv.reader(arquivo_csv)
+                
+                for numero_linha, linha in enumerate(leitor_csv, start=1):
+                    if frase_procurada in linha:
+                        return numero_linha
+
+            # Se a frase não for encontrada em nenhuma linha
+            return -1
+
+        except FileNotFoundError:
+            print(f'O arquivo {nome_arquivo} não foi encontrado.')
+            return -1
+
+    # Substitua 'Cliques orgânicos da Pesquisa Google' pela frase que você está procurando
+    frase_procurada = 'Cliques orgânicos da Pesquisa Google'
+    nome_arquivo = r'C:\Users\Usuario\Documents\Repositórios\csv\TN\top15cliques.csv'
+
+    numero_linha_encontrada = encontrar_frase_em_csv(nome_arquivo, frase_procurada)
+
+    # Ler o DataFrame diretamente do arquivo CSV, começando da linha 10
+    df = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\top15cliques.csv', skiprows = 9)
+
+    # Filtrar apenas as linhas que representam notícias
+    #df = df[df['Página de destino + string de consulta'].str.contains('-')& ~df['Página de destino + string de consulta'].str.contains('/quem-somos/')]
+
+    excluded_keywords = ['/quem-somos/', '/plantao-de-noticias/','/colunas/','/alex-medeiros/']
+    df = df[df['Página de destino + string de consulta'].str.contains('-') & ~df['Página de destino + string de consulta'].str.contains('|'.join(excluded_keywords))]
+
+    df['Cliques orgânicos da Pesquisa Google'] = pd.to_numeric(df['Cliques orgânicos da Pesquisa Google'], errors='coerce')
+
+    # Ordenar o DataFrame pelas visualizações e pegar as 10 primeiras
+    df = df.sort_values(by='Cliques orgânicos da Pesquisa Google', ascending=False).head(15)
+
+    # Extrair os nomes das notícias sem caracteres especiais
+    df['Noticia'] = df['Página de destino + string de consulta'].apply(lambda x: x.split('/')[-2].replace('-', ' ')).str.title()
+
+    # Criar uma coluna combinada de Noticia e Visualizações
+    df['Texto'] = df['Noticia'] + ' - ' + df['Cliques orgânicos da Pesquisa Google'].astype(str)
+
+    # Criar o gráfico de barras horizontais com o tema do Seaborn
+    sns.set_theme()
+    plt.figure(figsize=(10, 6))
+    bars = plt.barh(range(1, 16), df['Cliques orgânicos da Pesquisa Google'], color=sns.color_palette('PuOr', n_colors=15))
+
+    # Adicionar os nomes das notícias no início das barras
+    for bar, label in zip(bars, df['Texto']):
+        plt.text(int(df['Cliques orgânicos da Pesquisa Google'][1])*0.006, bar.get_y() + bar.get_height() / 2, label, va='center', ha='left', fontsize=8)
+
+    plt.xlabel('Impressões')
+    plt.title('Top 15 Notícias com mais cliques através de pesquisa no google')
+    plt.yticks(range(1, 16), range(1, 16))  # Numerar as barras no eixo Y de 1 a 10
+    plt.ylabel('Posição')
+    plt.gca().invert_yaxis()  # Inverter a ordem para exibir a mais vista no topo
+    top15cliques_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/top15cliques.png"
+    plt.savefig(top15cliques_plot_path, bbox_inches="tight")
+
+top15cliques_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/top15cliques.png"
 
 def visualizacoesUsuarios():
     '''
@@ -1310,7 +1395,7 @@ def seguidoresTW():
 
 def visualizacoesIdadeYTB():
     ytb_idade_visualizações = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\idadeytb.csv')
-
+    ytb_idade_visualizações['Visualizações (%)'] = ytb_idade_visualizações['Visualizações (%)'].str.replace(',','.').astype(float)
     # Configurar o estilo seaborn
     sns.set(style="whitegrid")
 
@@ -1348,7 +1433,7 @@ def visualizacoesIdadeYTB():
 
 def horasIdadeYTB():
     ytb_idade_horas = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\idadeytb.csv')
-
+    ytb_idade_horas['Tempo de exibição (horas) (%)'] = ytb_idade_horas['Tempo de exibição (horas) (%)'].str.replace(',','.').astype(float)
     # Configurar o estilo seaborn
     sns.set(style="whitegrid")
 
@@ -1380,7 +1465,7 @@ def horasIdadeYTB():
 
 def generoYTB():
     generoytb = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TNsemanal\generoytb.csv')
-
+    generoytb['Visualizações (%)'] = generoytb['Visualizações (%)'].str.replace(',','.').astype(float)
     # Criar um gráfico de pizza usando Matplotlib
     plt.figure(figsize=(8, 8))  # Ajuste o tamanho da figura conforme necessário
 
