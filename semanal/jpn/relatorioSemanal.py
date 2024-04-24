@@ -17,63 +17,40 @@ with doc.create(MiniPage(align='c')):
         doc.append(MediumText(("Relatório semanal")))
         doc.append(LineBreak())
 
-portal_usuariosUnicos_2024Table = [276184,441269,455979,340868]
-portal_usuariosRescorrentes_2024Table = [123944,197378,172485,156579]
-portal_usuariosUnicos_2024Analytics = [213000,331000,370000,261000]
-portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000,92000]
-portal_visualizacoes_2024 = [621206,965340,924908,765698] # mesmo valor na tabela e no analytics
-portal_novosUsuarios_2024 = [147518,242760,278732,177038] # mesmo valor na tabela e no analytics
-
 #INSTAGRAM
-ig_seg_2024 = [1299,2685,1476,1499]
-ig_seg_2024_perdeu = [1040,1165,1080,1114]
-ig_alcance_2024 = [330170,619778,394150,368303]
-ig_vivitas_2024 = [24896,53103,28198,27847]
+ig_seg_2024 = []
+ig_seg_2024_perdeu = []
+ig_alcance_2024 = []
+ig_vivitas_2024 = []
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-ig_seg_2024_total = [532444,533616,534049,534392]
-
-#FACEBOOK
-fb_seg_2024 = [30,61,71,42]
-fb_seg_2024_perdeu = [34,35,44,35]
-fb_alcance_2024 = [64958,88738,112464,63173]
-fb_vivitas_2024 = [6500,7686,8158,6718]
-
-#ADICIONAR TOTAL DA SEMANA SEGUINTE
-fb_seg_2024_total = [332419,332392,332389,332334]
+ig_seg_2024_total = []
 
 #TWITTER
-tw_seg_2024 = [359,455,1249,892]
-tw_impressões_2024 = [86012,102051,96123,100004]
-tw_engajamentos_2024 = [2390,3324,3242,3257]
+tw_seg_2024 = []
+tw_impressões_2024 = []
+tw_engajamentos_2024 = []
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-tw_seg_2024_total = [312146,312041,312437,312722]
-tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
+tw_seg_2024_total = []
+tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 #YOUTUBE
-yb_inc_2024 = [505,241,552,155]
-yb_inc_2024_perdeu = [30,15,31,17]
-yb_visualizacoes_2024 = [134255,69730,149424,40127]
-yb_horas_2024 = [1785,1114,2142,671]
+yb_inc_2024 = []
+yb_inc_2024_perdeu = []
+yb_visualizacoes_2024 = []
+yb_horas_2024 = []
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-yb_inc_2024_total = [35940,36167,36685,36863]
+yb_inc_2024_total = []
 
 # Adiciona a seção para os resultados
-with doc.create(Section('Tribuna do Norte', numbering=False)):
+with doc.create(Section('JP News Natal', numbering=False)):
     with doc.create(Subsection(f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}', numbering=False)):
         with doc.create(MiniPage(align='c')):
             # Adiciona a tabela de resultados
             with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
-                
-                table.add_row((MultiRow(2, data='Portal'), GR.formataNumero(portal_novosUsuarios_2024[-1]), GR.formataNumero(portal_visualizacoes_2024[-1]), GR.formataNumero(portal_usuariosRescorrentes_2024Analytics[-1])))
-                table.add_row(('', 'novos usuários', 'visualizações', 'usuários recorrentes'))
-                table.add_hline()
                 table.add_row((MultiRow(2, data='Instagram'), GR.formataNumero(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]), GR.formataNumero(ig_alcance_2024[-1]), GR.formataNumero(ig_vivitas_2024[-1])))
-                table.add_row(('', 'novos seguidores', 'contas atingidas', 'visitas ao perfil'))
-                table.add_hline()
-                table.add_row((MultiRow(2, data='Facebook'), GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]), GR.formataNumero(fb_alcance_2024[-1]), GR.formataNumero(fb_vivitas_2024[-1])))
                 table.add_row(('', 'novos seguidores', 'contas atingidas', 'visitas ao perfil'))
                 table.add_hline()
                 table.add_row((MultiRow(2, data='Twitter'), GR.formataNumero(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]), GR.formataNumero(tw_impressões_2024[-1]), GR.formataNumero(tw_engajamentos_2024[-1])))
@@ -86,18 +63,12 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
         # Adiciona informações extras
         # Adiciona uma lista com marcadores
         with doc.create(Itemize()) as itemize:
-            itemize.add_item(f"Ao todo, a Tribuna do Norte entregou seu conteúdo para, aproximadamente, {GR.formataNumero(portal_novosUsuarios_2024[-1]+(ig_seg_2024_total[-1]-ig_seg_2024_total[-2])+(fb_seg_2024_total[-1]-fb_seg_2024_total[-2])+(tw_seg_2024_total[-1]-tw_seg_2024_total[-2])+(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]))} novas contas, entre Portal, Instagram, Twitter, Facebook e YouTube.")
+            itemize.add_item(f"Ao todo, a Tribuna do Norte entregou seu conteúdo para, aproximadamente, {GR.formataNumero(+(ig_seg_2024_total[-1]-ig_seg_2024_total[-2])+(tw_seg_2024_total[-1]-tw_seg_2024_total[-2])+(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]))} novas contas, entre Instagram, Twitter e YouTube.")
             itemize.add_item(Command('textbf', arguments='Instagram'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(ig_seg_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(ig_seg_2024_total[-2])}")
                 sublist.add_item(f"Seguidores adquiridos na semana: {GR.formataNumero(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]+ig_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(ig_seg_2024_perdeu[-1])}.")
                 sublist.add_item(f"Taxa de fixação: {GR.fixacao(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]+ig_seg_2024_perdeu[-1],ig_seg_2024_perdeu[-1])}")
-            itemize.add_item(Command('textbf', arguments='Facebook'))
-            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(fb_seg_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(fb_seg_2024_total[-2])}")
-                sublist.add_item(f"Seguidores adquiridos na semana: {GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(fb_seg_2024_perdeu[-1])}.")
-                sublist.add_item(f"Taxa de fixação: {GR.fixacao(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1],fb_seg_2024_perdeu[-1])}")
-                # sublist.add_item(f"Obs.: nesse caso, a taxa de fixação negatíva se trata de uma diferença relmente baixa, visto que tanto 'Seguidores adquiridos na semana' quanto 'Deixaram de seguir' são números positivos, potanto, quanto mais distante de zero maior ela seria. Só seria interpretada como maior, quanto mais próximo de zero, e menor, quanto mais distante de zero, em casos onde 'Seguidores adquiridos na semana' é um número negativo, fazendo com que ele seja somado a 'Deixaram de seguir' no calcula da diferença.")
                 sublist.add_item(f"O número de seguidores do Facebook apenas caiu nas ultimas 3 semanas.")
             itemize.add_item(Command('textbf', arguments='Twitter'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
@@ -109,118 +80,6 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(yb_inc_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(yb_inc_2024_total[-2])}")
                 sublist.add_item(f"Seguidores adquiridos na semana: {GR.formataNumero(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]+yb_inc_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(yb_inc_2024_perdeu[-1])}")
                 sublist.add_item(f"Taxa de fixação: {GR.fixacao(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]+yb_inc_2024_perdeu[-1],yb_inc_2024_perdeu[-1])}")
-
-doc.append(NewPage())
-
-with doc.create(Subsection('Análise semanal', numbering=False)):
-    with doc.create(Subsubsection('Portal', numbering=False)):
-        with doc.create(MiniPage(align='c')):
-            # Adiciona a tabela de resultados
-            with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
-                
-                table.add_row((MultiRow(3, data='Semana'), 'Novos usuários', 'Visualizações', 'Usuários recorrentes'))
-                table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
-                table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
-                table.add_hline()
-                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}'), GR.numeroPorExtensso(portal_novosUsuarios_2024[-1]), GR.numeroPorExtensso(portal_visualizacoes_2024[-1]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[-1])))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(portal_novosUsuarios_2024[-1],portal_novosUsuarios_2024[-2])}'), FootnoteText(f'{GR.crescimento(portal_visualizacoes_2024[-1],portal_visualizacoes_2024[-2])}'), FootnoteText(f'{GR.crescimento(portal_usuariosRescorrentes_2024Analytics[-1],portal_usuariosRescorrentes_2024Analytics[-2])}')))
-
-        # Adiciona informações extras
-        # Adiciona uma lista com marcadores
-        with doc.create(Itemize()) as itemize:
-            # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
-            itemize.add_item('Legenda:')
-            #doc.append(NoEscape(r'\newline'))
-            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item(NoEscape(r'\textbf{Usuários únicos:} número de usuários únicos que interagiram com seu site ou app. É qualquer usuário que tenha uma sessão engajada ou quando o Google Analytics coleta o evento "first\_open", que é quando o usuário abre o site pela primeira vez dentro do período especificado;'))
-                sublist.add_item(NoEscape(r'\textbf{Novos usuários:} número de novos usuários únicos que visitaram o site ou app pela primeira vez;'))
-                sublist.add_item(NoEscape(r'\textbf{Usuários recorrentes:} número de usuários que iniciaram pelo menos uma sessão anterior, independentemente de ter sido ou não uma sessão engajada no período especificado;'))
-                sublist.add_item(NoEscape(r'\textbf{Visualizações:} quantas telas do app para dispositivos móveis ou páginas da Web seus usuários acessaram. Exibições repetidas de uma única tela ou página são consideradas. Nesse caso tembém deve ser lavada em consideração a informação de que Jonathas fez alterações em relação as exibições repetidas;'))
-                sublist.add_item(NoEscape(r'\textbf{Sessões engajadas:} correspondem ao número de sessões com mais de 10 segundos, que geraram um ou mais eventos de conversão ou tiveram duas ou mais visualizações de página/tela. Vá para a ultima página para saber a definição de uma sessão de acordo com o Google Analytics.'))
-
-doc.append(NewPage())
-
-doc.preamble.append(NoEscape(r'\usepackage{graphicx}'))
-doc.preamble.append(NoEscape(r'\usepackage{float}'))
-
-# ORIGEM PORTAL
-GR.origemPortal()       
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: origem dos usuários")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.origem_plot_path, width=NoEscape(r'1\textwidth'))
-
-with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
-            itemize.add_item('O acesso direto representa os usuários que digitaram a URL da Tribuna do Norte diretamente no navegador,adicionaram o site aos favoritos ou clicaram diretamente em um link compartilhado, desta forma, indo diretamente para o site sem precisar pesquisa-lo.')
-            itemize.add_item('As outras informações representam o acesso através da plataforma indicada pelo título da respectiva barra.')
-
-doc.append(NewPage())
-
-# TOP10 PORTAL
-GR.top10()
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: 10 notícias mais vistas")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.top10_plot_path, width=NoEscape(r'0.9\textwidth'))
-        
-# TOP15 PORTAL
-GR.top15()
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: 15 notícias mais pesquisadas")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.top15_plot_path, width=NoEscape(r'0.9\textwidth'))
-
-# TOP15 PORTAL
-GR.top15cliques()
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: 15 notícias com mais cliques pelo google")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.top15cliques_plot_path, width=NoEscape(r'0.9\textwidth'))
-
-# VISUALIZAÇÕES E USUÁRIOS PORTAL
-GR.visualizacoesUsuarios()
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: comparativo de visualizações e acessos de usuários")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.visualizacoesUsuarios_plot_path, width=NoEscape(r'0.8\textwidth'))
-        
-# VISUALIZAÇÕES POR FE PORTAL
-GR.faixaEtaria()
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: visualizações por faixa etária")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.faixaEtaria_plot_path, width=NoEscape(r'0.8\textwidth'))
-
-doc.append(NewPage())
-
-GR.faixaEtaria_desconhecidaAndTotal()
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("Portal: visualizações por faixa etária (desconhecida e total)")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.faixaEtaria_desconhecidaAndTotal_plot_path, width=NoEscape(r'0.8\textwidth'))
 
 doc.append(NewPage())
 
@@ -239,19 +98,6 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
                 table.add_hline()
                 table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}'), GR.numeroPorExtensso(ig_seg_2024[-1]), GR.numeroPorExtensso(ig_alcance_2024[-1]), GR.numeroPorExtensso(ig_vivitas_2024[-1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[-1],ig_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[-1],ig_alcance_2024[-2])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[-1],ig_vivitas_2024[-2])}')))
-    with doc.create(Subsubsection('Facebook', numbering=False)):
-        with doc.create(MiniPage(align='c')):
-            # Adiciona a tabela de resultados
-            with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
-                
-                table.add_row((MultiRow(3, data='Semana'), 'Novos seguidores', 'Alcance', 'Visitas'))
-                table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
-                table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
-                table.add_hline()
-                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}'), GR.numeroPorExtensso(fb_seg_2024[-1]), GR.numeroPorExtensso(fb_alcance_2024[-1]), GR.numeroPorExtensso(fb_vivitas_2024[-1])))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[-1],fb_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(fb_alcance_2024[-1],fb_alcance_2024[-2])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[-1],fb_vivitas_2024[-2])}')))
-
-
         # Adiciona informações extras
         # Adiciona uma lista com marcadores
         with doc.create(Itemize()) as itemize:
@@ -266,7 +112,7 @@ doc.append(NewPage())
 
 # Adiciona uma seção ao documento
 with doc.create(Section('', numbering=False)):
-    doc.append("FB e IG: audiência por sexo e faixa etária")
+    doc.append("IG: audiência por sexo e faixa etária")
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
@@ -276,43 +122,11 @@ publicoCidades_plot_path = GR.publicoCidades()
 
 # Adiciona uma seção ao documento
 with doc.create(Section('', numbering=False)):
-    doc.append("FB e IG: audiência por cidades")
+    doc.append("IG: audiência por cidades")
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(publicoCidades_plot_path, width=NoEscape(r'0.8\textwidth'))
-
-doc.append(NewPage())
-
-curtidasFB_plot_path = GR.curtidasFB()
-
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("FB: novos seguidores ao longo do mês")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(curtidasFB_plot_path, width=NoEscape(r'0.75 \textwidth'))
-
-visitasFB_plot_path = GR.visitasFB()
-
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("FB: visitas ao longo do mês")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(visitasFB_plot_path, width=NoEscape(r'0.75\textwidth'))
-
-alcanceFB_plot_path = GR.alcanceFB()
-
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("FB: alcance ao longo do mês")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(alcanceFB_plot_path, width=NoEscape(r'0.75\textwidth'))
 
 doc.append(NewPage())
 
@@ -468,6 +282,14 @@ with doc.create(Section('', numbering=False)):
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(visualizacoesCidadeYTB_plot_path, width=NoEscape(r'0.7\textwidth'))
 
+conteudoYTB_plot_path = GR.conteudoYTB()
+# Adiciona uma seção ao documento
+with doc.create(Section('', numbering=False)):
+    doc.append("YouTube: conteudos com mais visualizações")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='h!')) as plot:
+        plot.add_image(conteudoYTB_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 doc.append(NewPage())
 

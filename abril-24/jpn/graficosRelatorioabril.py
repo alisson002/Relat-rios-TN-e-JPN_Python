@@ -452,7 +452,7 @@ def dadosIG(intVisistas,intSeg):
 
 def visualizacoesIdadeYTB():
     ytb_idade_visualizações = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\idadeytb.csv')
-
+    ytb_idade_visualizações['Visualizações (%)'] = ytb_idade_visualizações['Visualizações (%)'].str.replace(',','.').astype(float)
     # Configurar o estilo seaborn
     sns.set(style="whitegrid")
 
@@ -484,7 +484,7 @@ def visualizacoesIdadeYTB():
 
 def horasIdadeYTB():
     ytb_idade_horas = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\idadeytb.csv')
-
+    ytb_idade_horas['Tempo de exibição (horas) (%)'] = ytb_idade_horas['Tempo de exibição (horas) (%)'].str.replace(',','.').astype(float)
     # Configurar o estilo seaborn
     sns.set(style="whitegrid")
 
@@ -516,7 +516,7 @@ def horasIdadeYTB():
 
 def generoYTB():
     generoytb = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\JPN\generoytb.csv')
-
+    generoytb['Visualizações (%)'] = generoytb['Visualizações (%)'].str.replace(',','.').astype(float)
     # Criar um gráfico de pizza usando Matplotlib
     plt.figure(figsize=(8, 8))  # Ajuste o tamanho da figura conforme necessário
 
