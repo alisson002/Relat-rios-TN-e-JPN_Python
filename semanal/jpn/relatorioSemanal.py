@@ -18,31 +18,31 @@ with doc.create(MiniPage(align='c')):
         doc.append(LineBreak())
 
 #INSTAGRAM
-ig_seg_2024 = []
-ig_seg_2024_perdeu = []
-ig_alcance_2024 = []
-ig_vivitas_2024 = []
+ig_seg_2024 = [65]
+ig_seg_2024_perdeu = [62]
+ig_alcance_2024 = [27468]
+ig_vivitas_2024 = [438]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-ig_seg_2024_total = []
+ig_seg_2024_total = [28566]
 
 #TWITTER
-tw_seg_2024 = []
-tw_impressões_2024 = []
-tw_engajamentos_2024 = []
+tw_seg_2024 = [23]
+tw_impressões_2024 = [6787]
+tw_engajamentos_2024 = [139]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-tw_seg_2024_total = []
+tw_seg_2024_total = [27683]
 tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 #YOUTUBE
-yb_inc_2024 = []
-yb_inc_2024_perdeu = []
-yb_visualizacoes_2024 = []
-yb_horas_2024 = []
+yb_inc_2024 = [52]
+yb_inc_2024_perdeu = [30]
+yb_visualizacoes_2024 = [6934]
+yb_horas_2024 = [1076]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-yb_inc_2024_total = []
+yb_inc_2024_total = [34033]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('JP News Natal', numbering=False)):
