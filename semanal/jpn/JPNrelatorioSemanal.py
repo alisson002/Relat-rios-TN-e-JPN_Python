@@ -1,6 +1,6 @@
 from pylatex import Document, Section, Subsection, Command, Tabular, Itemize, Enumerate, LineBreak, LargeText, MiniPage, MediumText, MultiRow, NewPage, Subsubsection, SmallText, FootnoteText, NoEscape, Figure, MiniPage, Math
 from pylatex.utils import bold
-import graficosRelatorioSemanal as GR
+import JPNgraficosRelatorioSemanal as GR
 import pandas as pd
 import rpy2.robjects as robjects
 
