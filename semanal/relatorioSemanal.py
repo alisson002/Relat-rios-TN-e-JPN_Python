@@ -26,8 +26,8 @@ portal_visualizacoes_2024 = [621206,965340,924908,765698,829407] # mesmo valor n
 portal_novosUsuarios_2024 = [147518,242760,278732,177038,198428] # mesmo valor na tabela e no analytics
 
 #INSTAGRAM
-ig_seg_2024 = [1299,2685,1476,1499, numpy.nan]
-ig_seg_2024_perdeu = [1040,1165,1080,1114, numpy.nan]
+ig_seg_2024 = [1299,2685,1476,1499,2054]
+ig_seg_2024_perdeu = [1040,1165,1080,1114,1228]
 ig_alcance_2024 = [330170,619778,394150,368303,430160]
 ig_vivitas_2024 = [24896,53103,28198,27847,49389]
 
@@ -93,8 +93,8 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(ig_seg_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(ig_seg_2024_total[-2])}")
                 sublist.add_item(f"Seguidores adquiridos na semana: {GR.formataNumero(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]+ig_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(ig_seg_2024_perdeu[-1])}.")
                 sublist.add_item(f"Taxa de fixação: {GR.fixacao(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]+ig_seg_2024_perdeu[-1],ig_seg_2024_perdeu[-1])}")
-                sublist.add_item(f"O Instagram não disponibilizou os dados de ganhos e perda de seguidores da semana passada, portanto temos disponível apenas o saldo de seguidores.")
-                sublist.add_item(f"nan: not a number (não é um número).")
+                #sublist.add_item(f"O Instagram não disponibilizou os dados de ganhos e perda de seguidores da semana passada, portanto temos disponível apenas o saldo de seguidores.")
+                #sublist.add_item(f"nan: not a number (não é um número).")
             itemize.add_item(Command('textbf', arguments='Facebook'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(fb_seg_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(fb_seg_2024_total[-2])}")

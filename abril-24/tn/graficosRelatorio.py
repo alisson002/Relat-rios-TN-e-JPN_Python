@@ -165,7 +165,7 @@ def origemPortal():
     plt.title('Número de Usuários por Mídia de Origem (Ordenado)')
 
     # Exibir o gráfico
-    #plt.show()
+
 
     origem_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/origem.png"
     plt.savefig(origem_plot_path, bbox_inches="tight")
@@ -225,7 +225,7 @@ def top10():
     plt.title('Top 10 Notícias Mais Vistas')
 
     plt.tight_layout()
-    #plt.show()
+
     top10_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/top10.png"
     plt.savefig(top10_plot_path, bbox_inches="tight")
     
@@ -302,7 +302,7 @@ def top15():
 
     # Adicionar os nomes das notícias no início das barras
     for bar, label in zip(bars, df['Texto']):
-        plt.text(int(df['Impressões orgânicas da Pesquisa Google'][3])*0.006, bar.get_y() + bar.get_height() / 2, label, va='center', ha='left', fontsize=8)
+        plt.text(int(df['Impressões orgânicas da Pesquisa Google'][0])*0.006, bar.get_y() + bar.get_height() / 2, label, va='center', ha='left', fontsize=8)
 
     plt.xlabel('Impressões')
     plt.title('Top 15 Notícias Mais Pesquisadas no Google')
@@ -387,7 +387,7 @@ def top15cliques():
 
     # Adicionar os nomes das notícias no início das barras
     for bar, label in zip(bars, df['Texto']):
-        plt.text(int(df['Cliques orgânicos da Pesquisa Google'][3])*0.006, bar.get_y() + bar.get_height() / 2, label, va='center', ha='left', fontsize=8)
+        plt.text(int(df['Cliques orgânicos da Pesquisa Google'][1])*0.006, bar.get_y() + bar.get_height() / 2, label, va='center', ha='left', fontsize=8)
 
     plt.xlabel('Impressões')
     plt.title('Top 15 Notícias com mais cliques através de pesquisa no google')
@@ -492,7 +492,7 @@ def visualizacoesUsuarios():
     # NOVOS USUÁRIOS
     novos_usuarios_final = encontrar_frase_em_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\uniNovos.csv', 'Tempo médio de engajamento')
 
-    novos_usuarios = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\uniNovos.csv', skiprows=usuarios_unicos_final-1, nrows=novos_usuarios_final-47).dropna()
+    novos_usuarios = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\uniNovos.csv', skiprows=usuarios_unicos_final-1, nrows=novos_usuarios_final-46).dropna()
 
     novos_usuarios = remover_ultima_linha(novos_usuarios)
     novos_usuarios = transforma_int(novos_usuarios)
@@ -504,7 +504,7 @@ def visualizacoesUsuarios():
     visualizacoes_inicio = encontrar_frase_em_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\visualizacoes.csv', 'Visualizações')
     visualizacoes_final = encontrar_frase_em_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\visualizacoes.csv', 'Contagem de eventos')
 
-    visualizacoes = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\visualizacoes.csv', skiprows=visualizacoes_inicio-1, nrows=visualizacoes_final-116).dropna()
+    visualizacoes = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\visualizacoes.csv', skiprows=visualizacoes_inicio-1, nrows=visualizacoes_final-115).dropna()
 
     visualizacoes = remover_ultima_linha(visualizacoes)
     visualizacoes = transforma_int(visualizacoes)
@@ -516,7 +516,7 @@ def visualizacoesUsuarios():
     recorrentes_inicio = encontrar_frase_em_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\novosRec.csv', 'Usuários recorrentes')
     recorrentes_final = encontrar_frase_em_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\novosRec.csv', 'Dia 1')
 
-    usuarios_recorrentes = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\novosRec.csv', skiprows=recorrentes_inicio-1, nrows=recorrentes_final-48).dropna()
+    usuarios_recorrentes = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\novosRec.csv', skiprows=recorrentes_inicio-1, nrows=recorrentes_final-47).dropna()
 
     usuarios_recorrentes = remover_ultima_linha(usuarios_recorrentes)
     usuarios_recorrentes = transforma_int(usuarios_recorrentes)
@@ -546,14 +546,14 @@ def visualizacoesUsuarios():
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
     #plt.ylabel("Alcance | Visitas | Seguidores")
-    plt.title("Dados do portal do mês de ???")
+    plt.title("Comparativo de visualizações e dados de usuários ao longo do mês")
 
     #plt.yticks([])
 
     plt.legend()
 
     # Exibindo o gráfico
-    #plt.show()
+
     visualizacoesUsuarios_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/visualizacoesUsuarios.png"
     plt.savefig(visualizacoesUsuarios_plot_path, bbox_inches="tight")
 
@@ -626,7 +626,7 @@ def faixaEtaria():
     plt.ticklabel_format(axis='y', style='plain')
 
     # Mostrar o gráfico
-    #plt.show()
+
     faixaEtaria_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/faixaEtaria.png"
     plt.savefig(faixaEtaria_plot_path, bbox_inches="tight")
 
@@ -699,7 +699,7 @@ def faixaEtaria_desconhecidaAndTotal():
     plt.ticklabel_format(axis='y', style='plain')
 
     # Mostrar o gráfico
-    #plt.show()
+
     faixaEtaria_desconhecidaAndTotal_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/faixaEtaria_desconhecidaAndTotal.png"
     plt.savefig(faixaEtaria_desconhecidaAndTotal_plot_path, bbox_inches="tight")
     
@@ -787,7 +787,7 @@ def fePublico_FBIG():
     plt.legend(title="Gênero", labels=legend_labels, loc='upper left', bbox_to_anchor=(1, 1), fontsize=8)
 
     # Exibe o gráfico
-    #plt.show()
+
     fePublico_FBIG_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/fePublico_FBIG.png"
     plt.savefig(fePublico_FBIG_plot_path, bbox_inches="tight")
     
@@ -876,7 +876,7 @@ def publicoCidades():
     sns.despine(left=True, bottom=True)
 
     # Exibir gráfico
-    #plt.show()
+
     publicoCidades_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/publicoCidades.png"
     plt.savefig(publicoCidades_plot_path, bbox_inches="tight")
     
@@ -901,9 +901,9 @@ def encontrar_frase_em_csv_meta(nome_arquivo, frase_procurada):
 def curtidasFB():
     # SEGUIDORES
     inicio_seguidoresFB = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidores')
-    final_segFB = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidos no Instagram')
+    final_segFB = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidores no Instagram')
 
-    seguidoresFB = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', skiprows=2, encoding='utf-16', skip_blank_lines=True,nrows=final_segFB-4)
+    seguidoresFB = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', skiprows=2, encoding='utf-16', skip_blank_lines=True,nrows=final_segFB-5)
 
     # Convert 'Data' column to datetime with custom format
     # seguidoresFB['Data'] = pd.to_datetime(seguidoresFB['Data'], format='%Y-%m-%dT%H:%M:%S', errors='coerce')
@@ -938,10 +938,9 @@ def curtidasFB():
     plt.legend()
 
     # Exibindo o gráfico
-    plt.show()
 
     # Exibindo o gráfico
-    #plt.show()
+
     curtidasFB_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/curtidasFB.png"
     plt.savefig(curtidasFB_plot_path, bbox_inches="tight")
     
@@ -982,7 +981,7 @@ def visitasFB():
     plt.legend()
 
     # Exibindo o gráfico
-    #plt.show()
+
     visitasFB_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/visitasFB.png"
     plt.savefig(visitasFB_plot_path, bbox_inches="tight")
     
@@ -1021,7 +1020,7 @@ def alcanceFB():
     plt.legend()
 
     # Exibindo o gráfico
-    #plt.show()
+
     alcanceFB_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/alcanceFB.png"
     plt.savefig(alcanceFB_plot_path, bbox_inches="tight")
     
@@ -1030,7 +1029,7 @@ def alcanceFB():
 def seguidoresIG():
     # # SEGUIDORES
     
-    inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidos no Instagram')
+    inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidores no Instagram')
 
     seguidoresIG = pd.read_csv(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', skiprows=inicio_seguidoresIG, encoding='utf-16', skip_blank_lines=True)
 
@@ -1061,7 +1060,7 @@ def seguidoresIG():
     plt.legend()
 
     # Exibindo o gráfico
-    # plt.show()
+    
     seguidoresIG_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/seguidoresIG.png"
     plt.savefig(seguidoresIG_plot_path, bbox_inches="tight")
     
@@ -1160,10 +1159,10 @@ def dadosIG(intVisistas, intSeg):
 
     visitasIG['Data'] = pd.to_datetime(visitasIG['Data']).dt.strftime('%d-%m-%Y')
 
-    visitasIG['Primary'] = visitasIG['Primary']*30
+    visitasIG['Primary'] = visitasIG['Primary']*intVisistas
 
     # SEGUIDORES
-    inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidos no Instagram')
+    inicio_seguidoresIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidores no Instagram')
 
     final_segIG = encontrar_frase_em_csv_meta(r'C:\Users\Usuario\Documents\Repositórios\csv\TN\Seguidores.csv', 'Seguidores')
     print(final_segIG)
@@ -1171,7 +1170,7 @@ def dadosIG(intVisistas, intSeg):
 
     seguidoresIG['Data'] = pd.to_datetime(seguidoresIG['Data']).dt.strftime('%d-%m-%Y')
 
-    seguidoresIG['Primary'] = seguidoresIG['Primary']*500
+    seguidoresIG['Primary'] = seguidoresIG['Primary']*intSeg
 
 
     # social_media_data['Data'] = pd.to_datetime(social_media_data['Data'])
@@ -1430,7 +1429,7 @@ def visualizacoesCidadeYTB():
     # Desativar a notação científica no eixo Y
     plt.ticklabel_format(axis='y', style='plain')
 
-    plt.xticks(rotation=30)
+    plt.xticks(rotation=90)
 
     visualizacoesCidadeYTB_plot_path = "C:/Users/Usuario/Documents/Repositórios/Imagens/TN/visualizacoesCidadeYTB.png"
     plt.savefig(visualizacoesCidadeYTB_plot_path, bbox_inches="tight")

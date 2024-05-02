@@ -23,12 +23,12 @@ ig_seg_2023_perdeu = [0,0,0,0,0,142,241,202,236,204,194,226]
 ig_alcance_2023 = [21733,15091,25147,17005,14844,19697,29758,16139,13015,11219,24345,65525]
 ig_vivitas_2023 = [1641,1213,10131,1105,1436,1780,1193,1297,1372,1246,1468,1902]
 
-ig_seg_2024 = [306,265,353]
-ig_seg_2024_perdeu = [230,240,207]
-ig_alcance_2024 = [26399,32188,111983]
-ig_vivitas_2024 = [1646,2176,2272]
+ig_seg_2024 = [306,265,353,342]
+ig_seg_2024_perdeu = [230,240,207,213]
+ig_alcance_2024 = [26399,32188,111983,85295]
+ig_vivitas_2024 = [1646,2176,2272,]
 
-ig_seg_2024_total = [28290,28326,28467]
+ig_seg_2024_total = [28290,28326,28467,28598]
 
 tw_seg_2023_og = [151,-30,62,-5,-5,-36,-2,7,1,20-18,6]
 tw_impressões_2023_og = [55700,39500,60300,99800,53900,55800,46300,51900,35000,35400,28500,27500]
@@ -39,24 +39,24 @@ tw_seg_2023 = [151,-30,62,-5,-5,-36,26,87,40,68,51,62] #dados da tabela disponí
 tw_impressões_2023 = [55700,39500,51586,45839,53858,55765,46258,51901,34972,35441,28486,27474]
 tw_engajamentos_2023 = [700,578,982,706,848,890,769,847,558,574,473,489]
 
-tw_seg_2024 = [32,60,61]
-tw_impressões_2024 = [35684,28801,29837]
-tw_engajamentos_2024 = [589,518,595]
+tw_seg_2024 = [32,60,61,109]
+tw_impressões_2024 = [35684,28801,29837,27373]
+tw_engajamentos_2024 = [589,518,595,542]
 
-tw_seg_2024_total = [27820,27808,27751]
-tw_seg_2024_perdeu = [58,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
+tw_seg_2024_total = [27820,27808,27751,27699]
+tw_seg_2024_perdeu = [58,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 yb_inc_2023 = [948,418,760,356,516,411,371,387,258,259,495,172]
 yb_inc_2023_perdeu = [258,152,154,103,139,117,117,123,121,113,111,105]
 yb_visualizacoes_2023 = [247874,108139,146070,86068,148727,118942,107559,94221,52970,51953,166181,23359]
 yb_horas_2023 = [24389,8349,12020,7839,11011,9419,9362,8893,5907,5131,12228,3396]
 
-yb_inc_2024 = [501,286,450]
-yb_inc_2024_perdeu = [130,111,119]
-yb_visualizacoes_2024 = [97513,81437,102095]
-yb_horas_2024 = [7077,6209,8204]
+yb_inc_2024 = [501,286,450,331]
+yb_inc_2024_perdeu = [130,111,119,114]
+yb_visualizacoes_2024 = [97513,81437,102095,61440]
+yb_horas_2024 = [7077,6209,8204,5876]
 
-yb_inc_2024_total = [33338,33513,33912]
+yb_inc_2024_total = [33338,33513,33912,34137]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Jovem Pan News', numbering=False)):
