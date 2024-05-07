@@ -18,31 +18,31 @@ with doc.create(MiniPage(align='c')):
         doc.append(LineBreak())
 
 #INSTAGRAM
-ig_seg_2024 = [65,59]
-ig_seg_2024_perdeu = [62,45]
-ig_alcance_2024 = [27468,9862]
-ig_vivitas_2024 = [438,393]
+ig_seg_2024 = [65,59,70]
+ig_seg_2024_perdeu = [62,45,33]
+ig_alcance_2024 = [27468,9862,12058]
+ig_vivitas_2024 = [438,393,321]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-ig_seg_2024_total = [28566,28585]
+ig_seg_2024_total = [28566,28585,28623]
 
 #TWITTER
-tw_seg_2024 = [23,29]
-tw_impressões_2024 = [6787,6253]
-tw_engajamentos_2024 = [139,108]
+tw_seg_2024 = [23,29,7]
+tw_impressões_2024 = [6787,6253,5216]
+tw_engajamentos_2024 = [139,108,99]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-tw_seg_2024_total = [27683,27697]
-tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
+tw_seg_2024_total = [27683,27697,27699]
+tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 #YOUTUBE
-yb_inc_2024 = [52,103]
-yb_inc_2024_perdeu = [30,25]
-yb_visualizacoes_2024 = [6938,20623]
-yb_horas_2024 = [1069,1803]
+yb_inc_2024 = [52,103,70]
+yb_inc_2024_perdeu = [30,25,25]
+yb_visualizacoes_2024 = [6938,20623,17706]
+yb_horas_2024 = [1069,1803,1351]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-yb_inc_2024_total = [34033,34118]
+yb_inc_2024_total = [34033,34118,34180]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('JP News Natal', numbering=False)):
@@ -162,7 +162,7 @@ with doc.create(Section('', numbering=False)):
 
 doc.append(NewPage())
 
-dadosIG_plot_path = GR.dadosIG(30,100)
+dadosIG_plot_path = GR.dadosIG(35,100)
 
 # Adiciona uma seção ao documento
 with doc.create(Section('', numbering=False)):
@@ -171,9 +171,6 @@ with doc.create(Section('', numbering=False)):
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
         plot.add_image(dadosIG_plot_path, width=NoEscape(r'1\textwidth'))
-
-with doc.create(Itemize()) as itemize:
-            itemize.add_item(f"O instagram não disponibilizou os dados de seguidores dos dias 27 e 27/04.")
 
 doc.append(NewPage())
 
@@ -358,6 +355,6 @@ with doc.create(Itemize()) as itemize:
                 
                 
 # Gera o arquivo LaTeX
-doc.generate_pdf(fr'C:\Users\Usuario\Documents\Repositórios\Relatórios\JPNsemanal\RelatórioSemanal-JPN_{GR.penultimo_domingo()} a {GR.ultimo_sabado()}', clean_tex=True)
+doc.generate_pdf(fr'C:\Users\{GR.path_aliss}\Documents\Repositórios\Relatórios\JPNsemanal\RelatórioSemanal-JPN_{GR.penultimo_domingo()} a {GR.ultimo_sabado()}', clean_tex=True)
 
 print("Relatório em LaTeX gerado com sucesso!")

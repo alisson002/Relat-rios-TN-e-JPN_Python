@@ -294,7 +294,7 @@ def encontrar_frase_em_csv_meta(nome_arquivo, frase_procurada):
 def seguidoresIG():
     # # SEGUIDORES
     
-    inicio_seguidoresIG = encontrar_frase_em_csv_meta(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\Seguidores.csv', 'Seguidos no Instagram')
+    inicio_seguidoresIG = encontrar_frase_em_csv_meta(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\Seguidores.csv', 'Seguidores no Instagram')
 
     seguidoresIG = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\Seguidores.csv', skiprows=inicio_seguidoresIG, encoding='utf-16', skip_blank_lines=True)
 
@@ -426,7 +426,7 @@ def dadosIG(intVisistas, intSeg):
     visitasIG['Primary'] = visitasIG['Primary']*intVisistas
 
     # SEGUIDORES
-    inicio_seguidoresIG = encontrar_frase_em_csv_meta(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\Seguidores.csv', 'Seguidos no Instagram')
+    inicio_seguidoresIG = encontrar_frase_em_csv_meta(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\Seguidores.csv', 'Seguidores no Instagram')
 
     final_segIG = encontrar_frase_em_csv_meta(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\Seguidores.csv', 'Seguidores')
     print(final_segIG)
