@@ -33,6 +33,8 @@ with doc.create(MiniPage(align='c')):
         doc.append(LineBreak())
 
 # f'{p.get_height():.1f}%'
+GR.path_aliss
+GR.path_Usuarios
 
 portal_usuariosUnicos_2023Table = [1310190,1436050,1795250,1313645,1296524,1043117,1214210,1250648,1201899,1586565,1433565,1479161]
 portal_usuariosRescorrentes_2023Table = [610947,505622,904008,604270,617390,539523,582611,606820,558692,627700,655389,686461]
@@ -136,6 +138,7 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(fb_seg_2024_total[-1])}. Total de seguidores no mês anterior: {GR.formataNumero(fb_seg_2024_total[-2])}")
                 sublist.add_item(f"Seguidores adquiridos no mês: {GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(fb_seg_2024_perdeu[-1])}.")
                 sublist.add_item(f"Taxa de fixação: {GR.fixacao(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1],fb_seg_2024_perdeu[-1])}")
+                sublist.add_item(f"Obs.: nesse caso, a taxa de fixação negatíva se trata de uma diferença relmente baixa, visto que tanto 'Seguidores adquiridos na semana' quanto 'Deixaram de seguir' são números positivos.")
             itemize.add_item(Command('textbf', arguments='Twitter'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(tw_seg_2024_total[-1])}. Total de seguidores no mês anterior: {GR.formataNumero(tw_seg_2024_total[-2])}")
@@ -208,9 +211,37 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
         #         sublist.add_item("")
         #         sublist.add_item("")
         #         sublist.add_item("")
+        # Adiciona informações extras
+        # Adiciona uma lista com marcadores
+        with doc.create(Itemize()) as itemize:
+            # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
+            itemize.add_item('Legenda:')
+            #doc.append(NoEscape(r'\newline'))
+            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+                sublist.add_item(NoEscape(r'\textbf{Usuários únicos:} número de usuários únicos que interagiram com seu site ou app. É qualquer usuário que tenha uma sessão engajada ou quando o Google Analytics coleta o evento "first\_open", que é quando o usuário abre o site pela primeira vez dentro do período especificado;'))
+                sublist.add_item(NoEscape(r'\textbf{Novos usuários:} número de novos usuários únicos que visitaram o site ou app pela primeira vez;'))
+                sublist.add_item(NoEscape(r'\textbf{Usuários recorrentes:} número de usuários que iniciaram pelo menos uma sessão anterior, independentemente de ter sido ou não uma sessão engajada no período especificado;'))
+                sublist.add_item(NoEscape(r'\textbf{Visualizações:} quantas telas do app para dispositivos móveis ou páginas da Web seus usuários acessaram. Exibições repetidas de uma única tela ou página são consideradas. Nesse caso tembém deve ser lavada em consideração a informação de que Jonathas fez alterações em relação as exibições repetidas;'))
+                sublist.add_item(NoEscape(r'\textbf{Sessões engajadas:} correspondem ao número de sessões com mais de 10 segundos, que geraram um ou mais eventos de conversão ou tiveram duas ou mais visualizações de página/tela. Vá para a ultima página para saber a definição de uma sessão de acordo com o Google Analytics.'))
+
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mês anterior:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"Em geral, \textbf{abril} foi o melhor mês até o momento. Esse foi o mês com o maior número de novos usuários e visualizações e o segundo maior número de usuários recorrentes,tendo o maior crescimento percentual em duas dessas métricas e o segundo maior em visualizações."))
+        sublist.add_item(NoEscape(r"Apesar de ter o maior crecimento percentual nas visualizações, \textbf{março} não é o melhor mês como foi em foi 2023. Além disso, tem os menores números de novos usuários e recorrentes até o momento, sendo também o mês com a maior e segunda maior quedas percentuais nessas métricas, respectivamente."))
+        sublist.add_item(NoEscape(r"\textbf{Janeiro} é o segundo melhor mês até o momento."))
+
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mesmo mês em 2023:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"\textbf{Janeiro} e \textbf{abril} tiveram os maiores crescimentos percentuais em novos usuários e recorrentes. Também possuem grandes quedas nas visualizações."))
+        sublist.add_item(NoEscape(r"\textbf{Março} e \textbf{abril} tem as maiores quedas percentuais nas visualizações."))
+
 
 doc.preamble.append(NoEscape(r'\usepackage{graphicx}'))
 doc.preamble.append(NoEscape(r'\usepackage{float}'))
+
+doc.append(NewPage())
 
 # ORIGEM PORTAL
 GR.origemPortal()       
@@ -260,6 +291,8 @@ with doc.create(Subsection('', numbering=False)):
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(GR.top15cliques_plot_path, width=NoEscape(r'0.9\textwidth'))
 
+doc.append(NewPage())
+
 # VISUALIZAÇÕES E USUÁRIOS PORTAL
 GR.visualizacoesUsuarios()
 # Adiciona uma seção ao documento
@@ -269,7 +302,13 @@ with doc.create(Subsection('', numbering=False)):
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(GR.visualizacoesUsuarios_plot_path, width=NoEscape(r'0.8\textwidth'))
-        
+        # plot.add_caption(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre diferentes dados ao longo do período analisado.}'))  # Adiciona a legenda
+with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+            itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre diferentes dados do portal ao longo do período analisado.}'))
+
+
+doc.append(NewPage())
+
 # VISUALIZAÇÕES POR FE PORTAL
 GR.faixaEtaria()
 # Adiciona uma seção ao documento
@@ -305,7 +344,7 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
                 table.add_row(('', FootnoteText('mês anterior | mesmo mês em 2023'), FootnoteText('mês anterior | mesmo mês em 2023'), FootnoteText('mês anterior | mesmo mês em 2023')))
                 table.add_hline()
                 table.add_row((MultiRow(2, data='Janeiro'), '6,7 mil', '542 mil', '152 mil'))
-                table.add_row(('', FootnoteText('+21,8% | +440,3%'), FootnoteText('-7% | -19%'), FootnoteText('+17,2% | -26,2%')))
+                table.add_row(('', FootnoteText('+21,8% | -'), FootnoteText('-7% | -19%'), FootnoteText('+17,2% | -26,2%')))
                 table.add_hline()
                 table.add_row((MultiRow(2, data='Fevereiro'), GR.numeroPorExtensso(ig_seg_2024[1]), GR.numeroPorExtensso(ig_alcance_2024[1]), GR.numeroPorExtensso(ig_vivitas_2024[1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[1],ig_seg_2024[0])} | {GR.crescimento(ig_seg_2024[1],ig_seg_2023[1])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[1],ig_alcance_2024[0])} | {GR.crescimento(ig_alcance_2024[1],ig_alcance_2023[1])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[1],ig_vivitas_2024[0])} | {GR.crescimento(ig_vivitas_2024[1],ig_vivitas_2023[1])}')))
@@ -364,8 +403,20 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
         #         sublist.add_item("")
         #         sublist.add_item("")
         #         sublist.add_item("")
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mês anterior:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"\textbf{Abril} foi o melhor mês até o momento. Tem os maiores números e os maiores crecimentos pencentuais."))
+        sublist.add_item(NoEscape(r"\textbf{Janeiro} teve os segundos melhores número e crescimentos em novos seguidores e visitas."))
+        sublist.add_item(NoEscape(r"\textbf{Março} teve os números mais baixos em alcance e visitas e quedas nessas métricas."))
 
-# doc.append(NewPage())
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mesmo mês em 2023:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"\textbf{Março} teve a maior queda em visitas, \textbf{janeiro} em alcance e \textbf{fevereiro} em novos seguidores."))
+        sublist.add_item(NoEscape(r"\textbf{Abril} foi o mês que mais cresceu em novos seguidores e alcance."))
+
+doc.append(NewPage())
 
 with doc.create(Subsection('Análise mensal', numbering=False)):
     with doc.create(Subsubsection('Facebook', numbering=False)):
@@ -387,7 +438,7 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
                 table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[2],fb_seg_2024[1])} | {GR.crescimento(fb_seg_2024[2],fb_seg_2023[2])}'), FootnoteText(f'{GR.crescimento(fb_alcance_2024[2],fb_alcance_2024[1])} | {GR.crescimento(fb_alcance_2024[2],fb_alcance_2023[2])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[2],fb_vivitas_2024[1])} | {GR.crescimento(fb_vivitas_2024[2],fb_vivitas_2023[2])}')))
                 table.add_hline()
                 table.add_row((MultiRow(2, data='Abril'), GR.numeroPorExtensso(fb_seg_2024[3]), GR.numeroPorExtensso(fb_alcance_2024[3]), GR.numeroPorExtensso(fb_vivitas_2024[3])))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[3],fb_seg_2024[2])} | {GR.crescimento(fb_seg_2024[3],fb_seg_2023[3])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[3],fb_alcance_2024[2])} | {GR.crescimento(fb_vivitas_2024[3],fb_alcance_2023[3])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[3],fb_vivitas_2024[2])} | {GR.crescimento(fb_vivitas_2024[3],fb_vivitas_2023[2])}')))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[3],fb_seg_2024[2])} | {GR.crescimento(fb_seg_2024[3],fb_seg_2023[3])}'), FootnoteText(f'{GR.crescimento(fb_alcance_2024[3],fb_alcance_2024[2])} | {GR.crescimento(fb_alcance_2024[3],fb_alcance_2023[3])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[3],fb_vivitas_2024[2])} | {GR.crescimento(fb_vivitas_2024[3],fb_vivitas_2023[2])}')))
                 # table.add_hline()
                 # table.add_row((MultiRow(2, data='Maio'), GR.numeroPorExtensso(fb_seg_2024[4]), GR.numeroPorExtensso(fb_alcance_2024[4]), GR.numeroPorExtensso(fb_vivitas_2024[4])))
                 # table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[4],fb_seg_2024[3])} | {GR.crescimento(fb_seg_2024[4],fb_seg_2023[4])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[4],fb_alcance_2024[3])} | {GR.crescimento(fb_vivitas_2024[4],fb_alcance_2023[4])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[4],fb_vivitas_2024[3])} | {GR.crescimento(fb_vivitas_2024[4],fb_vivitas_2023[4])}')))
@@ -438,6 +489,18 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
         #         sublist.add_item("")
         #         sublist.add_item("")
 
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mês anterior:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"\textbf{Janeiro} foi o melhor mês até o momento, pois tem os maiores números. Também teve o segundo melhore crecimento em novos seguidores e o melhor em visitas."))
+        sublist.add_item(NoEscape(r"Em \textbf{janeiro}, apesar da queda no alcance as outras métricas ainda cresceram."))
+
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mesmo mês em 2023:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"\textbf{Março} teve as maiores quedas."))
+        
+
 doc.append(NewPage())
 
 # Adiciona uma seção ao documento
@@ -456,7 +519,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(publicoCidades_plot_path, width=NoEscape(r'0.8\textwidth'))
+        plot.add_image(publicoCidades_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 doc.append(NewPage())
 
@@ -533,6 +596,9 @@ with doc.create(Section('', numbering=False)):
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(dadosIG_plot_path, width=NoEscape(r'1\textwidth'))
+
+with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+            itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre os dados do Instagram ao longo do período analisado.}'))
 
 doc.append(NewPage())
 
@@ -615,6 +681,18 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
         #         sublist.add_item("")
         #         sublist.add_item("")
         #         sublist.add_item("")
+
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mês anterior:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"\textbf{Janeiro} e \textbf{abril} foram os melhores meses até o momento, tanto em números quanto em crescimento."))
+        sublist.add_item(NoEscape(r"\textbf{Fevereiro} teve as maiores quedas."))
+
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mesmo mês em 2023:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"Com exeção de \textbf{março}, que teve um pequeno crescimento em engajamentos, tanto impresssões quanto engajamentos tiveram apenas quedas."))
+        sublist.add_item(NoEscape(r"Apenas \textbf{março} teve queda em novos seguidores."))
 
 doc.append(NewPage())
 
@@ -709,6 +787,19 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
         #         sublist.add_item("")
         #         sublist.add_item("")
         #         sublist.add_item("")
+
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mês anterior:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"\textbf{Março} foi o melhor mês até o momento."))
+        sublist.add_item(NoEscape(r"\textbf{Abril} foi o primeiro mês com quedas após uma sequência de crescimento. Também foi o mês com mais horas de exibição."))
+
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mesmo mês em 2023:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"Até \textbf{abril} todas as métricas tiveram bons crescimentos em todos os meses em relação ao ano passado. O que significa que até o momento o consumo do YouTube aumentou."))
+        
+doc.append(NewPage())
 
 visualizacoesIdadeYTB_plot_path = GR.visualizacoesIdadeYTB()
 # Adiciona uma seção ao documento
@@ -813,6 +904,6 @@ with doc.create(Itemize()) as itemize:
                 
                 
 # Gera o arquivo LaTeX
-doc.generate_pdf(r'C:\Users\Usuario\Documents\Repositórios\Relatórios\TN\Relatório-TN_Abril-2024', clean_tex=True)
+doc.generate_pdf(fr'C:\Users\{GR.path_aliss}\Documents\Repositórios\Relatórios\TN\Relatório-TN_Abril-2024', clean_tex=True)
 
 print("Relatório em LaTeX gerado com sucesso!")
