@@ -407,7 +407,7 @@ with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:
     itemize.add_item("Mês anterior:")
     with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
         sublist.add_item(NoEscape(r"\textbf{Abril} foi o melhor mês até o momento. Tem os maiores números e os maiores crecimentos pencentuais."))
-        sublist.add_item(NoEscape(r"\textbf{Janeiro} teve os segundos melhores número e crescimentos em novos seguidores e visitas."))
+        sublist.add_item(NoEscape(r"\textbf{Janeiro} teve os segundos melhores números e crescimentos em novos seguidores e visitas."))
         sublist.add_item(NoEscape(r"\textbf{Março} teve os números mais baixos em alcance e visitas e quedas nessas métricas."))
 
 with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     

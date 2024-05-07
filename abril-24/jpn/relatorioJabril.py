@@ -26,7 +26,7 @@ ig_vivitas_2023 = [1641,1213,10131,1105,1436,1780,1193,1297,1372,1246,1468,1902]
 ig_seg_2024 = [306,265,353,342]
 ig_seg_2024_perdeu = [230,240,207,213]
 ig_alcance_2024 = [26399,32188,111983,85295]
-ig_vivitas_2024 = [1646,2176,2272,]
+ig_vivitas_2024 = [1646,2176,2272,2256]
 
 ig_seg_2024_total = [28290,28326,28467,28598]
 
@@ -108,7 +108,7 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
                 table.add_row(('', FootnoteText('mês anterior | mesmo mês em 2023'), FootnoteText('mês anterior | mesmo mês em 2023'), FootnoteText('mês anterior | mesmo mês em 2023')))
                 table.add_hline()
                 table.add_row((MultiRow(2, data='Janeiro'), '306', '26,4 mil', '1,65 mil'))
-                table.add_row(('', FootnoteText('+17% | +677%'), FootnoteText('-57,8% | +20%'), FootnoteText('-13% | +3%')))
+                table.add_row(('', FootnoteText('+17% | -'), FootnoteText('-57,8% | +20%'), FootnoteText('-13% | +3%')))
                 table.add_hline()
                 table.add_row((MultiRow(2, data='Fevereiro'), '265', '32,2 mil', '2,2 mil'))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(265,306)} | {GR.crescimento(265,306)}'), FootnoteText(f'{GR.crescimento(32200,26400)} | {GR.crescimento(32200,15100)}'), FootnoteText(f'{GR.crescimento(2200,1650)} | {GR.crescimento(2200,1200)}')))
@@ -150,7 +150,22 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
                     with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                         sublist.add_item(NoEscape(r'\textbf{Alcance:} Essa métrica calcula o alcance da distribuição orgânica ou paga do seu conteúdo do Instagram e/ou Facebook, incluindo publicações e stories que foram turbinados. Também pode ser interpretada como a quantidade de contas atingidas;'))
                         sublist.add_item(NoEscape(r'\textbf{Visitas:} número de vezes que usuários visitaram seu perfil.'))
-                        
+
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mês anterior:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"\textbf{Março} foi o melhor mês até o momento. Tem os maiores números e os maiores crecimentos pencentuais em novos seguidores e alcance e, apesar de peqeuno, o segundo maior nas visitas."))
+        sublist.add_item(NoEscape(r"\textbf{Abril} teve os segundos melhores números."))
+        sublist.add_item(NoEscape(r"\textbf{Fevereiro} teve a maior queda de novos seguidores e \textbf{janeiro} teve a maior queda em alcance e visitas."))
+
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mesmo mês em 2023:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"\textbf{Março} teve a maior queda em novos seguidores e visitas ao mesmo tempo em que teve o segundo maior crecimento em alcance."))
+        sublist.add_item(NoEscape(r"\textbf{Abril} foi o mês que mais cresceu em todas as métricas."))
+
+doc.append(NewPage())
+
 # recebendo camiho da imagem do gráfico e o total de seguidores do fb e ig
 fePublico_FBIG_plot_path, IG_followers = GR.fePublico_FBIG()
 
@@ -208,7 +223,7 @@ with doc.create(Section('', numbering=False)):
         
 doc.append(NewPage())
 
-dadosIG_plot_path = GR.dadosIG(45,200)
+dadosIG_plot_path = GR.dadosIG(100,250)
 
 # Adiciona uma seção ao documento
 with doc.create(Section('', numbering=False)):
@@ -217,6 +232,9 @@ with doc.create(Section('', numbering=False)):
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
         plot.add_image(dadosIG_plot_path, width=NoEscape(r'1\textwidth'))
+
+with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+            itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre os dados do Instagram ao longo do período analisado.}'))
 
 doc.append(NewPage())
 
@@ -281,6 +299,20 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item(NoEscape(r'\textbf{Impressões:} número de vezes que os usuários viram o(s) Tweet(s);'))
                 sublist.add_item(NoEscape(r'\textbf{Engajamentos:} número total de vezes que um usuário interagiu com o(s) Tweet(s). Isso inclui todos os cliques em qualquer lugar no Tweet como: hashtags, links, avatar, nome de usuário e expansão do Tweet, Retweets, respostas e favoritos.'))
+
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mês anterior:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"\textbf{Janeiro} foi o melhor mês nas impressões e o segundo melhor no engajamento e foi o que mais cresceu nessas métricas."))
+        sublist.add_item(NoEscape(r"\textbf{Abril} foi o melhor mês em novos seguidores."))
+        sublist.add_item(NoEscape(r"\textbf{Março} foi o melhor mês em engajamento."))
+
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mesmo mês em 2023:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"Até \textbf{abril} houveram apenas quedas em engajamentos e impressões."))
+
+doc.append(NewPage())
 
 engajamentoTW_plot_path = GR.engajamentoTW()
 
@@ -361,6 +393,20 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
                 # table.add_row((MultiRow(2, data='Dezembro'), GR.numeroPorExtensso(yb_inc_2024[11]), GR.numeroPorExtensso(yb_visualizacoes_2024[11]), GR.numeroPorExtensso(yb_horas_2024[11])))
                 # table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[11],yb_inc_2024[10])} | {GR.crescimento(yb_inc_2024[11],yb_inc_2023[11])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[11],yb_visualizacoes_2024[10])} | {GR.crescimento(yb_visualizacoes_2024[11],yb_visualizacoes_2023[11])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[11],yb_horas_2024[10])} | {GR.crescimento(yb_horas_2024[11],yb_horas_2023[11])}')))
 
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mês anterior:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"\textbf{Janeiro} foi o mês que mais cresceu."))
+        sublist.add_item(NoEscape(r"É possível observar um padrão onde as métricas crescem em um mês e caem no seguinte."))
+        sublist.add_item(NoEscape(r"\textbf{Janeiro} foi o melhor mês em novos inscritos e \textbf{março} foi o melhor em visulizações e horas de exibição."))
+
+with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+    itemize.add_item("Mesmo mês em 2023:")
+    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+        sublist.add_item(NoEscape(r"Até \textbf{abril} todas as métricas tiveram apenas queda."))
+
+doc.append(NewPage())
+
 visualizacoesIdadeYTB_plot_path = GR.visualizacoesIdadeYTB()
 # Adiciona uma seção ao documento
 with doc.create(Section('', numbering=False)):
@@ -433,6 +479,6 @@ with doc.create(Itemize()) as itemize:
                 sublist.add_item(NoEscape(f'Todos esses dados são fornecidos pelas próprias plataformas, mas eles podem acabar sendo um pouco diferentes para sua respectiva rede social.'))
 
 # Gera o arquivo LaTeX
-doc.generate_pdf(r'C:\Users\Usuario\Documents\Repositórios\Relatórios\JPN\Relatório-JPNews_Mar-2024', clean_tex=True)
+doc.generate_pdf(fr'C:\Users\{GR.path_aliss}\Documents\Repositórios\Relatórios\JPN\Relatório-JPNews_Abril-2024', clean_tex=True)
 
 print("Relatório em LaTeX gerado com sucesso!")
