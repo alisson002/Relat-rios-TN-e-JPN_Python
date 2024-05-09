@@ -63,7 +63,7 @@ yb_inc_2024_total = [35940,36167,36685,36863,37062,37214]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Tribuna do Norte', numbering=False)):
-    with doc.create(Subsection(f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}', numbering=False)):
+    with doc.create(Subsection(f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}', numbering=False)):
         with doc.create(MiniPage(align='c')):
             # Adiciona a tabela de resultados
             with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
@@ -126,7 +126,7 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
                 table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
                 table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}'), GR.numeroPorExtensso(portal_novosUsuarios_2024[-1]), GR.numeroPorExtensso(portal_visualizacoes_2024[-1]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[-1])))
+                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(portal_novosUsuarios_2024[-1]), GR.numeroPorExtensso(portal_visualizacoes_2024[-1]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[-1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(portal_novosUsuarios_2024[-1],portal_novosUsuarios_2024[-2])}'), FootnoteText(f'{GR.crescimento(portal_visualizacoes_2024[-1],portal_visualizacoes_2024[-2])}'), FootnoteText(f'{GR.crescimento(portal_usuariosRescorrentes_2024Analytics[-1],portal_usuariosRescorrentes_2024Analytics[-2])}')))
 
         # Adiciona informações extras
@@ -244,7 +244,7 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
                 table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
                 table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}'), GR.numeroPorExtensso(ig_seg_2024[-1]), GR.numeroPorExtensso(ig_alcance_2024[-1]), GR.numeroPorExtensso(ig_vivitas_2024[-1])))
+                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(ig_seg_2024[-1]), GR.numeroPorExtensso(ig_alcance_2024[-1]), GR.numeroPorExtensso(ig_vivitas_2024[-1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[-1],ig_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[-1],ig_alcance_2024[-2])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[-1],ig_vivitas_2024[-2])}')))
     with doc.create(Subsubsection('Facebook', numbering=False)):
         with doc.create(MiniPage(align='c')):
@@ -255,7 +255,7 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
                 table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
                 table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}'), GR.numeroPorExtensso(fb_seg_2024[-1]), GR.numeroPorExtensso(fb_alcance_2024[-1]), GR.numeroPorExtensso(fb_vivitas_2024[-1])))
+                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(fb_seg_2024[-1]), GR.numeroPorExtensso(fb_alcance_2024[-1]), GR.numeroPorExtensso(fb_vivitas_2024[-1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[-1],fb_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(fb_alcance_2024[-1],fb_alcance_2024[-2])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[-1],fb_vivitas_2024[-2])}')))
 
 
@@ -378,7 +378,7 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
                 table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
                 table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}'), GR.numeroPorExtensso(tw_seg_2024[-1]), GR.numeroPorExtensso(tw_impressões_2024[-1]), GR.numeroPorExtensso(tw_engajamentos_2024[-1])))
+                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(tw_seg_2024[-1]), GR.numeroPorExtensso(tw_impressões_2024[-1]), GR.numeroPorExtensso(tw_engajamentos_2024[-1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[-1],tw_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[-1],tw_impressões_2024[-2])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[-1],tw_engajamentos_2024[-2])}')))
 
         # Adiciona informações extras
@@ -435,7 +435,7 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
                 table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
                 table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}'), GR.numeroPorExtensso(yb_inc_2024[-1]), GR.numeroPorExtensso(yb_visualizacoes_2024[-1]), GR.numeroPorExtensso(yb_horas_2024[-1])))
+                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(yb_inc_2024[-1]), GR.numeroPorExtensso(yb_visualizacoes_2024[-1]), GR.numeroPorExtensso(yb_horas_2024[-1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[-1],yb_inc_2024[-2])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[-1],yb_visualizacoes_2024[-2])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[-1],yb_horas_2024[-2])}')))
 
 visualizacoesIdadeYTB_plot_path = GR.visualizacoesIdadeYTB()
@@ -541,6 +541,6 @@ with doc.create(Itemize()) as itemize:
                 
                 
 # Gera o arquivo LaTeX
-doc.generate_pdf(fr'C:\Users\{GR.path_Usuarios}\Documents\Repositórios\Relatórios\TNsemanal\RelatórioSemanal-TN_{GR.penultimo_domingo()} a {GR.ultimo_sabado()}', clean_tex=True)
+doc.generate_pdf(fr'C:\Users\{GR.path_Usuarios}\Documents\Repositórios\Relatórios\TNsemanal\RelatórioSemanal-TN_{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}', clean_tex=True)
 
 print("Relatório em LaTeX gerado com sucesso!")

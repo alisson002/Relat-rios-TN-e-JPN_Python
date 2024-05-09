@@ -16,7 +16,7 @@ def ultimo_sabado():
     elif dia_da_semana == 1: #terça
         dias_para_subtrair = (dia_da_semana + 2) % 7  # Dias a subtrair para chegar ao último sabado
     ultimo_domingo = hoje - datetime.timedelta(days=dias_para_subtrair)
-    return ultimo_domingo.strftime("%d-%m-%Y")
+    return ultimo_domingo
 
 def penultimo_domingo():
     hoje = datetime.date.today()
@@ -27,7 +27,7 @@ def penultimo_domingo():
         dias_para_subtrair = (dia_da_semana + 8) % 7  # Dias a subtrair para chegar ao último sabado
     ultimo_domingo = hoje - datetime.timedelta(days=dias_para_subtrair)
     penultimo_domingo = ultimo_domingo - datetime.timedelta(days=7)
-    return penultimo_domingo.strftime("%d-%m-%Y")
+    return penultimo_domingo
 
 def formataNumero(numero):
     numero_formatado = '{:,}'.format(numero).replace(',', '.')
@@ -423,84 +423,45 @@ def top15cliques():
 
 top15cliques_plot_path = fr"C:/Users/{path_Usuarios}/Documents/Repositórios/Imagens/TN/top15cliques.png"
 
+
+def encontrar_frase_em_csv(nome_arquivo, frase_procurada):
+    try:
+        with open(nome_arquivo, 'r', newline='', encoding='utf-8') as arquivo_csv:
+            leitor_csv = csv.reader(arquivo_csv)
+            
+            for numero_linha, linha in enumerate(leitor_csv, start=1):
+                if frase_procurada in linha:
+                    return numero_linha
+
+        # Se a frase não for encontrada em nenhuma linha
+        return -1
+
+    except FileNotFoundError:
+        print(f'O arquivo {nome_arquivo} não foi encontrado.')
+        return -1
+
+def remover_ultima_linha(arquivo):
+    dados = arquivo
+    
+    # Verificar se a última linha atende ao critério
+    ultima_linha = dados.iloc[-1]
+    if ultima_linha['Nº dia'] not in ['0030', '0029', '0028', '28', '29', '30']:
+        # Se não atender ao critério, remover a última linha
+        dados = dados.iloc[:-1]
+    
+    return dados
+
+def transforma_int(arquivo):
+    
+    for i in range(len(arquivo.iloc[:,0])):
+        arquivo.iloc[i,0] = int(arquivo.iloc[i,0])
+    
+    for i in range(len(arquivo.iloc[:,1])):
+        arquivo.iloc[i,1] = int(arquivo.iloc[i,1])
+    
+    return arquivo
+
 def visualizacoesUsuarios():
-    '''
-    LINK: https://analytics.google.com/
-
-    USUÁRIOS E NOVOS USUÁRIOS
-
-    https://analytics.google.com/analytics/web/#/p308444970/reports/reportinghub?params=_u..nav%3Dmaui%26_u.comparisonOption%3Ddisabled%26_u.date00%3D20231101%26_u.date01%3D20231130
-
-    CAMINHO: barra lateral > Relatórios
-
-    Ações: Compartilhar esse relatorio (icone) >>> Fazer o download do arquivo >>> Fazer download do CSV
-
-    '''
-
-    '''
-    LINK: https://analytics.google.com/
-
-    VISUALIZAÇÕES
-
-    https://analytics.google.com/analytics/web/#/p308444970/reports/dashboard?params=_u..nav%3Dmaui%26_u.comparisonOption%3Ddisabled%26_u.date00%3D20231101%26_u.date01%3D20231130&r=lifecycle-engagement-overview&ruid=lifecycle-engagement-overview,life-cycle,engagement&collectionId=life-cycle
-
-    CAMINHO: barra lateral > Relatórios > Engajamento (dropdown) > Visão geral
-
-    Ações: Compartilhar esse relatorio (icone) >>> Fazer o download do arquivo >>> Fazer download do CSV
-
-    '''
-
-    '''
-    LINK: https://analytics.google.com/
-
-    NOVOS USUÁRIOS E USUÁRIOS RECORRENTES
-
-    https://analytics.google.com/analytics/web/#/p308444970/reports/dashboard?params=_u..nav%3Dmaui%26_u.comparisonOption%3Ddisabled%26_u.date00%3D20231101%26_u.date01%3D20231130&r=lifecycle-retention-overview&ruid=lifecycle-retention-overview,life-cycle,retention&collectionId=life-cycle
-
-    CAMINHO: barra lateral > Relatórios > Retenção
-
-    Ações: Compartilhar esse relatorio (icone) >>> Fazer o download do arquivo >>> Fazer download do CSV
-
-    PEGAR  O VALOR DE USUÁRIOS RECORRENTE POR SCRAPPING, DIRETO DO ANALYTICS, POIS OS VALORES DE LA PROVAVELMENT SÃO DE USUÁRIOS UNICOS.
-
-    '''
-
-    def encontrar_frase_em_csv(nome_arquivo, frase_procurada):
-        try:
-            with open(nome_arquivo, 'r', newline='', encoding='utf-8') as arquivo_csv:
-                leitor_csv = csv.reader(arquivo_csv)
-                
-                for numero_linha, linha in enumerate(leitor_csv, start=1):
-                    if frase_procurada in linha:
-                        return numero_linha
-
-            # Se a frase não for encontrada em nenhuma linha
-            return -1
-
-        except FileNotFoundError:
-            print(f'O arquivo {nome_arquivo} não foi encontrado.')
-            return -1
-
-    def remover_ultima_linha(arquivo):
-        dados = arquivo
-        
-        # Verificar se a última linha atende ao critério
-        ultima_linha = dados.iloc[-1]
-        if ultima_linha['Nº dia'] not in ['0030', '0029', '0028', '28', '29', '30']:
-            # Se não atender ao critério, remover a última linha
-            dados = dados.iloc[:-1]
-
-        return dados
-
-    def transforma_int(arquivo):
-        
-        for i in range(len(arquivo.iloc[:,0])):
-            arquivo.iloc[i,0] = int(arquivo.iloc[i,0])
-        
-        for i in range(len(arquivo.iloc[:,1])):
-            arquivo.iloc[i,1] = int(arquivo.iloc[i,1])
-        
-        return arquivo
 
     # USUÁRIO ÚNICOS
     usuarios_unicos_final = encontrar_frase_em_csv(fr'C:\Users\{path_Usuarios}\Documents\Repositórios\csv\TNsemanal\uniNovos.csv', 'Novos usuários')
