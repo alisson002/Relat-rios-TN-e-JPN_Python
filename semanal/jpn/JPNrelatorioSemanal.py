@@ -18,35 +18,35 @@ with doc.create(MiniPage(align='c')):
         doc.append(LineBreak())
 
 #INSTAGRAM
-ig_seg_2024 = [65,59,70]
-ig_seg_2024_perdeu = [62,45,33]
-ig_alcance_2024 = [27468,9862,12058]
-ig_vivitas_2024 = [438,393,321]
+ig_seg_2024 = [65,59,70,60]
+ig_seg_2024_perdeu = [62,45,33,37]
+ig_alcance_2024 = [27468,9862,12058,10433]
+ig_vivitas_2024 = [438,393,321,288]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-ig_seg_2024_total = [28566,28585,28623]
+ig_seg_2024_total = [28566,28585,28623,28630]
 
 #TWITTER
-tw_seg_2024 = [23,29,7]
-tw_impressões_2024 = [6787,6253,5216]
-tw_engajamentos_2024 = [139,108,99]
+tw_seg_2024 = [23,29,7,12]
+tw_impressões_2024 = [6787,6253,5216,8468]
+tw_engajamentos_2024 = [139,108,99,97]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-tw_seg_2024_total = [27683,27697,27699]
-tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
+tw_seg_2024_total = [27683,27697,27699,27702]
+tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 #YOUTUBE
-yb_inc_2024 = [52,103,70]
-yb_inc_2024_perdeu = [30,25,25]
-yb_visualizacoes_2024 = [6938,20623,17706]
-yb_horas_2024 = [1069,1803,1351]
+yb_inc_2024 = [52,103,70,81]
+yb_inc_2024_perdeu = [30,25,25,21]
+yb_visualizacoes_2024 = [6938,20623,17706,18365]
+yb_horas_2024 = [1069,1803,1351,1525]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-yb_inc_2024_total = [34033,34118,34180]
+yb_inc_2024_total = [34033,34118,34180,34229]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('JP News Natal', numbering=False)):
-    with doc.create(Subsection(f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}', numbering=False)):
+    with doc.create(Subsection(f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}', numbering=False)):
         with doc.create(MiniPage(align='c')):
             # Adiciona a tabela de resultados
             with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
@@ -96,7 +96,7 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
                 table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
                 table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}'), GR.numeroPorExtensso(ig_seg_2024[-1]), GR.numeroPorExtensso(ig_alcance_2024[-1]), GR.numeroPorExtensso(ig_vivitas_2024[-1])))
+                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(ig_seg_2024[-1]), GR.numeroPorExtensso(ig_alcance_2024[-1]), GR.numeroPorExtensso(ig_vivitas_2024[-1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[-1],ig_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[-1],ig_alcance_2024[-2])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[-1],ig_vivitas_2024[-2])}')))
         # Adiciona informações extras
         # Adiciona uma lista com marcadores
@@ -138,7 +138,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.85\textwidth'))
 
 visitasIG_plot_path, visitasIG = GR.visitasIG()
 
@@ -148,7 +148,9 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(visitasIG_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(visitasIG_plot_path, width=NoEscape(r'0.85\textwidth'))
+
+doc.append(NewPage())
 
 alcanceIG_plot_path, alcanceIG = GR.alcanceIG()
 
@@ -158,11 +160,11 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(alcanceIG_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(alcanceIG_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 doc.append(NewPage())
 
-dadosIG_plot_path = GR.dadosIG(35,100)
+dadosIG_plot_path = GR.dadosIG(35,55)
 
 # Adiciona uma seção ao documento
 with doc.create(Section('', numbering=False)):
@@ -171,6 +173,9 @@ with doc.create(Section('', numbering=False)):
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
         plot.add_image(dadosIG_plot_path, width=NoEscape(r'1\textwidth'))
+
+with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+            itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre diferentes dados do Instagram ao longo do período analisado.}'))
 
 doc.append(NewPage())
 
@@ -184,7 +189,7 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
                 table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
                 table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}'), GR.numeroPorExtensso(tw_seg_2024[-1]), GR.numeroPorExtensso(tw_impressões_2024[-1]), GR.numeroPorExtensso(tw_engajamentos_2024[-1])))
+                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(tw_seg_2024[-1]), GR.numeroPorExtensso(tw_impressões_2024[-1]), GR.numeroPorExtensso(tw_engajamentos_2024[-1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[-1],tw_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[-1],tw_impressões_2024[-2])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[-1],tw_engajamentos_2024[-2])}')))
 
         # Adiciona informações extras
@@ -207,7 +212,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(engajamentoTW_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(engajamentoTW_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 impressoesTW_plot_path = GR.impressoesTW()
 
@@ -217,7 +222,9 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(impressoesTW_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(impressoesTW_plot_path, width=NoEscape(r'0.9\textwidth'))
+
+doc.append(NewPage())
 
 seguidoresTW_plot_path = GR.seguidoresTW()
 
@@ -227,8 +234,23 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(seguidoresTW_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(seguidoresTW_plot_path, width=NoEscape(r'0.9\textwidth'))
 
+doc.append(NewPage())
+
+dados_TW_plot_path = GR.dados_TW()
+
+# Adiciona uma seção ao documento
+with doc.create(Section('', numbering=False)):
+    doc.append("TW: comparativo de seguidores, engajamentos e impressões. (Esses dados levam em consideração apenas os ganhos)")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='h!')) as plot:
+        plot.add_image(dados_TW_plot_path, width=NoEscape(r'1\textwidth'))
+
+with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+            itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre diferentes dados do Twitter ao longo do período analisado.}'))
+            
 doc.append(NewPage())
 
 with doc.create(Subsection('Análise semanal', numbering=False)):
@@ -241,7 +263,7 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
                 table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
                 table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo()} a {GR.ultimo_sabado()}'), GR.numeroPorExtensso(yb_inc_2024[-1]), GR.numeroPorExtensso(yb_visualizacoes_2024[-1]), GR.numeroPorExtensso(yb_horas_2024[-1])))
+                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(yb_inc_2024[-1]), GR.numeroPorExtensso(yb_visualizacoes_2024[-1]), GR.numeroPorExtensso(yb_horas_2024[-1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[-1],yb_inc_2024[-2])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[-1],yb_visualizacoes_2024[-2])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[-1],yb_horas_2024[-2])}')))
 
 visualizacoesIdadeYTB_plot_path = GR.visualizacoesIdadeYTB()
@@ -355,6 +377,6 @@ with doc.create(Itemize()) as itemize:
                 
                 
 # Gera o arquivo LaTeX
-doc.generate_pdf(fr'C:\Users\{GR.path_aliss}\Documents\Repositórios\Relatórios\JPNsemanal\RelatórioSemanal-JPN_{GR.penultimo_domingo()} a {GR.ultimo_sabado()}', clean_tex=True)
+doc.generate_pdf(fr'C:\Users\{GR.path_aliss}\Documents\Repositórios\Relatórios\JPNsemanal\RelatórioSemanal-JPN_{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}', clean_tex=True)
 
 print("Relatório em LaTeX gerado com sucesso!")

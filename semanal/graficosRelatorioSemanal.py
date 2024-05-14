@@ -116,7 +116,7 @@ def extensso(contaElementos):
 def numeroPorExtensso(numero):
     return f"{primeirosElementos((numero))} {extensso(contaElementos(formataNumero(numero)))}"
 
-path_aliss = 'aliss'
+path_aliss = 'Usuario'
 path_Usuarios = 'Usuario'
 
 def origemPortal():
@@ -549,13 +549,14 @@ def visu_cumsum():
     
     # VISUALIZAÇÕES
     visualizacoes_inicio = encontrar_frase_em_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\TNsemanal\visualizacoes.csv', 'Visualizações')
+    visualizacoes_inicio_anterior = encontrar_frase_em_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\ANTERIOR\TNsemanal\visualizacoes.csv', 'Visualizações')
     # visualizacoes_final = encontrar_frase_em_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\TNsemanal\visualizacoes.csv', 'Contagem de eventos')
 
     # visualizacoes = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\TNsemanal\visualizacoes.csv', skiprows=visualizacoes_inicio-1, nrows=visualizacoes_final-44).dropna()
     # visualizacoes = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\TNsemanal\visualizacoes.csv', skiprows=visualizacoes_inicio-1, nrows=10).dropna()
 
     # SEMANA ANTERIOR
-    visualizacoesANTERIOR = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\ANTERIOR\TNsemanal\visualizacoes.csv', skiprows=visualizacoes_inicio-1, nrows=8)
+    visualizacoesANTERIOR = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\ANTERIOR\TNsemanal\visualizacoes.csv', skiprows=visualizacoes_inicio_anterior-1, nrows=8)
 
     visualizacoesANTERIOR = remover_ultima_linha(visualizacoesANTERIOR)
     visualizacoesANTERIOR = transforma_int(visualizacoesANTERIOR)
@@ -1184,23 +1185,25 @@ def curtidasFB():
 
     seguidoresFB_acumulado = seguidoresFB['Primary'].cumsum()
 
-    # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y=seguidoresFB_ANTERIOR_acumulado, data=seguidoresFB_ANTERIOR, label=f"Seguidores {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+    dia = [1,2,3,4,5,6,7]
 
-    sns.lineplot(x="Data", y=seguidoresFB_acumulado, data=seguidoresFB, label=f"Seguidores {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+    # Plotando o gráfico de linhas
+    sns.lineplot(x=dia, y=seguidoresFB_ANTERIOR_acumulado, data=seguidoresFB_ANTERIOR, label=f"Seguidores {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+
+    sns.lineplot(x=dia, y=seguidoresFB_acumulado, data=seguidoresFB, label=f"Seguidores {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
-    for x, y, acumulado in zip(seguidoresFB_ANTERIOR['Data'], seguidoresFB_ANTERIOR['Primary'], seguidoresFB_ANTERIOR_acumulado):
+    for x, y, acumulado in zip(dia, seguidoresFB_ANTERIOR['Primary'], seguidoresFB_ANTERIOR_acumulado):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
-    for x, y, acumulado in zip(seguidoresFB['Data'], seguidoresFB['Primary'], seguidoresFB_acumulado):
+    for x, y, acumulado in zip(dia, seguidoresFB['Primary'], seguidoresFB_acumulado):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -1243,23 +1246,25 @@ def visitasFB():
 
     visitasFB_ACUMULADO = visitasFB['Primary'].cumsum()
 
+    dia = [1,2,3,4,5,6,7]
+    
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y=visitasFB_ANTERIOR_ACUMULADO, data=visitasFB_ANTERIOR, label=f"Visitas {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+    sns.lineplot(x=dia, y=visitasFB_ANTERIOR_ACUMULADO, data=visitasFB_ANTERIOR, label=f"Visitas {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
 
-    sns.lineplot(x="Data", y=visitasFB_ACUMULADO, data=visitasFB, label=f"Visitas {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+    sns.lineplot(x=dia, y=visitasFB_ACUMULADO, data=visitasFB, label=f"Visitas {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
-    for x, y, acumulado in zip(visitasFB_ANTERIOR['Data'], visitasFB_ANTERIOR['Primary'], visitasFB_ANTERIOR_ACUMULADO):
+    for x, y, acumulado in zip(dia, visitasFB_ANTERIOR['Primary'], visitasFB_ANTERIOR_ACUMULADO):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
-    for x, y, acumulado in zip(visitasFB['Data'], visitasFB['Primary'], visitasFB_ACUMULADO):
+    for x, y, acumulado in zip(dia, visitasFB['Primary'], visitasFB_ACUMULADO):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -1307,23 +1312,25 @@ def alcanceFB():
 
     alcanceFB_ACUMULADO = alcanceFB['Primary'].cumsum()
 
+    dia = [1,2,3,4,5,6,7]
+    
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y=alcanceFB_ANTERIOR_ACUMULADO, data=alcanceFB_ANTERIOR, label=f"Alcance {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+    sns.lineplot(x=dia, y=alcanceFB_ANTERIOR_ACUMULADO, data=alcanceFB_ANTERIOR, label=f"Alcance {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
 
-    sns.lineplot(x="Data", y=alcanceFB_ACUMULADO, data=alcanceFB, label=f"Alcance {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+    sns.lineplot(x=dia, y=alcanceFB_ACUMULADO, data=alcanceFB, label=f"Alcance {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
-    for x, y, acumulado in zip(alcanceFB_ANTERIOR['Data'], alcanceFB_ANTERIOR['Primary'], alcanceFB_ANTERIOR_ACUMULADO):
+    for x, y, acumulado in zip(dia, alcanceFB_ANTERIOR['Primary'], alcanceFB_ANTERIOR_ACUMULADO):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
-    for x, y, acumulado in zip(alcanceFB['Data'], alcanceFB['Primary'], alcanceFB_ACUMULADO):
+    for x, y, acumulado in zip(dia, alcanceFB['Primary'], alcanceFB_ACUMULADO):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -1428,23 +1435,25 @@ def seguidoresIG():
 
     seguidoresIG_acumulado = seguidoresIG['Primary'].cumsum()
 
+    dia = [1,2,3,4,5,6,7]
+    
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y=seguidoresIG_ANTERIOR_acumulado, data=seguidoresIG_ANTERIOR, label=f"Seguidores {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+    sns.lineplot(x=dia, y=seguidoresIG_ANTERIOR_acumulado, data=seguidoresIG_ANTERIOR, label=f"Seguidores {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
 
-    sns.lineplot(x="Data", y=seguidoresIG_acumulado, data=seguidoresIG, label=f"Seguidores {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+    sns.lineplot(x=dia, y=seguidoresIG_acumulado, data=seguidoresIG, label=f"Seguidores {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
-    for x, y, acumulado in zip(seguidoresIG_ANTERIOR['Data'], seguidoresIG_ANTERIOR['Primary'], seguidoresIG_ANTERIOR_acumulado):
+    for x, y, acumulado in zip(dia, seguidoresIG_ANTERIOR['Primary'], seguidoresIG_ANTERIOR_acumulado):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
-    for x, y, acumulado in zip(seguidoresIG['Data'], seguidoresIG['Primary'], seguidoresIG_acumulado):
+    for x, y, acumulado in zip(dia, seguidoresIG['Primary'], seguidoresIG_acumulado):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -1487,23 +1496,25 @@ def visitasIG():
 
     visitasIG_acumuladas = visitasIG['Primary'].cumsum()
 
+    dia = [1,2,3,4,5,6,7]
+    
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y=visitasIG_ANTERIOR_acumuladas, data=visitasIG_ANTERIOR, label=F"Visitas {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+    sns.lineplot(x=dia, y=visitasIG_ANTERIOR_acumuladas, data=visitasIG_ANTERIOR, label=F"Visitas {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
 
-    sns.lineplot(x="Data", y=visitasIG_acumuladas, data=visitasIG, label=F"Visitas {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+    sns.lineplot(x=dia, y=visitasIG_acumuladas, data=visitasIG, label=F"Visitas {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
-    for x, y, acumulado in zip(visitasIG_ANTERIOR['Data'], visitasIG_ANTERIOR['Primary'], visitasIG_ANTERIOR_acumuladas):
+    for x, y, acumulado in zip(dia, visitasIG_ANTERIOR['Primary'], visitasIG_ANTERIOR_acumuladas):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
-    for x, y, acumulado in zip(visitasIG['Data'], visitasIG['Primary'], visitasIG_acumuladas):
+    for x, y, acumulado in zip(dia, visitasIG['Primary'], visitasIG_acumuladas):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -1545,23 +1556,25 @@ def alcanceIG():
 
     alcanceIG_ACUMULADA = alcanceIG['Primary'].cumsum()
 
+    dia = [1,2,3,4,5,6,7]
+    
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y=alcanceIG_ANTERIOR_ACUMULADA, data=alcanceIG_ANTERIOR, label=F"Alcance {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+    sns.lineplot(x=dia, y=alcanceIG_ANTERIOR_ACUMULADA, data=alcanceIG_ANTERIOR, label=F"Alcance {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
 
-    sns.lineplot(x="Data", y=alcanceIG_ACUMULADA, data=alcanceIG, label=F"Alcance {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+    sns.lineplot(x=dia, y=alcanceIG_ACUMULADA, data=alcanceIG, label=F"Alcance {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
-    for x, y, acumulado in zip(alcanceIG_ANTERIOR['Data'], alcanceIG_ANTERIOR['Primary'], alcanceIG_ANTERIOR_ACUMULADA):
+    for x, y, acumulado in zip(dia, alcanceIG_ANTERIOR['Primary'], alcanceIG_ANTERIOR_ACUMULADA):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
-    for x, y, acumulado in zip(alcanceIG['Data'], alcanceIG['Primary'], alcanceIG_ACUMULADA):
+    for x, y, acumulado in zip(dia, alcanceIG['Primary'], alcanceIG_ACUMULADA):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -1667,23 +1680,25 @@ def engajamentoTW():
 
     twFiltrado_ACUMULADO =  twFiltrado['engajamentos'].cumsum()
 
+    dia = [1,2,3,4,5,6,7]
+    
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y=twFiltrado_ANTERIOR_ACUMULADO, data=twFiltrado_ANTERIOR, label=f"Engajamento {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+    sns.lineplot(x=dia, y=twFiltrado_ANTERIOR_ACUMULADO, data=twFiltrado_ANTERIOR, label=f"Engajamento {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
 
-    sns.lineplot(x="Data", y=twFiltrado_ACUMULADO, data=twFiltrado, label=f"Engajamento {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+    sns.lineplot(x=dia, y=twFiltrado_ACUMULADO, data=twFiltrado, label=f"Engajamento {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
-    for x, y, acumulado in zip(twFiltrado_ANTERIOR['Data'], twFiltrado_ANTERIOR['engajamentos'], twFiltrado_ANTERIOR_ACUMULADO):
+    for x, y, acumulado in zip(dia, twFiltrado_ANTERIOR['engajamentos'], twFiltrado_ANTERIOR_ACUMULADO):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
-    for x, y, acumulado in zip(twFiltrado['Data'], twFiltrado['engajamentos'], twFiltrado_ACUMULADO):
+    for x, y, acumulado in zip(dia, twFiltrado['engajamentos'], twFiltrado_ACUMULADO):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -1723,24 +1738,24 @@ def impressoesTW():
     twFiltrado_ANTERIOR_ACUMULADO = twFiltrado_ANTERIOR['impressões'].cumsum()
 
     twFiltrado_ACUMULADO =  twFiltrado['impressões'].cumsum()
-
+    dia = [1,2,3,4,5,6,7]
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y=twFiltrado_ANTERIOR_ACUMULADO, data=twFiltrado_ANTERIOR, label=f"Impressões {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+    sns.lineplot(x=dia, y=twFiltrado_ANTERIOR_ACUMULADO, data=twFiltrado_ANTERIOR, label=f"Impressões {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
 
-    sns.lineplot(x="Data", y=twFiltrado_ACUMULADO, data=twFiltrado, label=f"Impressões {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+    sns.lineplot(x=dia, y=twFiltrado_ACUMULADO, data=twFiltrado, label=f"Impressões {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
-    for x, y, acumulado in zip(twFiltrado_ANTERIOR['Data'], twFiltrado_ANTERIOR['impressões'], twFiltrado_ANTERIOR_ACUMULADO):
+    for x, y, acumulado in zip(dia, twFiltrado_ANTERIOR['impressões'], twFiltrado_ANTERIOR_ACUMULADO):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
-    for x, y, acumulado in zip(twFiltrado['Data'], twFiltrado['impressões'], twFiltrado_ACUMULADO):
+    for x, y, acumulado in zip(dia, twFiltrado['impressões'], twFiltrado_ACUMULADO):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -1772,29 +1787,29 @@ def seguidoresTW():
     plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
 
     # Definindo a paleta de cores desejada
-    cores = ["#596673", "#14171A"]
+    cores = ["#A2AFB9", "#657786"]
 
     twFiltrado_ANTERIOR_ACUMULADO = twFiltrado_ANTERIOR['seguiram'].cumsum()
 
     twFiltrado_ACUMULADO =  twFiltrado['seguiram'].cumsum()
-
+    dia = [1,2,3,4,5,6,7]
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y=twFiltrado_ANTERIOR_ACUMULADO, data=twFiltrado_ANTERIOR, label=f"Seguiram {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+    sns.lineplot(x=dia, y=twFiltrado_ANTERIOR_ACUMULADO, data=twFiltrado_ANTERIOR, label=f"Seguiram {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
 
-    sns.lineplot(x="Data", y=twFiltrado_ACUMULADO, data=twFiltrado, label=f"Seguiram {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+    sns.lineplot(x=dia, y=twFiltrado_ACUMULADO, data=twFiltrado, label=f"Seguiram {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
-    for x, y, acumulado in zip(twFiltrado_ANTERIOR['Data'], twFiltrado_ANTERIOR['seguiram'], twFiltrado_ANTERIOR_ACUMULADO):
+    for x, y, acumulado in zip(dia, twFiltrado_ANTERIOR['seguiram'], twFiltrado_ANTERIOR_ACUMULADO):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
-    for x, y, acumulado in zip(twFiltrado['Data'], twFiltrado['seguiram'], twFiltrado_ACUMULADO):
+    for x, y, acumulado in zip(dia, twFiltrado['seguiram'], twFiltrado_ACUMULADO):
         plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -1814,8 +1829,8 @@ def dadosTW():
     twFiltrado = tw[['Data','engajamentos','impressões', 'seguiram']]
     twFiltrado['Data'] = pd.to_datetime(twFiltrado['Data']).dt.strftime('%d-%m-%Y')
 
-    twFiltrado['engajamentos'] = twFiltrado['engajamentos']*25
-    twFiltrado['seguiram'] = twFiltrado['seguiram']*60
+    twFiltrado['engajamentos'] = twFiltrado['engajamentos']*20
+    twFiltrado['seguiram'] = twFiltrado['seguiram']*40
     # Configurando o tema do Seaborn
     sns.set_theme(style="whitegrid")
 

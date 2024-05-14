@@ -18,48 +18,48 @@ with doc.create(MiniPage(align='c')):
         doc.append(MediumText(("Relatório semanal")))
         doc.append(LineBreak())
 
-portal_usuariosUnicos_2024Table = [276184,441269,455979,340868,369804,272294]
-portal_usuariosRescorrentes_2024Table = [123944,197378,172485,156579,169541,124341]
-portal_usuariosUnicos_2024Analytics = [213000,331000,370000,261000,283000,210000]
-portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000,92000,100000,73000]
-portal_visualizacoes_2024 = [621206,965340,924908,765698,829407,635989] # mesmo valor na tabela e no analytics
-portal_novosUsuarios_2024 = [147518,242760,278732,177038,198428,144767] # mesmo valor na tabela e no analytics
+portal_usuariosUnicos_2024Table = [276184,441269,455979,340868,369804,272294,293971]
+portal_usuariosRescorrentes_2024Table = [123944,197378,172485,156579,169541,124341,135747]
+portal_usuariosUnicos_2024Analytics = [213000,331000,370000,261000,283000,210000,226000]
+portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000,92000,100000,73000,79000]
+portal_visualizacoes_2024 = [621206,965340,924908,765698,829407,635989,664666] # mesmo valor na tabela e no analytics
+portal_novosUsuarios_2024 = [147518,242760,278732,177038,198428,144767,155648] # mesmo valor na tabela e no analytics
 
 #INSTAGRAM
-ig_seg_2024 = [1299,2685,1476,1499,2054,1558]
-ig_seg_2024_perdeu = [1040,1165,1080,1114,1228,1094]
-ig_alcance_2024 = [330170,619778,394150,368303,430160,430041]
-ig_vivitas_2024 = [24896,53103,28198,27847,49389,28931]
+ig_seg_2024 = [1299,2685,1476,1499,2054,1558,1469]
+ig_seg_2024_perdeu = [1040,1165,1080,1114,1228,1094,1070]
+ig_alcance_2024 = [330170,619778,394150,368303,430160,430041,430095]
+ig_vivitas_2024 = [24896,53103,28198,27847,49389,28931,29098]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-ig_seg_2024_total = [532444,533616,534049,534392,535150,535716]
+ig_seg_2024_total = [532444,533616,534049,534392,535150,535716,536047]
 
 #FACEBOOK
-fb_seg_2024 = [30,61,71,42,83,80]
-fb_seg_2024_perdeu = [34,35,44,35,49,40]
-fb_alcance_2024 = [64958,88738,112464,63173,142594,139599]
-fb_vivitas_2024 = [6500,7686,8158,6718,6757,7087]
+fb_seg_2024 = [30,61,71,42,83,80,49]
+fb_seg_2024_perdeu = [34,35,44,35,49,40,31]
+fb_alcance_2024 = [64958,88738,112464,63173,142594,139599,101924]
+fb_vivitas_2024 = [6500,7686,8158,6718,6757,7087,7074]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-fb_seg_2024_total = [332419,332392,332389,332334,332339,332314]
+fb_seg_2024_total = [332419,332392,332389,332334,332339,332314,332287]
 
 #TWITTER
-tw_seg_2024 = [359,455,1249,892,801,725]
-tw_impressões_2024 = [86012,102051,96123,100004,113293,95767]
-tw_engajamentos_2024 = [2390,3324,3242,3257,4164,2661]
+tw_seg_2024 = [359,455,1249,892,801,725,1009]
+tw_impressões_2024 = [86012,102051,96123,100004,113293,95767,95199]
+tw_engajamentos_2024 = [2390,3324,3242,3257,4164,2661,3219]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-tw_seg_2024_total = [312146,312041,312437,312722,312797,313181]
-tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2]),tw_seg_2024[4]-(tw_seg_2024_total[4]-tw_seg_2024_total[3]),tw_seg_2024[5]-(tw_seg_2024_total[5]-tw_seg_2024_total[4])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
+tw_seg_2024_total = [312146,312041,312437,312722,312797,313181,314742]
+tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2]),tw_seg_2024[4]-(tw_seg_2024_total[4]-tw_seg_2024_total[3]),tw_seg_2024[5]-(tw_seg_2024_total[5]-tw_seg_2024_total[4]),abs(tw_seg_2024[6]-(tw_seg_2024_total[6]-tw_seg_2024_total[5]))] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 #YOUTUBE
-yb_inc_2024 = [505,241,552,155,268,162]
-yb_inc_2024_perdeu = [30,15,31,17,30,15]
-yb_visualizacoes_2024 = [134255,69730,149424,40127,73821,39688]
-yb_horas_2024 = [1785,1114,2142,671,1265,632]
+yb_inc_2024 = [505,241,552,155,268,162,135]
+yb_inc_2024_perdeu = [30,15,31,17,30,15,19]
+yb_visualizacoes_2024 = [134255,69730,149424,40127,73821,39688,35024]
+yb_horas_2024 = [1785,1114,2142,671,1265,632,660]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-yb_inc_2024_total = [35940,36167,36685,36863,37062,37214]
+yb_inc_2024_total = [35940,36167,36685,36863,37062,37214,37333]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Tribuna do Norte', numbering=False)):
@@ -193,7 +193,9 @@ with doc.create(Subsection('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.top15cliques_plot_path, width=NoEscape(r'0.9\textwidth'))
+        plot.add_image(GR.top15cliques_plot_path, width=NoEscape(r'1\textwidth'))
+
+doc.append(NewPage())
 
 # VISUALIZAÇÕES E USUÁRIOS PORTAL
 GR.visualizacoesUsuarios()
@@ -203,10 +205,12 @@ with doc.create(Subsection('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.visualizacoesUsuarios_plot_path, width=NoEscape(r'0.8\textwidth'))
+        plot.add_image(GR.visualizacoesUsuarios_plot_path, width=NoEscape(r'1\textwidth'))
 
 with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
             itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre diferentes dados do portal ao longo do período analisado.}'))
+
+doc.append(NewPage())
 
 # VISUALIZAÇÕES
 GR.visu_cumsum()
@@ -216,7 +220,7 @@ with doc.create(Subsection('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.visu_cumsum_plot_path, width=NoEscape(r'0.8\textwidth'))
+        plot.add_image(GR.visu_cumsum_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 # usuariso unicos
 GR.usuUni_cumsum()
@@ -226,7 +230,9 @@ with doc.create(Subsection('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.usuUni_cumsum_plot_path, width=NoEscape(r'0.8\textwidth'))
+        plot.add_image(GR.usuUni_cumsum_plot_path, width=NoEscape(r'0.9\textwidth'))
+
+doc.append(NewPage())
 
 # usuariso unicos
 GR.newUsu_cumsum()
@@ -236,7 +242,7 @@ with doc.create(Subsection('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.newUsu_cumsum_plot_path, width=NoEscape(r'0.8\textwidth'))
+        plot.add_image(GR.newUsu_cumsum_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 # usuariso unicos
 GR.usuRec_cumsum()
@@ -246,7 +252,9 @@ with doc.create(Subsection('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.usuRec_cumsum_plot_path, width=NoEscape(r'0.8\textwidth'))
+        plot.add_image(GR.usuRec_cumsum_plot_path, width=NoEscape(r'0.9\textwidth'))
+
+doc.append(NewPage())
 
 # VISUALIZAÇÕES POR FE PORTAL
 GR.faixaEtaria()
@@ -257,8 +265,6 @@ with doc.create(Subsection('', numbering=False)):
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(GR.faixaEtaria_plot_path, width=NoEscape(r'0.8\textwidth'))
-
-doc.append(NewPage())
 
 GR.faixaEtaria_desconhecidaAndTotal()
 # Adiciona uma seção ao documento
@@ -272,7 +278,7 @@ with doc.create(Section('', numbering=False)):
 doc.append(NewPage())
 
 # recebendo camiho da imagem do gráfico e o total de seguidores do fb e ig
-# fePublico_FBIG_plot_path, FB_followers, IG_followers = GR.fePublico_FBIG()
+fePublico_FBIG_plot_path, FB_followers, IG_followers = GR.fePublico_FBIG()
 
 with doc.create(Subsection('Análise semanal', numbering=False)):
     with doc.create(Subsubsection('Instagram', numbering=False)):
@@ -308,11 +314,12 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item(NoEscape(r'\textbf{Alcance:} Essa métrica calcula o alcance da distribuição orgânica ou paga do seu conteúdo do Instagram e/ou Facebook, incluindo publicações e stories que foram turbinados. Também pode ser interpretada como a quantidade de contas atingidas;'))
                 sublist.add_item(NoEscape(r'\textbf{Visitas:} número de vezes que usuários visitaram seu perfil.'))
-with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
-            itemize.add_item(NoEscape(r'\textbf{Os detales demográficos (faixa etária, gênero e cidades) do facebook e instagram estavam indisponíveis para a semana analisada.}'))
-doc.append(NewPage())
 
-fePublico_FBIG_plot_path, FB_followers, IG_followers = GR.fePublico_FBIG
+# with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+#             itemize.add_item(NoEscape(r'\textbf{Os detales demográficos (faixa etária, gênero e cidades) do facebook e instagram estavam indisponíveis para a semana analisada.}'))
+# doc.append(NewPage())
+
+# fePublico_FBIG_plot_path, FB_followers, IG_followers = GR.fePublico_FBIG
 # Adiciona uma seção ao documento
 with doc.create(Section('', numbering=False)):
     doc.append("FB e IG: audiência por sexo e faixa etária")
@@ -320,6 +327,8 @@ with doc.create(Section('', numbering=False)):
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(fePublico_FBIG_plot_path, width=NoEscape(r'0.8\textwidth'))
+
+doc.append(NewPage())
 
 publicoCidades_plot_path = GR.publicoCidades()
 
@@ -329,7 +338,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(publicoCidades_plot_path, width=NoEscape(r'0.8\textwidth'))
+        plot.add_image(publicoCidades_plot_path, width=NoEscape(r'1\textwidth'))
 
 doc.append(NewPage())
 
@@ -341,7 +350,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(curtidasFB_plot_path, width=NoEscape(r'0.75 \textwidth'))
+        plot.add_image(curtidasFB_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 visitasFB_plot_path = GR.visitasFB()
 
@@ -351,7 +360,9 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(visitasFB_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(visitasFB_plot_path, width=NoEscape(r'0.9\textwidth'))
+
+doc.append(NewPage())
 
 alcanceFB_plot_path = GR.alcanceFB()
 
@@ -361,7 +372,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(alcanceFB_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(alcanceFB_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 dadosFB_plot_path = GR.dadosFB()
 
@@ -372,6 +383,7 @@ with doc.create(Section('', numbering=False)):
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(dadosFB_plot_path, width=NoEscape(r'0.75\textwidth'))
+
 doc.append(NewPage())
 
 seguidoresIG_plot_path, seguidoresIG = GR.seguidoresIG()
@@ -382,7 +394,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 visitasIG_plot_path, visitasIG = GR.visitasIG()
 
@@ -392,7 +404,9 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(visitasIG_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(visitasIG_plot_path, width=NoEscape(r'0.9\textwidth'))
+
+doc.append(NewPage())
 
 alcanceIG_plot_path, alcanceIG = GR.alcanceIG()
 
@@ -402,11 +416,11 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(alcanceIG_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(alcanceIG_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 doc.append(NewPage())
 
-dadosIG_plot_path = GR.dadosIG(30,500)
+dadosIG_plot_path = GR.dadosIG(30,350)
 
 # Adiciona uma seção ao documento
 with doc.create(Section('', numbering=False)):
@@ -453,7 +467,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(engajamentoTW_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(engajamentoTW_plot_path, width=NoEscape(r'0.8\textwidth'))
 
 impressoesTW_plot_path = GR.impressoesTW()
 
@@ -463,7 +477,9 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(impressoesTW_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(impressoesTW_plot_path, width=NoEscape(r'0.8\textwidth'))
+
+doc.append(NewPage())
 
 seguidoresTW_plot_path = GR.seguidoresTW()
 
@@ -473,7 +489,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(seguidoresTW_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(seguidoresTW_plot_path, width=NoEscape(r'0.8\textwidth'))
 
 dadosTW_plot_path = GR.dadosTW()
 
@@ -483,7 +499,7 @@ with doc.create(Section('', numbering=False)):
     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
-        plot.add_image(dadosTW_plot_path, width=NoEscape(r'0.75\textwidth'))
+        plot.add_image(dadosTW_plot_path, width=NoEscape(r'0.8\textwidth'))
 
 doc.append(NewPage())
 

@@ -16,7 +16,7 @@ def ultimo_sabado():
     elif dia_da_semana == 1: #terça
         dias_para_subtrair = (dia_da_semana + 2) % 7  # Dias a subtrair para chegar ao último sabado
     ultimo_domingo = hoje - datetime.timedelta(days=dias_para_subtrair)
-    return ultimo_domingo.strftime("%d-%m-%Y")
+    return ultimo_domingo
 
 def penultimo_domingo():
     hoje = datetime.date.today()
@@ -27,7 +27,7 @@ def penultimo_domingo():
         dias_para_subtrair = (dia_da_semana + 8) % 7  # Dias a subtrair para chegar ao último sabado
     ultimo_domingo = hoje - datetime.timedelta(days=dias_para_subtrair)
     penultimo_domingo = ultimo_domingo - datetime.timedelta(days=7)
-    return penultimo_domingo.strftime("%d-%m-%Y")
+    return penultimo_domingo
 
 def formataNumero(numero):
     numero_formatado = '{:,}'.format(numero).replace(',', '.')
@@ -292,10 +292,15 @@ def encontrar_frase_em_csv_meta(nome_arquivo, frase_procurada):
         return -1
 
 def seguidoresIG():
-    # # SEGUIDORES
-    
+    #SEGUIDORES IG
     inicio_seguidoresIG = encontrar_frase_em_csv_meta(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\Seguidores.csv', 'Seguidores no Instagram')
 
+    #SEMANA ANTERIOR
+    seguidoresIG_ANTERIOR = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\ANTERIOR\JPNsemanal\Seguidores.csv', skiprows=inicio_seguidoresIG, encoding='utf-16', skip_blank_lines=True)
+
+    seguidoresIG_ANTERIOR['Data'] = pd.to_datetime(seguidoresIG_ANTERIOR['Data']).dt.strftime('%d-%m-%Y')
+
+    #SEMANA ANALISADA
     seguidoresIG = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\Seguidores.csv', skiprows=inicio_seguidoresIG, encoding='utf-16', skip_blank_lines=True)
 
     seguidoresIG['Data'] = pd.to_datetime(seguidoresIG['Data']).dt.strftime('%d-%m-%Y')
@@ -307,15 +312,31 @@ def seguidoresIG():
     plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
 
     # Definindo a paleta de cores desejada
-    cores = ["#833AB4", "#E1306C", "#FCAF45"]
+    cores = ["#B684D7", "#833AB4"]
+
+    seguidoresIG_ANTERIOR_acumulado = seguidoresIG_ANTERIOR['Primary'].cumsum()
+
+    seguidoresIG_acumulado = seguidoresIG['Primary'].cumsum()
+
+    dia = [1,2,3,4,5,6,7]
 
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y="Primary", data=seguidoresIG, label="seguidores", linewidth=2.5, color=cores[0])
+    sns.lineplot(x=dia, y=seguidoresIG_ANTERIOR_acumulado, data=seguidoresIG_ANTERIOR, label=f"Seguidores {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+
+    sns.lineplot(x=dia, y=seguidoresIG_acumulado, data=seguidoresIG, label=f"Seguidores {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+
+    # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
+    for x, y, acumulado in zip(dia, seguidoresIG_ANTERIOR['Primary'], seguidoresIG_ANTERIOR_acumulado):
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+
+    # Adicionando os valores de cada ponto 
+    for x, y, acumulado in zip(dia, seguidoresIG['Primary'], seguidoresIG_acumulado):
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -332,10 +353,15 @@ def seguidoresIG():
     return seguidoresIG_plot_path, seguidoresIG
 
 def visitasIG():
-    # # VISITAS
-    
+    # VISITAS ig
     inicio_visitasIG = encontrar_frase_em_csv_meta(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\Visitas.csv', 'Visitas ao perfil do Instagram')
 
+    #semana anterior
+    visitasIG_ANTERIOR = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\ANTERIOR\JPNsemanal\Visitas.csv', skiprows=inicio_visitasIG, encoding='utf-16', skip_blank_lines=True)
+
+    visitasIG_ANTERIOR['Data'] = pd.to_datetime(visitasIG_ANTERIOR['Data']).dt.strftime('%d-%m-%Y')
+
+    #semana anlisada
     visitasIG = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\Visitas.csv', skiprows=inicio_visitasIG, encoding='utf-16', skip_blank_lines=True)
 
     visitasIG['Data'] = pd.to_datetime(visitasIG['Data']).dt.strftime('%d-%m-%Y')
@@ -347,15 +373,31 @@ def visitasIG():
     plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
 
     # Definindo a paleta de cores desejada
-    cores = ["#833AB4", "#E1306C", "#FCAF45"]
+    cores = ["#EB7099", "#E1306C"]
+
+    visitasIG_ANTERIOR_acumuladas = visitasIG_ANTERIOR['Primary'].cumsum()
+
+    visitasIG_acumuladas = visitasIG['Primary'].cumsum()
+
+    dia = [1,2,3,4,5,6,7]
 
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y="Primary", data=visitasIG, label="visitas", linewidth=2.5, color=cores[1])
+    sns.lineplot(x=dia, y=visitasIG_ANTERIOR_acumuladas, data=visitasIG_ANTERIOR, label=F"Visitas {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+
+    sns.lineplot(x=dia, y=visitasIG_acumuladas, data=visitasIG, label=F"Visitas {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+
+    # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
+    for x, y, acumulado in zip(dia, visitasIG_ANTERIOR['Primary'], visitasIG_ANTERIOR_acumuladas):
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+
+    # Adicionando os valores de cada ponto 
+    for x, y, acumulado in zip(dia, visitasIG['Primary'], visitasIG_acumuladas):
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -370,9 +412,16 @@ def visitasIG():
     return visitasIG_plot_path, visitasIG
 
 def alcanceIG():
+    # ALCANCE ig
     #final_alcanceIG = encontrar_frase_em_csv_meta(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\Alcance.csv', 'Alcance no Facebook')
     inicio_alcanceIG = encontrar_frase_em_csv_meta(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\Alcance.csv', 'Alcance do Instagram')
 
+    #SEMANA ANTERIOR
+    alcanceIG_ANTERIOR = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\ANTERIOR\JPNsemanal\Alcance.csv', skiprows=inicio_alcanceIG, encoding='utf-16', skip_blank_lines=True) #, nrows=final_alcanceIG-5
+
+    alcanceIG_ANTERIOR['Data'] = pd.to_datetime(alcanceIG_ANTERIOR['Data']).dt.strftime('%d-%m-%Y')
+
+    #SEMANA ANALISADA
     alcanceIG = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\Alcance.csv', skiprows=inicio_alcanceIG, encoding='utf-16', skip_blank_lines=True) #, nrows=final_alcanceIG-5
 
     alcanceIG['Data'] = pd.to_datetime(alcanceIG['Data']).dt.strftime('%d-%m-%Y')
@@ -384,15 +433,31 @@ def alcanceIG():
     plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
 
     # Definindo a paleta de cores desejada
-    cores = ["#833AB4", "#E1306C", "#FCAF45"]
+    cores = ["#FDCC86", "#FCAF45"]
+
+    alcanceIG_ANTERIOR_ACUMULADA = alcanceIG_ANTERIOR['Primary'].cumsum()
+
+    alcanceIG_ACUMULADA = alcanceIG['Primary'].cumsum()
+
+    dia = [1,2,3,4,5,6,7]
 
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y="Primary", data=alcanceIG, label="alcance", linewidth=2.5, color=cores[2])
+    sns.lineplot(x=dia, y=alcanceIG_ANTERIOR_ACUMULADA, data=alcanceIG_ANTERIOR, label=F"Alcance {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+
+    sns.lineplot(x=dia, y=alcanceIG_ACUMULADA, data=alcanceIG, label=F"Alcance {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+
+    # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
+    for x, y, acumulado in zip(dia, alcanceIG_ANTERIOR['Primary'], alcanceIG_ANTERIOR_ACUMULADA):
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+
+    # Adicionando os valores de cada ponto 
+    for x, y, acumulado in zip(dia, alcanceIG['Primary'], alcanceIG_ACUMULADA):
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -475,6 +540,11 @@ def dadosIG(intVisistas, intSeg):
     return dadosIG_plot_path
 
 def engajamentoTW():
+    tw_ANTERIOR = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\ANTERIOR\JPNsemanal\twitter.csv')
+
+    twFiltrado_ANTERIOR = tw_ANTERIOR[['Data','engajamentos','impressões', 'seguiram']]
+    twFiltrado_ANTERIOR['Data'] = pd.to_datetime(twFiltrado_ANTERIOR['Data']).dt.strftime('%d-%m-%Y')
+
     tw = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\twitter.csv')
 
     twFiltrado = tw[['Data','engajamentos','impressões', 'seguiram']]
@@ -487,15 +557,31 @@ def engajamentoTW():
     plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
 
     # Definindo a paleta de cores desejada
-    cores = ["#1DA1F2", "#14171A", "#657786"]
+    cores = ["#8BCFF8", "#1DA1F2"]
+
+    twFiltrado_ANTERIOR_ACUMULADO = twFiltrado_ANTERIOR['engajamentos'].cumsum()
+
+    twFiltrado_ACUMULADO =  twFiltrado['engajamentos'].cumsum()
+
+    dia = [1,2,3,4,5,6,7]
 
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y="engajamentos", data=twFiltrado, label="alcance", linewidth=2.5, color=cores[0])
+    sns.lineplot(x=dia, y=twFiltrado_ANTERIOR_ACUMULADO, data=twFiltrado_ANTERIOR, label=f"Engajamento {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+
+    sns.lineplot(x=dia, y=twFiltrado_ACUMULADO, data=twFiltrado, label=f"Engajamento {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+
+    # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
+    for x, y, acumulado in zip(dia, twFiltrado_ANTERIOR['engajamentos'], twFiltrado_ANTERIOR_ACUMULADO):
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+
+    # Adicionando os valores de cada ponto 
+    for x, y, acumulado in zip(dia, twFiltrado['engajamentos'], twFiltrado_ACUMULADO):
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -513,6 +599,12 @@ def engajamentoTW():
     return engajamentoTW_plot_path
 
 def impressoesTW():
+    
+    tw_ANTERIOR = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\ANTERIOR\JPNsemanal\twitter.csv')
+
+    twFiltrado_ANTERIOR = tw_ANTERIOR[['Data','engajamentos','impressões', 'seguiram']]
+    twFiltrado_ANTERIOR['Data'] = pd.to_datetime(twFiltrado_ANTERIOR['Data']).dt.strftime('%d-%m-%Y')
+
     tw = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\twitter.csv')
 
     twFiltrado = tw[['Data','engajamentos','impressões', 'seguiram']]
@@ -525,15 +617,31 @@ def impressoesTW():
     plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
 
     # Definindo a paleta de cores desejada
-    cores = ["#1DA1F2", "#14171A", "#657786"]
+    cores = ["#596673", "#14171A"]
+
+    twFiltrado_ANTERIOR_ACUMULADO = twFiltrado_ANTERIOR['impressões'].cumsum()
+
+    twFiltrado_ACUMULADO =  twFiltrado['impressões'].cumsum()
+
+    dia = [1,2,3,4,5,6,7]
 
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y="impressões", data=twFiltrado, label="alcance", linewidth=2.5, color=cores[1])
+    sns.lineplot(x=dia, y=twFiltrado_ANTERIOR_ACUMULADO, data=twFiltrado_ANTERIOR, label=f"Impressões {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+
+    sns.lineplot(x=dia, y=twFiltrado_ACUMULADO, data=twFiltrado, label=f"Impressões {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+
+    # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
+    for x, y, acumulado in zip(dia, twFiltrado_ANTERIOR['impressões'], twFiltrado_ANTERIOR_ACUMULADO):
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+
+    # Adicionando os valores de cada ponto 
+    for x, y, acumulado in zip(dia, twFiltrado['impressões'], twFiltrado_ACUMULADO):
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -548,27 +656,48 @@ def impressoesTW():
     return impressoesTW_plot_path
 
 def seguidoresTW():
+    tw_ANTERIOR = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\ANTERIOR\JPNsemanal\twitter.csv')
+
+    twFiltrado_ANTERIOR = tw_ANTERIOR[['Data','engajamentos','impressões', 'seguiram']]
+    twFiltrado_ANTERIOR['Data'] = pd.to_datetime(twFiltrado_ANTERIOR['Data']).dt.strftime('%d-%m-%Y')
+
     tw = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\twitter.csv')
 
     twFiltrado = tw[['Data','engajamentos','impressões', 'seguiram']]
     twFiltrado['Data'] = pd.to_datetime(twFiltrado['Data']).dt.strftime('%d-%m-%Y')
 
     # Configurando o tema do Seaborn
-    sns.set_theme(style="whitegrid")
+    sns.set_theme(style="darkgrid")
 
     # Criando o gráfico de linhas
     plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
 
     # Definindo a paleta de cores desejada
-    cores = ["#1DA1F2", "#14171A", "#657786"]
+    cores = ["#A2AFB9", "#657786"]
+
+    twFiltrado_ANTERIOR_ACUMULADO = twFiltrado_ANTERIOR['seguiram'].cumsum()
+
+    twFiltrado_ACUMULADO =  twFiltrado['seguiram'].cumsum()
+
+    dia = [1,2,3,4,5,6,7]
 
     # Plotando o gráfico de linhas
-    sns.lineplot(x="Data", y="seguiram", data=twFiltrado, label="alcance", linewidth=2.5, color=cores[2])
+    sns.lineplot(x=dia, y=twFiltrado_ANTERIOR_ACUMULADO, data=twFiltrado_ANTERIOR, label=f"Seguiram {(penultimo_domingo()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")} a {(ultimo_sabado()- datetime.timedelta(days=7)).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[0], marker='o')
+
+    sns.lineplot(x=dia, y=twFiltrado_ACUMULADO, data=twFiltrado, label=f"Seguiram {(penultimo_domingo()).strftime("%d-%m-%Y")} a {(ultimo_sabado()).strftime("%d-%m-%Y")}", linewidth=2.5, color=cores[1], marker='o')
+
+    # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
+    for x, y, acumulado in zip(dia, twFiltrado_ANTERIOR['seguiram'], twFiltrado_ANTERIOR_ACUMULADO):
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+
+    # Adicionando os valores de cada ponto 
+    for x, y, acumulado in zip(dia, twFiltrado['seguiram'], twFiltrado_ACUMULADO):
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
 
-    plt.xticks(rotation=-90)
+    plt.xticks(rotation=0)
 
     # Adicionando rótulos e título ao gráfico
     plt.xlabel("Data")
@@ -582,6 +711,44 @@ def seguidoresTW():
     
     return seguidoresTW_plot_path
 
+def dados_TW():
+    tw = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\twitter.csv')
+
+    twFiltrado = tw[['Data','engajamentos','impressões', 'seguiram']]
+    twFiltrado['Data'] = pd.to_datetime(twFiltrado['Data']).dt.strftime('%d-%m-%Y')
+
+    twFiltrado['engajamentos'] = twFiltrado['engajamentos']*50
+    twFiltrado['seguiram'] = twFiltrado['seguiram']*100
+    # Configurando o tema do Seaborn
+    sns.set_theme(style="whitegrid")
+
+    # Criando o gráfico de linhas
+    plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
+
+    # Definindo a paleta de cores desejada
+    cores = ["#1DA1F2", "#14171A", "#657786"]
+
+    # Plotando o gráfico de linhas
+    sns.lineplot(x="Data", y="impressões", data=twFiltrado, label="Impressões", linewidth=2.5, color=cores[0])
+    sns.lineplot(x="Data", y="engajamentos", data=twFiltrado, label="Engajamentos", linewidth=2.5, color=cores[1])
+    sns.lineplot(x="Data", y="seguiram", data=twFiltrado, label="Seguidores", linewidth=2.5, color=cores[2])
+
+    # Ajustando o intervalo entre as datas no eixo x
+    plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
+
+    plt.xticks(rotation=-90)
+
+    # Adicionando rótulos e título ao gráfico
+    plt.xlabel("Data")
+    #plt.ylabel("Alcance")
+    plt.title("Comparativo do comportamento dos dados do twitter")
+    plt.yticks([])
+    plt.legend()
+    
+    dados_TW_plot_path = fr"C:/Users/{path_aliss}/Documents/Repositórios/Imagens/JPN/dados_TW.png"
+    plt.savefig(dados_TW_plot_path, bbox_inches="tight")
+    
+    return dados_TW_plot_path
 def visualizacoesIdadeYTB():
     ytb_idade_visualizações = pd.read_csv(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\JPNsemanal\idadeytb.csv')
     # ytb_idade_visualizações['Visualizações (%)'] = ytb_idade_visualizações['Visualizações (%)'].str.replace(',','.').astype(float)
