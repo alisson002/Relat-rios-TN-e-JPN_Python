@@ -208,6 +208,46 @@ with doc.create(Subsection('', numbering=False)):
 with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
             itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre diferentes dados do portal ao longo do período analisado.}'))
 
+# VISUALIZAÇÕES
+GR.visu_cumsum()
+# Adiciona uma seção ao documento
+with doc.create(Subsection('', numbering=False)):
+    doc.append("Portal: visualizações com valores acumulativos")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='H')) as plot:
+        plot.add_image(GR.visu_cumsum_plot_path, width=NoEscape(r'0.8\textwidth'))
+
+# usuariso unicos
+GR.usuUni_cumsum()
+# Adiciona uma seção ao documento
+with doc.create(Subsection('', numbering=False)):
+    doc.append("Portal: usuários únicos com valores acumulativos")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='H')) as plot:
+        plot.add_image(GR.usuUni_cumsum_plot_path, width=NoEscape(r'0.8\textwidth'))
+
+# usuariso unicos
+GR.newUsu_cumsum()
+# Adiciona uma seção ao documento
+with doc.create(Subsection('', numbering=False)):
+    doc.append("Portal: novos usuários com valores acumulativos")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='H')) as plot:
+        plot.add_image(GR.newUsu_cumsum_plot_path, width=NoEscape(r'0.8\textwidth'))
+
+# usuariso unicos
+GR.usuRec_cumsum()
+# Adiciona uma seção ao documento
+with doc.create(Subsection('', numbering=False)):
+    doc.append("Portal: usuários recorrente com valores acumulativos")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='H')) as plot:
+        plot.add_image(GR.usuRec_cumsum_plot_path, width=NoEscape(r'0.8\textwidth'))
+
 # VISUALIZAÇÕES POR FE PORTAL
 GR.faixaEtaria()
 # Adiciona uma seção ao documento
@@ -272,23 +312,24 @@ with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
             itemize.add_item(NoEscape(r'\textbf{Os detales demográficos (faixa etária, gênero e cidades) do facebook e instagram estavam indisponíveis para a semana analisada.}'))
 doc.append(NewPage())
 
-# # Adiciona uma seção ao documento
-# with doc.create(Section('', numbering=False)):
-#     doc.append("FB e IG: audiência por sexo e faixa etária")
-#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-#     # Adiciona a figura ao documento
-#     with doc.create(Figure(position='H')) as plot:
-#         plot.add_image(fePublico_FBIG_plot_path, width=NoEscape(r'0.8\textwidth'))
+fePublico_FBIG_plot_path, FB_followers, IG_followers = GR.fePublico_FBIG
+# Adiciona uma seção ao documento
+with doc.create(Section('', numbering=False)):
+    doc.append("FB e IG: audiência por sexo e faixa etária")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='H')) as plot:
+        plot.add_image(fePublico_FBIG_plot_path, width=NoEscape(r'0.8\textwidth'))
 
-# publicoCidades_plot_path = GR.publicoCidades()
+publicoCidades_plot_path = GR.publicoCidades()
 
-# # Adiciona uma seção ao documento
-# with doc.create(Section('', numbering=False)):
-#     doc.append("FB e IG: audiência por cidades")
-#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-#     # Adiciona a figura ao documento
-#     with doc.create(Figure(position='H')) as plot:
-#         plot.add_image(publicoCidades_plot_path, width=NoEscape(r'0.8\textwidth'))
+# Adiciona uma seção ao documento
+with doc.create(Section('', numbering=False)):
+    doc.append("FB e IG: audiência por cidades")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='H')) as plot:
+        plot.add_image(publicoCidades_plot_path, width=NoEscape(r'0.8\textwidth'))
 
 doc.append(NewPage())
 
@@ -322,6 +363,15 @@ with doc.create(Section('', numbering=False)):
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(alcanceFB_plot_path, width=NoEscape(r'0.75\textwidth'))
 
+dadosFB_plot_path = GR.dadosFB()
+
+# Adiciona uma seção ao documento
+with doc.create(Section('', numbering=False)):
+    doc.append("FB: comparativo de seguidores, visitas e alcance. (Obs.: dados fora de escala para uma melhor visualização)")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='H')) as plot:
+        plot.add_image(dadosFB_plot_path, width=NoEscape(r'0.75\textwidth'))
 doc.append(NewPage())
 
 seguidoresIG_plot_path, seguidoresIG = GR.seguidoresIG()
@@ -366,6 +416,8 @@ with doc.create(Section('', numbering=False)):
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(dadosIG_plot_path, width=NoEscape(r'1\textwidth'))
 
+# with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+#             itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre diferentes dados do portal ao longo do período analisado.}'))
 doc.append(NewPage())
 
 with doc.create(Subsection('Análise semanal', numbering=False)):
@@ -422,6 +474,16 @@ with doc.create(Section('', numbering=False)):
     # Adiciona a figura ao documento
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(seguidoresTW_plot_path, width=NoEscape(r'0.75\textwidth'))
+
+dadosTW_plot_path = GR.dadosTW()
+
+# Adiciona uma seção ao documento
+with doc.create(Section('', numbering=False)):
+    doc.append("TW: comparativo de engajamentos, impressões e seguidores. (Obs.: dados fora de escala para uma melhor visualização)")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='H')) as plot:
+        plot.add_image(dadosTW_plot_path, width=NoEscape(r'0.75\textwidth'))
 
 doc.append(NewPage())
 
