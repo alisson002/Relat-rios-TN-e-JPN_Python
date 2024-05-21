@@ -18,48 +18,48 @@ with doc.create(MiniPage(align='c')):
         doc.append(MediumText(("Relatório semanal")))
         doc.append(LineBreak())
 
-portal_usuariosUnicos_2024Table = [276184,441269,455979,340868,369804,272294,293971]
-portal_usuariosRescorrentes_2024Table = [123944,197378,172485,156579,169541,124341,135747]
-portal_usuariosUnicos_2024Analytics = [213000,331000,370000,261000,283000,210000,226000]
-portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000,92000,100000,73000,79000]
-portal_visualizacoes_2024 = [621206,965340,924908,765698,829407,635989,664666] # mesmo valor na tabela e no analytics
-portal_novosUsuarios_2024 = [147518,242760,278732,177038,198428,144767,155648] # mesmo valor na tabela e no analytics
+portal_usuariosUnicos_2024Table = [276184,441269,455979,340868,369804,272294,293971,459877]
+portal_usuariosRescorrentes_2024Table = [123944,197378,172485,156579,169541,124341,135747,202480]
+portal_usuariosUnicos_2024Analytics = [213000,331000,370000,261000,283000,210000,226000,357000]
+portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000,92000,100000,73000,79000,122000]
+portal_visualizacoes_2024 = [621206,965340,924908,765698,829407,635989,664666,907045] # mesmo valor na tabela e no analytics
+portal_novosUsuarios_2024 = [147518,242760,278732,177038,198428,144767,155648,255141] # mesmo valor na tabela e no analytics
 
 #INSTAGRAM
-ig_seg_2024 = [1299,2685,1476,1499,2054,1558,1469]
-ig_seg_2024_perdeu = [1040,1165,1080,1114,1228,1094,1070]
-ig_alcance_2024 = [330170,619778,394150,368303,430160,430041,430095]
-ig_vivitas_2024 = [24896,53103,28198,27847,49389,28931,29098]
+ig_seg_2024 = [1299,2685,1476,1499,2054,1558,1469,358]
+ig_seg_2024_perdeu = [1040,1165,1080,1114,1228,1094,1070,315]
+ig_alcance_2024 = [330170,619778,394150,368303,430160,430041,430095,518193]
+ig_vivitas_2024 = [24896,53103,28198,27847,49389,28931,29098,31347]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-ig_seg_2024_total = [532444,533616,534049,534392,535150,535716,536047]
+ig_seg_2024_total = [532444,533616,534049,534392,535150,535716,536047,536508]
 
 #FACEBOOK
-fb_seg_2024 = [30,61,71,42,83,80,49]
-fb_seg_2024_perdeu = [34,35,44,35,49,40,31]
-fb_alcance_2024 = [64958,88738,112464,63173,142594,139599,101924]
-fb_vivitas_2024 = [6500,7686,8158,6718,6757,7087,7074]
+fb_seg_2024 = [30,61,71,42,83,80,49,74]
+fb_seg_2024_perdeu = [34,35,44,35,49,40,31,33]
+fb_alcance_2024 = [64958,88738,112464,63173,142594,139599,101924,132711]
+fb_vivitas_2024 = [6500,7686,8158,6718,6757,7087,7074,5937]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-fb_seg_2024_total = [332419,332392,332389,332334,332339,332314,332287]
+fb_seg_2024_total = [332419,332392,332389,332334,332339,332314,332287,332176]
 
 #TWITTER
-tw_seg_2024 = [359,455,1249,892,801,725,1009]
-tw_impressões_2024 = [86012,102051,96123,100004,113293,95767,95199]
-tw_engajamentos_2024 = [2390,3324,3242,3257,4164,2661,3219]
+tw_seg_2024 = [359,455,1249,892,801,725,1009,2464]
+tw_impressões_2024 = [86012,102051,96123,100004,113293,95767,95199,90299]
+tw_engajamentos_2024 = [2390,3324,3242,3257,4164,2661,3219,4553]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-tw_seg_2024_total = [312146,312041,312437,312722,312797,313181,314742]
-tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2]),tw_seg_2024[4]-(tw_seg_2024_total[4]-tw_seg_2024_total[3]),tw_seg_2024[5]-(tw_seg_2024_total[5]-tw_seg_2024_total[4]),abs(tw_seg_2024[6]-(tw_seg_2024_total[6]-tw_seg_2024_total[5]))] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
+tw_seg_2024_total = [312146,312041,312437,312722,312797,313181,314742,315456]
+tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2]),tw_seg_2024[4]-(tw_seg_2024_total[4]-tw_seg_2024_total[3]),tw_seg_2024[5]-(tw_seg_2024_total[5]-tw_seg_2024_total[4]),abs(tw_seg_2024[6]-(tw_seg_2024_total[6]-tw_seg_2024_total[5])),tw_seg_2024[7]-(tw_seg_2024_total[7]-tw_seg_2024_total[6])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 #YOUTUBE
-yb_inc_2024 = [505,241,552,155,268,162,135]
-yb_inc_2024_perdeu = [30,15,31,17,30,15,19]
-yb_visualizacoes_2024 = [134255,69730,149424,40127,73821,39688,35024]
-yb_horas_2024 = [1785,1114,2142,671,1265,632,660]
+yb_inc_2024 = [505,241,552,155,268,162,135,81]
+yb_inc_2024_perdeu = [30,15,31,17,30,15,19,21]
+yb_visualizacoes_2024 = [134255,69730,149424,40127,73821,39688,35024,29843]
+yb_horas_2024 = [1785,1114,2142,671,1265,632,660,768]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-yb_inc_2024_total = [35940,36167,36685,36863,37062,37214,37333]
+yb_inc_2024_total = [35940,36167,36685,36863,37062,37214,37333,37380]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Tribuna do Norte', numbering=False)):
@@ -100,7 +100,8 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(fb_seg_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(fb_seg_2024_total[-2])}")
                 sublist.add_item(f"Seguidores adquiridos na semana: {GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(fb_seg_2024_perdeu[-1])}.")
                 sublist.add_item(f"Taxa de fixação: {GR.fixacao(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1],fb_seg_2024_perdeu[-1])}")
-                sublist.add_item(f"Obs.: nesse caso, a taxa de fixação negatíva se trata de uma diferença relmente alta, visto que tanto 'Seguidores adquiridos na semana' quanto 'Deixaram de seguir' são números positivos.")
+                sublist.add_item(f"Obs.: O número de seguidores do Facebook segue apenas em queda.")
+                # sublist.add_item(f"Obs.: nesse caso, a taxa de fixação negatíva se trata de uma diferença relmente alta, visto que tanto 'Seguidores adquiridos na semana' quanto 'Deixaram de seguir' são números positivos.")
                 # sublist.add_item(f"Obs.: nesse caso, a taxa de fixação negatíva se trata de uma diferença relmente baixa, visto que tanto 'Seguidores adquiridos na semana' quanto 'Deixaram de seguir' são números positivos, potanto, quanto mais distante de zero maior ela seria. Só seria interpretada como maior, quanto mais próximo de zero, e menor, quanto mais distante de zero, em casos onde 'Seguidores adquiridos na semana' é um número negativo, fazendo com que ele seja somado a 'Deixaram de seguir' no calcula da diferença.")
                 # sublist.add_item(f"O número de seguidores do Facebook apenas caiu nas ultimas 3 semanas.")
             itemize.add_item(Command('textbf', arguments='Twitter'))
@@ -386,15 +387,17 @@ with doc.create(Section('', numbering=False)):
 
 doc.append(NewPage())
 
-seguidoresIG_plot_path, seguidoresIG = GR.seguidoresIG()
+with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+            itemize.add_item(NoEscape(r'\textbf{Os dados diários de seguidores do Instagram não foram disponobilizados pela Meta essa semana.}'))
+# seguidoresIG_plot_path, seguidoresIG = GR.seguidoresIG()
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("IG: ganho de seguidores ao longo do mês")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.9\textwidth'))
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("IG: ganho de seguidores ao longo do mês")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.9\textwidth'))
 
 visitasIG_plot_path, visitasIG = GR.visitasIG()
 
@@ -420,7 +423,7 @@ with doc.create(Section('', numbering=False)):
 
 doc.append(NewPage())
 
-dadosIG_plot_path = GR.dadosIG(30,350)
+dadosIG_plot_path = GR.dadosIG(35,350)
 
 # Adiciona uma seção ao documento
 with doc.create(Section('', numbering=False)):
@@ -430,8 +433,8 @@ with doc.create(Section('', numbering=False)):
     with doc.create(Figure(position='H')) as plot:
         plot.add_image(dadosIG_plot_path, width=NoEscape(r'1\textwidth'))
 
-# with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
-#             itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre diferentes dados do portal ao longo do período analisado.}'))
+with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+            itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre diferentes dados do portal ao longo do período analisado.}'))
 doc.append(NewPage())
 
 with doc.create(Subsection('Análise semanal', numbering=False)):

@@ -116,8 +116,8 @@ def extensso(contaElementos):
 def numeroPorExtensso(numero):
     return f"{primeirosElementos((numero))} {extensso(contaElementos(formataNumero(numero)))}"
 
-path_aliss = 'Usuario'
-path_Usuarios = 'Usuario'
+path_aliss = 'aliss'
+path_Usuarios = 'aliss'
 
 def origemPortal():
 
@@ -170,8 +170,8 @@ def origemPortal():
         'Acesso Direto': '#FF4D02',
         'google': '#F4B400',
         'outras': '#000',
-        'facebook': '#1877f2',
-        'instagram': '#bc2a8d',
+        'facebook': '#bc2a8d',
+        'instagram': '#1877f2',
         'twitter': '#1DA1F2',
         'bing': '#50bf40',
         'yahoo': '#008373'
@@ -591,7 +591,7 @@ def visu_cumsum():
 
     # Adicionando os valores de cada ponto de visualizacoesANTERIOR
     for x, y, acumulado in zip(visualizacoesANTERIOR['Nº dia'], visualizacoesANTERIOR['Visualizações'], visualizacoes_acumuladasANTERIOR):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
     for x, y, acumulado in zip(visualizacoes['Nº dia'], visualizacoes['Visualizações'], visualizacoes_acumuladas):
@@ -656,7 +656,7 @@ def usuUni_cumsum():
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
     for x, y, acumulado in zip(usuarios_unicosANTERIOR['Nº dia'], usuarios_unicosANTERIOR['Usuários'], usuarios_unicos_acumuladasANTERIOR):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
     for x, y, acumulado in zip(usuarios_unicos['Nº dia'], usuarios_unicos['Usuários'], usuarios_unicos_acumuladas):
@@ -724,7 +724,7 @@ def newUsu_cumsum():
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
     for x, y, acumulado in zip(novos_usuariosANTERIOR['Nº dia'], novos_usuariosANTERIOR['Novos usuários'], novos_usuarios_acumuladasANTERIOR):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
     for x, y, acumulado in zip(novos_usuarios['Nº dia'], novos_usuarios['Novos usuários'], novos_usuarios_acumuladas):
@@ -793,7 +793,7 @@ def usuRec_cumsum():
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
     for x, y, acumulado in zip(usuarios_recorrentesANTERIOR['Nº dia'], usuarios_recorrentesANTERIOR['Usuários recorrentes'], usuarios_recorrentes_acumuladasANTERIOR):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
     for x, y, acumulado in zip(usuarios_recorrentes['Nº dia'], usuarios_recorrentes['Usuários recorrentes'], usuarios_recorrentes_acumuladas):
@@ -1194,11 +1194,11 @@ def curtidasFB():
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
     for x, y, acumulado in zip(dia, seguidoresFB_ANTERIOR['Primary'], seguidoresFB_ANTERIOR_acumulado):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
     for x, y, acumulado in zip(dia, seguidoresFB['Primary'], seguidoresFB_acumulado):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
@@ -1321,11 +1321,11 @@ def alcanceFB():
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
     for x, y, acumulado in zip(dia, alcanceFB_ANTERIOR['Primary'], alcanceFB_ANTERIOR_ACUMULADO):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
     for x, y, acumulado in zip(dia, alcanceFB['Primary'], alcanceFB_ACUMULADO):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
@@ -1363,7 +1363,7 @@ def dadosFB():
 
     visitasFB['Data'] = pd.to_datetime(visitasFB['Data']).dt.strftime('%d-%m-%Y')
 
-    visitasFB['Primary'] = visitasFB['Primary']*15
+    visitasFB['Primary'] = visitasFB['Primary']*20
 
     # CURTIDAS
     final_seguidoresFB = encontrar_frase_em_csv_meta(fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\TNsemanal\Seguidores.csv', 'Seguidos no Instagram')
@@ -1565,11 +1565,11 @@ def alcanceIG():
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
     for x, y, acumulado in zip(dia, alcanceIG_ANTERIOR['Primary'], alcanceIG_ANTERIOR_ACUMULADA):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
     for x, y, acumulado in zip(dia, alcanceIG['Primary'], alcanceIG_ACUMULADA):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
@@ -1635,7 +1635,7 @@ def dadosIG(intVisistas, intSeg):
     # Plotando o gráfico de linhas
     sns.lineplot(x="Data", y="Primary", data=alcanceIG, label="alcance", linewidth=2.5, color=cores[2])
     sns.lineplot(x="Data", y="Primary", data=visitasIG, label="visitas", linewidth=2.5, color=cores[1])
-    sns.lineplot(x="Data", y="Primary", data=seguidoresIG, label="seguidores", linewidth=2.5, color=cores[0])
+    #sns.lineplot(x="Data", y="Primary", data=seguidoresIG, label="seguidores", linewidth=2.5, color=cores[0])
 
     # Ajustando o intervalo entre as datas no eixo x
     #plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
@@ -1689,11 +1689,11 @@ def engajamentoTW():
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
     for x, y, acumulado in zip(dia, twFiltrado_ANTERIOR['engajamentos'], twFiltrado_ANTERIOR_ACUMULADO):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
     for x, y, acumulado in zip(dia, twFiltrado['engajamentos'], twFiltrado_ACUMULADO):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
@@ -1800,11 +1800,11 @@ def seguidoresTW():
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
     for x, y, acumulado in zip(dia, twFiltrado_ANTERIOR['seguiram'], twFiltrado_ANTERIOR_ACUMULADO):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
     for x, y, acumulado in zip(dia, twFiltrado['seguiram'], twFiltrado_ACUMULADO):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
@@ -1829,8 +1829,8 @@ def dadosTW():
     twFiltrado = tw[['Data','engajamentos','impressões', 'seguiram']]
     twFiltrado['Data'] = pd.to_datetime(twFiltrado['Data']).dt.strftime('%d-%m-%Y')
 
-    twFiltrado['engajamentos'] = twFiltrado['engajamentos']*20
-    twFiltrado['seguiram'] = twFiltrado['seguiram']*40
+    twFiltrado['engajamentos'] = twFiltrado['engajamentos']*12
+    twFiltrado['seguiram'] = twFiltrado['seguiram']*15
     # Configurando o tema do Seaborn
     sns.set_theme(style="whitegrid")
 
