@@ -18,31 +18,31 @@ with doc.create(MiniPage(align='c')):
         doc.append(LineBreak())
 
 #INSTAGRAM
-ig_seg_2024 = [65,59,70,60,11]
-ig_seg_2024_perdeu = [62,45,33,37,18]
-ig_alcance_2024 = [27468,9862,12058,10433,6873]
-ig_vivitas_2024 = [438,393,321,288,295]
+ig_seg_2024 = [65,59,70,60,11,82]
+ig_seg_2024_perdeu = [62,45,33,37,18,44]
+ig_alcance_2024 = [27468,9862,12058,10433,6873,13050]
+ig_vivitas_2024 = [438,393,321,288,295,276]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-ig_seg_2024_total = [28566,28585,28623,28630,28628]
+ig_seg_2024_total = [28566,28585,28623,28630,28628,28703]
 
 #TWITTER
-tw_seg_2024 = [23,29,7,12,19]
-tw_impressões_2024 = [6787,6253,5216,8468,9224]
-tw_engajamentos_2024 = [139,108,99,97,153]
+tw_seg_2024 = [23,29,7,12,19,10]
+tw_impressões_2024 = [6787,6253,5216,8468,9224,5855]
+tw_engajamentos_2024 = [139,108,99,97,153,128]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-tw_seg_2024_total = [27683,27697,27699,27702,27697]
-tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2]),tw_seg_2024[4]-(tw_seg_2024_total[4]-tw_seg_2024_total[3])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
+tw_seg_2024_total = [27683,27697,27699,27702,27697,27698]
+tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2]),tw_seg_2024[4]-(tw_seg_2024_total[4]-tw_seg_2024_total[3]),tw_seg_2024[5]-(tw_seg_2024_total[5]-tw_seg_2024_total[4])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 #YOUTUBE
-yb_inc_2024 = [52,103,70,81,71]
-yb_inc_2024_perdeu = [30,25,25,21,24]
-yb_visualizacoes_2024 = [6938,20623,17706,18365,7718]
-yb_horas_2024 = [1069,1803,1351,1525,1110]
+yb_inc_2024 = [52,103,70,81,71,117]
+yb_inc_2024_perdeu = [30,25,25,21,24,34]
+yb_visualizacoes_2024 = [6938,20623,17706,18365,7718,30822]
+yb_horas_2024 = [1069,1803,1351,1525,1110,1845]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-yb_inc_2024_total = [34033,34118,34180,34229,34277]
+yb_inc_2024_total = [34033,34118,34180,34229,34277,34429]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('JP News Natal', numbering=False)):

@@ -50,7 +50,7 @@ tw_engajamentos_2024 = [2390,3324,3242,3257,4164,2661,3219,4553,2650]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
 tw_seg_2024_total = [312146,312041,312437,312722,312797,313181,314742,315456,317307]
-tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2]),tw_seg_2024[4]-(tw_seg_2024_total[4]-tw_seg_2024_total[3]),tw_seg_2024[5]-(tw_seg_2024_total[5]-tw_seg_2024_total[4]),abs(tw_seg_2024[6]-(tw_seg_2024_total[6]-tw_seg_2024_total[5])),tw_seg_2024[7]-(tw_seg_2024_total[7]-tw_seg_2024_total[6]),tw_seg_2024[8]-(tw_seg_2024_total[8]-tw_seg_2024_total[7])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
+tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2]),tw_seg_2024[4]-(tw_seg_2024_total[4]-tw_seg_2024_total[3]),tw_seg_2024[5]-(tw_seg_2024_total[5]-tw_seg_2024_total[4]),abs(tw_seg_2024[6]-(tw_seg_2024_total[6]-tw_seg_2024_total[5])),tw_seg_2024[7]-(tw_seg_2024_total[7]-tw_seg_2024_total[6]),abs(tw_seg_2024[8]-(tw_seg_2024_total[8]-tw_seg_2024_total[7]))] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 #YOUTUBE
 yb_inc_2024 = [505,241,552,155,268,162,135,81,82]
@@ -100,7 +100,7 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(fb_seg_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(fb_seg_2024_total[-2])}")
                 sublist.add_item(f"Seguidores adquiridos na semana: {GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(fb_seg_2024_perdeu[-1])}.")
                 sublist.add_item(f"Taxa de fixação: {GR.fixacao(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1],fb_seg_2024_perdeu[-1])}")
-                sublist.add_item(f"Obs.: O número de seguidores do Facebook segue apenas em queda.")
+                #sublist.add_item(f"Obs.: O número de seguidores do Facebook segue apenas em queda.")
                 # sublist.add_item(f"Obs.: nesse caso, a taxa de fixação negatíva se trata de uma diferença relmente alta, visto que tanto 'Seguidores adquiridos na semana' quanto 'Deixaram de seguir' são números positivos.")
                 # sublist.add_item(f"Obs.: nesse caso, a taxa de fixação negatíva se trata de uma diferença relmente baixa, visto que tanto 'Seguidores adquiridos na semana' quanto 'Deixaram de seguir' são números positivos, potanto, quanto mais distante de zero maior ela seria. Só seria interpretada como maior, quanto mais próximo de zero, e menor, quanto mais distante de zero, em casos onde 'Seguidores adquiridos na semana' é um número negativo, fazendo com que ele seja somado a 'Deixaram de seguir' no calcula da diferença.")
                 # sublist.add_item(f"O número de seguidores do Facebook apenas caiu nas ultimas 3 semanas.")
@@ -145,141 +145,141 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
 
 doc.append(NewPage())
 
-doc.preamble.append(NoEscape(r'\usepackage{graphicx}'))
-doc.preamble.append(NoEscape(r'\usepackage{float}'))
+# doc.preamble.append(NoEscape(r'\usepackage{graphicx}'))
+# doc.preamble.append(NoEscape(r'\usepackage{float}'))
 
-# ORIGEM PORTAL
-GR.origemPortal()       
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: origem dos usuários")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+# # ORIGEM PORTAL
+# GR.origemPortal()       
+# # Adiciona uma seção ao documento
+# with doc.create(Subsection('', numbering=False)):
+#     doc.append("Portal: origem dos usuários")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
 
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.origem_plot_path, width=NoEscape(r'1\textwidth'))
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(GR.origem_plot_path, width=NoEscape(r'1\textwidth'))
 
-with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
-            itemize.add_item('O acesso direto representa os usuários que digitaram a URL da Tribuna do Norte diretamente no navegador,adicionaram o site aos favoritos ou clicaram diretamente em um link compartilhado, desta forma, indo diretamente para o site sem precisar pesquisa-lo.')
-            itemize.add_item('As outras informações representam o acesso através da plataforma indicada pelo título da respectiva barra.')
+# with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+#             itemize.add_item('O acesso direto representa os usuários que digitaram a URL da Tribuna do Norte diretamente no navegador,adicionaram o site aos favoritos ou clicaram diretamente em um link compartilhado, desta forma, indo diretamente para o site sem precisar pesquisa-lo.')
+#             itemize.add_item('As outras informações representam o acesso através da plataforma indicada pelo título da respectiva barra.')
 
-doc.append(NewPage())
+# doc.append(NewPage())
 
-# TOP10 PORTAL
-GR.top10()
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: 10 notícias mais vistas")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+# # TOP10 PORTAL
+# GR.top10()
+# # Adiciona uma seção ao documento
+# with doc.create(Subsection('', numbering=False)):
+#     doc.append("Portal: 10 notícias mais vistas")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
 
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.top10_plot_path, width=NoEscape(r'0.9\textwidth'))
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(GR.top10_plot_path, width=NoEscape(r'0.9\textwidth'))
         
-# TOP15 PORTAL
-GR.top15()
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: 15 notícias mais pesquisadas")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.top15_plot_path, width=NoEscape(r'0.9\textwidth'))
+# # TOP15 PORTAL
+# GR.top15()
+# # Adiciona uma seção ao documento
+# with doc.create(Subsection('', numbering=False)):
+#     doc.append("Portal: 15 notícias mais pesquisadas")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(GR.top15_plot_path, width=NoEscape(r'0.9\textwidth'))
 
-# TOP15 PORTAL
-GR.top15cliques()
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: 15 notícias com mais cliques pelo google")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.top15cliques_plot_path, width=NoEscape(r'1\textwidth'))
+# # TOP15 PORTAL
+# GR.top15cliques()
+# # Adiciona uma seção ao documento
+# with doc.create(Subsection('', numbering=False)):
+#     doc.append("Portal: 15 notícias com mais cliques pelo google")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(GR.top15cliques_plot_path, width=NoEscape(r'1\textwidth'))
 
-doc.append(NewPage())
+# doc.append(NewPage())
 
-# VISUALIZAÇÕES E USUÁRIOS PORTAL
-GR.visualizacoesUsuarios()
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: comparativo de visualizações e acessos de usuários")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.visualizacoesUsuarios_plot_path, width=NoEscape(r'1\textwidth'))
+# # VISUALIZAÇÕES E USUÁRIOS PORTAL
+# GR.visualizacoesUsuarios()
+# # Adiciona uma seção ao documento
+# with doc.create(Subsection('', numbering=False)):
+#     doc.append("Portal: comparativo de visualizações e acessos de usuários")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(GR.visualizacoesUsuarios_plot_path, width=NoEscape(r'1\textwidth'))
 
-with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
-            itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre diferentes dados do portal ao longo do período analisado.}'))
+# with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+#             itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre diferentes dados do portal ao longo do período analisado.}'))
 
-doc.append(NewPage())
+# doc.append(NewPage())
 
-# VISUALIZAÇÕES
-GR.visu_cumsum()
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: visualizações com valores acumulativos")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.visu_cumsum_plot_path, width=NoEscape(r'0.9\textwidth'))
+# # VISUALIZAÇÕES
+# GR.visu_cumsum()
+# # Adiciona uma seção ao documento
+# with doc.create(Subsection('', numbering=False)):
+#     doc.append("Portal: visualizações com valores acumulativos")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(GR.visu_cumsum_plot_path, width=NoEscape(r'0.9\textwidth'))
 
-# usuariso unicos
-GR.usuUni_cumsum()
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: usuários únicos com valores acumulativos")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.usuUni_cumsum_plot_path, width=NoEscape(r'0.9\textwidth'))
+# # usuariso unicos
+# GR.usuUni_cumsum()
+# # Adiciona uma seção ao documento
+# with doc.create(Subsection('', numbering=False)):
+#     doc.append("Portal: usuários únicos com valores acumulativos")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(GR.usuUni_cumsum_plot_path, width=NoEscape(r'0.9\textwidth'))
 
-doc.append(NewPage())
+# doc.append(NewPage())
 
-# usuariso unicos
-GR.newUsu_cumsum()
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: novos usuários com valores acumulativos")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.newUsu_cumsum_plot_path, width=NoEscape(r'0.9\textwidth'))
+# # usuariso unicos
+# GR.newUsu_cumsum()
+# # Adiciona uma seção ao documento
+# with doc.create(Subsection('', numbering=False)):
+#     doc.append("Portal: novos usuários com valores acumulativos")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(GR.newUsu_cumsum_plot_path, width=NoEscape(r'0.9\textwidth'))
 
-# usuariso unicos
-GR.usuRec_cumsum()
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: usuários recorrente com valores acumulativos")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.usuRec_cumsum_plot_path, width=NoEscape(r'0.9\textwidth'))
+# # usuariso unicos
+# GR.usuRec_cumsum()
+# # Adiciona uma seção ao documento
+# with doc.create(Subsection('', numbering=False)):
+#     doc.append("Portal: usuários recorrente com valores acumulativos")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(GR.usuRec_cumsum_plot_path, width=NoEscape(r'0.9\textwidth'))
 
-doc.append(NewPage())
+# doc.append(NewPage())
 
-# VISUALIZAÇÕES POR FE PORTAL
-GR.faixaEtaria()
-# Adiciona uma seção ao documento
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: visualizações por faixa etária")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.faixaEtaria_plot_path, width=NoEscape(r'0.8\textwidth'))
+# # VISUALIZAÇÕES POR FE PORTAL
+# GR.faixaEtaria()
+# # Adiciona uma seção ao documento
+# with doc.create(Subsection('', numbering=False)):
+#     doc.append("Portal: visualizações por faixa etária")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(GR.faixaEtaria_plot_path, width=NoEscape(r'0.8\textwidth'))
 
-GR.faixaEtaria_desconhecidaAndTotal()
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("Portal: visualizações por faixa etária (desconhecida e total)")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(GR.faixaEtaria_desconhecidaAndTotal_plot_path, width=NoEscape(r'0.8\textwidth'))
+# GR.faixaEtaria_desconhecidaAndTotal()
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("Portal: visualizações por faixa etária (desconhecida e total)")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(GR.faixaEtaria_desconhecidaAndTotal_plot_path, width=NoEscape(r'0.8\textwidth'))
 
-doc.append(NewPage())
+# doc.append(NewPage())
 
-# recebendo camiho da imagem do gráfico e o total de seguidores do fb e ig
-fePublico_FBIG_plot_path, FB_followers, IG_followers = GR.fePublico_FBIG()
+# # recebendo camiho da imagem do gráfico e o total de seguidores do fb e ig
+# fePublico_FBIG_plot_path, FB_followers, IG_followers = GR.fePublico_FBIG()
 
 with doc.create(Subsection('Análise semanal', numbering=False)):
     with doc.create(Subsubsection('Instagram', numbering=False)):
@@ -316,125 +316,125 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
                 sublist.add_item(NoEscape(r'\textbf{Alcance:} Essa métrica calcula o alcance da distribuição orgânica ou paga do seu conteúdo do Instagram e/ou Facebook, incluindo publicações e stories que foram turbinados. Também pode ser interpretada como a quantidade de contas atingidas;'))
                 sublist.add_item(NoEscape(r'\textbf{Visitas:} número de vezes que usuários visitaram seu perfil.'))
 
-# with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
-#             itemize.add_item(NoEscape(r'\textbf{Os detales demográficos (faixa etária, gênero e cidades) do facebook e instagram estavam indisponíveis para a semana analisada.}'))
-# doc.append(NewPage())
+# # with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+# #             itemize.add_item(NoEscape(r'\textbf{Os detales demográficos (faixa etária, gênero e cidades) do facebook e instagram estavam indisponíveis para a semana analisada.}'))
+# # doc.append(NewPage())
 
-# fePublico_FBIG_plot_path, FB_followers, IG_followers = GR.fePublico_FBIG
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("FB e IG: audiência por sexo e faixa etária")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(fePublico_FBIG_plot_path, width=NoEscape(r'0.8\textwidth'))
-
-doc.append(NewPage())
-
-publicoCidades_plot_path = GR.publicoCidades()
-
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("FB e IG: audiência por cidades")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(publicoCidades_plot_path, width=NoEscape(r'1\textwidth'))
-
-doc.append(NewPage())
-
-curtidasFB_plot_path = GR.curtidasFB()
-
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("FB: novos seguidores ao longo do mês")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(curtidasFB_plot_path, width=NoEscape(r'0.9\textwidth'))
-
-visitasFB_plot_path = GR.visitasFB()
-
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("FB: visitas ao longo do mês")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(visitasFB_plot_path, width=NoEscape(r'0.9\textwidth'))
-
-doc.append(NewPage())
-
-alcanceFB_plot_path = GR.alcanceFB()
-
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("FB: alcance ao longo do mês")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(alcanceFB_plot_path, width=NoEscape(r'0.9\textwidth'))
-
-dadosFB_plot_path = GR.dadosFB()
-
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("FB: comparativo de seguidores, visitas e alcance. (Obs.: dados fora de escala para uma melhor visualização)")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(dadosFB_plot_path, width=NoEscape(r'0.75\textwidth'))
-
-doc.append(NewPage())
-
-with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
-            itemize.add_item(NoEscape(r'\textbf{Os dados diários de seguidores do Instagram não foram disponobilizados pela Meta essa semana.}'))
-# seguidoresIG_plot_path, seguidoresIG = GR.seguidoresIG()
-
+# # fePublico_FBIG_plot_path, FB_followers, IG_followers = GR.fePublico_FBIG
 # # Adiciona uma seção ao documento
 # with doc.create(Section('', numbering=False)):
-#     doc.append("IG: ganho de seguidores ao longo do mês")
+#     doc.append("FB e IG: audiência por sexo e faixa etária")
 #     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
 #     # Adiciona a figura ao documento
 #     with doc.create(Figure(position='H')) as plot:
-#         plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.9\textwidth'))
+#         plot.add_image(fePublico_FBIG_plot_path, width=NoEscape(r'0.8\textwidth'))
 
-visitasIG_plot_path, visitasIG = GR.visitasIG()
+# doc.append(NewPage())
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("IG: visitas ao perfil ao longo do mês")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(visitasIG_plot_path, width=NoEscape(r'0.9\textwidth'))
+# publicoCidades_plot_path = GR.publicoCidades()
 
-doc.append(NewPage())
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("FB e IG: audiência por cidades")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(publicoCidades_plot_path, width=NoEscape(r'1\textwidth'))
 
-alcanceIG_plot_path, alcanceIG = GR.alcanceIG()
+# doc.append(NewPage())
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("IG: alcance do perfil ao longo do mês")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(alcanceIG_plot_path, width=NoEscape(r'0.9\textwidth'))
+# curtidasFB_plot_path = GR.curtidasFB()
 
-doc.append(NewPage())
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("FB: novos seguidores ao longo do mês")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(curtidasFB_plot_path, width=NoEscape(r'0.9\textwidth'))
 
-dadosIG_plot_path = GR.dadosIG(35,350)
+# visitasFB_plot_path = GR.visitasFB()
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("IG: comparativo de seguidores, visitas e alcance. (Obs.: dados fora de escala para uma melhor visualização)")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(dadosIG_plot_path, width=NoEscape(r'1\textwidth'))
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("FB: visitas ao longo do mês")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(visitasFB_plot_path, width=NoEscape(r'0.9\textwidth'))
 
-with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
-            itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre diferentes dados do portal ao longo do período analisado.}'))
+# doc.append(NewPage())
+
+# alcanceFB_plot_path = GR.alcanceFB()
+
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("FB: alcance ao longo do mês")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(alcanceFB_plot_path, width=NoEscape(r'0.9\textwidth'))
+
+# dadosFB_plot_path = GR.dadosFB()
+
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("FB: comparativo de seguidores, visitas e alcance. (Obs.: dados fora de escala para uma melhor visualização)")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(dadosFB_plot_path, width=NoEscape(r'0.75\textwidth'))
+
+# doc.append(NewPage())
+
+# with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+#             itemize.add_item(NoEscape(r'\textbf{Os dados diários de seguidores do Instagram não foram disponobilizados pela Meta essa semana.}'))
+# # seguidoresIG_plot_path, seguidoresIG = GR.seguidoresIG()
+
+# # # Adiciona uma seção ao documento
+# # with doc.create(Section('', numbering=False)):
+# #     doc.append("IG: ganho de seguidores ao longo do mês")
+# #     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+# #     # Adiciona a figura ao documento
+# #     with doc.create(Figure(position='H')) as plot:
+# #         plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.9\textwidth'))
+
+# visitasIG_plot_path, visitasIG = GR.visitasIG()
+
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("IG: visitas ao perfil ao longo do mês")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(visitasIG_plot_path, width=NoEscape(r'0.9\textwidth'))
+
+# doc.append(NewPage())
+
+# alcanceIG_plot_path, alcanceIG = GR.alcanceIG()
+
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("IG: alcance do perfil ao longo do mês")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(alcanceIG_plot_path, width=NoEscape(r'0.9\textwidth'))
+
+# doc.append(NewPage())
+
+# dadosIG_plot_path = GR.dadosIG(35,350)
+
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("IG: comparativo de seguidores, visitas e alcance. (Obs.: dados fora de escala para uma melhor visualização)")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(dadosIG_plot_path, width=NoEscape(r'1\textwidth'))
+
+# with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+#             itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre diferentes dados do portal ao longo do período analisado.}'))
 doc.append(NewPage())
 
 with doc.create(Subsection('Análise semanal', numbering=False)):
@@ -462,49 +462,49 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
 
 doc.append(NewPage())
 
-engajamentoTW_plot_path = GR.engajamentoTW()
+# engajamentoTW_plot_path = GR.engajamentoTW()
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("TW: engajamento do twitter")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(engajamentoTW_plot_path, width=NoEscape(r'0.8\textwidth'))
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("TW: engajamento do twitter")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(engajamentoTW_plot_path, width=NoEscape(r'0.8\textwidth'))
 
-impressoesTW_plot_path = GR.impressoesTW()
+# impressoesTW_plot_path = GR.impressoesTW()
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("TW: impressões do twitter")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(impressoesTW_plot_path, width=NoEscape(r'0.8\textwidth'))
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("TW: impressões do twitter")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(impressoesTW_plot_path, width=NoEscape(r'0.8\textwidth'))
 
-doc.append(NewPage())
+# doc.append(NewPage())
 
-seguidoresTW_plot_path = GR.seguidoresTW()
+# seguidoresTW_plot_path = GR.seguidoresTW()
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("TW: ganho de seguidores no twitter ao logo do mês. (Esses dados levam em consideração apenas os ganhos)")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(seguidoresTW_plot_path, width=NoEscape(r'0.8\textwidth'))
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("TW: ganho de seguidores no twitter ao logo do mês. (Esses dados levam em consideração apenas os ganhos)")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(seguidoresTW_plot_path, width=NoEscape(r'0.8\textwidth'))
 
-dadosTW_plot_path = GR.dadosTW()
+# dadosTW_plot_path = GR.dadosTW()
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("TW: comparativo de engajamentos, impressões e seguidores. (Obs.: dados fora de escala para uma melhor visualização)")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(dadosTW_plot_path, width=NoEscape(r'0.8\textwidth'))
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("TW: comparativo de engajamentos, impressões e seguidores. (Obs.: dados fora de escala para uma melhor visualização)")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(dadosTW_plot_path, width=NoEscape(r'0.8\textwidth'))
 
-doc.append(NewPage())
+# doc.append(NewPage())
 
 with doc.create(Subsection('Análise semanal', numbering=False)):
     with doc.create(Subsubsection('YouTube', numbering=False)):
@@ -519,43 +519,43 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
                 table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(yb_inc_2024[-1]), GR.numeroPorExtensso(yb_visualizacoes_2024[-1]), GR.numeroPorExtensso(yb_horas_2024[-1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[-1],yb_inc_2024[-2])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[-1],yb_visualizacoes_2024[-2])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[-1],yb_horas_2024[-2])}')))
 
-visualizacoesIdadeYTB_plot_path = GR.visualizacoesIdadeYTB()
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("YouTube: visualizações por faixa etária")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(visualizacoesIdadeYTB_plot_path, width=NoEscape(r'0.7\textwidth'))
+# visualizacoesIdadeYTB_plot_path = GR.visualizacoesIdadeYTB()
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("YouTube: visualizações por faixa etária")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(visualizacoesIdadeYTB_plot_path, width=NoEscape(r'0.7\textwidth'))
 
-doc.append(NewPage())
+# doc.append(NewPage())
 
-horasIdadeYTB_plot_path = GR.horasIdadeYTB()
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("YouTube: horas de exibição por faixa etária")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(horasIdadeYTB_plot_path, width=NoEscape(r'0.7\textwidth'))
+# horasIdadeYTB_plot_path = GR.horasIdadeYTB()
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("YouTube: horas de exibição por faixa etária")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(horasIdadeYTB_plot_path, width=NoEscape(r'0.7\textwidth'))
         
-generoYTB_plot_path = GR.generoYTB()
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("YouTube: sexo do público")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(generoYTB_plot_path, width=NoEscape(r'0.6\textwidth'))
+# generoYTB_plot_path = GR.generoYTB()
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("YouTube: sexo do público")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(generoYTB_plot_path, width=NoEscape(r'0.6\textwidth'))
         
-visualizacoesCidadeYTB_plot_path = GR.visualizacoesCidadeYTB()
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("YouTube: visualizações por cidade")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='H')) as plot:
-        plot.add_image(visualizacoesCidadeYTB_plot_path, width=NoEscape(r'0.7\textwidth'))
+# visualizacoesCidadeYTB_plot_path = GR.visualizacoesCidadeYTB()
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("YouTube: visualizações por cidade")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='H')) as plot:
+#         plot.add_image(visualizacoesCidadeYTB_plot_path, width=NoEscape(r'0.7\textwidth'))
 
 
 doc.append(NewPage())
