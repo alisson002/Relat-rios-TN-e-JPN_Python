@@ -18,48 +18,48 @@ with doc.create(MiniPage(align='c')):
         doc.append(MediumText(("Relatório semanal")))
         doc.append(LineBreak())
 
-portal_usuariosUnicos_2024Table = [276184,441269,455979,340868,369804,272294,293971,459877]
-portal_usuariosRescorrentes_2024Table = [123944,197378,172485,156579,169541,124341,135747,202480]
-portal_usuariosUnicos_2024Analytics = [213000,331000,370000,261000,283000,210000,226000,357000]
-portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000,92000,100000,73000,79000,122000]
-portal_visualizacoes_2024 = [621206,965340,924908,765698,829407,635989,664666,907045] # mesmo valor na tabela e no analytics
-portal_novosUsuarios_2024 = [147518,242760,278732,177038,198428,144767,155648,255141] # mesmo valor na tabela e no analytics
+portal_usuariosUnicos_2024Table = [276184,441269,455979,340868,369804,272294,293971,459877,326566]
+portal_usuariosRescorrentes_2024Table = [123944,197378,172485,156579,169541,124341,135747,202480,151029]
+portal_usuariosUnicos_2024Analytics = [213000,331000,370000,261000,283000,210000,226000,357000,259000]
+portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000,92000,100000,73000,79000,122000,93000]
+portal_visualizacoes_2024 = [621206,965340,924908,765698,829407,635989,664666,907045,698454] # mesmo valor na tabela e no analytics
+portal_novosUsuarios_2024 = [147518,242760,278732,177038,198428,144767,155648,255141,170986] # mesmo valor na tabela e no analytics
 
 #INSTAGRAM
-ig_seg_2024 = [1299,2685,1476,1499,2054,1558,1469,358]
-ig_seg_2024_perdeu = [1040,1165,1080,1114,1228,1094,1070,315]
-ig_alcance_2024 = [330170,619778,394150,368303,430160,430041,430095,518193]
-ig_vivitas_2024 = [24896,53103,28198,27847,49389,28931,29098,31347]
+ig_seg_2024 = [1299,2685,1476,1499,2054,1558,1469,358,1693]
+ig_seg_2024_perdeu = [1040,1165,1080,1114,1228,1094,1070,315,1050]
+ig_alcance_2024 = [330170,619778,394150,368303,430160,430041,430095,518193,564967]
+ig_vivitas_2024 = [24896,53103,28198,27847,49389,28931,29098,31347,33708]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-ig_seg_2024_total = [532444,533616,534049,534392,535150,535716,536047,536508]
+ig_seg_2024_total = [532444,533616,534049,534392,535150,535716,536047,536508,537733]
 
 #FACEBOOK
-fb_seg_2024 = [30,61,71,42,83,80,49,74]
-fb_seg_2024_perdeu = [34,35,44,35,49,40,31,33]
-fb_alcance_2024 = [64958,88738,112464,63173,142594,139599,101924,132711]
-fb_vivitas_2024 = [6500,7686,8158,6718,6757,7087,7074,5937]
+fb_seg_2024 = [30,61,71,42,83,80,49,74,40]
+fb_seg_2024_perdeu = [34,35,44,35,49,40,31,33,41]
+fb_alcance_2024 = [64958,88738,112464,63173,142594,139599,101924,132711,87877]
+fb_vivitas_2024 = [6500,7686,8158,6718,6757,7087,7074,5937,6326]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-fb_seg_2024_total = [332419,332392,332389,332334,332339,332314,332287,332176]
+fb_seg_2024_total = [332419,332392,332389,332334,332339,332314,332287,332176,332214]
 
 #TWITTER
-tw_seg_2024 = [359,455,1249,892,801,725,1009,2464]
-tw_impressões_2024 = [86012,102051,96123,100004,113293,95767,95199,90299]
-tw_engajamentos_2024 = [2390,3324,3242,3257,4164,2661,3219,4553]
+tw_seg_2024 = [359,455,1249,892,801,725,1009,2464,886]
+tw_impressões_2024 = [86012,102051,96123,100004,113293,95767,95199,90299,78103]
+tw_engajamentos_2024 = [2390,3324,3242,3257,4164,2661,3219,4553,2650]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-tw_seg_2024_total = [312146,312041,312437,312722,312797,313181,314742,315456]
-tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2]),tw_seg_2024[4]-(tw_seg_2024_total[4]-tw_seg_2024_total[3]),tw_seg_2024[5]-(tw_seg_2024_total[5]-tw_seg_2024_total[4]),abs(tw_seg_2024[6]-(tw_seg_2024_total[6]-tw_seg_2024_total[5])),tw_seg_2024[7]-(tw_seg_2024_total[7]-tw_seg_2024_total[6])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
+tw_seg_2024_total = [312146,312041,312437,312722,312797,313181,314742,315456,317307]
+tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2]),tw_seg_2024[4]-(tw_seg_2024_total[4]-tw_seg_2024_total[3]),tw_seg_2024[5]-(tw_seg_2024_total[5]-tw_seg_2024_total[4]),abs(tw_seg_2024[6]-(tw_seg_2024_total[6]-tw_seg_2024_total[5])),tw_seg_2024[7]-(tw_seg_2024_total[7]-tw_seg_2024_total[6]),tw_seg_2024[8]-(tw_seg_2024_total[8]-tw_seg_2024_total[7])] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 #YOUTUBE
-yb_inc_2024 = [505,241,552,155,268,162,135,81]
-yb_inc_2024_perdeu = [30,15,31,17,30,15,19,21]
-yb_visualizacoes_2024 = [134255,69730,149424,40127,73821,39688,35024,29843]
-yb_horas_2024 = [1785,1114,2142,671,1265,632,660,768]
+yb_inc_2024 = [505,241,552,155,268,162,135,81,82]
+yb_inc_2024_perdeu = [30,15,31,17,30,15,19,21,16]
+yb_visualizacoes_2024 = [134255,69730,149424,40127,73821,39688,35024,29843,22657]
+yb_horas_2024 = [1785,1114,2142,671,1265,632,660,768,715]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-yb_inc_2024_total = [35940,36167,36685,36863,37062,37214,37333,37380]
+yb_inc_2024_total = [35940,36167,36685,36863,37062,37214,37333,37380,37544]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Tribuna do Norte', numbering=False)):
