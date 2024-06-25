@@ -18,48 +18,50 @@ with doc.create(MiniPage(align='c')):
         doc.append(MediumText(("Relatório semanal")))
         doc.append(LineBreak())
 
-portal_usuariosUnicos_2024Table = [276184,441269,455979,340868,369804,272294,293971,459877,326566]
-portal_usuariosRescorrentes_2024Table = [123944,197378,172485,156579,169541,124341,135747,202480,151029]
-portal_usuariosUnicos_2024Analytics = [213000,331000,370000,261000,283000,210000,226000,357000,259000]
-portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000,92000,100000,73000,79000,122000,93000]
-portal_visualizacoes_2024 = [621206,965340,924908,765698,829407,635989,664666,907045,698454] # mesmo valor na tabela e no analytics
-portal_novosUsuarios_2024 = [147518,242760,278732,177038,198428,144767,155648,255141,170986] # mesmo valor na tabela e no analytics
+portal_usuariosUnicos_2024Table = [276184,441269,455979,340868,369804,272294,293971,459877,326566,369497,302557,358037]
+portal_usuariosRescorrentes_2024Table = [123944,197378,172485,156579,169541,124341,135747,202480,151029,160475,147401,154262]
+
+portal_usuariosUnicos_2024Analytics = [213000,331000,370000,261000,283000,210000,226000,357000,259000,292000,231000,286000]
+portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000,92000,100000,73000,79000,122000,93000,98000,88000,93000]
+
+portal_visualizacoes_2024 = [621206,965340,924908,765698,829407,635989,664666,907045,698454,764245,671189,745886] # mesmo valor na tabela e no analytics
+portal_novosUsuarios_2024 = [147518,242760,278732,177038,198428,144767,155648,255141,170986,204845,151741,200186] # mesmo valor na tabela e no analytics
 
 #INSTAGRAM
-ig_seg_2024 = [1299,2685,1476,1499,2054,1558,1469,358,1693]
-ig_seg_2024_perdeu = [1040,1165,1080,1114,1228,1094,1070,315,1050]
-ig_alcance_2024 = [330170,619778,394150,368303,430160,430041,430095,518193,564967]
-ig_vivitas_2024 = [24896,53103,28198,27847,49389,28931,29098,31347,33708]
+ig_seg_2024 = [1299,2685,1476,1499,2054,1558,1469,358,1693,1584,1323,1317]
+ig_seg_2024_perdeu = [1040,1165,1080,1114,1228,1094,1070,315,1050,1040,1074,1081]
+ig_alcance_2024 = [330170,619778,394150,368303,430160,430041,430095,518193,564967,444404,479370,512399]
+ig_vivitas_2024 = [24896,53103,28198,27847,49389,28931,29098,31347,33708,38352,26704,26949]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-ig_seg_2024_total = [532444,533616,534049,534392,535150,535716,536047,536508,537733]
+ig_seg_2024_total = [532444,533616,534049,534392,535150,535716,536047,536508,537733,537993,538290,538507]
 
 #FACEBOOK
-fb_seg_2024 = [30,61,71,42,83,80,49,74,40]
-fb_seg_2024_perdeu = [34,35,44,35,49,40,31,33,41]
-fb_alcance_2024 = [64958,88738,112464,63173,142594,139599,101924,132711,87877]
-fb_vivitas_2024 = [6500,7686,8158,6718,6757,7087,7074,5937,6326]
+fb_seg_2024 = [30,61,71,42,83,80,49,74,40,67,30,36]
+fb_seg_2024_perdeu = [34,35,44,35,49,40,31,33,41,32,53,34]
+fb_alcance_2024 = [64958,88738,112464,63173,142594,139599,101924,132711,87877,114958,127230,78859]
+fb_vivitas_2024 = [6500,7686,8158,6718,6757,7087,7074,5937,6326,5417,5125,3796]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-fb_seg_2024_total = [332419,332392,332389,332334,332339,332314,332287,332176,332214]
+fb_seg_2024_total = [332419,332392,332389,332334,332339,332314,332287,332176,332214,332210,332186,332136]
 
 #TWITTER
-tw_seg_2024 = [359,455,1249,892,801,725,1009,2464,886]
-tw_impressões_2024 = [86012,102051,96123,100004,113293,95767,95199,90299,78103]
-tw_engajamentos_2024 = [2390,3324,3242,3257,4164,2661,3219,4553,2650]
+tw_seg_2024 = [359,455,1249,892,801,725,1009,2464,886,2460]
+tw_impressões_2024 = [86012,102051,96123,100004,113293,95767,95199,90299,78103,89681]
+tw_engajamentos_2024 = [2390,3324,3242,3257,4164,2661,3219,4553,2650,4576]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-tw_seg_2024_total = [312146,312041,312437,312722,312797,313181,314742,315456,317307]
-tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2]),tw_seg_2024[4]-(tw_seg_2024_total[4]-tw_seg_2024_total[3]),tw_seg_2024[5]-(tw_seg_2024_total[5]-tw_seg_2024_total[4]),abs(tw_seg_2024[6]-(tw_seg_2024_total[6]-tw_seg_2024_total[5])),tw_seg_2024[7]-(tw_seg_2024_total[7]-tw_seg_2024_total[6]),abs(tw_seg_2024[8]-(tw_seg_2024_total[8]-tw_seg_2024_total[7]))] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
+tw_seg_2024_total = [312146,312041,312437,312722,312797,313181,314742,315456,317307,319917]
+tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2]),tw_seg_2024[4]-(tw_seg_2024_total[4]-tw_seg_2024_total[3]),tw_seg_2024[5]-(tw_seg_2024_total[5]-tw_seg_2024_total[4]),abs(tw_seg_2024[6]-(tw_seg_2024_total[6]-tw_seg_2024_total[5])),tw_seg_2024[7]-(tw_seg_2024_total[7]-tw_seg_2024_total[6]),abs(tw_seg_2024[8]-(tw_seg_2024_total[8]-tw_seg_2024_total[7])),abs(tw_seg_2024[9]-(tw_seg_2024_total[9]-tw_seg_2024_total[8]))] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 #YOUTUBE
-yb_inc_2024 = [505,241,552,155,268,162,135,81,82]
-yb_inc_2024_perdeu = [30,15,31,17,30,15,19,21,16]
-yb_visualizacoes_2024 = [134255,69730,149424,40127,73821,39688,35024,29843,22657]
-yb_horas_2024 = [1785,1114,2142,671,1265,632,660,768,715]
+yb_inc_2024 = [505,241,552,155,268,162,135,81,82,89,121,123]
+yb_inc_2024_perdeu = [30,15,31,17,30,15,19,21,16,22,18,18]
+yb_visualizacoes_2024 = [134255,69730,149424,40127,73821,39688,35024,29843,22657,20998,21575,27314]
+yb_horas_2024 = [1785,1114,2142,671,1265,632,660,768,715,596,586,555]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-yb_inc_2024_total = [35940,36167,36685,36863,37062,37214,37333,37380,37544]
+yb_inc_2024_total = [35940,36167,36685,36863,37062,37214,37333,37380,37544,37631,37729,37846]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Tribuna do Norte', numbering=False)):
@@ -77,7 +79,7 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 table.add_row((MultiRow(2, data='Facebook'), GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]), GR.formataNumero(fb_alcance_2024[-1]), GR.formataNumero(fb_vivitas_2024[-1])))
                 table.add_row(('', 'novos seguidores', 'contas atingidas', 'visitas ao perfil'))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='Twitter'), GR.formataNumero(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]), GR.formataNumero(tw_impressões_2024[-1]), GR.formataNumero(tw_engajamentos_2024[-1])))
+                table.add_row((MultiRow(2, data='Twitter'), '-', '-', '-'))
                 table.add_row(('', 'novos seguidores', 'impressões', 'engajamentos'))
                 table.add_hline()
                 table.add_row((MultiRow(2, data='Youtube'), GR.formataNumero(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]), GR.formataNumero(yb_visualizacoes_2024[-1]), GR.formataNumero(yb_horas_2024[-1])))
@@ -106,9 +108,10 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 # sublist.add_item(f"O número de seguidores do Facebook apenas caiu nas ultimas 3 semanas.")
             itemize.add_item(Command('textbf', arguments='Twitter'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(tw_seg_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(tw_seg_2024_total[-2])}")
-                sublist.add_item(f"Seguidores adquiridos na semana: {GR.formataNumero(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]+tw_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(tw_seg_2024_perdeu[-1])}.")
-                sublist.add_item(f"Taxa de fixação: {GR.fixacao(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]+tw_seg_2024_perdeu[-1],tw_seg_2024_perdeu[-1])}")
+                sublist.add_item("Total de seguidores atual: -. Total de seguidores na semana anterior: -")
+                sublist.add_item("Seguidores adquiridos na semana: -. Deixaram de seguir: -.")
+                sublist.add_item("Taxa de fixação: -")
+                sublist.add_item("AVISO: Os dados do Twitter estão indiponíveis pois sua plataforma de Analytics agora faz parte do 'X Premium', portanto, se tornou paga.")
             itemize.add_item(Command('textbf', arguments='YouTube'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(yb_inc_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(yb_inc_2024_total[-2])}")
@@ -435,30 +438,30 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
 
 # with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
 #             itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre diferentes dados do portal ao longo do período analisado.}'))
-doc.append(NewPage())
+# doc.append(NewPage())
 
-with doc.create(Subsection('Análise semanal', numbering=False)):
-    with doc.create(Subsubsection('Twitter', numbering=False)):
-        with doc.create(MiniPage(align='c')):
-            # Adiciona a tabela de resultados
-            with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
+# with doc.create(Subsection('Análise semanal', numbering=False)):
+#     with doc.create(Subsubsection('Twitter', numbering=False)):
+#         with doc.create(MiniPage(align='c')):
+#             # Adiciona a tabela de resultados
+#             with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
                 
-                table.add_row((MultiRow(3, data='Semana'), 'Novos seguidores', 'Impressões', 'Engajamentos'))
-                table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
-                table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
-                table.add_hline()
-                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(tw_seg_2024[-1]), GR.numeroPorExtensso(tw_impressões_2024[-1]), GR.numeroPorExtensso(tw_engajamentos_2024[-1])))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[-1],tw_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[-1],tw_impressões_2024[-2])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[-1],tw_engajamentos_2024[-2])}')))
+#                 table.add_row((MultiRow(3, data='Semana'), 'Novos seguidores', 'Impressões', 'Engajamentos'))
+#                 table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
+#                 table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
+#                 table.add_hline()
+#                 table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(tw_seg_2024[-1]), GR.numeroPorExtensso(tw_impressões_2024[-1]), GR.numeroPorExtensso(tw_engajamentos_2024[-1])))
+#                 table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[-1],tw_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[-1],tw_impressões_2024[-2])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[-1],tw_engajamentos_2024[-2])}')))
 
-        # Adiciona informações extras
-        # Adiciona uma lista com marcadores
-        with doc.create(Itemize()) as itemize:
-            # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
-            itemize.add_item('Legenda:')
-            #doc.append(NoEscape(r'\newline'))
-            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item(NoEscape(r'\textbf{Impressões:} número de vezes que os usuários viram o(s) Tweet(s);'))
-                sublist.add_item(NoEscape(r'\textbf{Engajamentos:} número total de vezes que um usuário interagiu com o(s) Tweet(s). Isso inclui todos os cliques em qualquer lugar no Tweet como: hashtags, links, avatar, nome de usuário e expansão do Tweet, Retweets, respostas e favoritos.'))
+#         # Adiciona informações extras
+#         # Adiciona uma lista com marcadores
+#         with doc.create(Itemize()) as itemize:
+#             # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
+#             itemize.add_item('Legenda:')
+#             #doc.append(NoEscape(r'\newline'))
+#             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+#                 sublist.add_item(NoEscape(r'\textbf{Impressões:} número de vezes que os usuários viram o(s) Tweet(s);'))
+#                 sublist.add_item(NoEscape(r'\textbf{Engajamentos:} número total de vezes que um usuário interagiu com o(s) Tweet(s). Isso inclui todos os cliques em qualquer lugar no Tweet como: hashtags, links, avatar, nome de usuário e expansão do Tweet, Retweets, respostas e favoritos.'))
 
 doc.append(NewPage())
 
