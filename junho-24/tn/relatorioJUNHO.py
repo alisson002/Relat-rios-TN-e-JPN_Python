@@ -129,7 +129,8 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
         # Adiciona informações extras
         # Adiciona uma lista com marcadores
         with doc.create(Itemize()) as itemize:
-            itemize.add_item(f"Ao todo, a Tribuna do Norte entregou seu conteúdo para, aproximadamente, {GR.formataNumero(portal_novosUsuarios_2024[1]+(ig_seg_2024_total[-1]-ig_seg_2024_total[-2])+(fb_seg_2024_total[-1]-fb_seg_2024_total[-2])+(tw_seg_2024_total[-1]-tw_seg_2024_total[-2])+(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]))} novas contas, entre Portal, Instagram, Twitter, Facebook e YouTube.")
+            itemize.add_item(f"Ao todo, a Tribuna do Norte entregou seu conteúdo para, aproximadamente, {GR.formataNumero(portal_novosUsuarios_2024[1]+(ig_seg_2024_total[-1]-ig_seg_2024_total[-2])+(fb_seg_2024_total[-1]-fb_seg_2024_total[-2])+(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]))} novas contas, entre Portal, Instagram, Twitter, Facebook e YouTube.")
+            #+(tw_seg_2024_total[-1]-tw_seg_2024_total[-2])
             itemize.add_item(Command('textbf', arguments='Instagram'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(ig_seg_2024_total[-1])}. Total de seguidores no mês anterior: {GR.formataNumero(ig_seg_2024_total[-2])}")
@@ -236,8 +237,9 @@ with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:
 with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
     itemize.add_item("Mesmo mês em 2023:")
     with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-        sublist.add_item(NoEscape(r"\textbf{Janeiro} e \textbf{abril} tiveram os maiores crescimentos percentuais em novos usuários e recorrentes. Também possuem grandes quedas nas visualizações."))
-        sublist.add_item(NoEscape(r"\textbf{Março} e \textbf{abril} tem as maiores quedas percentuais nas visualizações."))
+        sublist.add_item(NoEscape(r"\textbf{Janeiro} e \textbf{junho} tiveram os maiores crescimentos percentuais em usuários recorrentes."))
+        sublist.add_item(NoEscape(r"\textbf{Abril} e \textbf{junho} tiveram os maiores crescimentos percentuais em novos usuários."))
+        sublist.add_item(NoEscape(r"A maioria dos meses tem grandes quedas nas visualizações, com \textbf{março} e \textbf{maio} sendo os maiores."))
 
 
 doc.preamble.append(NoEscape(r'\usepackage{graphicx}'))
@@ -333,7 +335,7 @@ doc.append(NewPage())
 # doc.append(NewPage())
 
 # recebendo camiho da imagem do gráfico e o total de seguidores do fb e ig
-fePublico_FBIG_plot_path, FB_followers, IG_followers = GR.fePublico_FBIG()
+# fePublico_FBIG_plot_path, FB_followers, IG_followers = GR.fePublico_FBIG()
 
 with doc.create(Subsection('Análise mensal', numbering=False)):
     with doc.create(Subsubsection('Instagram', numbering=False)):
@@ -408,15 +410,15 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
 with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
     itemize.add_item("Mês anterior:")
     with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-        sublist.add_item(NoEscape(r"\textbf{Abril} foi o melhor mês até o momento. Tem os maiores números e os maiores crecimentos pencentuais."))
-        sublist.add_item(NoEscape(r"\textbf{Janeiro} teve os segundos melhores números e crescimentos em novos seguidores e visitas."))
-        sublist.add_item(NoEscape(r"\textbf{Março} teve os números mais baixos em alcance e visitas e quedas nessas métricas."))
+        sublist.add_item(NoEscape(r"\textbf{Abril} foi o melhor mês até o momento. Tem os maiores números de novos seguidores e visitas, está entre os três maiores em alcance e tem os maiores crecimentos pencentuais."))
+        sublist.add_item(NoEscape(r"\textbf{Janeiro} teve os segundos melhores números e crescimentos em novos seguidores(junto de \textbf{março}) e visitas."))
+        sublist.add_item(NoEscape(r"\textbf{Março} teve os números mais baixos em alcance e o segundo em visitas e quedas nessas métricas. \textbf{Junho} teve o menor número de visitas e novos seguidores."))
 
 with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
     itemize.add_item("Mesmo mês em 2023:")
     with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
         sublist.add_item(NoEscape(r"\textbf{Março} teve a maior queda em visitas, \textbf{janeiro} em alcance e \textbf{fevereiro} em novos seguidores."))
-        sublist.add_item(NoEscape(r"\textbf{Abril} foi o mês que mais cresceu em novos seguidores e alcance."))
+        sublist.add_item(NoEscape(r"\textbf{Maio} foi o mês que mais cresceu em novos seguidores e \textbf{junho} em alcance."))
 
 doc.append(NewPage())
 
@@ -500,7 +502,7 @@ with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:
 with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
     itemize.add_item("Mesmo mês em 2023:")
     with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-        sublist.add_item(NoEscape(r"\textbf{Março} teve as maiores quedas."))
+        sublist.add_item(NoEscape(r"\textbf{Março} teve a maior queda em novos seguidores, \textbf{maio} e \textbf{junho} em alcance, e \textbf{abril} e \textbf{março} em visitas."))
         
 
 # doc.append(NewPage())
@@ -685,14 +687,14 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
 with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
     itemize.add_item("Mês anterior:")
     with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-        sublist.add_item(NoEscape(r"\textbf{Janeiro} e \textbf{abril} foram os melhores meses até o momento, tanto em números quanto em crescimento."))
-        sublist.add_item(NoEscape(r"\textbf{Fevereiro} teve as maiores quedas."))
+        sublist.add_item(NoEscape(r"\textbf{Maio} foi o melhor mês até em novos seguidores e engajamentos. \textbf{Janeiro} e \textbf{abril} ainda o superam em impressões e nos crescimentos percentuais em todas as métricas."))
+        sublist.add_item(NoEscape(r"\textbf{Fevereiro} teve as maiores quedas, com \textbf{maio} o suerando apenas em impressões."))
 
 with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
     itemize.add_item("Mesmo mês em 2023:")
     with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-        sublist.add_item(NoEscape(r"Com exeção de \textbf{março}, que teve um pequeno crescimento em engajamentos, tanto impresssões quanto engajamentos tiveram apenas quedas."))
-        sublist.add_item(NoEscape(r"Apenas \textbf{março} teve queda em novos seguidores."))
+        sublist.add_item(NoEscape(r"Com exeção de \textbf{fevereiro}, que teve um pequeno crescimento em engajamentos, tanto impresssões quanto engajamentos tiveram apenas quedas."))
+        sublist.add_item(NoEscape(r"Apenas \textbf{março} teve queda em novos seguidores e \textbf{Maio} teve o maior crescimento."))
 
 # doc.append(NewPage())
 
@@ -793,11 +795,12 @@ with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:
     with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
         sublist.add_item(NoEscape(r"\textbf{Março} foi o melhor mês até o momento."))
         sublist.add_item(NoEscape(r"\textbf{Abril} foi o primeiro mês com quedas após uma sequência de crescimento. Também foi o mês com mais horas de exibição."))
+        sublist.add_item(NoEscape(r"Desde \textbf{abril} a métricas pararam de crescer."))
 
 with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
     itemize.add_item("Mesmo mês em 2023:")
     with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-        sublist.add_item(NoEscape(r"Até \textbf{abril} todas as métricas tiveram bons crescimentos em todos os meses em relação ao ano passado. O que significa que até o momento o consumo do YouTube aumentou."))
+        sublist.add_item(NoEscape(r"Até \textbf{junho} todas as métricas tiveram bons crescimentos em todos os meses em relação ao ano passado. O que significa que até o momento o consumo do YouTube aumentou."))
         
 # doc.append(NewPage())
 
@@ -904,6 +907,6 @@ with doc.create(Itemize()) as itemize:
                 
                 
 # Gera o arquivo LaTeX
-doc.generate_pdf(fr'C:\Users\{GR.path_aliss}\Documents\Repositórios\Relatórios\TN\Relatório-TN_Abril-2024', clean_tex=True)
+doc.generate_pdf(fr'C:\Users\{GR.path_aliss}\Documents\Repositórios\Relatórios\TN\Relatório-TN_Junho-2024', clean_tex=True)
 
 print("Relatório em LaTeX gerado com sucesso!")

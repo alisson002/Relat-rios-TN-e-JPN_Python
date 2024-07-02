@@ -88,7 +88,8 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
         # Adiciona informações extras
         # Adiciona uma lista com marcadores
         with doc.create(Itemize()) as itemize:
-            itemize.add_item(f"Ao todo, a Tribuna do Norte entregou seu conteúdo para, aproximadamente, {GR.formataNumero(portal_novosUsuarios_2024[-1]+(ig_seg_2024_total[-1]-ig_seg_2024_total[-2])+(fb_seg_2024_total[-1]-fb_seg_2024_total[-2])+(tw_seg_2024_total[-1]-tw_seg_2024_total[-2])+(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]))} novas contas, entre Portal, Instagram, Twitter, Facebook e YouTube.")
+            itemize.add_item(f"Ao todo, a Tribuna do Norte entregou seu conteúdo para, aproximadamente, {GR.formataNumero(portal_novosUsuarios_2024[-1]+(ig_seg_2024_total[-1]-ig_seg_2024_total[-2])+(fb_seg_2024_total[-1]-fb_seg_2024_total[-2])+(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]))} novas contas, entre Portal, Instagram, Twitter, Facebook e YouTube.")
+            #+(tw_seg_2024_total[-1]-tw_seg_2024_total[-2])
             itemize.add_item(Command('textbf', arguments='Instagram'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(ig_seg_2024_total[-1])}. Total de seguidores no trimestre anterior: {GR.formataNumero(ig_seg_2024_total[-2])}")
@@ -99,7 +100,7 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(fb_seg_2024_total[-1])}. Total de seguidores no trimestre anterior: {GR.formataNumero(fb_seg_2024_total[-2])}")
                 sublist.add_item(f"Seguidores adquiridos no trimestre: {GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(fb_seg_2024_perdeu[-1])}.")
                 sublist.add_item(f"Taxa de fixação: {GR.fixacao(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1],fb_seg_2024_perdeu[-1])}")
-                sublist.add_item(f"Obs.: nesse caso, a taxa de fixação negatíva se trata de uma diferença relmente baixa, visto que tanto 'Seguidores adquiridos no trimestre' quanto 'Deixaram de seguir' são números positivos, potanto, quanto mais distante de zero maior ela seria. Só seria interpretada como maior, quanto mais próximo de zero, e menor, quanto mais distante de zero, em casos onde 'Seguidores adquiridos no trimestre' é um número negativo, fazendo com que ele seja somado a 'Deixaram de seguir' no calcula da diferença.")
+                # sublist.add_item(f"Obs.: nesse caso, a taxa de fixação negatíva se trata de uma diferença relmente baixa, visto que tanto 'Seguidores adquiridos no trimestre' quanto 'Deixaram de seguir' são números positivos, potanto, quanto mais distante de zero maior ela seria. Só seria interpretada como maior, quanto mais próximo de zero, e menor, quanto mais distante de zero, em casos onde 'Seguidores adquiridos no trimestre' é um número negativo, fazendo com que ele seja somado a 'Deixaram de seguir' no calcula da diferença.")
             itemize.add_item(Command('textbf', arguments='Twitter'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item("Total de seguidores atual: -. Total de seguidores no trimestre anterior: -")
@@ -123,8 +124,11 @@ with doc.create(Subsection('Análise trimestral', numbering=False)):
                 table.add_row(('', FootnoteText('variação em relação ao'), FootnoteText('variação em relação ao'), FootnoteText('variação em relação ao')))
                 table.add_row(('', FootnoteText('trimestre anterior'), FootnoteText('trimestre anterior'), FootnoteText('trimestre anterior')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='jan-fev-mar'), GR.numeroPorExtensso(portal_novosUsuarios_2024[-1]), GR.numeroPorExtensso(portal_visualizacoes_2024[-1]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[-1])))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(portal_novosUsuarios_2024[-1],portal_novosUsuarios_2024[-2])}'), FootnoteText(f'{GR.crescimento(portal_visualizacoes_2024[-1],portal_visualizacoes_2024[-2])}'), FootnoteText(f'{GR.crescimento(portal_usuariosRescorrentes_2024Analytics[-1],portal_usuariosRescorrentes_2024Analytics[-2])}')))
+                table.add_row((MultiRow(2, data='jan-fev-mar'), GR.numeroPorExtensso(portal_novosUsuarios_2024[1]), GR.numeroPorExtensso(portal_visualizacoes_2024[1]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[1])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(portal_novosUsuarios_2024[1],portal_novosUsuarios_2024[0])}'), FootnoteText(f'{GR.crescimento(portal_visualizacoes_2024[1],portal_visualizacoes_2024[0])}'), FootnoteText(f'{GR.crescimento(portal_usuariosRescorrentes_2024Analytics[1],portal_usuariosRescorrentes_2024Analytics[0])}')))
+                table.add_hline()
+                table.add_row((MultiRow(2, data='abr-mai-jun'), GR.numeroPorExtensso(portal_novosUsuarios_2024[2]), GR.numeroPorExtensso(portal_visualizacoes_2024[2]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Analytics[2])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(portal_novosUsuarios_2024[2],portal_novosUsuarios_2024[1])}'), FootnoteText(f'{GR.crescimento(portal_visualizacoes_2024[2],portal_visualizacoes_2024[1])}'), FootnoteText(f'{GR.crescimento(portal_usuariosRescorrentes_2024Analytics[2],portal_usuariosRescorrentes_2024Analytics[1])}')))
 
         # Adiciona informações extras
         # Adiciona uma lista com marcadores
@@ -216,7 +220,7 @@ with doc.create(Subsection('Análise trimestral', numbering=False)):
 doc.append(NewPage())
 
 # recebendo camiho da imagem do gráfico e o total de seguidores do fb e ig
-fePublico_FBIG_plot_path, FB_followers, IG_followers = GR.fePublico_FBIG()
+# fePublico_FBIG_plot_path, FB_followers, IG_followers = GR.fePublico_FBIG()
 
 with doc.create(Subsection('Análise trimestral', numbering=False)):
     with doc.create(Subsubsection('Instagram', numbering=False)):
@@ -228,8 +232,11 @@ with doc.create(Subsection('Análise trimestral', numbering=False)):
                 table.add_row(('', FootnoteText('variação em relação ao'), FootnoteText('variação em relação ao'), FootnoteText('variação em relação ao')))
                 table.add_row(('', FootnoteText('trimestre anterior'), FootnoteText('trimestre anterior'), FootnoteText('trimestre anterior')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='jan-fev-mar'), GR.numeroPorExtensso(ig_seg_2024[-1]), GR.numeroPorExtensso(ig_alcance_2024[-1]), GR.numeroPorExtensso(ig_vivitas_2024[-1])))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[-1],ig_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[-1],ig_alcance_2024[-2])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[-1],ig_vivitas_2024[-2])}')))
+                table.add_row((MultiRow(2, data='jan-fev-mar'), GR.numeroPorExtensso(ig_seg_2024[1]), GR.numeroPorExtensso(ig_alcance_2024[1]), GR.numeroPorExtensso(ig_vivitas_2024[-1])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[1],ig_seg_2024[0])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[1],ig_alcance_2024[0])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[1],ig_vivitas_2024[0])}')))
+                table.add_hline()
+                table.add_row((MultiRow(2, data='abr-mai-jun'), GR.numeroPorExtensso(ig_seg_2024[2]), GR.numeroPorExtensso(ig_alcance_2024[2]), GR.numeroPorExtensso(ig_vivitas_2024[2])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[2],ig_seg_2024[1])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[2],ig_alcance_2024[1])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[2],ig_vivitas_2024[1])}')))
     with doc.create(Subsubsection('Facebook', numbering=False)):
         with doc.create(MiniPage(align='c')):
             # Adiciona a tabela de resultados
@@ -239,8 +246,11 @@ with doc.create(Subsection('Análise trimestral', numbering=False)):
                 table.add_row(('', FootnoteText('variação em relação ao'), FootnoteText('variação em relação ao'), FootnoteText('variação em relação ao')))
                 table.add_row(('', FootnoteText('trimestre anterior'), FootnoteText('trimestre anterior'), FootnoteText('trimestre anterior')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='jan-fev-mar'), GR.numeroPorExtensso(fb_seg_2024[-1]), GR.numeroPorExtensso(fb_alcance_2024[-1]), GR.numeroPorExtensso(fb_vivitas_2024[-1])))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[-1],fb_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(fb_alcance_2024[-1],fb_alcance_2024[-2])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[-1],fb_vivitas_2024[-2])}')))
+                table.add_row((MultiRow(2, data='jan-fev-mar'), GR.numeroPorExtensso(fb_seg_2024[1]), GR.numeroPorExtensso(fb_alcance_2024[1]), GR.numeroPorExtensso(fb_vivitas_2024[1])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[1],fb_seg_2024[0])}'), FootnoteText(f'{GR.crescimento(fb_alcance_2024[1],fb_alcance_2024[0])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[1],fb_vivitas_2024[0])}')))
+                table.add_hline()
+                table.add_row((MultiRow(2, data='abr-mai-jun'), GR.numeroPorExtensso(fb_seg_2024[2]), GR.numeroPorExtensso(fb_alcance_2024[2]), GR.numeroPorExtensso(fb_vivitas_2024[2])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[2],fb_seg_2024[1])}'), FootnoteText(f'{GR.crescimento(fb_alcance_2024[2],fb_alcance_2024[1])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[2],fb_vivitas_2024[1])}')))
 
 
         # Adiciona informações extras
@@ -363,6 +373,9 @@ with doc.create(Subsection('Análise trimestral', numbering=False)):
                 table.add_hline()
                 table.add_row((MultiRow(2, data='jan-fev-mar'), GR.numeroPorExtensso(tw_seg_2024[-1]), GR.numeroPorExtensso(tw_impressões_2024[-1]), GR.numeroPorExtensso(tw_engajamentos_2024[-1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[-1],tw_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[-1],tw_impressões_2024[-2])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[-1],tw_engajamentos_2024[-2])}')))
+                table.add_hline()
+                table.add_row((MultiRow(2, data='abr-mai-jun'), '-', '-', '-'))
+                table.add_row(('', FootnoteText('-'), FootnoteText('-'), FootnoteText('-')))
 
         # Adiciona informações extras
         # Adiciona uma lista com marcadores
@@ -418,8 +431,11 @@ with doc.create(Subsection('Análise trimestral', numbering=False)):
                 table.add_row(('', FootnoteText('variação em relação ao'), FootnoteText('variação em relação ao'), FootnoteText('variação em relação ao')))
                 table.add_row(('', FootnoteText('trimestre anterior'), FootnoteText('trimestre anterior'), FootnoteText('trimestre anterior')))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='jan-fev-mar'), GR.numeroPorExtensso(yb_inc_2024[-1]), GR.numeroPorExtensso(yb_visualizacoes_2024[-1]), GR.numeroPorExtensso(yb_horas_2024[-1])))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[-1],yb_inc_2024[-2])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[-1],yb_visualizacoes_2024[-2])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[-1],yb_horas_2024[-2])}')))
+                table.add_row((MultiRow(2, data='jan-fev-mar'), GR.numeroPorExtensso(yb_inc_2024[1]), GR.numeroPorExtensso(yb_visualizacoes_2024[1]), GR.numeroPorExtensso(yb_horas_2024[1])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[1],yb_inc_2024[0])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[1],yb_visualizacoes_2024[0])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[1],yb_horas_2024[0])}')))
+                table.add_hline()
+                table.add_row((MultiRow(2, data='abr-mai-jun'), GR.numeroPorExtensso(yb_inc_2024[2]), GR.numeroPorExtensso(yb_visualizacoes_2024[2]), GR.numeroPorExtensso(yb_horas_2024[2])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[2],yb_inc_2024[1])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[2],yb_visualizacoes_2024[1])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[2],yb_horas_2024[1])}')))
 
 # visualizacoesIdadeYTB_plot_path = GR.visualizacoesIdadeYTB()
 # # Adiciona uma seção ao documento
@@ -524,6 +540,6 @@ with doc.create(Itemize()) as itemize:
                 
                 
 # Gera o arquivo LaTeX
-doc.generate_pdf(r'C:\Users\Usuario\Documents\Repositórios\Relatórios\TNtrimestral\Relatóriotrimestral-TN_jan-fev-marco', clean_tex=True)
+doc.generate_pdf(r'C:\Users\Usuario\Documents\Repositórios\Relatórios\TNtrimestral\Relatóriotrimestral-TN_abr-mai-jun', clean_tex=True)
 
 print("Relatório em LaTeX gerado com sucesso!")
