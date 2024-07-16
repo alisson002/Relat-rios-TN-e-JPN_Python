@@ -116,8 +116,9 @@ def extensso(contaElementos):
 def numeroPorExtensso(numero):
     return f"{primeirosElementos((numero))} {extensso(contaElementos(formataNumero(numero)))}"
 
-path_aliss = 'Usuario'
+path_aliss = 'aliss'
 path_Usuarios = 'aliss'
+# Usuario
 
 def origemPortal():
 
@@ -591,7 +592,7 @@ def visu_cumsum():
 
     # Adicionando os valores de cada ponto de visualizacoesANTERIOR
     for x, y, acumulado in zip(visualizacoesANTERIOR['Nº dia'], visualizacoesANTERIOR['Visualizações'], visualizacoes_acumuladasANTERIOR):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
     for x, y, acumulado in zip(visualizacoes['Nº dia'], visualizacoes['Visualizações'], visualizacoes_acumuladas):
@@ -656,7 +657,7 @@ def usuUni_cumsum():
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
     for x, y, acumulado in zip(usuarios_unicosANTERIOR['Nº dia'], usuarios_unicosANTERIOR['Usuários'], usuarios_unicos_acumuladasANTERIOR):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
     for x, y, acumulado in zip(usuarios_unicos['Nº dia'], usuarios_unicos['Usuários'], usuarios_unicos_acumuladas):
@@ -724,7 +725,7 @@ def newUsu_cumsum():
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
     for x, y, acumulado in zip(novos_usuariosANTERIOR['Nº dia'], novos_usuariosANTERIOR['Novos usuários'], novos_usuarios_acumuladasANTERIOR):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
     for x, y, acumulado in zip(novos_usuarios['Nº dia'], novos_usuarios['Novos usuários'], novos_usuarios_acumuladas):
@@ -793,7 +794,7 @@ def usuRec_cumsum():
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
     for x, y, acumulado in zip(usuarios_recorrentesANTERIOR['Nº dia'], usuarios_recorrentesANTERIOR['Usuários recorrentes'], usuarios_recorrentes_acumuladasANTERIOR):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
     for x, y, acumulado in zip(usuarios_recorrentes['Nº dia'], usuarios_recorrentes['Usuários recorrentes'], usuarios_recorrentes_acumuladas):
@@ -1255,11 +1256,11 @@ def visitasFB():
 
     # Adicionando os valores de cada ponto de usuarios_unicosANTERIOR
     for x, y, acumulado in zip(dia, visitasFB_ANTERIOR['Primary'], visitasFB_ANTERIOR_ACUMULADO):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='white', bbox=dict(facecolor='#474747', alpha=0.4))
 
     # Adicionando os valores de cada ponto 
     for x, y, acumulado in zip(dia, visitasFB['Primary'], visitasFB_ACUMULADO):
-        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='left', va='top', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
+        plt.text(x, acumulado, f'Dia: {int(y)}\nAcumulado: {int(acumulado)}', ha='right', va='bottom', fontsize=8, color='black', bbox=dict(facecolor='#E1E1E1', alpha=0.5))
 
     # Ajustando o intervalo entre as datas no eixo x
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
@@ -1635,7 +1636,7 @@ def dadosIG(intVisistas, intSeg):
     # Plotando o gráfico de linhas
     sns.lineplot(x="Data", y="Primary", data=alcanceIG, label="alcance", linewidth=2.5, color=cores[2])
     sns.lineplot(x="Data", y="Primary", data=visitasIG, label="visitas", linewidth=2.5, color=cores[1])
-    #sns.lineplot(x="Data", y="Primary", data=seguidoresIG, label="seguidores", linewidth=2.5, color=cores[0])
+    sns.lineplot(x="Data", y="Primary", data=seguidoresIG, label="seguidores", linewidth=2.5, color=cores[0])
 
     # Ajustando o intervalo entre as datas no eixo x
     #plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))  # Intervalo de 1 dia
