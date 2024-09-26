@@ -63,6 +63,20 @@ yb_horas_2024 = [1785,1114,2142,671,1265,632,660,768,715,596,586,555,420,537,553
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
 yb_inc_2024_total = [35940,36167,36685,36863,37062,37214,37333,37380,37544,37631,37729,37846,37922,37987,38076,38250,38337,38507,38751,39324,39515,40032,40329,40464,41239]
 
+#YOUTUBE - TN: MONETIZAÇÃO
+impressoes_yb_TN=[16429,182696]
+visuMonetizadas_yb_TN=[15531,173212]
+receitaBruta_yb_TN=[73,1050]
+premium_yb_TN=[1,15.64]
+AdSense_yb_TN=[40,578]
+
+#YOUTUBE - JPN: MONETIZAÇÃO
+impressoes_yb_JPN=[0,0]
+visuMonetizadas_yb_JPN=[0,0]
+receitaBruta_yb_JPN=[0,0]
+premium_yb_JPN=[0,0]
+AdSense_yb_JPN=[0,0]
+
 # Adiciona a seção para os resultados
 with doc.create(Section('Tribuna do Norte', numbering=False)):
     with doc.create(Subsection(f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}', numbering=False)):
@@ -79,9 +93,9 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 table.add_row((MultiRow(2, data='Facebook'), GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]), GR.formataNumero(fb_alcance_2024[-1]), GR.formataNumero(fb_vivitas_2024[-1])))
                 table.add_row(('', 'novos seguidores', 'contas atingidas', 'visitas ao perfil'))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='Twitter'), '-', '-', '-'))
-                table.add_row(('', 'novos seguidores', 'impressões', 'engajamentos'))
-                table.add_hline()
+                # table.add_row((MultiRow(2, data='Twitter'), '-', '-', '-'))
+                # table.add_row(('', 'novos seguidores', 'impressões', 'engajamentos'))
+                # table.add_hline()
                 table.add_row((MultiRow(2, data='Youtube'), GR.formataNumero(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]), GR.formataNumero(yb_visualizacoes_2024[-1]), GR.formataNumero(yb_horas_2024[-1])))
                 table.add_row(('', 'novos inscritos', 'visualizações', 'horas de exibição'))
                 
@@ -112,13 +126,13 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 # sublist.add_item(f"Obs.: nesse caso, a taxa de fixação negatíva se trata de uma diferença relmente baixa, visto que tanto 'Seguidores adquiridos na semana' quanto 'Deixaram de seguir' são números positivos, potanto, quanto mais distante de zero maior ela seria. Só seria interpretada como maior, quanto mais próximo de zero, e menor, quanto mais distante de zero, em casos onde 'Seguidores adquiridos na semana' é um número negativo, fazendo com que ele seja somado a 'Deixaram de seguir' no calcula da diferença.")
                 # sublist.add_item(f"O número de seguidores do Facebook apenas caiu nas ultimas 3 semanas.")
                 # sublist.add_item(f"Facebook vem numa sequência de queda de seguidores a algum tempo, desde a semana de 26-05-2024 a 01-06-2024 que também já vinha de uma outra sequência de queda de seguidores.")
-            itemize.add_item(Command('textbf', arguments='Twitter'))
-            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item("Total de seguidores atual: -. Total de seguidores na semana anterior: -")
-                sublist.add_item("Seguidores adquiridos na semana: -. Deixaram de seguir: -.")
-                sublist.add_item("Taxa de fixação: -")
-                sublist.add_item("AVISO: Os dados do Twitter estão indiponíveis pois sua plataforma de Analytics agora faz parte do 'X Premium', portanto, se tornou paga.")
-                sublist.add_item("AVISO: Rede social bloqueada")
+            # itemize.add_item(Command('textbf', arguments='Twitter'))
+            # with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+            #     sublist.add_item("Total de seguidores atual: -. Total de seguidores na semana anterior: -")
+            #     sublist.add_item("Seguidores adquiridos na semana: -. Deixaram de seguir: -.")
+            #     sublist.add_item("Taxa de fixação: -")
+            #     sublist.add_item("AVISO: Os dados do Twitter estão indiponíveis pois sua plataforma de Analytics agora faz parte do 'X Premium', portanto, se tornou paga.")
+            #     sublist.add_item("AVISO: Rede social bloqueada")
             itemize.add_item(Command('textbf', arguments='YouTube'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(yb_inc_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(yb_inc_2024_total[-2])}")
@@ -529,6 +543,44 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
                 table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(yb_inc_2024[-1]), GR.numeroPorExtensso(yb_visualizacoes_2024[-1]), GR.numeroPorExtensso(yb_horas_2024[-1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[-1],yb_inc_2024[-2])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[-1],yb_visualizacoes_2024[-2])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[-1],yb_horas_2024[-2])}')))
 
+with doc.create(Subsection('', numbering=False)):
+    with doc.create(Subsubsection('YouTube - TN: Monetização', numbering=False)):
+        with doc.create(MiniPage(align='c')):
+            # Adiciona a tabela de resultados            
+            with doc.create(Tabular('|c|c|c|c|c|c|', booktabs =True)) as table:
+            
+                table.add_row((MultiRow(5, data='Semana'), 'Impressões de anúncios', 'Visualizações monetizadas', 'Receita bruta', 'YTB Premium', 'Receita estimada (AdSense)'))
+                table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
+                table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
+                table.add_hline()
+                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(impressoes_yb_TN[-1]), GR.numeroPorExtensso(visuMonetizadas_yb_TN[-1]), GR.numeroPorExtensso(receitaBruta_yb_TN[-1]), GR.numeroPorExtensso(premium_yb_TN[-1]), GR.numeroPorExtensso(AdSense_yb_TN[-1])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(impressoes_yb_TN[-1],impressoes_yb_TN[-2])}'), FootnoteText(f'{GR.crescimento(visuMonetizadas_yb_TN[-1],visuMonetizadas_yb_TN[-2])}'), FootnoteText(f'{GR.crescimento(receitaBruta_yb_TN[-1],receitaBruta_yb_TN[-2])}'), FootnoteText(f'{GR.crescimento(premium_yb_TN[-1],premium_yb_TN[-2])}'), FootnoteText(f'{GR.crescimento(AdSense_yb_TN[-1],AdSense_yb_TN[-2])}')))
+
+with doc.create(Subsection('', numbering=False)):
+    with doc.create(Subsubsection('YouTube - JPN: Monetização', numbering=False)):
+        with doc.create(MiniPage(align='c')):
+            # Adiciona a tabela de resultados            
+            with doc.create(Tabular('|c|c|c|c|c|c|', booktabs =True)) as table:
+            
+                table.add_row((MultiRow(5, data='Semana'), 'Impressões de anúncios', 'Visualizações monetizadas', 'Receita bruta', 'YTB Premium', 'Receita estimada (AdSense)'))
+                table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
+                table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
+                table.add_hline()
+                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(impressoes_yb_JPN[-1]), GR.numeroPorExtensso(visuMonetizadas_yb_JPN[-1]), GR.numeroPorExtensso(receitaBruta_yb_JPN[-1]), GR.numeroPorExtensso(premium_yb_JPN[-1]), GR.numeroPorExtensso(AdSense_yb_JPN[-1])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(impressoes_yb_JPN[-1],impressoes_yb_JPN[-2])}'), FootnoteText(f'{GR.crescimento(visuMonetizadas_yb_JPN[-1],visuMonetizadas_yb_JPN[-2])}'), FootnoteText(f'{GR.crescimento(receitaBruta_yb_JPN[-1],receitaBruta_yb_JPN[-2])}'), FootnoteText(f'{GR.crescimento(premium_yb_JPN[-1],premium_yb_JPN[-2])}'), FootnoteText(f'{GR.crescimento(AdSense_yb_JPN[-1],AdSense_yb_JPN[-2])}')))
+
+        # Adiciona informações extras
+        # Adiciona uma lista com marcadores
+        with doc.create(Itemize()) as itemize:
+            # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
+            itemize.add_item('Legenda:')
+            #doc.append(NoEscape(r'\newline'))
+            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+                sublist.add_item(NoEscape(r'\textbf{Impressões de anúncios:} quantidade de vezes que o anúncio apareceu na tela dos usuários, ou seja, o anúncio começou a ser carregado no dispositivo do usuário, e em alguns casos pode nem ter sido carregado por completo;'))
+                sublist.add_item(NoEscape(r'\textbf{Visualizações monetizadas:} uma reprodução monetizada ocorre quando um espectador assiste um vídeo e pelo menos uma impressão de anúncios é exibida. Esse tipo de reprodução também é contabilizado quando o espectador para de assistir durante o anúncio precedente sem assistir o vídeo;'))
+                sublist.add_item(NoEscape(r'\textbf{Receita bruta:} receita bruta estimada de todas as fontes de publicidade vendidas pelo Google para o período selecionado. Não se deve confundir receita de anúncios do YouTube com receita estimada ou receita líquida que são calculadas em seus contratos de participação nos lucros. ;'))
+                sublist.add_item(NoEscape(r'\textbf{YouTube Premium:} receita estimada do YouTube Premium para o período selecionado;'))
+                sublist.add_item(NoEscape(r'\textbf{Receita estimada (AdSense):} receita estimada de publicidade vendida pelo Google AdSense para o período selecionado. Esse valor é o que é de direito do propietario do canal, já com os descontos feitos pelo YouTube de acordo com o contrato e o que diz respeito a participação de lucros.'))
 # visualizacoesIdadeYTB_plot_path = GR.visualizacoesIdadeYTB()
 # # Adiciona uma seção ao documento
 # with doc.create(Section('', numbering=False)):
