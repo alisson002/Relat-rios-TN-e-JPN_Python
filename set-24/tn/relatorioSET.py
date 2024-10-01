@@ -29,7 +29,7 @@ with doc.create(MiniPage(align='c')):
         doc.append(LineBreak())
         doc.append(LineBreak())
         doc.append(LineBreak())
-        doc.append(MediumText(("Agosto de 2024")))
+        doc.append(MediumText(("Setembro de 2024")))
         doc.append(LineBreak())
 
 # f'{p.get_height():.1f}%'
@@ -105,7 +105,7 @@ yb_inc_2024_total = [34000,34500,35940,37092,37544,37922,38507,40032,41578]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Tribuna do Norte', numbering=False)):
-    with doc.create(Subsection('Resultados de agosto/2024', numbering=False)):
+    with doc.create(Subsection('Resultados de setembro/2024', numbering=False)):
         with doc.create(MiniPage(align='c')):
             # Adiciona a tabela de resultados
             with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
@@ -136,7 +136,7 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(ig_seg_2024_total[-1])}. Total de seguidores no mês anterior: {GR.formataNumero(ig_seg_2024_total[-2])}")
                 sublist.add_item(f"Seguidores adquiridos no mês: {GR.formataNumero(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]+ig_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(ig_seg_2024_perdeu[-1])}.")
                 sublist.add_item(f"Taxa de fixação: {GR.fixacao(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]+ig_seg_2024_perdeu[-1],ig_seg_2024_perdeu[-1])}")
-                sublist.add_item(f"Obs.: diferente do relatório semanal onde o instagram voltou a subir o número de seguidores após algumas quedas, no saldo total do mês o número total de seguidores ficou abaixo de Julho.")
+                # sublist.add_item(f"Obs.: diferente do relatório semanal onde o instagram voltou a subir o número de seguidores após algumas quedas, no saldo total do mês o número total de seguidores ficou abaixo de Julho.")
             itemize.add_item(Command('textbf', arguments='Facebook'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(fb_seg_2024_total[-1])}. Total de seguidores no mês anterior: {GR.formataNumero(fb_seg_2024_total[-2])}")
