@@ -6,7 +6,7 @@ import rpy2.robjects as robjects
 import numpy
 
 # Cria um novo documento LaTeX
-geometry_options = {"tmargin": "2cm", "rmargin": "0cm", "lmargin": "0cm"}
+geometry_options = {"tmargin": "2.5cm", "rmargin": "2.5cm", "lmargin": "2cm", "landscape": True}
 doc = Document(geometry_options=geometry_options)
 doc.preamble.append(NoEscape(r'\usepackage{graphicx}'))
 
@@ -19,39 +19,67 @@ with doc.create(MiniPage(align='c')):
         doc.append(LineBreak())
 
 #YOUTUBE - TN: MONETIZAÇÃO
-impressoes_yb_TN=[16429,182696,85235]
-visuMonetizadas_yb_TN=[15531,173212,85466]
-receitaBruta_yb_TN=[73,1050,573]
-premium_yb_TN=[1,16,6]
-AdSense_yb_TN=[40,578,315]
+impressoes_yb_TN=[16429,182696,85235,7141,45266]
+visuMonetizadas_yb_TN=[15531,173212,85466,6561,45111]
+receitaBruta_yb_TN=[73,1050,573,36,296]
+premium_yb_TN=[1,16,6,0,3]
+AdSense_yb_TN=[40,578,315,20,163]
 
 #YOUTUBE - JPN: MONETIZAÇÃO
-impressoes_yb_JPN=[39593,16737]
-visuMonetizadas_yb_JPN=[33296,13781]
-receitaBruta_yb_JPN=[185,90]
-premium_yb_JPN=[7,6]
-AdSense_yb_JPN=[102,49]
+impressoes_yb_JPN=[39593,16737,42079,154350]
+visuMonetizadas_yb_JPN=[33296,13781,36523,137373]
+receitaBruta_yb_JPN=[185,90,147,515]
+premium_yb_JPN=[7,6,6,31]
+AdSense_yb_JPN=[102,49,81,284]
 
-with doc.create(Subsection('', numbering=False)):
+# Adiciona a seção para os resultados
+with doc.create(Section('YouTube: Monetização', numbering=False)):
+    with doc.create(Subsection(f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}', numbering=False)):
+        with doc.create(MiniPage(align='c')):
+            # Adiciona a tabela de resultados
+            with doc.create(Tabular('|c|c|c|c|c|c|', booktabs =True)) as table:
+                
+                table.add_row((MultiRow(2, data='YouTube - TN'), GR.formataNumero(impressoes_yb_TN[-1]), GR.formataNumero(visuMonetizadas_yb_TN[-1]), GR.formataNumero(receitaBruta_yb_TN[-1]), GR.formataNumero(premium_yb_TN[-1]), GR.formataNumero(AdSense_yb_TN[-1])))
+                table.add_row(('', 'Impressões de anúncios', 'Visualizações monetizadas', 'Receita bruta (R$)', 'YTB Premium (R$)', 'Receita estimada (AdSense) (R$)'))
+                table.add_hline()
+                table.add_row((MultiRow(2, data='YouTube - JPNews'), GR.formataNumero(impressoes_yb_JPN[-1]), GR.formataNumero(visuMonetizadas_yb_JPN[-1]), GR.formataNumero(receitaBruta_yb_JPN[-1]), GR.formataNumero(premium_yb_JPN[-1]), GR.formataNumero(AdSense_yb_JPN[-1])))
+                table.add_row(('', 'Impressões de anúncios', 'Visualizações monetizadas', 'Receita bruta (R$)', 'YTB Premium (R$)', 'Receita estimada (AdSense) (R$)'))
+
+# # Adiciona a seção para os resultados
+# with doc.create(Section('YouTube: Monetização', numbering=False)):
+#     with doc.create(Subsection('Setembro/2024', numbering=False)):
+#         with doc.create(MiniPage(align='c')):
+#             # Adiciona a tabela de resultados
+#             with doc.create(Tabular('|c|c|c|c|c|c|', booktabs =True)) as table:
+                
+#                 table.add_row(('-', 'Impressões de anúncios', 'Visualizações monetizadas', 'Receita bruta (R$)', 'YTB Premium (R$)', 'Receita estimada (AdSense) (R$)'))
+#                 table.add_hline()
+#                 table.add_row(('YouTube - TN', GR.formataNumero(impressoes_yb_TN_2024[-1]), GR.formataNumero(visuMonetizadas_yb_TN_2024[-1]), GR.formataNumero(receitaBruta_yb_TN_2024[-1]), GR.formataNumero(premium_yb_TN_2024[-1]), GR.formataNumero(AdSense_yb_TN_2024[-1])))
+#                 table.add_hline()
+#                 table.add_row(('YouTube - JPNews', GR.formataNumero(impressoes_yb_JPN_2024[-1]), GR.formataNumero(visuMonetizadas_yb_JPN_2024[-1]), GR.formataNumero(receitaBruta_yb_JPN_2024[-1]), GR.formataNumero(premium_yb_JPN_2024[-1]), GR.formataNumero(AdSense_yb_JPN_2024[-1])))
+
+doc.append(NewPage())
+
+with doc.create(Subsection('Análise semanal', numbering=False)):
     with doc.create(Subsubsection('YouTube - TN: Monetização', numbering=False)):
         with doc.create(MiniPage(align='c')):
             # Adiciona a tabela de resultados            
             with doc.create(Tabular('|c|c|c|c|c|c|', booktabs =True)) as table:
             
-                table.add_row((MultiRow(5, data='Semana'), 'Impressões de anúncios', 'Visualizações monetizadas', 'Receita bruta ', 'YTB Premium', 'Receita estimada (AdSense)'))
+                table.add_row((MultiRow(5, data='Semana'), 'Impressões de anúncios', 'Visualizações monetizadas', 'Receita bruta (R$)', 'YTB Premium (R$)', 'Receita estimada (AdSense) (R$)'))
                 table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
                 table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
                 table.add_hline()
                 table.add_row((MultiRow(2, data='-'), GR.numeroPorExtensso(impressoes_yb_TN[-1]), GR.numeroPorExtensso(visuMonetizadas_yb_TN[-1]), GR.numeroPorExtensso(receitaBruta_yb_TN[-1]), GR.numeroPorExtensso(premium_yb_TN[-1]), GR.numeroPorExtensso(AdSense_yb_TN[-1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(impressoes_yb_TN[-1],impressoes_yb_TN[-2])}'), FootnoteText(f'{GR.crescimento(visuMonetizadas_yb_TN[-1],visuMonetizadas_yb_TN[-2])}'), FootnoteText(f'{GR.crescimento(receitaBruta_yb_TN[-1],receitaBruta_yb_TN[-2])}'), FootnoteText(f'{GR.crescimento(premium_yb_TN[-1],premium_yb_TN[-2])}'), FootnoteText(f'{GR.crescimento(AdSense_yb_TN[-1],AdSense_yb_TN[-2])}')))
 
-with doc.create(Subsection('', numbering=False)):
+with doc.create(Subsection('Análise semanal', numbering=False)):
     with doc.create(Subsubsection('YouTube - JPN: Monetização', numbering=False)):
         with doc.create(MiniPage(align='c')):
             # Adiciona a tabela de resultados            
             with doc.create(Tabular('|c|c|c|c|c|c|', booktabs =True)) as table:
             
-                table.add_row((MultiRow(5, data='Semana'), 'Impressões de anúncios', 'Visualizações monetizadas', 'Receita bruta', 'YTB Premium', 'Receita estimada (AdSense)'))
+                table.add_row((MultiRow(5, data='Semana'), 'Impressões de anúncios', 'Visualizações monetizadas', 'Receita bruta (R$)', 'YTB Premium (R$)', 'Receita estimada (AdSense) (R$)'))
                 table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
                 table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
                 table.add_hline()
