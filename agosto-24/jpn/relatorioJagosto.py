@@ -14,7 +14,7 @@ with doc.create(MiniPage(align='c')):
         doc.append(LineBreak())
         doc.append(LineBreak())
         doc.append(LineBreak())
-        doc.append(MediumText(("Abril de 2024")))
+        doc.append(MediumText(("Agosto de 2024")))
         doc.append(LineBreak())
 
 ig_seg_2023_og = [39,302,2011,237,217,290,258,260,255,178,221,259] #apenas os valores de jun e nov mudaram pela plataforma
@@ -51,16 +51,16 @@ yb_inc_2023_perdeu = [258,152,154,103,139,117,117,123,121,113,111,105]
 yb_visualizacoes_2023 = [247874,108139,146070,86068,148727,118942,107559,94221,52970,51953,166181,23359]
 yb_horas_2023 = [24389,8349,12020,7839,11011,9419,9362,8893,5907,5131,12228,3396]
 
-yb_inc_2024 = [501,286,450,331,371]
-yb_inc_2024_perdeu = [130,111,119,114,119]
-yb_visualizacoes_2024 = [97513,81437,102095,61440,66507]
-yb_horas_2024 = [7077,6209,8204,5876,5898]
+yb_inc_2024 = [501,286,450,331,371,413,547,538]
+yb_inc_2024_perdeu = [130,111,119,114,119,136,146,159]
+yb_visualizacoes_2024 = [97513,81437,102095,61440,66507,97328,121040,117610]
+yb_horas_2024 = [7077,6209,8204,5876,5898,6960,7902,8842]
 
-yb_inc_2024_total = [33338,33513,33912,34137,34429]
+yb_inc_2024_total = [33338,33513,33912,34137,34429,34706,35107,35486]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Jovem Pan News', numbering=False)):
-    with doc.create(Subsection('Resultados de abril/2024', numbering=False)):
+    with doc.create(Subsection('Resultados de agosto/2024', numbering=False)):
         with doc.create(MiniPage(align='c')):
             # Adiciona a tabela de resultados
             with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
@@ -68,9 +68,9 @@ with doc.create(Section('Jovem Pan News', numbering=False)):
                 table.add_row((MultiRow(2, data='Instagram'), GR.formataNumero(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]), GR.formataNumero(ig_alcance_2024[-1]), GR.formataNumero(ig_vivitas_2024[-1])))
                 table.add_row(('', 'novos seguidores', 'contas atingidas', 'visitas ao perfil'))
                 table.add_hline()
-                table.add_row((MultiRow(2, data='Twitter'), GR.formataNumero(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]), GR.formataNumero(tw_impressões_2024[-1]), GR.formataNumero(tw_engajamentos_2024[-1])))
-                table.add_row(('', 'novos seguidores', 'impressões', 'engajamentos'))
-                table.add_hline()
+                # table.add_row((MultiRow(2, data='Twitter'), GR.formataNumero(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]), GR.formataNumero(tw_impressões_2024[-1]), GR.formataNumero(tw_engajamentos_2024[-1])))
+                # table.add_row(('', 'novos seguidores', 'impressões', 'engajamentos'))
+                # table.add_hline()
                 table.add_row((MultiRow(2, data='Youtube'), GR.formataNumero(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]), GR.formataNumero(yb_visualizacoes_2024[-1]), '4.194'))
                 table.add_row(('', 'novos inscritos', 'visualizações', 'horas de exibição'))
                 
@@ -84,11 +84,11 @@ with doc.create(Section('Jovem Pan News', numbering=False)):
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(ig_seg_2024_total[-1])}. Total de seguidores no mês anterior: {GR.formataNumero(ig_seg_2024_total[-2])}")
                 sublist.add_item(f"Seguidores adquiridos no mês: {GR.formataNumero(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]+ig_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(ig_seg_2024_perdeu[-1])}.")
                 sublist.add_item(f"Taxa de fixação: {GR.fixacao(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]+ig_seg_2024_perdeu[-1],ig_seg_2024_perdeu[-1])}")
-            itemize.add_item(Command('textbf', arguments='Twitter'))
-            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(tw_seg_2024_total[-1])}. Total de seguidores no mês anterior: {GR.formataNumero(tw_seg_2024_total[-2])}")
-                sublist.add_item(f"Seguidores adquiridos no mês: {GR.formataNumero(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]+tw_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(tw_seg_2024_perdeu[-1])}.")
-                sublist.add_item(f"Taxa de fixação: {GR.fixacao(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]+tw_seg_2024_perdeu[-1],tw_seg_2024_perdeu[-1])}")
+            # itemize.add_item(Command('textbf', arguments='Twitter'))
+            # with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+            #     sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(tw_seg_2024_total[-1])}. Total de seguidores no mês anterior: {GR.formataNumero(tw_seg_2024_total[-2])}")
+            #     sublist.add_item(f"Seguidores adquiridos no mês: {GR.formataNumero(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]+tw_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(tw_seg_2024_perdeu[-1])}.")
+            #     sublist.add_item(f"Taxa de fixação: {GR.fixacao(tw_seg_2024_total[-1]-tw_seg_2024_total[-2]+tw_seg_2024_perdeu[-1],tw_seg_2024_perdeu[-1])}")
             itemize.add_item(Command('textbf', arguments='YouTube'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(yb_inc_2024_total[-1])}. Total de seguidores no mês anterior: {GR.formataNumero(yb_inc_2024_total[-2])}")
@@ -166,184 +166,184 @@ with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:
 
 doc.append(NewPage())
 
-# recebendo camiho da imagem do gráfico e o total de seguidores do fb e ig
-fePublico_FBIG_plot_path, IG_followers = GR.fePublico_FBIG()
+# # recebendo camiho da imagem do gráfico e o total de seguidores do fb e ig
+# fePublico_FBIG_plot_path, IG_followers = GR.fePublico_FBIG()
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("IG: audiência por sexo e faixa etária")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(fePublico_FBIG_plot_path, width=NoEscape(r'0.9\textwidth'))
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("IG: audiência por sexo e faixa etária")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='h!')) as plot:
+#         plot.add_image(fePublico_FBIG_plot_path, width=NoEscape(r'0.9\textwidth'))
 
-doc.append(NewPage())
+# doc.append(NewPage())
 
-publicoCidades_plot_path = GR.publicoCidades()
+# publicoCidades_plot_path = GR.publicoCidades()
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("IG: audiência por cidades")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(publicoCidades_plot_path, width=NoEscape(r'0.9\textwidth'))
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("IG: audiência por cidades")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='h!')) as plot:
+#         plot.add_image(publicoCidades_plot_path, width=NoEscape(r'0.9\textwidth'))
 
-seguidoresIG_plot_path, seguidoresIG = GR.seguidoresIG()
+# seguidoresIG_plot_path, seguidoresIG = GR.seguidoresIG()
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("IG: ganho de seguidores ao longo do mês")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.75\textwidth'))
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("IG: ganho de seguidores ao longo do mês")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='h!')) as plot:
+#         plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.75\textwidth'))
 
-doc.append(NewPage())
+# doc.append(NewPage())
 
-visitasIG_plot_path, visitasIG = GR.visitasIG()
+# visitasIG_plot_path, visitasIG = GR.visitasIG()
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("IG: visitas ao perfil ao longo do mês")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(visitasIG_plot_path, width=NoEscape(r'0.75\textwidth'))
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("IG: visitas ao perfil ao longo do mês")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='h!')) as plot:
+#         plot.add_image(visitasIG_plot_path, width=NoEscape(r'0.75\textwidth'))
 
-alcanceIG_plot_path, alcanceIG = GR.alcanceIG()
+# alcanceIG_plot_path, alcanceIG = GR.alcanceIG()
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("IG: alcance do perfil ao longo do mês")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(alcanceIG_plot_path, width=NoEscape(r'0.75\textwidth'))
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("IG: alcance do perfil ao longo do mês")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='h!')) as plot:
+#         plot.add_image(alcanceIG_plot_path, width=NoEscape(r'0.75\textwidth'))
         
-doc.append(NewPage())
+# doc.append(NewPage())
 
-dadosIG_plot_path = GR.dadosIG(100,250)
+# dadosIG_plot_path = GR.dadosIG(100,250)
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("IG: comparativo de seguidores, visitas e alcance. (Obs.: dados fora de escala para uma melhor visualização)")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(dadosIG_plot_path, width=NoEscape(r'1\textwidth'))
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("IG: comparativo de seguidores, visitas e alcance. (Obs.: dados fora de escala para uma melhor visualização)")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='h!')) as plot:
+#         plot.add_image(dadosIG_plot_path, width=NoEscape(r'1\textwidth'))
 
-with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
-            itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre os dados do Instagram ao longo do período analisado.}'))
+# with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
+#             itemize.add_item(NoEscape(r'\small{Este gráfico mostra a semelhança de compatamento entre os dados do Instagram ao longo do período analisado.}'))
 
-doc.append(NewPage())
+# doc.append(NewPage())
 
-with doc.create(Subsection('Análise mensal', numbering=False)):
-    with doc.create(Subsubsection('Twitter', numbering=False)):
-        with doc.create(MiniPage(align='c')):
-            # Adiciona a tabela de resultados
-            with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
+# with doc.create(Subsection('Análise mensal', numbering=False)):
+#     with doc.create(Subsubsection('Twitter', numbering=False)):
+#         with doc.create(MiniPage(align='c')):
+#             # Adiciona a tabela de resultados
+#             with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
                 
-                table.add_row((MultiRow(3, data='Mês'), 'Novos seguidores', 'Impressões', 'Engajamento'))
-                table.add_row(('', FootnoteText('variação em relação ao'), FootnoteText('variação em relação ao'), FootnoteText('variação em relação ao')))
-                table.add_row(('', FootnoteText('mês anterior | mesmo mês em 2023'), FootnoteText('mês anterior | mesmo mês em 2023'), FootnoteText('mês anterior | mesmo mês em 2023')))
-                table.add_hline()
-                table.add_row((MultiRow(2, data='Janeiro'), '32', '35,7 mil', '589'))
-                table.add_row(('', FootnoteText('+433,3% | -79%'), FootnoteText('+30% | -36%'), FootnoteText('+68% | -16%')))
-                table.add_hline()
-                table.add_row((MultiRow(2, data='Fevereiro'), '60', '28,8 mil', '518'))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(60,32)} | {GR.crescimento(60,-30)}'), FootnoteText(f'{GR.crescimento(28801,35700)} | {GR.crescimento(28801,39500)}'), FootnoteText(f'{GR.crescimento(518,589)} | {GR.crescimento(518,578)}')))
-                table.add_hline()
-                table.add_row((MultiRow(2, data='Março'), GR.numeroPorExtensso(tw_seg_2024[2]), GR.numeroPorExtensso(tw_impressões_2024[2]), GR.numeroPorExtensso(tw_engajamentos_2024[2])))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[2],tw_seg_2024[1])} | {GR.crescimento(tw_seg_2024[2],tw_seg_2023[2])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[2],tw_impressões_2024[1])} | {GR.crescimento(tw_impressões_2024[2],tw_impressões_2023[2])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[2],tw_engajamentos_2024[1])} | {GR.crescimento(tw_engajamentos_2024[2],tw_engajamentos_2023[2])}')))
-                table.add_hline()
-                table.add_row((MultiRow(2, data='Abril'), GR.numeroPorExtensso(tw_seg_2024[3]), GR.numeroPorExtensso(tw_impressões_2024[3]), GR.numeroPorExtensso(tw_engajamentos_2024[3])))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[3],tw_seg_2024[2])} | {GR.crescimento(tw_seg_2024[3],tw_seg_2023[3])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[3],tw_impressões_2024[2])} | {GR.crescimento(tw_impressões_2024[3],tw_impressões_2023[3])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[3],tw_engajamentos_2024[2])} | {GR.crescimento(tw_engajamentos_2024[3],tw_engajamentos_2023[3])}')))
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Maio'), GR.numeroPorExtensso(tw_seg_2024[4]), GR.numeroPorExtensso(tw_impressões_2024[4]), GR.numeroPorExtensso(tw_engajamentos_2024[4])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[4],tw_seg_2024[3])} | {GR.crescimento(tw_seg_2024[4],tw_seg_2023[4])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[4],tw_impressões_2024[3])} | {GR.crescimento(tw_impressões_2024[4],tw_impressões_2023[4])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[4],tw_engajamentos_2024[3])} | {GR.crescimento(tw_engajamentos_2024[4],tw_engajamentos_2023[4])}')))
-                # table.add_hline()
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Junho'), GR.numeroPorExtensso(tw_seg_2024[5]), GR.numeroPorExtensso(tw_impressões_2024[5]), GR.numeroPorExtensso(tw_engajamentos_2024[5])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[5],tw_seg_2024[4])} | {GR.crescimento(tw_seg_2024[5],tw_seg_2023[5])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[5],tw_impressões_2024[4])} | {GR.crescimento(tw_impressões_2024[5],tw_impressões_2023[5])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[5],tw_engajamentos_2024[4])} | {GR.crescimento(tw_engajamentos_2024[5],tw_engajamentos_2023[5])}')))
-                # table.add_hline()
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Julho'), GR.numeroPorExtensso(tw_seg_2024[6]), GR.numeroPorExtensso(tw_impressões_2024[6]), GR.numeroPorExtensso(tw_engajamentos_2024[6])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[6],tw_seg_2024[5])} | {GR.crescimento(tw_seg_2024[6],tw_seg_2023[6])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[6],tw_impressões_2024[5])} | {GR.crescimento(tw_impressões_2024[6],tw_impressões_2023[6])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[6],tw_engajamentos_2024[5])} | {GR.crescimento(tw_engajamentos_2024[6],tw_engajamentos_2023[6])}')))
-                # table.add_hline()
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Agosto'), GR.numeroPorExtensso(tw_seg_2024[7]), GR.numeroPorExtensso(tw_impressões_2024[7]), GR.numeroPorExtensso(tw_engajamentos_2024[7])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[7],tw_seg_2024[6])} | {GR.crescimento(tw_seg_2024[7],tw_seg_2023[7])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[7],tw_impressões_2024[6])} | {GR.crescimento(tw_impressões_2024[7],tw_impressões_2023[7])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[7],tw_engajamentos_2024[6])} | {GR.crescimento(tw_engajamentos_2024[7],tw_engajamentos_2023[7])}')))
-                # table.add_hline()
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Setembro'), GR.numeroPorExtensso(tw_seg_2024[8]), GR.numeroPorExtensso(tw_impressões_2024[8]), GR.numeroPorExtensso(tw_engajamentos_2024[8])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[8],tw_seg_2024[7])} | {GR.crescimento(tw_seg_2024[8],tw_seg_2023[8])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[8],tw_impressões_2024[7])} | {GR.crescimento(tw_impressões_2024[8],tw_impressões_2023[8])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[8],tw_engajamentos_2024[7])} | {GR.crescimento(tw_engajamentos_2024[8],tw_engajamentos_2023[8])}')))
-                # table.add_hline()
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Outubro'), GR.numeroPorExtensso(tw_seg_2024[9]), GR.numeroPorExtensso(tw_impressões_2024[9]), GR.numeroPorExtensso(tw_engajamentos_2024[9])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[9],tw_seg_2024[8])} | {GR.crescimento(tw_seg_2024[9],tw_seg_2023[9])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[9],tw_impressões_2024[8])} | {GR.crescimento(tw_impressões_2024[9],tw_impressões_2023[9])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[9],tw_engajamentos_2024[8])} | {GR.crescimento(tw_engajamentos_2024[9],tw_engajamentos_2023[9])}')))
-                # table.add_hline()
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Novembro'), GR.numeroPorExtensso(tw_seg_2024[10]), GR.numeroPorExtensso(tw_impressões_2024[10]), GR.numeroPorExtensso(tw_engajamentos_2024[10])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[10],tw_seg_2024[9])} | {GR.crescimento(tw_seg_2024[10],tw_seg_2023[10])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[10],tw_impressões_2024[9])} | {GR.crescimento(tw_impressões_2024[10],tw_impressões_2023[10])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[10],tw_engajamentos_2024[9])} | {GR.crescimento(tw_engajamentos_2024[10],tw_engajamentos_2023[10])}')))
-                # table.add_hline()
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Dezembro'), GR.numeroPorExtensso(tw_seg_2024[11]), GR.numeroPorExtensso(tw_impressões_2024[11]), GR.numeroPorExtensso(tw_engajamentos_2024[11])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[11],tw_seg_2024[10])} | {GR.crescimento(tw_seg_2024[11],tw_seg_2023[11])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[11],tw_impressões_2024[10])} | {GR.crescimento(tw_impressões_2024[11],tw_impressões_2023[11])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[11],tw_engajamentos_2024[10])} | {GR.crescimento(tw_engajamentos_2024[11],tw_engajamentos_2023[11])}')))
-                # table.add_hline()
+#                 table.add_row((MultiRow(3, data='Mês'), 'Novos seguidores', 'Impressões', 'Engajamento'))
+#                 table.add_row(('', FootnoteText('variação em relação ao'), FootnoteText('variação em relação ao'), FootnoteText('variação em relação ao')))
+#                 table.add_row(('', FootnoteText('mês anterior | mesmo mês em 2023'), FootnoteText('mês anterior | mesmo mês em 2023'), FootnoteText('mês anterior | mesmo mês em 2023')))
+#                 table.add_hline()
+#                 table.add_row((MultiRow(2, data='Janeiro'), '32', '35,7 mil', '589'))
+#                 table.add_row(('', FootnoteText('+433,3% | -79%'), FootnoteText('+30% | -36%'), FootnoteText('+68% | -16%')))
+#                 table.add_hline()
+#                 table.add_row((MultiRow(2, data='Fevereiro'), '60', '28,8 mil', '518'))
+#                 table.add_row(('', FootnoteText(f'{GR.crescimento(60,32)} | {GR.crescimento(60,-30)}'), FootnoteText(f'{GR.crescimento(28801,35700)} | {GR.crescimento(28801,39500)}'), FootnoteText(f'{GR.crescimento(518,589)} | {GR.crescimento(518,578)}')))
+#                 table.add_hline()
+#                 table.add_row((MultiRow(2, data='Março'), GR.numeroPorExtensso(tw_seg_2024[2]), GR.numeroPorExtensso(tw_impressões_2024[2]), GR.numeroPorExtensso(tw_engajamentos_2024[2])))
+#                 table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[2],tw_seg_2024[1])} | {GR.crescimento(tw_seg_2024[2],tw_seg_2023[2])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[2],tw_impressões_2024[1])} | {GR.crescimento(tw_impressões_2024[2],tw_impressões_2023[2])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[2],tw_engajamentos_2024[1])} | {GR.crescimento(tw_engajamentos_2024[2],tw_engajamentos_2023[2])}')))
+#                 table.add_hline()
+#                 table.add_row((MultiRow(2, data='Abril'), GR.numeroPorExtensso(tw_seg_2024[3]), GR.numeroPorExtensso(tw_impressões_2024[3]), GR.numeroPorExtensso(tw_engajamentos_2024[3])))
+#                 table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[3],tw_seg_2024[2])} | {GR.crescimento(tw_seg_2024[3],tw_seg_2023[3])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[3],tw_impressões_2024[2])} | {GR.crescimento(tw_impressões_2024[3],tw_impressões_2023[3])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[3],tw_engajamentos_2024[2])} | {GR.crescimento(tw_engajamentos_2024[3],tw_engajamentos_2023[3])}')))
+#                 # table.add_hline()
+#                 # table.add_row((MultiRow(2, data='Maio'), GR.numeroPorExtensso(tw_seg_2024[4]), GR.numeroPorExtensso(tw_impressões_2024[4]), GR.numeroPorExtensso(tw_engajamentos_2024[4])))
+#                 # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[4],tw_seg_2024[3])} | {GR.crescimento(tw_seg_2024[4],tw_seg_2023[4])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[4],tw_impressões_2024[3])} | {GR.crescimento(tw_impressões_2024[4],tw_impressões_2023[4])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[4],tw_engajamentos_2024[3])} | {GR.crescimento(tw_engajamentos_2024[4],tw_engajamentos_2023[4])}')))
+#                 # table.add_hline()
+#                 # table.add_hline()
+#                 # table.add_row((MultiRow(2, data='Junho'), GR.numeroPorExtensso(tw_seg_2024[5]), GR.numeroPorExtensso(tw_impressões_2024[5]), GR.numeroPorExtensso(tw_engajamentos_2024[5])))
+#                 # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[5],tw_seg_2024[4])} | {GR.crescimento(tw_seg_2024[5],tw_seg_2023[5])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[5],tw_impressões_2024[4])} | {GR.crescimento(tw_impressões_2024[5],tw_impressões_2023[5])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[5],tw_engajamentos_2024[4])} | {GR.crescimento(tw_engajamentos_2024[5],tw_engajamentos_2023[5])}')))
+#                 # table.add_hline()
+#                 # table.add_hline()
+#                 # table.add_row((MultiRow(2, data='Julho'), GR.numeroPorExtensso(tw_seg_2024[6]), GR.numeroPorExtensso(tw_impressões_2024[6]), GR.numeroPorExtensso(tw_engajamentos_2024[6])))
+#                 # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[6],tw_seg_2024[5])} | {GR.crescimento(tw_seg_2024[6],tw_seg_2023[6])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[6],tw_impressões_2024[5])} | {GR.crescimento(tw_impressões_2024[6],tw_impressões_2023[6])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[6],tw_engajamentos_2024[5])} | {GR.crescimento(tw_engajamentos_2024[6],tw_engajamentos_2023[6])}')))
+#                 # table.add_hline()
+#                 # table.add_hline()
+#                 # table.add_row((MultiRow(2, data='Agosto'), GR.numeroPorExtensso(tw_seg_2024[7]), GR.numeroPorExtensso(tw_impressões_2024[7]), GR.numeroPorExtensso(tw_engajamentos_2024[7])))
+#                 # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[7],tw_seg_2024[6])} | {GR.crescimento(tw_seg_2024[7],tw_seg_2023[7])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[7],tw_impressões_2024[6])} | {GR.crescimento(tw_impressões_2024[7],tw_impressões_2023[7])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[7],tw_engajamentos_2024[6])} | {GR.crescimento(tw_engajamentos_2024[7],tw_engajamentos_2023[7])}')))
+#                 # table.add_hline()
+#                 # table.add_hline()
+#                 # table.add_row((MultiRow(2, data='Setembro'), GR.numeroPorExtensso(tw_seg_2024[8]), GR.numeroPorExtensso(tw_impressões_2024[8]), GR.numeroPorExtensso(tw_engajamentos_2024[8])))
+#                 # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[8],tw_seg_2024[7])} | {GR.crescimento(tw_seg_2024[8],tw_seg_2023[8])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[8],tw_impressões_2024[7])} | {GR.crescimento(tw_impressões_2024[8],tw_impressões_2023[8])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[8],tw_engajamentos_2024[7])} | {GR.crescimento(tw_engajamentos_2024[8],tw_engajamentos_2023[8])}')))
+#                 # table.add_hline()
+#                 # table.add_hline()
+#                 # table.add_row((MultiRow(2, data='Outubro'), GR.numeroPorExtensso(tw_seg_2024[9]), GR.numeroPorExtensso(tw_impressões_2024[9]), GR.numeroPorExtensso(tw_engajamentos_2024[9])))
+#                 # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[9],tw_seg_2024[8])} | {GR.crescimento(tw_seg_2024[9],tw_seg_2023[9])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[9],tw_impressões_2024[8])} | {GR.crescimento(tw_impressões_2024[9],tw_impressões_2023[9])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[9],tw_engajamentos_2024[8])} | {GR.crescimento(tw_engajamentos_2024[9],tw_engajamentos_2023[9])}')))
+#                 # table.add_hline()
+#                 # table.add_hline()
+#                 # table.add_row((MultiRow(2, data='Novembro'), GR.numeroPorExtensso(tw_seg_2024[10]), GR.numeroPorExtensso(tw_impressões_2024[10]), GR.numeroPorExtensso(tw_engajamentos_2024[10])))
+#                 # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[10],tw_seg_2024[9])} | {GR.crescimento(tw_seg_2024[10],tw_seg_2023[10])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[10],tw_impressões_2024[9])} | {GR.crescimento(tw_impressões_2024[10],tw_impressões_2023[10])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[10],tw_engajamentos_2024[9])} | {GR.crescimento(tw_engajamentos_2024[10],tw_engajamentos_2023[10])}')))
+#                 # table.add_hline()
+#                 # table.add_hline()
+#                 # table.add_row((MultiRow(2, data='Dezembro'), GR.numeroPorExtensso(tw_seg_2024[11]), GR.numeroPorExtensso(tw_impressões_2024[11]), GR.numeroPorExtensso(tw_engajamentos_2024[11])))
+#                 # table.add_row(('', FootnoteText(f'{GR.crescimento(tw_seg_2024[11],tw_seg_2024[10])} | {GR.crescimento(tw_seg_2024[11],tw_seg_2023[11])}'), FootnoteText(f'{GR.crescimento(tw_impressões_2024[11],tw_impressões_2024[10])} | {GR.crescimento(tw_impressões_2024[11],tw_impressões_2023[11])}'), FootnoteText(f'{GR.crescimento(tw_engajamentos_2024[11],tw_engajamentos_2024[10])} | {GR.crescimento(tw_engajamentos_2024[11],tw_engajamentos_2023[11])}')))
+#                 # table.add_hline()
                 
-        with doc.create(Itemize()) as itemize:
-            # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
-            itemize.add_item('Legenda:')
-            #doc.append(NoEscape(r'\newline'))
-            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item(NoEscape(r'\textbf{Impressões:} número de vezes que os usuários viram o(s) Tweet(s);'))
-                sublist.add_item(NoEscape(r'\textbf{Engajamentos:} número total de vezes que um usuário interagiu com o(s) Tweet(s). Isso inclui todos os cliques em qualquer lugar no Tweet como: hashtags, links, avatar, nome de usuário e expansão do Tweet, Retweets, respostas e favoritos.'))
+#         with doc.create(Itemize()) as itemize:
+#             # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
+#             itemize.add_item('Legenda:')
+#             #doc.append(NoEscape(r'\newline'))
+#             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+#                 sublist.add_item(NoEscape(r'\textbf{Impressões:} número de vezes que os usuários viram o(s) Tweet(s);'))
+#                 sublist.add_item(NoEscape(r'\textbf{Engajamentos:} número total de vezes que um usuário interagiu com o(s) Tweet(s). Isso inclui todos os cliques em qualquer lugar no Tweet como: hashtags, links, avatar, nome de usuário e expansão do Tweet, Retweets, respostas e favoritos.'))
 
-with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
-    itemize.add_item("Mês anterior:")
-    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-        sublist.add_item(NoEscape(r"\textbf{Janeiro} foi o melhor mês nas impressões e o segundo melhor no engajamento e foi o que mais cresceu nessas métricas."))
-        sublist.add_item(NoEscape(r"\textbf{Abril} foi o melhor mês em novos seguidores."))
-        sublist.add_item(NoEscape(r"\textbf{Março} foi o melhor mês em engajamento."))
+# with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+#     itemize.add_item("Mês anterior:")
+#     with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+#         sublist.add_item(NoEscape(r"\textbf{Janeiro} foi o melhor mês nas impressões e o segundo melhor no engajamento e foi o que mais cresceu nessas métricas."))
+#         sublist.add_item(NoEscape(r"\textbf{Abril} foi o melhor mês em novos seguidores."))
+#         sublist.add_item(NoEscape(r"\textbf{Março} foi o melhor mês em engajamento."))
 
-with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
-    itemize.add_item("Mesmo mês em 2023:")
-    with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-        sublist.add_item(NoEscape(r"Até \textbf{abril} houveram apenas quedas em engajamentos e impressões."))
+# with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
+#     itemize.add_item("Mesmo mês em 2023:")
+#     with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+#         sublist.add_item(NoEscape(r"Até \textbf{abril} houveram apenas quedas em engajamentos e impressões."))
 
-doc.append(NewPage())
+# doc.append(NewPage())
 
-engajamentoTW_plot_path = GR.engajamentoTW()
+# engajamentoTW_plot_path = GR.engajamentoTW()
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("TW: engajamento do twitter")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(engajamentoTW_plot_path, width=NoEscape(r'0.7\textwidth'))
-doc.append(NewPage())
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("TW: engajamento do twitter")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='h!')) as plot:
+#         plot.add_image(engajamentoTW_plot_path, width=NoEscape(r'0.7\textwidth'))
+# doc.append(NewPage())
 
-impressoesTW_plot_path = GR.impressoesTW()
+# impressoesTW_plot_path = GR.impressoesTW()
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("TW: impressões do twitter")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(impressoesTW_plot_path, width=NoEscape(r'0.7\textwidth'))
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("TW: impressões do twitter")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='h!')) as plot:
+#         plot.add_image(impressoesTW_plot_path, width=NoEscape(r'0.7\textwidth'))
 
-seguidoresTW_plot_path = GR.seguidoresTW()
+# seguidoresTW_plot_path = GR.seguidoresTW()
 
-# Adiciona uma seção ao documento
-with doc.create(Section('', numbering=False)):
-    doc.append("TW: ganho de seguidores no twitter ao logo do mês. (Esses dados levam em consideração apenas os ganhos)")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='h!')) as plot:
-        plot.add_image(seguidoresTW_plot_path, width=NoEscape(r'0.7\textwidth'))
+# # Adiciona uma seção ao documento
+# with doc.create(Section('', numbering=False)):
+#     doc.append("TW: ganho de seguidores no twitter ao logo do mês. (Esses dados levam em consideração apenas os ganhos)")
+#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+#     # Adiciona a figura ao documento
+#     with doc.create(Figure(position='h!')) as plot:
+#         plot.add_image(seguidoresTW_plot_path, width=NoEscape(r'0.7\textwidth'))
 
 doc.append(NewPage())
 
