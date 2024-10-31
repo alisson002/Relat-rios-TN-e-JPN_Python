@@ -1,6 +1,6 @@
 from pylatex import Document, Section, Subsection, Command, Tabular, Itemize, Enumerate, LineBreak, LargeText, MiniPage, MediumText, MultiRow, NewPage, Subsubsection, SmallText, FootnoteText, NoEscape, Figure, MiniPage
 from pylatex.utils import bold
-import graficosRelatorioabril as GR
+import graficosRelatorioSetembro as GR
 import pandas as pd
 import rpy2.robjects as robjects
 
@@ -23,12 +23,12 @@ ig_seg_2023_perdeu = [0,0,0,0,0,142,241,202,236,204,194,226]
 ig_alcance_2023 = [21733,15091,25147,17005,14844,19697,29758,16139,13015,11219,24345,65525]
 ig_vivitas_2023 = [1641,1213,10131,1105,1436,1780,1193,1297,1372,1246,1468,1902]
 
-ig_seg_2024 = [306,265,353,342,306,235,271,332]
-ig_seg_2024_perdeu = [230,240,207,213,195,221,200,243]
-ig_alcance_2024 = [26399,32188,111983,85295,30094,17546,32130,49748]
-ig_vivitas_2024 = [1646,2176,2272,2256,1353,1220,1309,1718]
+ig_seg_2024 = [306,265,353,342,306,235,271,332,320]
+ig_seg_2024_perdeu = [230,240,207,213,195,221,200,243,179]
+ig_alcance_2024 = [26399,32188,111983,85295,30094,17546,32130,49748,60432]
+ig_vivitas_2024 = [1646,2176,2272,2256,1353,1220,1309,1718,2212]
 
-ig_seg_2024_total = [28290,28326,28467,28598,28703,28717,28788,28877]
+ig_seg_2024_total = [28290,28326,28467,28598,28703,28717,28788,28877,29018]
 
 tw_seg_2023_og = [151,-30,62,-5,-5,-36,-2,7,1,20-18,6]
 tw_impressões_2023_og = [55700,39500,60300,99800,53900,55800,46300,51900,35000,35400,28500,27500]
@@ -51,12 +51,12 @@ yb_inc_2023_perdeu = [258,152,154,103,139,117,117,123,121,113,111,105]
 yb_visualizacoes_2023 = [247874,108139,146070,86068,148727,118942,107559,94221,52970,51953,166181,23359]
 yb_horas_2023 = [24389,8349,12020,7839,11011,9419,9362,8893,5907,5131,12228,3396]
 
-yb_inc_2024 = [501,286,450,331,371,413,547,538]
-yb_inc_2024_perdeu = [130,111,119,114,119,136,146,159]
-yb_visualizacoes_2024 = [97513,81437,102095,61440,66507,97328,121040,117610]
-yb_horas_2024 = [7077,6209,8204,5876,5898,6960,7902,8842]
+yb_inc_2024 = [501,286,450,331,371,413,547,538,655]
+yb_inc_2024_perdeu = [130,111,119,114,119,136,146,159,126]
+yb_visualizacoes_2024 = [97513,81437,102095,61440,66507,97328,121040,117610,105649]
+yb_horas_2024 = [7077,6209,8204,5876,5898,6960,7902,8842,8425]
 
-yb_inc_2024_total = [33338,33513,33912,34137,34429,34706,35107,35486]
+yb_inc_2024_total = [33338,33513,33912,34137,34429,34706,35107,35486,36015]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Jovem Pan News', numbering=False)):
@@ -131,9 +131,9 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
                 table.add_hline()
                 table.add_row((MultiRow(2, data='Agosto'), GR.numeroPorExtensso(ig_seg_2024[7]), GR.numeroPorExtensso(ig_alcance_2024[7]), GR.numeroPorExtensso(ig_vivitas_2024[7])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[7],ig_seg_2024[6])} | {GR.crescimento(ig_seg_2024[7],ig_seg_2023[7])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[7],ig_alcance_2024[6])} | {GR.crescimento(ig_alcance_2024[7],ig_alcance_2023[7])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[7],ig_vivitas_2024[6])} | {GR.crescimento(ig_vivitas_2024[7],ig_vivitas_2023[7])}')))
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Setembro'), GR.numeroPorExtensso(ig_seg_2024[8]), GR.numeroPorExtensso(ig_alcance_2024[8]), GR.numeroPorExtensso(ig_vivitas_2024[8])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[8],ig_seg_2024[7])} | {GR.crescimento(ig_seg_2024[8],ig_seg_2023[8])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[8],ig_alcance_2024[7])} | {GR.crescimento(ig_alcance_2024[8],ig_alcance_2023[8])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[8],ig_vivitas_2024[7])} | {GR.crescimento(ig_vivitas_2024[8],ig_vivitas_2023[8])}')))
+                table.add_hline()
+                table.add_row((MultiRow(2, data='Setembro'), GR.numeroPorExtensso(ig_seg_2024[8]), GR.numeroPorExtensso(ig_alcance_2024[8]), GR.numeroPorExtensso(ig_vivitas_2024[8])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[8],ig_seg_2024[7])} | {GR.crescimento(ig_seg_2024[8],ig_seg_2023[8])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[8],ig_alcance_2024[7])} | {GR.crescimento(ig_alcance_2024[8],ig_alcance_2023[8])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[8],ig_vivitas_2024[7])} | {GR.crescimento(ig_vivitas_2024[8],ig_vivitas_2023[8])}')))
                 # table.add_hline()
                 # table.add_row((MultiRow(2, data='Outubro'), GR.numeroPorExtensso(ig_seg_2024[9]), GR.numeroPorExtensso(ig_alcance_2024[9]), GR.numeroPorExtensso(ig_vivitas_2024[9])))
                 # table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[9],ig_seg_2024[8])} | {GR.crescimento(ig_seg_2024[9],ig_seg_2023[9])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[9],ig_alcance_2024[8])} | {GR.crescimento(ig_alcance_2024[9],ig_alcance_2023[9])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[9],ig_vivitas_2024[8])} | {GR.crescimento(ig_vivitas_2024[9],ig_vivitas_2023[9])}')))
@@ -381,9 +381,9 @@ with doc.create(Subsection('Análise mensal', numbering=False)):
                 table.add_hline()
                 table.add_row((MultiRow(2, data='Agosto'), GR.numeroPorExtensso(yb_inc_2024[7]), GR.numeroPorExtensso(yb_visualizacoes_2024[7]), GR.numeroPorExtensso(yb_horas_2024[7])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[7],yb_inc_2024[6])} | {GR.crescimento(yb_inc_2024[7],yb_inc_2023[7])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[7],yb_visualizacoes_2024[6])} | {GR.crescimento(yb_visualizacoes_2024[7],yb_visualizacoes_2023[7])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[7],yb_horas_2024[6])} | {GR.crescimento(yb_horas_2024[7],yb_horas_2023[7])}')))
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Setembro'), GR.numeroPorExtensso(yb_inc_2024[8]), GR.numeroPorExtensso(yb_visualizacoes_2024[8]), GR.numeroPorExtensso(yb_horas_2024[8])))
-                # table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[8],yb_inc_2024[7])} | {GR.crescimento(yb_inc_2024[8],yb_inc_2023[8])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[8],yb_visualizacoes_2024[7])} | {GR.crescimento(yb_visualizacoes_2024[8],yb_visualizacoes_2023[8])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[8],yb_horas_2024[7])} | {GR.crescimento(yb_horas_2024[8],yb_horas_2023[8])}')))
+                table.add_hline()
+                table.add_row((MultiRow(2, data='Setembro'), GR.numeroPorExtensso(yb_inc_2024[8]), GR.numeroPorExtensso(yb_visualizacoes_2024[8]), GR.numeroPorExtensso(yb_horas_2024[8])))
+                table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[8],yb_inc_2024[7])} | {GR.crescimento(yb_inc_2024[8],yb_inc_2023[8])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[8],yb_visualizacoes_2024[7])} | {GR.crescimento(yb_visualizacoes_2024[8],yb_visualizacoes_2023[8])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[8],yb_horas_2024[7])} | {GR.crescimento(yb_horas_2024[8],yb_horas_2023[8])}')))
                 # table.add_hline()
                 # table.add_row((MultiRow(2, data='Outubro'), GR.numeroPorExtensso(yb_inc_2024[9]), GR.numeroPorExtensso(yb_visualizacoes_2024[9]), GR.numeroPorExtensso(yb_horas_2024[9])))
                 # table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[9],yb_inc_2024[8])} | {GR.crescimento(yb_inc_2024[9],yb_inc_2023[9])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[9],yb_visualizacoes_2024[8])} | {GR.crescimento(yb_visualizacoes_2024[9],yb_visualizacoes_2023[9])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[9],yb_horas_2024[8])} | {GR.crescimento(yb_horas_2024[9],yb_horas_2023[9])}')))
@@ -399,8 +399,9 @@ with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:
     with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
         sublist.add_item(NoEscape(r"\textbf{Janeiro} foi o mês que mais cresceu."))
         sublist.add_item(NoEscape(r"É possível observar um padrão onde as métricas crescem em um mês e caem no seguinte. Esse padrão segue a té a \textbf{abril} e só volta a cair em \textbf{agosto}."))
-        sublist.add_item(NoEscape(r"\textbf{Julho} foi o melhor mês em \textbf{novos inscritos} e \textbf{visualizações}, perdendo em \textbf{horas de exibição} para \textbf{março} e \textbf{agosto}."))
-        sublist.add_item(NoEscape(r"\textbf{Agosto} foi o segundo melhor mês em \textbf{novos inscritos} e \textbf{visualizações}."))
+        sublist.add_item(NoEscape(r"\textbf{Julho} foi o melhor mês em \textbf{visualizações}, perdendo em \textbf{horas de exibição} para \textbf{setembro} e \textbf{agosto}."))
+        sublist.add_item(NoEscape(r"\textbf{Agosto} foi o segundo melhor mês em \textbf{visualizações}."))
+        sublist.add_item(NoEscape(r"\textbf{Setembro} foi o melhor mês em \textbf{novos inscritos}."))
 
 # with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
 #     itemize.add_item("Mesmo mês em 2023:")
@@ -481,6 +482,6 @@ with doc.create(Itemize()) as itemize:
                 sublist.add_item(NoEscape(f'Todos esses dados são fornecidos pelas próprias plataformas, mas eles podem acabar sendo um pouco diferentes para sua respectiva rede social.'))
 
 # Gera o arquivo LaTeX
-doc.generate_pdf(fr'C:\Users\{GR.path_aliss}\Documents\Repositórios\Relatórios\JPN\Relatório-JPNews_agosto-2024', clean_tex=True)
+doc.generate_pdf(fr'C:\Users\{GR.path_aliss}\Documents\Repositórios\Relatórios\JPN\Relatório-JPNews_setembro-2024', clean_tex=True)
 
 print("Relatório em LaTeX gerado com sucesso!")

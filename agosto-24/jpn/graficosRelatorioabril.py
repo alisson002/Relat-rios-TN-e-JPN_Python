@@ -93,7 +93,7 @@ def extensso(contaElementos):
 def numeroPorExtensso(numero):
     return f"{primeirosElementos((numero))} {extensso(contaElementos(formataNumero(numero)))}"
 
-path_aliss = 'aliss'
+path_aliss = 'Usuario'
 path_Usuarios = 'Usuario'
 
 def fePublico_FBIG():
