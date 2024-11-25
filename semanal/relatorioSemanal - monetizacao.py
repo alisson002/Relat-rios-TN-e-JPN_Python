@@ -19,18 +19,18 @@ with doc.create(MiniPage(align='c')):
         doc.append(LineBreak())
 
 #YOUTUBE - TN: MONETIZAÇÃO
-impressoes_yb_TN=[16429,182696,85235,7141,45266,22621,24240,17580,22039,4936]
-visuMonetizadas_yb_TN=[15531,173212,85466,6561,45111,21762,23742,15037,21404,4285]
-receitaBruta_yb_TN=[73,1050,573,36,296,130,156,96,138,26]
-premium_yb_TN=[1,16,6,0,3,2,1,1,1,0]
-AdSense_yb_TN=[40,578,315,20,163,72,86,53,76,14]
+impressoes_yb_TN=[16429,182696,85235,7141,45266,22621,24240,17580,22039,4936,5452]
+visuMonetizadas_yb_TN=[15531,173212,85466,6561,45111,21762,23742,15037,21404,4285,4601]
+receitaBruta_yb_TN=[73,1050,573,36,296,130,156,96,138,26,29]
+premium_yb_TN=[1,16,6,0,3,2,1,1,1,1,1]
+AdSense_yb_TN=[40,578,315,20,163,72,86,53,76,14,16]
 
 #YOUTUBE - JPN: MONETIZAÇÃO
-impressoes_yb_JPN=[39593,16737,42079,154350,109270,43500,574953,161484,15444]
-visuMonetizadas_yb_JPN=[33296,13781,36523,137373,93411,35514,488003,143579,12635]
-receitaBruta_yb_JPN=[185,90,147,515,430,215,2039,443,87] #receita de anuncios do ytb
-premium_yb_JPN=[7,6,6,31,16,11,75,11,6]
-AdSense_yb_JPN=[102,49,81,284,237,119,1123,244,48] #receita estimada GADS
+impressoes_yb_JPN=[39593,16737,42079,154350,109270,43500,574953,161484,15444,15701]
+visuMonetizadas_yb_JPN=[33296,13781,36523,137373,93411,35514,488003,143579,12635,12359]
+receitaBruta_yb_JPN=[185,90,147,515,430,215,2039,443,87,97] #receita de anuncios do ytb
+premium_yb_JPN=[7,6,6,31,16,11,75,11,65]
+AdSense_yb_JPN=[102,49,81,284,237,119,1123,244,48,53] #receita estimada GADS
 
 # Adiciona a seção para os resultados
 with doc.create(Section('YouTube: Monetização', numbering=False)):
