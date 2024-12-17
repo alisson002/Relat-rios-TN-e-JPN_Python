@@ -14,7 +14,7 @@ with doc.create(MiniPage(align='c')):
         doc.append(LineBreak())
         doc.append(LineBreak())
         doc.append(LineBreak())
-        doc.append(MediumText(("Novembro (01.11 a 24.11) de 2024")))
+        doc.append(MediumText(("Novembro de 2024")))
         doc.append(LineBreak())
 
 ig_seg_2023_og = [39,302,2011,237,217,290,258,260,255,178,221,259] #apenas os valores de jun e nov mudaram pela plataforma
@@ -23,12 +23,12 @@ ig_seg_2023_perdeu = [0,0,0,0,0,142,241,202,236,204,194,226]
 ig_alcance_2023 = [21733,15091,25147,17005,14844,19697,29758,16139,13015,11219,24345,65525]
 ig_vivitas_2023 = [1641,1213,10131,1105,1436,1780,1193,1297,1372,1246,1468,1902]
 
-ig_seg_2024 = [306,265,353,342,306,235,271,332,320,584,335] #alterar novembro para o mes todo dps
-ig_seg_2024_perdeu = [230,240,207,213,195,221,200,243,179,220,297,125]#alterar novembro para o mes todo dps
-ig_alcance_2024 = [26399,32188,111983,85295,30094,17546,32130,49748,60432,150037,38128]#alterar novembro para o mes todo dps
-ig_vivitas_2024 = [1646,2176,2272,2256,1353,1220,1309,1718,2212,3839,1493]#alterar novembro para o mes todo dps
+ig_seg_2024 = [306,265,353,342,306,235,271,332,320,584,466]
+ig_seg_2024_perdeu = [230,240,207,213,195,221,200,243,179,220,297,160] 
+ig_alcance_2024 = [26399,32188,111983,85295,30094,17546,32130,49748,60432,150037,42176]
+ig_vivitas_2024 = [1646,2176,2272,2256,1353,1220,1309,1718,2212,3839,2025]
 
-ig_seg_2024_total = [28290,28326,28467,28598,28703,28717,28788,28877,29018,29305,29515]
+ig_seg_2024_total = [28290,28326,28467,28598,28703,28717,28788,28877,29018,29305,29646]
 
 tw_seg_2023_og = [151,-30,62,-5,-5,-36,-2,7,1,20-18,6]
 tw_impressões_2023_og = [55700,39500,60300,99800,53900,55800,46300,51900,35000,35400,28500,27500]
@@ -51,16 +51,16 @@ yb_inc_2023_perdeu = [258,152,154,103,139,117,117,123,121,113,111,105]
 yb_visualizacoes_2023 = [247874,108139,146070,86068,148727,118942,107559,94221,52970,51953,166181,23359]
 yb_horas_2023 = [24389,8349,12020,7839,11011,9419,9362,8893,5907,5131,12228,3396]
 
-yb_inc_2024 = [501,286,450,331,371,413,547,538,655,3137,879]#alterar novembro para o mes todo dps
-yb_inc_2024_perdeu = [130,111,119,114,119,136,146,159,126,199,119]#alterar novembro para o mes todo dps
-yb_visualizacoes_2024 = [97513,81437,102095,61440,66507,97328,121040,117610,105649,522329,287429]#alterar novembro para o mes todo dps
-yb_horas_2024 = [7077,6209,8204,5876,5898,6960,7902,8842,8425,34806,10603]#alterar novembro para o mes todo dps
+yb_inc_2024 = [501,286,450,331,371,413,547,538,655,3137,932]
+yb_inc_2024_perdeu = [130,111,119,114,119,136,146,159,126,199,137]
+yb_visualizacoes_2024 = [97513,81437,102095,61440,66507,97328,121040,117610,105649,522329,296742]
+yb_horas_2024 = [7077,6209,8204,5876,5898,6960,7902,8842,8425,34806,11928]
 
-yb_inc_2024_total = [33338,33513,33912,34137,34429,34706,35107,35486,36015,38953,39656]#alterar novembro para o mes todo dps
+yb_inc_2024_total = [33338,33513,33912,34137,34429,34706,35107,35486,36015,38953,39709]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Jovem Pan News', numbering=False)):
-    with doc.create(Subsection('Resultados de novembro (01.11 a 24.11)/2024', numbering=False)):
+    with doc.create(Subsection('Resultados de novembro', numbering=False)):
         with doc.create(MiniPage(align='c')):
             # Adiciona a tabela de resultados
             with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
@@ -157,7 +157,7 @@ with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:
     with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
         sublist.add_item(NoEscape(r"\textbf{Outubro} foi o melhor mês até o momento, tendo os maiores números em todas as métricas e os maiores crecimentos pencentuais em novos \textbf{seguidores} e \textbf{visitas}. \textbf{Março} vem em seguida."))
         sublist.add_item(NoEscape(r"\textbf{Abril} teve os terceiros melhores números."))
-        sublist.add_item(NoEscape(r"\textbf{Novembro} teve a maior queda em todas as métricas, o que nesse caso não é algo tão negativo considerando que em outrubro ocorreram as eleições e os números foram todo bem altos."))
+        sublist.add_item(NoEscape(r"\textbf{Novembro} teve a maior queda em \textbf{alcance} e \textbf{visitas} e a segunda maior em \textbf{seguidores}, o que nesse caso não é algo tão negativo considerando que em outrubro ocorreram as eleições e os números foram todos bem altos."))
 
 # with doc.create(Enumerate(enumeration_symbol=r"•")) as itemize:     
 #     itemize.add_item("Mesmo mês em 2023:")
