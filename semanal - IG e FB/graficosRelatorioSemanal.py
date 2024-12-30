@@ -1430,7 +1430,7 @@ path_Usuarios = 'aliss'
 #     plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
 
 #     # Definindo a paleta de cores desejada
-#     cores = ["#B684D7", "#F25C05"]
+#     cores = ["#B684D7", "#833AB4"]
 
 #     seguidoresIG_ANTERIOR_acumulado = seguidoresIG_ANTERIOR['Primary'].cumsum()
 
@@ -1491,7 +1491,7 @@ path_Usuarios = 'aliss'
 #     plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
 
 #     # Definindo a paleta de cores desejada
-#     cores = ["#EB7099", "#F77B00"]
+#     cores = ["#EB7099", "#E1306C"]
 
 #     visitasIG_ANTERIOR_acumuladas = visitasIG_ANTERIOR['Primary'].cumsum()
 
@@ -1551,7 +1551,7 @@ path_Usuarios = 'aliss'
 #     plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
 
 #     # Definindo a paleta de cores desejada
-#     cores = ["#FDCC86", "#59551D"]
+#     cores = ["#FDCC86", "#FCAF45"]
 
 #     alcanceIG_ANTERIOR_ACUMULADA = alcanceIG_ANTERIOR['Primary'].cumsum()
 
@@ -1631,7 +1631,7 @@ path_Usuarios = 'aliss'
 #     plt.figure(figsize=(10, 6))  # Definindo o tamanho da figura
 
 #     # Definindo a paleta de cores desejada
-#     cores = ["#F25C05", "#F77B00", "#59551D"]
+#     cores = ["#833AB4", "#E1306C", "#FCAF45"]
 
 #     # Plotando o gráfico de linhas
 #     sns.lineplot(x="Data", y="Primary", data=alcanceIG, label="alcance", linewidth=2.5, color=cores[2])
@@ -1662,7 +1662,7 @@ def visualizacoesIG(total_visualizacoes, anterior, porcentagem_maior, porcentage
     labels = ["", ""]
     sizes = [porcentagem_maior, porcentagem_menor]
     sizes2 = [1,1]
-    cores = ["#F77B00", "#F25C05"]  # Cores predominantes da logo do Instagram
+    cores = ["#E1306C", "#833AB4"]  # Cores predominantes da logo do Instagram
     
     fig, ax = plt.subplots(figsize=(5, 5))
     wedges, texts, autotexts = ax.pie(
@@ -1704,7 +1704,7 @@ def grafico_barras_composto(porcentagens):
     """
     # Configurações iniciais
     categorias = ['Vídeos', 'Stories', 'Reels', 'Publicações']  # Inverte a ordem
-    cores = ['#F77B00', '#F25C05']  # Cores para Seguidores e Não seguidores
+    cores = ['#E1306C', '#833AB4']  # Cores para Seguidores e Não seguidores
     
     # Verifica se a entrada está correta
     if len(porcentagens) != 12:
@@ -1787,7 +1787,7 @@ def seguidorIG():
 
     # Leitura dos dados de um único arquivo
     seguidoresIG = pd.read_csv(
-        fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\TNsemanal\Seguidores - Copia.csv',
+        fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\TNsemanal\Seguidores.csv',
         skiprows=2, encoding='utf-16', skip_blank_lines=True
     )
     seguidoresIG['Data'] = pd.to_datetime(seguidoresIG['Data'])
@@ -1826,9 +1826,9 @@ def seguidorIG():
     fig, ax = plt.subplots(figsize=(12, 6))
     
     # Barras para Semana Anterior
-    bars1 = ax.bar(x - width/2, valores_anteriores, width, label='Semana Anterior', color='#59551D', edgecolor='black')
+    bars1 = ax.bar(x - width/2, valores_anteriores, width, label='Semana Anterior', color='#FCAF45', edgecolor='black')
     # Barras para Semana Atual
-    bars2 = ax.bar(x + width/2, valores_recente, width, label='Semana Atual', color='#F77B00', edgecolor='black')
+    bars2 = ax.bar(x + width/2, valores_recente, width, label='Semana Atual', color='#E1306C', edgecolor='black')
 
     # Adiciona os valores no topo das barras
     for bars in [bars1, bars2]:
@@ -1841,14 +1841,14 @@ def seguidorIG():
     for x_pos, anterior, recente in zip(x, datas_anteriores, datas_recente):
         # Data da semana anterior
         ax.text(x_pos - width/2, -max(valores_anteriores.max(), valores_recente.max()) * 0.05, anterior, 
-                ha='center', va='center', fontsize=9, color='#59551D')
+                ha='center', va='center', fontsize=9, color='#FCAF45')
         # Data da semana atual
         ax.text(x_pos + width/2, -max(valores_anteriores.max(), valores_recente.max()) * 0.05, recente, 
-                ha='center', va='center', fontsize=9, color='#F77B00')
+                ha='center', va='center', fontsize=9, color='#E1306C')
 
     # Configurações do gráfico
-    ax.set_title('Comparativo Diário de Novos Usuários no Portal', fontsize=14)
-    ax.set_ylabel('')
+    ax.set_title('Comparativo Diário de Seguidores no Instagram', fontsize=14)
+    ax.set_ylabel('Quantidade de Seguidores')
     ax.set_xlabel('')
     ax.set_xticks(x)
     ax.set_xticklabels([''] * len(x))  # Remove os rótulos padrão do eixo X
@@ -1869,7 +1869,7 @@ def visitaIG():
 
     # Leitura dos dados de um único arquivo
     visitasIG = pd.read_csv(
-        fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\TNsemanal\Visitas - Copia.csv',
+        fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\TNsemanal\Visitas.csv',
         skiprows=2, encoding='utf-16', skip_blank_lines=True
     )
     visitasIG['Data'] = pd.to_datetime(visitasIG['Data'])
@@ -1906,9 +1906,9 @@ def visitaIG():
     fig, ax = plt.subplots(figsize=(12, 6))
     
     # Barras para Semana Anterior
-    bars1 = ax.bar(x - width/2, valores_anteriores, width, label='Semana Anterior', color='#A1BF75', edgecolor='black')
+    bars1 = ax.bar(x - width/2, valores_anteriores, width, label='Semana Anterior', color='#5851DB', edgecolor='black')
     # Barras para Semana Atual
-    bars2 = ax.bar(x + width/2, valores_recente, width, label='Semana Atual', color='#F77B00', edgecolor='black')
+    bars2 = ax.bar(x + width/2, valores_recente, width, label='Semana Atual', color='#E1306C', edgecolor='black')
 
     # Adiciona os valores no topo das barras
     for bars in [bars1, bars2]:
@@ -1921,14 +1921,14 @@ def visitaIG():
     for x_pos, anterior, recente in zip(x, datas_anteriores, datas_recente):
         # Data da semana anterior
         ax.text(x_pos - width/2, -max(valores_anteriores.max(), valores_recente.max()) * 0.05, anterior, 
-                ha='center', va='center', fontsize=9, color='#A1BF75')
+                ha='center', va='center', fontsize=9, color='#5851DB')
         # Data da semana atual
         ax.text(x_pos + width/2, -max(valores_anteriores.max(), valores_recente.max()) * 0.05, recente, 
-                ha='center', va='center', fontsize=9, color='#F77B00')
+                ha='center', va='center', fontsize=9, color='#E1306C')
 
     # Configurações do gráfico
-    ax.set_title('Comparativo Diário de Usuários Recorrentes no Portal', fontsize=14)
-    ax.set_ylabel('')
+    ax.set_title('Comparativo Diário de Visitas no Instagram', fontsize=14)
+    ax.set_ylabel('Quantidade de Visitas')
     ax.set_xlabel('')
     ax.set_xticks(x)
     ax.set_xticklabels([''] * len(x))  # Remove os rótulos padrão do eixo X
@@ -1949,7 +1949,7 @@ def alcanceeIG():
 
     # Leitura dos dados de um único arquivo
     alcanceIG = pd.read_csv(
-        fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\TNsemanal\Alcance - Copia.csv',
+        fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\TNsemanal\Alcance.csv',
         skiprows=2, encoding='utf-16', skip_blank_lines=True
     )
     alcanceIG['Data'] = pd.to_datetime(alcanceIG['Data'])
@@ -1988,9 +1988,9 @@ def alcanceeIG():
     fig, ax = plt.subplots(figsize=(12, 6))
     
     # Barras para Semana Anterior
-    bars1 = ax.bar(x - width/2, valores_anteriores, width, label='Semana Anterior', color='#3C5927', edgecolor='black')
+    bars1 = ax.bar(x - width/2, valores_anteriores, width, label='Semana Anterior', color='#FD1D1D', edgecolor='black')
     # Barras para Semana Atual
-    bars2 = ax.bar(x + width/2, valores_recente, width, label='Semana Atual', color='#F77B00', edgecolor='black')
+    bars2 = ax.bar(x + width/2, valores_recente, width, label='Semana Atual', color='#E1306C', edgecolor='black')
 
     # Adiciona os valores no topo das barras
     for bars in [bars1, bars2]:
@@ -2003,14 +2003,14 @@ def alcanceeIG():
     for x_pos, anterior, recente in zip(x, datas_anteriores, datas_recente):
         # Data da semana anterior
         ax.text(x_pos - width/2, -max(valores_anteriores.max(), valores_recente.max()) * 0.05, anterior, 
-                ha='center', va='center', fontsize=9, color='#3C5927')
+                ha='center', va='center', fontsize=9, color='#FD1D1D')
         # Data da semana atual
         ax.text(x_pos + width/2, -max(valores_anteriores.max(), valores_recente.max()) * 0.05, recente, 
-                ha='center', va='center', fontsize=9, color='#F77B00')
+                ha='center', va='center', fontsize=9, color='#E1306C')
 
     # Configurações do gráfico
-    ax.set_title('Comparativo Diário de Visualizações no Portal', fontsize=14)
-    ax.set_ylabel('')
+    ax.set_title('Comparativo Diário de Alcance no Instagram', fontsize=14)
+    ax.set_ylabel('Quantidade de Alcance')
     ax.set_xlabel('')
     ax.set_xticks(x)
     ax.set_xticklabels([''] * len(x))  # Remove os rótulos padrão do eixo X
@@ -2031,7 +2031,7 @@ def visualizacoeesIG():
 
     # Leitura dos dados de um único arquivo
     visualizacoesIG = pd.read_csv(
-        fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\TNsemanal\visualizacoes - Copia.csv',
+        fr'C:\Users\{path_aliss}\Documents\Repositórios\csv\TNsemanal\Visualizacoes.csv',
         skiprows=2, encoding='utf-16', skip_blank_lines=True
     )
     visualizacoesIG['Data'] = pd.to_datetime(visualizacoesIG['Data'])
@@ -2070,9 +2070,9 @@ def visualizacoeesIG():
     fig, ax = plt.subplots(figsize=(12, 6))
     
     # Barras para Semana Anterior
-    bars1 = ax.bar(x - width/2, valores_anteriores, width, label='Semana Anterior', color='#F25C05', edgecolor='black')
+    bars1 = ax.bar(x - width/2, valores_anteriores, width, label='Semana Anterior', color='#833AB4', edgecolor='black')
     # Barras para Semana Atual
-    bars2 = ax.bar(x + width/2, valores_recente, width, label='Semana Atual', color='#F77B00', edgecolor='black')
+    bars2 = ax.bar(x + width/2, valores_recente, width, label='Semana Atual', color='#E1306C', edgecolor='black')
 
     # Adiciona os valores no topo das barras
     for bars in [bars1, bars2]:
@@ -2085,14 +2085,14 @@ def visualizacoeesIG():
     for x_pos, anterior, recente in zip(x, datas_anteriores, datas_recente):
         # Data da semana anterior
         ax.text(x_pos - width/2, -max(valores_anteriores.max(), valores_recente.max()) * 0.05, anterior, 
-                ha='center', va='center', fontsize=9, color='#F25C05')
+                ha='center', va='center', fontsize=9, color='#833AB4')
         # Data da semana atual
         ax.text(x_pos + width/2, -max(valores_anteriores.max(), valores_recente.max()) * 0.05, recente, 
-                ha='center', va='center', fontsize=9, color='#F77B00')
+                ha='center', va='center', fontsize=9, color='#E1306C')
 
     # Configurações do gráfico
-    ax.set_title('Comparativo Diário de Usuários Únicos no Portal', fontsize=14)
-    ax.set_ylabel('')
+    ax.set_title('Comparativo Diário de Visualizações no Instagram', fontsize=14)
+    ax.set_ylabel('Quantidade de Visualizações')
     ax.set_xlabel('')
     ax.set_xticks(x)
     ax.set_xticklabels([''] * len(x))  # Remove os rótulos padrão do eixo X
@@ -2124,7 +2124,7 @@ def grafico_cidades(cidades, porcentagens):
     # Configuração do gráfico
     fig, ax = plt.subplots(figsize=(12, 6))
     y = np.arange(len(cidades))  # Posição das cidades no eixo Y
-    cor = '#F77B00'  # Cor rosa do Instagram
+    cor = '#E1306C'  # Cor rosa do Instagram
 
     # Criação das barras horizontais
     bars = ax.barh(y, porcentagens, color=cor, edgecolor='white')
@@ -2169,7 +2169,7 @@ def grafico_faixa_etaria(faixas, porcentagens):
     # Configuração do gráfico
     fig, ax = plt.subplots(figsize=(12, 6))
     x = np.arange(len(faixas))  # Posição das faixas etárias no eixo X
-    cor = '#F77B00'  # Cor rosa do Instagram
+    cor = '#E1306C'  # Cor rosa do Instagram
 
     # Criação das barras verticais
     bars = ax.bar(x, porcentagens, color=cor, edgecolor='white', width=0.5)
@@ -2209,7 +2209,7 @@ def sexoIG(total_visualizacoes, anterior, porcentagem_maior, porcentagem_menor):
     labels = ["", ""]
     sizes = [porcentagem_maior, porcentagem_menor]
     sizes2 = [1,1]
-    cores = ["#F77B00", "#F25C05"]  # Cores predominantes da logo do Instagram
+    cores = ["#E1306C", "#833AB4"]  # Cores predominantes da logo do Instagram
     
     fig, ax = plt.subplots(figsize=(5, 5))
     wedges, texts, autotexts = ax.pie(
@@ -2245,7 +2245,7 @@ def interacoesIG(total_visualizacoes, anterior, porcentagem_maior, porcentagem_m
     labels = ["", ""]
     sizes = [porcentagem_maior, porcentagem_menor]
     sizes2 = [1,1]
-    cores = ["#F77B00", "#F25C05"]  # Cores predominantes da logo do Instagram
+    cores = ["#E1306C", "#833AB4"]  # Cores predominantes da logo do Instagram
     
     fig, ax = plt.subplots(figsize=(5, 5))
     wedges, texts, autotexts = ax.pie(
@@ -2287,7 +2287,7 @@ def grafico_barras_composto2(porcentagens):
     """
     # Configurações iniciais
     categorias = ['Vídeos', 'Stories', 'Reels', 'Publicações']  # Inverte a ordem
-    cores = ['#F77B00', '#F25C05']  # Cores para Seguidores e Não seguidores
+    cores = ['#E1306C', '#833AB4']  # Cores para Seguidores e Não seguidores
     
     # Verifica se a entrada está correta
     if len(porcentagens) != 12:
@@ -2490,7 +2490,7 @@ def visitaFB():
     fig, ax = plt.subplots(figsize=(12, 6))
     
     # Barras para Semana Anterior
-    bars1 = ax.bar(x - width/2, valores_anteriores, width, label='Semana Anterior', color='#A1BF75', edgecolor='black')
+    bars1 = ax.bar(x - width/2, valores_anteriores, width, label='Semana Anterior', color='#5851DB', edgecolor='black')
     # Barras para Semana Atual
     bars2 = ax.bar(x + width/2, valores_recente, width, label='Semana Atual', color='#3b5998', edgecolor='black')
 
@@ -2505,7 +2505,7 @@ def visitaFB():
     for x_pos, anterior, recente in zip(x, datas_anteriores, datas_recente):
         # Data da semana anterior
         ax.text(x_pos - width/2, -max(valores_anteriores.max(), valores_recente.max()) * 0.05, anterior, 
-                ha='center', va='center', fontsize=9, color='#A1BF75')
+                ha='center', va='center', fontsize=9, color='#5851DB')
         # Data da semana atual
         ax.text(x_pos + width/2, -max(valores_anteriores.max(), valores_recente.max()) * 0.05, recente, 
                 ha='center', va='center', fontsize=9, color='#3b5998')

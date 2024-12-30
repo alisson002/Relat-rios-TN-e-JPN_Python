@@ -11,21 +11,32 @@ doc = Document(geometry_options=geometry_options)
 doc.preamble.append(NoEscape(r'\usepackage{graphicx}'))
 
 with doc.create(MiniPage(align='c')):
-        doc.append(LargeText(("Relatório do Portal e YouTube")))
+        doc.append(LargeText(("Relatório das Redes Sociais")))
         doc.append(LineBreak())
         doc.append(LineBreak())
         doc.append(LineBreak())
         doc.append(MediumText(("Relatório semanal")))
         doc.append(LineBreak())
 
-portal_usuariosUnicos_2024Table = [276184,441269,455979,340868,369804,272294,293971,459877,326566,369497,302557,358037,308259,358280,294016,371248,552230,347410,389320,357439,567253,418934,318670,336115,324685,314522,336800,378852,361139,706462,283310,382522,283476,302664,372105,353182,310670,568090,423814]
-portal_usuariosRescorrentes_2024Table = [123944,197378,172485,156579,169541,124341,135747,202480,151029,160475,147401,154262,133798,142551,126291,137344,177835,134973,132433,149747,186295,176389,148123,143912,136329,148085,157154,181330,158074,234256,131005,147944,130517,133439,138919,129991,139492,167879,161574]
+#INSTAGRAM
+ig_seg_2024 = [1299,2685,1476,1499,2054,1558,1469,358,1693,1584,1323,1317,1130,1181,1143,1128,1310,1245,1395,1333,1334,1528,1468,1290,1236,1366,1246,1604,1400,1541,1243,2170,931,1264,1114,1287,1004,1540,1630]
+ig_seg_2024_perdeu = [1040,1165,1080,1114,1228,1094,1070,315,1050,1040,1074,1081,996,963,1161,1126,1134,1209,1616,1732,1137,1140,1274,1080,992,1106,978,1050,2115,1739,1549,930,1162,1064,852,933,879,895,1051]
+ig_alcance_2024 = [330170,619778,394150,368303,430160,430041,430095,518193,564967,444404,479370,512399,445377,407004,491253,437034,513738,558433,615446,562833,538665,439570,521604,567754,421204,459048,429685,681810,626215,707526,661841,706352,451946,481716,537018,653258,540510,535088,769092]
+ig_vivitas_2024 = [24896,53103,28198,27847,49389,28931,29098,31347,33708,38352,26704,26949,20380,21911,22017,24981,29750,25951,39564,29111,21658,32248,29450,22943,24755,27086,27575,59705,48200,44503,37933,58692,29239,25762,21512,22167,24009,28540,27000]
+ig_visualizacoes = [8148162,7086305,8576180]
 
-portal_usuariosUnicos_2024Analytics = [213000,331000,370000,261000,283000,210000,226000,357000,259000,292000,231000,286000,244000,295000,233000,304000,469000,314000,330000,287000,491000,340000,254000,272000,260000,244000,266000,299000,284000,604000,222000,314000,244000,243000,308000,292000,245000,496000,358000]
-portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000,92000,100000,73000,79000,122000,93000,98000,88000,93000,80000,90000,75000,83000,115000,85000,83000,92000,126000,111000,91000,90000,84000,88000,99000,115000,97000,159000,78000,91000,84000,82000,82000,76000,80000,108000,104000]
+#ADICIONAR TOTAL DA SEMANA SEGUINTE
+ig_seg_2024_total = [532444,533616,534049,534392,535150,535716,536047,536508,537733,537993,538290,538507,538756,538846,538864,538830,539051,539028,538783,538412,538630,538982,539191,539421,539673,539945,540385,540796,539941,539600,540800,540586,540879,541103,541504,541548,542193,542772]
 
-portal_visualizacoes_2024 = [621206,965340,924908,765698,829407,635989,664666,907045,698454,764245,671189,745886,682403,733301,648784,782882,992290,742668,763963,715304,924041,790025,657113,655361,673549,667495,702230,910372,740670,1154334,650090,768296,595760,605010,699928,663877,651132,922972,757296] # mesmo valor na tabela e no analytics
-portal_novosUsuarios_2024 = [147518,242760,278732,177038,198428,144767,155648,255141,170986,204845,151741,200186,170757,214285,164265,233626,374522,237463,256978,207660,382013,243507,170937,194476,186105,167547,180528,200898,201074,476829,150861,233911,152128,168000,234427,225031,174169,404775,268157] # mesmo valor na tabela e no analytics
+#FACEBOOK
+fb_seg_2024 = [30,61,71,42,83,80,49,74,40,67,30,36,84,37,62,62,80,62,132,210,68,87,82,46,53,45,27,44,48,110,49,45,32,33,33,42,62,27,55]
+fb_seg_2024_perdeu = [34,35,44,35,49,40,31,33,41,32,53,34,36,36,29,35,47,36,36,72,47,43,55,51,39,51,39,49,75,90,79,32,57,43,35,46,53,107,51]
+fb_alcance_2024 = [64958,88738,112464,63173,142594,139599,101924,132711,87877,114958,127230,78859,119785,84527,109848,87594,147513,120924,243257,372104,132062,116796,105821,91718,88120,78560,45397,64761,76336,144122,97423,65137,39119,80527,61214,71529,105842,62199,110877]
+fb_vivitas_2024 = [6500,7686,8158,6718,6757,7087,7074,5937,6326,5417,5125,3796,5242,5130,5452,5563,5332,5172,6152,6201,5262,6606,5332,4866,4619,5015,4640,6797,5731,6298,5696,6370,4981,4796,5179,4976,4964,5253,5144]
+fb_visualizacoes = [973081,685619,742979]
+
+#ADICIONAR TOTAL DA SEMANA SEGUINTE
+fb_seg_2024_total = [332419,332392,332389,332334,332339,332314,332287,332176,332214,332210,332186,332136,332133,332086,332086,332049,332035,332006,332075,332140,332099,332122,332085,332018,331995,331941,331858,331821,331755,331724,331611,331532,331482,331426,331372,331658,331578,331582]
 
 #TWITTER
 tw_seg_2024 = [359,455,1249,892,801,725,1009,2464,886,2460]
@@ -36,28 +47,6 @@ tw_engajamentos_2024 = [2390,3324,3242,3257,4164,2661,3219,4553,2650,4576]
 tw_seg_2024_total = [312146,312041,312437,312722,312797,313181,314742,315456,317307,319917]
 tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2]),tw_seg_2024[4]-(tw_seg_2024_total[4]-tw_seg_2024_total[3]),tw_seg_2024[5]-(tw_seg_2024_total[5]-tw_seg_2024_total[4]),abs(tw_seg_2024[6]-(tw_seg_2024_total[6]-tw_seg_2024_total[5])),tw_seg_2024[7]-(tw_seg_2024_total[7]-tw_seg_2024_total[6]),abs(tw_seg_2024[8]-(tw_seg_2024_total[8]-tw_seg_2024_total[7])),abs(tw_seg_2024[9]-(tw_seg_2024_total[9]-tw_seg_2024_total[8]))] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
-#YOUTUBE
-yb_inc_2024 = [505,241,552,155,268,162,135,81,82,89,121,123,89,110,103,141,171,186,274,614,222,559,334,161,834,374,78,199,90,126,115,145,74,107,44,154,76,80,617]
-yb_inc_2024_perdeu = [30,15,31,17,30,15,19,21,16,22,18,18,16,19,22,22,24,21,20,48,29,39,33,32,55,46,15,30,22,26,32,22,13,18,11,29,23,15,29]
-yb_visualizacoes_2024 = [134255,69730,149424,40127,73821,39688,35024,29843,22657,20998,21575,27314,19991,35636,22941,39314,40865,45122,92628,139771,53904,140104,91364,26819,370283,164890,16203,83540,47889,42861,24733,37780,15380,56673,12634,49003,19852,14348,140900]
-yb_horas_2024 = [1785,1114,2142,671,1265,632,660,768,715,596,586,555,420,537,553,557,661,630,1312,1626,791,1556,1039,508,5986,1767,292,926,656,537,504,539,286,467,229,580,342,330,2022]
-
-#ADICIONAR TOTAL DA SEMANA SEGUINTE
-yb_inc_2024_total = [35940,36167,36685,36863,37062,37214,37333,37380,37544,37631,37729,37846,37922,37987,38076,38250,38337,38507,38751,39324,39515,40032,40329,40464,41239,41571,41651,41797,41872,41972,42052,42174,42234,42322,42354,42484,42534,42599,43200]
-
-# #YOUTUBE - TN: MONETIZAÇÃO
-# impressoes_yb_TN=[16429,182696,85235]
-# visuMonetizadas_yb_TN=[15531,173212,85466]
-# receitaBruta_yb_TN=[73,1050,573]
-# premium_yb_TN=[1,16,6]
-# AdSense_yb_TN=[40,578,315]
-
-# #YOUTUBE - JPN: MONETIZAÇÃO
-# impressoes_yb_JPN=[39593,16737]
-# visuMonetizadas_yb_JPN=[33296,13781]
-# receitaBruta_yb_JPN=[185,90]
-# premium_yb_JPN=[7,6]
-# AdSense_yb_JPN=[102,49]
 
 # Adiciona a seção para os resultados
 with doc.create(Section('Tribuna do Norte', numbering=False)):
@@ -66,20 +55,11 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
             # Adiciona a tabela de resultados
             with doc.create(Tabular('|c|c|c|c|c|', booktabs =True)) as table:
                 
-                table.add_row((MultiRow(2, data='Portal'), GR.formataNumero(portal_novosUsuarios_2024[-1]), GR.formataNumero(portal_visualizacoes_2024[-1]), GR.formataNumero(portal_usuariosRescorrentes_2024Table[-1]), GR.formataNumero(portal_usuariosUnicos_2024Table[-1])))
-                table.add_row(('', 'novos usuários', 'visualizações', 'usuários recorrentes','usuários únicos'))
+                table.add_row((MultiRow(2, data='Instagram'), GR.formataNumero(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]), GR.formataNumero(ig_alcance_2024[-1]), GR.formataNumero(ig_vivitas_2024[-1]), GR.formataNumero(ig_visualizacoes[-1])))
+                table.add_row(('', 'novos seguidores', 'contas atingidas', 'visitas ao perfil', 'visualizações'))
                 table.add_hline()
-                # table.add_row((MultiRow(2, data='Instagram'), GR.formataNumero(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]), GR.formataNumero(ig_alcance_2024[-1]), GR.formataNumero(ig_vivitas_2024[-1]), GR.formataNumero(ig_visualizacoes[-1])))
-                # table.add_row(('', 'novos seguidores', 'contas atingidas', 'visitas ao perfil', 'visualizações'))
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Facebook'), GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]), GR.formataNumero(fb_alcance_2024[-1]), GR.formataNumero(fb_vivitas_2024[-1]), GR.formataNumero(fb_visualizacoes[-1])))
-                # table.add_row(('', 'novos seguidores', 'contas atingidas', 'visitas ao perfil', 'visualizações'))
-                # table.add_hline()
-                # table.add_row((MultiRow(2, data='Twitter'), '-', '-', '-'))
-                # table.add_row(('', 'novos seguidores', 'impressões', 'engajamentos'))
-                # table.add_hline()
-                table.add_row((MultiRow(2, data='Youtube'), GR.formataNumero(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]), GR.formataNumero(yb_visualizacoes_2024[-1]), GR.formataNumero(yb_horas_2024[-1]),'-'))
-                table.add_row(('', 'novos inscritos', 'visualizações', 'horas de exibição','-'))
+                table.add_row((MultiRow(2, data='Facebook'), GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]), GR.formataNumero(fb_alcance_2024[-1]), GR.formataNumero(fb_vivitas_2024[-1]), GR.formataNumero(fb_visualizacoes[-1])))
+                table.add_row(('', 'novos seguidores', 'contas atingidas', 'visitas ao perfil', 'visualizações'))
                 
 
         # Adiciona informações extras
@@ -87,67 +67,25 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
         # with doc.create(Itemize()) as itemize:
         #     itemize.add_item(f"Ao todo, a Tribuna do Norte entregou seu conteúdo para, aproximadamente, {GR.formataNumero(portal_novosUsuarios_2024[-1]+(ig_seg_2024_total[-1]-ig_seg_2024_total[-2])+(fb_seg_2024_total[-1]-fb_seg_2024_total[-2])+(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]))} novas contas, entre Portal, Instagram, Twitter, Facebook e YouTube.")
         with doc.create(Itemize()) as itemize:
-            itemize.add_item(f"Ao todo, a Tribuna do Norte entregou seu conteúdo para, aproximadamente, {GR.formataNumero(portal_novosUsuarios_2024[-1]+(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]))} novas contas, entre Portal e YouTube.")
-            #+(tw_seg_2024_total[-1]-tw_seg_2024_total[-2])
-            itemize.add_item(Command('textbf', arguments='Portal'))
+            itemize.add_item(f"Ao todo, a Tribuna do Norte entregou seu conteúdo para, aproximadamente, {GR.formataNumero((ig_seg_2024[-1])+(fb_seg_2024[-1]))} novas contas, entre Instagram e Facebook.")
+            itemize.add_item(Command('textbf', arguments='Instagram'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                 sublist.add_item(NoEscape(r"Na semana analisada a notícia \textbf{Investidor da SAF do América, Marcelo mostra otimismo com o trabalho e promete vir mais ao clube} ficou no top 1 teve \textbf{63.381} visualizações, que representam apenas \textbf{8.4\%} do total. Isso pode acontecer não apenas por conta das visualizações mais baixas na semana analisada, mas tembém por conta de uma distribuição 'melhor' entre as notícias."))
-                 sublist.add_item(NoEscape(r"Também tivemos \textbf{'Rodolitos em Ponta Negra: entenda origem das estruturas e aparecimento na praia} com \textbf{39.734} visualizações e \textbf{'Justiça autoriza Governo do RN a escalonar pagamento do 13º salário até janeiro} com \textbf{19.437} visualizações. As 3 somam \textbf{122.552} visualizações que representam \textbf{16.2\%} do total."))
-                #  sublist.add_item(NoEscape(r"A página do \textbf{Clube do Assinante} teve um grande número de acessos, fazendo com que fique no top 3 pela primeira vez;"))
-                 sublist.add_item(NoEscape(r"As \textbf{15 notícias mais vitas} juntas somam \textbf{241.307} visualizações, que representam \textbf{32\%} do total. As visualizações do top 15 ficaram abaixo das 391.535 da semana annterior."))
-            itemize.add_item(Command('textbf', arguments='YouTube'))
+                sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(ig_seg_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(ig_seg_2024_total[-2])}")
+                sublist.add_item(f"Seguidores adquiridos na semana: {GR.formataNumero(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]+ig_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(ig_seg_2024_perdeu[-1])}.")
+                sublist.add_item(f"Taxa de fixação: {GR.fixacao(ig_seg_2024_total[-1]-ig_seg_2024_total[-2]+ig_seg_2024_perdeu[-1],ig_seg_2024_perdeu[-1])}")
+                #sublist.add_item(f"O Instagram não disponibilizou os dados de ganhos e perda de seguidores da semana passada, portanto temos disponível apenas o saldo de seguidores.")
+                #sublist.add_item(f"nan: not a number (não é um número).")
+                # sublist.add_item(f"Queda nos seguidores do Instagram.")
+            itemize.add_item(Command('textbf', arguments='Facebook'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(yb_inc_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(yb_inc_2024_total[-2])}")
-                sublist.add_item(f"Seguidores adquiridos na semana: {GR.formataNumero(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]+yb_inc_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(yb_inc_2024_perdeu[-1])}")
-                sublist.add_item(f"Taxa de fixação: {GR.fixacao(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]+yb_inc_2024_perdeu[-1],yb_inc_2024_perdeu[-1])}")
-                sublist.add_item(NoEscape(r"O vídeo mais visto foi \textbf{'Motorista de caminhão envolvido em acidente com 41 mortos em MG se entrega à polícia'} com \textbf{110.843} visualizações, que representa \textbf{78.7\%} do total. Logo em seguida temos \textbf{'[TV TRIBUNA] Espanta conta Cabaré da Leila'} com \textbf{20.002} visualizações e \textbf{'Carro que utilizava botijão de gás de cozinha explode em Natal'} com \textbf{1.105} visualizações, com cada um representando, respectivamente, \textbf{14.2\% e 0.8\%} do total."))
-                sublist.add_item(NoEscape(r"O segundo e terceiro lugar da semana atual são, respectivamente, o primeiro e segundo da semana passada. Além disso, os dois estão com bem mais visualizações que na semana anterior."))
-                sublist.add_item(NoEscape(r"Os dosi videos mais vistos dessa semana sozinhos representam mais de 90\% das visualizações."))
-
-doc.append(NewPage())
-
-with doc.create(Subsection('Análise semanal', numbering=False)):
-    with doc.create(Subsubsection('Portal', numbering=False)):
-        with doc.create(MiniPage(align='c')):
-            # Adiciona a tabela de resultados
-            with doc.create(Tabular('|c|c|c|c|c|', booktabs =True)) as table:
+                sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(fb_seg_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(fb_seg_2024_total[-2])}")
+                sublist.add_item(f"Seguidores adquiridos na semana: {GR.formataNumero(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(fb_seg_2024_perdeu[-1])}.")
+                sublist.add_item(f"Taxa de fixação: {GR.fixacao(fb_seg_2024_total[-1]-fb_seg_2024_total[-2]+fb_seg_2024_perdeu[-1],fb_seg_2024_perdeu[-1])}")
+                sublist.add_item(f"Sem queda nos seguidores do Facebook essa semana.")
                 
-                table.add_row((MultiRow(3, data='Semana'), 'Novos usuários', 'Visualizações', 'Usuários recorrentes', 'Usuários únicos'))
-                table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
-                table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
-                table.add_hline()
-                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(portal_novosUsuarios_2024[-1]), GR.numeroPorExtensso(portal_visualizacoes_2024[-1]), GR.numeroPorExtensso(portal_usuariosRescorrentes_2024Table[-1]), GR.numeroPorExtensso(portal_usuariosUnicos_2024Table[-1])))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(portal_novosUsuarios_2024[-1],portal_novosUsuarios_2024[-2])}'), FootnoteText(f'{GR.crescimento(portal_visualizacoes_2024[-1],portal_visualizacoes_2024[-2])}'), FootnoteText(f'{GR.crescimento(portal_usuariosRescorrentes_2024Table[-1],portal_usuariosRescorrentes_2024Table[-2])}'), FootnoteText(f'{GR.crescimento(portal_usuariosUnicos_2024Table[-1],portal_usuariosUnicos_2024Table[-2])}')))
-
-        # Adiciona informações extras
-        # Adiciona uma lista com marcadores
-        with doc.create(Itemize()) as itemize:
-            # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
-            itemize.add_item('Legenda:')
-            #doc.append(NoEscape(r'\newline'))
-            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item(NoEscape(r'\textbf{Usuários únicos:} número de usuários únicos que interagiram com seu site ou app. É qualquer usuário que tenha uma sessão engajada ou quando o Google Analytics coleta o evento "first\_open", que é quando o usuário abre o site pela primeira vez dentro do período especificado;'))
-                sublist.add_item(NoEscape(r'\textbf{Novos usuários:} número de novos usuários únicos que visitaram o site ou app pela primeira vez;'))
-                sublist.add_item(NoEscape(r'\textbf{Usuários recorrentes:} número de usuários que iniciaram pelo menos uma sessão anterior, independentemente de ter sido ou não uma sessão engajada no período especificado;'))
-                sublist.add_item(NoEscape(r'\textbf{Visualizações:} quantas telas do app para dispositivos móveis ou páginas da Web seus usuários acessaram. Exibições repetidas de uma única tela ou página são consideradas. Nesse caso tembém deve ser lavada em consideração a informação de que Jonathas fez alterações em relação as exibições repetidas;'))
-                sublist.add_item(NoEscape(r'\textbf{Sessões engajadas:} correspondem ao número de sessões com mais de 10 segundos, que geraram um ou mais eventos de conversão ou tiveram duas ou mais visualizações de página/tela. Vá para a ultima página para saber a definição de uma sessão de acordo com o Google Analytics.'))
 
 doc.append(NewPage())
 
-NovosUsu_plot_path = GR.seguidorIG()
-Recorrentes_plot_path = GR.visitaIG()
-Visua_plot_path = GR.alcanceeIG()
-Usuunico_plot_path = GR.visualizacoeesIG()
-with doc.create(Subsection('', numbering=False)):
-    doc.append("Portal: novos usuários, visualizações, usuários recorrentes e usuários únicos")
-    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-    # Adiciona a figura ao documento
-    with doc.create(Figure(position='h')) as plot:
-        plot.add_image(NovosUsu_plot_path, width=NoEscape(r'0.5\textwidth'))
-        plot.add_image(Visua_plot_path, width=NoEscape(r'0.5\textwidth'))
-    with doc.create(Figure(position='h')) as plot:
-        plot.add_image(Recorrentes_plot_path, width=NoEscape(r'0.5\textwidth'))
-        plot.add_image(Usuunico_plot_path, width=NoEscape(r'0.5\textwidth'))
 # doc.preamble.append(NoEscape(r'\usepackage{graphicx}'))
 # doc.preamble.append(NoEscape(r'\usepackage{float}'))
 
@@ -285,17 +223,17 @@ with doc.create(Subsection('', numbering=False)):
 # fePublico_FBIG_plot_path, FB_followers, IG_followers = GR.fePublico_FBIG()
 
 # with doc.create(Subsection('Análise semanal', numbering=False)):
-# with doc.create(Subsubsection('Instagram', numbering=False)):
-#     with doc.create(MiniPage(align='c')):
-#         # Adiciona a tabela de resultados
-#         with doc.create(Tabular('|c|c|c|c|c|', booktabs =True)) as table:
+with doc.create(Subsubsection('Instagram', numbering=False)):
+    with doc.create(MiniPage(align='c')):
+        # Adiciona a tabela de resultados
+        with doc.create(Tabular('|c|c|c|c|c|', booktabs =True)) as table:
             
-#             table.add_row((MultiRow(3, data='Semana'), 'Novos seguidores', 'Alcance', 'Visitas','Visualizações'))
-#             table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
-#             table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
-#             table.add_hline()
-#             table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(ig_seg_2024[-1]), GR.numeroPorExtensso(ig_alcance_2024[-1]), GR.numeroPorExtensso(ig_vivitas_2024[-1]), GR.numeroPorExtensso(ig_visualizacoes[-1])))
-#             table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[-1],ig_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[-1],ig_alcance_2024[-2])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[-1],ig_vivitas_2024[-2])}'), FootnoteText(f'{GR.crescimento(ig_visualizacoes[-1],ig_visualizacoes[-2])}')))
+            table.add_row((MultiRow(3, data='Semana'), 'Novos seguidores', 'Alcance', 'Visitas','Visualizações'))
+            table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
+            table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
+            table.add_hline()
+            table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(ig_seg_2024[-1]), GR.numeroPorExtensso(ig_alcance_2024[-1]), GR.numeroPorExtensso(ig_vivitas_2024[-1]), GR.numeroPorExtensso(ig_visualizacoes[-1])))
+            table.add_row(('', FootnoteText(f'{GR.crescimento(ig_seg_2024[-1],ig_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(ig_alcance_2024[-1],ig_alcance_2024[-2])}'), FootnoteText(f'{GR.crescimento(ig_vivitas_2024[-1],ig_vivitas_2024[-2])}'), FootnoteText(f'{GR.crescimento(ig_visualizacoes[-1],ig_visualizacoes[-2])}')))
 
 # doc.append(NewPage())
 # pocentoMaior = 93.6
@@ -313,7 +251,21 @@ with doc.create(Subsection('', numbering=False)):
 #         plot.add_image(visualizacoesIG_plot_path, width=NoEscape(r'0.5\textwidth'))
 #         plot.add_image(grafico_barras_composto_plot_path, width=NoEscape(r'0.5\textwidth'))
 
-
+doc.append(NewPage())
+seguidoresIG_plot_path = GR.seguidorIG()
+visitasIG_plot_path = GR.visitaIG()
+alcanceIG_plot_path = GR.alcanceeIG()
+visualizacoes_plot_path = GR.visualizacoeesIG()
+with doc.create(Subsection('', numbering=False)):
+    doc.append("Instagram: Seguidores, visitas, alcance e visualizações")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='h')) as plot:
+        plot.add_image(seguidoresIG_plot_path, width=NoEscape(r'0.5\textwidth'))
+        plot.add_image(alcanceIG_plot_path, width=NoEscape(r'0.5\textwidth'))
+    with doc.create(Figure(position='h')) as plot:
+        plot.add_image(visitasIG_plot_path, width=NoEscape(r'0.5\textwidth'))
+        plot.add_image(visualizacoes_plot_path, width=NoEscape(r'0.5\textwidth'))
          
 
 # doc.append(NewPage())
@@ -344,17 +296,17 @@ with doc.create(Subsection('', numbering=False)):
 
 doc.append(NewPage())
 
-# with doc.create(Subsubsection('Facebook', numbering=False)):
-#     with doc.create(MiniPage(align='c')):
-#         # Adiciona a tabela de resultados
-#         with doc.create(Tabular('|c|c|c|c|c|', booktabs =True)) as table:
+with doc.create(Subsubsection('Facebook', numbering=False)):
+    with doc.create(MiniPage(align='c')):
+        # Adiciona a tabela de resultados
+        with doc.create(Tabular('|c|c|c|c|c|', booktabs =True)) as table:
             
-#             table.add_row((MultiRow(3, data='Semana'), 'Novos seguidores', 'Alcance', 'Visitas','Visualizações'))
-#             table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
-#             table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
-#             table.add_hline()
-#             table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(fb_seg_2024[-1]), GR.numeroPorExtensso(fb_alcance_2024[-1]), GR.numeroPorExtensso(fb_vivitas_2024[-1]), GR.numeroPorExtensso(fb_visualizacoes[-1])))
-#             table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[-1],fb_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(fb_alcance_2024[-1],fb_alcance_2024[-2])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[-1],fb_vivitas_2024[-2])}'), FootnoteText(f'{GR.crescimento(fb_visualizacoes[-1],fb_visualizacoes[-2])}')))
+            table.add_row((MultiRow(3, data='Semana'), 'Novos seguidores', 'Alcance', 'Visitas','Visualizações'))
+            table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
+            table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
+            table.add_hline()
+            table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(fb_seg_2024[-1]), GR.numeroPorExtensso(fb_alcance_2024[-1]), GR.numeroPorExtensso(fb_vivitas_2024[-1]), GR.numeroPorExtensso(fb_visualizacoes[-1])))
+            table.add_row(('', FootnoteText(f'{GR.crescimento(fb_seg_2024[-1],fb_seg_2024[-2])}'), FootnoteText(f'{GR.crescimento(fb_alcance_2024[-1],fb_alcance_2024[-2])}'), FootnoteText(f'{GR.crescimento(fb_vivitas_2024[-1],fb_vivitas_2024[-2])}'), FootnoteText(f'{GR.crescimento(fb_visualizacoes[-1],fb_visualizacoes[-2])}')))
 
 
         # # Adiciona informações extras
@@ -369,7 +321,21 @@ doc.append(NewPage())
 
 # with doc.create(Enumerate(enumeration_symbol=r"")) as itemize:
 #             itemize.add_item(NoEscape(r'\textbf{Os detales demográficos (faixa etária, gênero e cidades) do facebook e instagram estavam indisponíveis.}'))
-
+doc.append(NewPage())
+seguidoresFB_plot_path = GR.seguidorFB()
+visitasFB_plot_path = GR.visitaFB()
+alcanceFB_plot_path = GR.alcanceeFB()
+visualizacoesFB_plot_path = GR.visualizacoeesFB()
+with doc.create(Subsection('', numbering=False)):
+    doc.append("Facebook: Seguidores, visitas, alcance e visualizações")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='h')) as plot:
+        plot.add_image(seguidoresFB_plot_path, width=NoEscape(r'0.5\textwidth'))
+        plot.add_image(alcanceFB_plot_path, width=NoEscape(r'0.5\textwidth'))
+    with doc.create(Figure(position='h')) as plot:
+        plot.add_image(visitasFB_plot_path, width=NoEscape(r'0.5\textwidth'))
+        plot.add_image(visualizacoesFB_plot_path, width=NoEscape(r'0.5\textwidth'))
 
 # doc.append(NewPage())
 # cidadesFB_plot_path = GR.grafico_cidadesFB(['Natal', 'Parnamirim', 'Mossoró', 'Ceará-Mirim','Macaiba'],[43.5,5.5,2.4,0.9,0.9])
@@ -575,18 +541,18 @@ doc.append(NewPage())
 
 # doc.append(NewPage())
 
-with doc.create(Subsection('Análise semanal', numbering=False)):
-    with doc.create(Subsubsection('YouTube', numbering=False)):
-        with doc.create(MiniPage(align='c')):
-            # Adiciona a tabela de resultados
-            with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
+# with doc.create(Subsection('Análise semanal', numbering=False)):
+#     with doc.create(Subsubsection('YouTube', numbering=False)):
+#         with doc.create(MiniPage(align='c')):
+#             # Adiciona a tabela de resultados
+#             with doc.create(Tabular('|c|c|c|c|', booktabs =True)) as table:
                 
-                table.add_row((MultiRow(3, data='Semana'), 'Novos inscritos', 'Visualizações', 'Horas de exibição'))
-                table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
-                table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
-                table.add_hline()
-                table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(yb_inc_2024[-1]), GR.numeroPorExtensso(yb_visualizacoes_2024[-1]), GR.numeroPorExtensso(yb_horas_2024[-1])))
-                table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[-1],yb_inc_2024[-2])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[-1],yb_visualizacoes_2024[-2])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[-1],yb_horas_2024[-2])}')))
+#                 table.add_row((MultiRow(3, data='Semana'), 'Novos inscritos', 'Visualizações', 'Horas de exibição'))
+#                 table.add_row(('', FootnoteText('variação em relação a'), FootnoteText('variação em relação a'), FootnoteText('variação em relação a')))
+#                 table.add_row(('', FootnoteText('semana anterior'), FootnoteText('semana anterior'), FootnoteText('semana anterior')))
+#                 table.add_hline()
+#                 table.add_row((MultiRow(2, data=f'{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}'), GR.numeroPorExtensso(yb_inc_2024[-1]), GR.numeroPorExtensso(yb_visualizacoes_2024[-1]), GR.numeroPorExtensso(yb_horas_2024[-1])))
+#                 table.add_row(('', FootnoteText(f'{GR.crescimento(yb_inc_2024[-1],yb_inc_2024[-2])}'), FootnoteText(f'{GR.crescimento(yb_visualizacoes_2024[-1],yb_visualizacoes_2024[-2])}'), FootnoteText(f'{GR.crescimento(yb_horas_2024[-1],yb_horas_2024[-2])}')))
 
 # with doc.create(Subsection('', numbering=False)):
 #     with doc.create(Subsubsection('YouTube - TN: Monetização', numbering=False)):
@@ -669,13 +635,13 @@ doc.append(NewPage())
 
 with doc.create(Itemize()) as itemize:
             # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
-            itemize.add_item('Funcionamento do algoritmo:')
+            itemize.add_item('Funcionamento dos algoritmos:')
             #doc.append(NoEscape(r'\newline'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                # sublist.add_item(NoEscape(r'\textbf{Facebook:} O algoritmo do Facebook prioriza os conteúdos que geram mais interações, como curtidas, comentários e compartilhamentos. Ele também considera o grau de relacionamento entre os usuários e as contas que eles seguem, mostrando mais publicações de amigos e familiares do que de páginas. Além disso, o Facebook leva em conta a relevância e a atualidade dos conteúdos, dando mais destaque para as notícias e os assuntos do momento;'))
-                # sublist.add_item(NoEscape(r'\textbf{Instagram:} O a lgoritmo do Instagram também se baseia no engajamento, no relacionamento e na temporalidade dos conteúdos. Ele mostra primeiro as postagens e as histórias das contas com as quais o usuário mais interage, seja por meio de curtidas, comentários, mensagens diretas ou buscas. Ele também valoriza os conteúdos mais recentes e mais relevantes para o usuário, de acordo com os seus interesses e hábitos;'))
+                sublist.add_item(NoEscape(r'\textbf{Facebook:} O algoritmo do Facebook prioriza os conteúdos que geram mais interações, como curtidas, comentários e compartilhamentos. Ele também considera o grau de relacionamento entre os usuários e as contas que eles seguem, mostrando mais publicações de amigos e familiares do que de páginas. Além disso, o Facebook leva em conta a relevância e a atualidade dos conteúdos, dando mais destaque para as notícias e os assuntos do momento;'))
+                sublist.add_item(NoEscape(r'\textbf{Instagram:} O a lgoritmo do Instagram também se baseia no engajamento, no relacionamento e na temporalidade dos conteúdos. Ele mostra primeiro as postagens e as histórias das contas com as quais o usuário mais interage, seja por meio de curtidas, comentários, mensagens diretas ou buscas. Ele também valoriza os conteúdos mais recentes e mais relevantes para o usuário, de acordo com os seus interesses e hábitos;'))
                 # sublist.add_item(NoEscape(r'\textbf{Twitter:} O algoritmo do Twitter tem duas formas de exibir os conteúdos: o modo cronológico e o modo destacado. No modo cronológico, o usuário vê os tweets mais recentes em ordem de publicação. No modo destacado, o usuário vê os tweets mais relevantes para ele, de acordo com o seu perfil, as suas interações e os assuntos do momento. O Twitter também mostra os tweets mais populares e mais comentados na seção “O que está acontecendo”;'))
-                sublist.add_item(NoEscape(r'\textbf{YouTube:} O algoritmo do YouTube tem como objetivo aumentar o tempo de permanência dos usuários na plataforma, recomendando os vídeos que eles têm mais chances de assistir e se engajar. Para isso, ele considera fatores como o histórico de visualização, as preferências, as inscrições, a localização e o feedback dos usuários. Ele também leva em conta a qualidade e a relevância dos vídeos, analisando aspectos como o título, descrição, tags, miniaturas e os metadados.'))
+                # sublist.add_item(NoEscape(r'\textbf{YouTube:} O algoritmo do YouTube tem como objetivo aumentar o tempo de permanência dos usuários na plataforma, recomendando os vídeos que eles têm mais chances de assistir e se engajar. Para isso, ele considera fatores como o histórico de visualização, as preferências, as inscrições, a localização e o feedback dos usuários. Ele também leva em conta a qualidade e a relevância dos vídeos, analisando aspectos como o título, descrição, tags, miniaturas e os metadados.'))
 
 doc.append(NewPage())
 
@@ -684,23 +650,23 @@ with doc.create(MiniPage(align='c')):
 
 with doc.create(Itemize()) as itemize:
             # itemize.add_item('Em geral, março vem sendo o melhor mês da Tribuna do Norte nas redes sociais e setembro o pior.')
-            itemize.add_item('Sessões:')
-            #doc.append(NoEscape(r'\newline'))
-            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                sublist.add_item(NoEscape(f'Por padrão, a sessão é encerrada após 30 minutos de inatividade, mas é possível ajustar esse limite para que ela dure de alguns segundos a várias horas.'))
-            with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
-                sublist.add_item(NoEscape('O Google Analytics começa a contar a partir do momento em que um usuário acessa seu site. Se depois de 30 minutos este usuário não fizer uma interação, a sessão é finalizada. No entanto, toda vez que ocorre uma interação com um elemento (como um evento, interação de rede social ou uma nova página), o Google Analytics reinicia o tempo de vencimento adicionando 30 minutos a partir do momento da interação.\n Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
-            with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
-                sublist.add_item(NoEscape('Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
-                with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
-                    subsublist.add_item(NoEscape('Vencimento por tempo:'))
-                    with subsublist.create(Enumerate(enumeration_symbol=r"•")) as subsubsublist:
-                        subsubsublist.add_item(NoEscape('Depois de 30 minutos de inatividade;'))
-                        subsubsublist.add_item(NoEscape('À meia-noite.'))
-                with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
-                    subsublist.add_item(NoEscape('Mudança de campanha:'))
-                    with subsublist.create(Enumerate(enumeration_symbol=r"•")) as subsubsublist:
-                        subsubsublist.add_item(NoEscape('Se um usuário entra por uma campanha, sai e depois volta para outra. (Fecha o site e entra novamente, por exemplo).'))
+            # itemize.add_item('Sessões:')
+            # #doc.append(NoEscape(r'\newline'))
+            # with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+            #     sublist.add_item(NoEscape(f'Por padrão, a sessão é encerrada após 30 minutos de inatividade, mas é possível ajustar esse limite para que ela dure de alguns segundos a várias horas.'))
+            # with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
+            #     sublist.add_item(NoEscape('O Google Analytics começa a contar a partir do momento em que um usuário acessa seu site. Se depois de 30 minutos este usuário não fizer uma interação, a sessão é finalizada. No entanto, toda vez que ocorre uma interação com um elemento (como um evento, interação de rede social ou uma nova página), o Google Analytics reinicia o tempo de vencimento adicionando 30 minutos a partir do momento da interação.\n Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
+            # with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
+            #     sublist.add_item(NoEscape('Um único usuário pode abrir várias sessões. Essas sessões podem ocorrer no mesmo dia ou em vários dias, semanas ou meses. Assim que uma sessão termina, existe a oportunidade de iniciar uma nova sessão. Há dois métodos para o encerramento de uma sessão:'))
+            #     with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
+            #         subsublist.add_item(NoEscape('Vencimento por tempo:'))
+            #         with subsublist.create(Enumerate(enumeration_symbol=r"•")) as subsubsublist:
+            #             subsubsublist.add_item(NoEscape('Depois de 30 minutos de inatividade;'))
+            #             subsubsublist.add_item(NoEscape('À meia-noite.'))
+            #     with sublist.create(Enumerate(enumeration_symbol=r"•")) as subsublist:
+            #         subsublist.add_item(NoEscape('Mudança de campanha:'))
+            #         with subsublist.create(Enumerate(enumeration_symbol=r"•")) as subsubsublist:
+            #             subsubsublist.add_item(NoEscape('Se um usuário entra por uma campanha, sai e depois volta para outra. (Fecha o site e entra novamente, por exemplo).'))
             itemize.add_item('Seguidores:')
             with itemize.create(Enumerate(enumeration_symbol=r"")) as sublist:
                 sublist.add_item(NoEscape(f'É  possível observar que o número de novos seguidores ou inscritos adquiridos nos mês pode diferir um pouco na primeira tabela, na descrição dela e em cada uma das tabelas seguintes das respectivas redes sociais.'))
@@ -729,6 +695,6 @@ with doc.create(Itemize()) as itemize:
                 
                 
 # Gera o arquivo LaTeX
-doc.generate_pdf(fr'C:\Users\{GR.path_Usuarios}\Documents\Repositórios\Relatórios\TNsemanal\RelatórioSemanal-TN_Portal e YouTube_{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}', clean_tex=True)
+doc.generate_pdf(fr'C:\Users\{GR.path_Usuarios}\Documents\Repositórios\Relatórios\TNsemanal\RelatórioSemanal-TN_FB E IG_{GR.penultimo_domingo().strftime("%d-%m-%Y")} a {GR.ultimo_sabado().strftime("%d-%m-%Y")}', clean_tex=True)
 
 print("Relatório em LaTeX gerado com sucesso!")
