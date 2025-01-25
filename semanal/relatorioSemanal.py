@@ -18,14 +18,14 @@ with doc.create(MiniPage(align='c')):
         doc.append(MediumText(("Relatório semanal")))
         doc.append(LineBreak())
 
-portal_usuariosUnicos_2024Table = [276184,441269,455979,340868,369804,272294,293971,459877,326566,369497,302557,358037,308259,358280,294016,371248,552230,347410,389320,357439,567253,418934,318670,336115,324685,314522,336800,378852,361139,706462,283310,382522,283476,302664,372105,353182,310670,568090,423814]
-portal_usuariosRescorrentes_2024Table = [123944,197378,172485,156579,169541,124341,135747,202480,151029,160475,147401,154262,133798,142551,126291,137344,177835,134973,132433,149747,186295,176389,148123,143912,136329,148085,157154,181330,158074,234256,131005,147944,130517,133439,138919,129991,139492,167879,161574]
+portal_usuariosUnicos_2024Table = [276184,441269,455979,340868,369804,272294,293971,459877,326566,369497,302557,358037,308259,358280,294016,371248,552230,347410,389320,357439,567253,418934,318670,336115,324685,314522,336800,378852,361139,706462,283310,382522,283476,302664,372105,353182,310670,568090,423814,317576,302953,330100]
+portal_usuariosRescorrentes_2024Table = [123944,197378,172485,156579,169541,124341,135747,202480,151029,160475,147401,154262,133798,142551,126291,137344,177835,134973,132433,149747,186295,176389,148123,143912,136329,148085,157154,181330,158074,234256,131005,147944,130517,133439,138919,129991,139492,167879,161574,152746,148547,152654]
 
-portal_usuariosUnicos_2024Analytics = [213000,331000,370000,261000,283000,210000,226000,357000,259000,292000,231000,286000,244000,295000,233000,304000,469000,314000,330000,287000,491000,340000,254000,272000,260000,244000,266000,299000,284000,604000,222000,314000,244000,243000,308000,292000,245000,496000,358000]
-portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000,92000,100000,73000,79000,122000,93000,98000,88000,93000,80000,90000,75000,83000,115000,85000,83000,92000,126000,111000,91000,90000,84000,88000,99000,115000,97000,159000,78000,91000,84000,82000,82000,76000,80000,108000,104000]
+portal_usuariosUnicos_2024Analytics = [213000,331000,370000,261000,283000,210000,226000,357000,259000,292000,231000,286000,244000,295000,233000,304000,469000,314000,330000,287000,491000,340000,254000,272000,260000,244000,266000,299000,284000,604000,222000,314000,244000,243000,308000,292000,245000,496000,358000,247000,233000,257000]
+portal_usuariosRescorrentes_2024Analytics = [73000,113000,105000,92000,100000,73000,79000,122000,93000,98000,88000,93000,80000,90000,75000,83000,115000,85000,83000,92000,126000,111000,91000,90000,84000,88000,99000,115000,97000,159000,78000,91000,84000,82000,82000,76000,80000,108000,104000,92000,87000,87000]
 
-portal_visualizacoes_2024 = [621206,965340,924908,765698,829407,635989,664666,907045,698454,764245,671189,745886,682403,733301,648784,782882,992290,742668,763963,715304,924041,790025,657113,655361,673549,667495,702230,910372,740670,1154334,650090,768296,595760,605010,699928,663877,651132,922972,757296] # mesmo valor na tabela e no analytics
-portal_novosUsuarios_2024 = [147518,242760,278732,177038,198428,144767,155648,255141,170986,204845,151741,200186,170757,214285,164265,233626,374522,237463,256978,207660,382013,243507,170937,194476,186105,167547,180528,200898,201074,476829,150861,233911,152128,168000,234427,225031,174169,404775,268157] # mesmo valor na tabela e no analytics
+portal_visualizacoes_2024 = [621206,965340,924908,765698,829407,635989,664666,907045,698454,764245,671189,745886,682403,733301,648784,782882,992290,742668,763963,715304,924041,790025,657113,655361,673549,667495,702230,910372,740670,1154334,650090,768296,595760,605010,699928,663877,651132,922972,757296,654624,649462,685431] # mesmo valor na tabela e no analytics
+portal_novosUsuarios_2024 = [147518,242760,278732,177038,198428,144767,155648,255141,170986,204845,151741,200186,170757,214285,164265,233626,374522,237463,256978,207660,382013,243507,170937,194476,186105,167547,180528,200898,201074,476829,150861,233911,152128,168000,234427,225031,174169,404775,268157,166042,156950,180076] # mesmo valor na tabela e no analytics
 
 #TWITTER
 tw_seg_2024 = [359,455,1249,892,801,725,1009,2464,886,2460]
@@ -37,13 +37,13 @@ tw_seg_2024_total = [312146,312041,312437,312722,312797,313181,314742,315456,317
 tw_seg_2024_perdeu = [890,tw_seg_2024[1]-(tw_seg_2024_total[1]-tw_seg_2024_total[0]),tw_seg_2024[2]-(tw_seg_2024_total[2]-tw_seg_2024_total[1]),tw_seg_2024[3]-(tw_seg_2024_total[3]-tw_seg_2024_total[2]),tw_seg_2024[4]-(tw_seg_2024_total[4]-tw_seg_2024_total[3]),tw_seg_2024[5]-(tw_seg_2024_total[5]-tw_seg_2024_total[4]),abs(tw_seg_2024[6]-(tw_seg_2024_total[6]-tw_seg_2024_total[5])),tw_seg_2024[7]-(tw_seg_2024_total[7]-tw_seg_2024_total[6]),abs(tw_seg_2024[8]-(tw_seg_2024_total[8]-tw_seg_2024_total[7])),abs(tw_seg_2024[9]-(tw_seg_2024_total[9]-tw_seg_2024_total[8]))] #sabe a quantidade que perdeu de acordo com a diferença de seguidores entre um mês e outro e o ganho total de seguidores no mês
 
 #YOUTUBE
-yb_inc_2024 = [505,241,552,155,268,162,135,81,82,89,121,123,89,110,103,141,171,186,274,614,222,559,334,161,834,374,78,199,90,126,115,145,74,107,44,154,76,80,617]
-yb_inc_2024_perdeu = [30,15,31,17,30,15,19,21,16,22,18,18,16,19,22,22,24,21,20,48,29,39,33,32,55,46,15,30,22,26,32,22,13,18,11,29,23,15,29]
-yb_visualizacoes_2024 = [134255,69730,149424,40127,73821,39688,35024,29843,22657,20998,21575,27314,19991,35636,22941,39314,40865,45122,92628,139771,53904,140104,91364,26819,370283,164890,16203,83540,47889,42861,24733,37780,15380,56673,12634,49003,19852,14348,140900]
-yb_horas_2024 = [1785,1114,2142,671,1265,632,660,768,715,596,586,555,420,537,553,557,661,630,1312,1626,791,1556,1039,508,5986,1767,292,926,656,537,504,539,286,467,229,580,342,330,2022]
+yb_inc_2024 = [505,241,552,155,268,162,135,81,82,89,121,123,89,110,103,141,171,186,274,614,222,559,334,161,834,374,78,199,90,126,115,145,74,107,44,154,76,80,617,218,204,274]
+yb_inc_2024_perdeu = [30,15,31,17,30,15,19,21,16,22,18,18,16,19,22,22,24,21,20,48,29,39,33,32,55,46,15,30,22,26,32,22,13,18,11,29,23,15,29,27,24,21]
+yb_visualizacoes_2024 = [134255,69730,149424,40127,73821,39688,35024,29843,22657,20998,21575,27314,19991,35636,22941,39314,40865,45122,92628,139771,53904,140104,91364,26819,370283,164890,16203,83540,47889,42861,24733,37780,15380,56673,12634,49003,19852,14348,140900,53348,36570,50523]
+yb_horas_2024 = [1785,1114,2142,671,1265,632,660,768,715,596,586,555,420,537,553,557,661,630,1312,1626,791,1556,1039,508,5986,1767,292,926,656,537,504,539,286,467,229,580,342,330,2022,1198,950,1137]
 
 #ADICIONAR TOTAL DA SEMANA SEGUINTE
-yb_inc_2024_total = [35940,36167,36685,36863,37062,37214,37333,37380,37544,37631,37729,37846,37922,37987,38076,38250,38337,38507,38751,39324,39515,40032,40329,40464,41239,41571,41651,41797,41872,41972,42052,42174,42234,42322,42354,42484,42534,42599,43200]
+yb_inc_2024_total = [35940,36167,36685,36863,37062,37214,37333,37380,37544,37631,37729,37846,37922,37987,38076,38250,38337,38507,38751,39324,39515,40032,40329,40464,41239,41571,41651,41797,41872,41972,42052,42174,42234,42322,42354,42484,42534,42599,43200,43391,43565,43818]
 
 # #YOUTUBE - TN: MONETIZAÇÃO
 # impressoes_yb_TN=[16429,182696,85235]
@@ -89,20 +89,20 @@ with doc.create(Section('Tribuna do Norte', numbering=False)):
         with doc.create(Itemize()) as itemize:
             itemize.add_item(f"Ao todo, a Tribuna do Norte entregou seu conteúdo para, aproximadamente, {GR.formataNumero(portal_novosUsuarios_2024[-1]+(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]))} novas contas, entre Portal e YouTube.")
             #+(tw_seg_2024_total[-1]-tw_seg_2024_total[-2])
-            itemize.add_item(Command('textbf', arguments='Portal'))
-            with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
-                 sublist.add_item(NoEscape(r"Na semana analisada a notícia \textbf{Investidor da SAF do América, Marcelo mostra otimismo com o trabalho e promete vir mais ao clube} ficou no top 1 teve \textbf{63.381} visualizações, que representam apenas \textbf{8.4\%} do total. Isso pode acontecer não apenas por conta das visualizações mais baixas na semana analisada, mas tembém por conta de uma distribuição 'melhor' entre as notícias."))
-                 sublist.add_item(NoEscape(r"Também tivemos \textbf{'Rodolitos em Ponta Negra: entenda origem das estruturas e aparecimento na praia} com \textbf{39.734} visualizações e \textbf{'Justiça autoriza Governo do RN a escalonar pagamento do 13º salário até janeiro} com \textbf{19.437} visualizações. As 3 somam \textbf{122.552} visualizações que representam \textbf{16.2\%} do total."))
-                #  sublist.add_item(NoEscape(r"A página do \textbf{Clube do Assinante} teve um grande número de acessos, fazendo com que fique no top 3 pela primeira vez;"))
-                 sublist.add_item(NoEscape(r"As \textbf{15 notícias mais vitas} juntas somam \textbf{241.307} visualizações, que representam \textbf{32\%} do total. As visualizações do top 15 ficaram abaixo das 391.535 da semana annterior."))
+            # itemize.add_item(Command('textbf', arguments='Portal'))
+            # with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
+            #      sublist.add_item(NoEscape(r"Na semana analisada a notícia \textbf{Investidor da SAF do América, Marcelo mostra otimismo com o trabalho e promete vir mais ao clube} ficou no top 1 teve \textbf{63.381} visualizações, que representam apenas \textbf{8.4\%} do total. Isso pode acontecer não apenas por conta das visualizações mais baixas na semana analisada, mas tembém por conta de uma distribuição 'melhor' entre as notícias."))
+            #      sublist.add_item(NoEscape(r"Também tivemos \textbf{'Rodolitos em Ponta Negra: entenda origem das estruturas e aparecimento na praia} com \textbf{39.734} visualizações e \textbf{'Justiça autoriza Governo do RN a escalonar pagamento do 13º salário até janeiro} com \textbf{19.437} visualizações. As 3 somam \textbf{122.552} visualizações que representam \textbf{16.2\%} do total."))
+            #     #  sublist.add_item(NoEscape(r"A página do \textbf{Clube do Assinante} teve um grande número de acessos, fazendo com que fique no top 3 pela primeira vez;"))
+            #      sublist.add_item(NoEscape(r"As \textbf{15 notícias mais vitas} juntas somam \textbf{241.307} visualizações, que representam \textbf{32\%} do total. As visualizações do top 15 ficaram abaixo das 391.535 da semana annterior."))
             itemize.add_item(Command('textbf', arguments='YouTube'))
             with itemize.create(Enumerate(enumeration_symbol=r"-")) as sublist:
                 sublist.add_item(f"Total de seguidores atual: {GR.formataNumero(yb_inc_2024_total[-1])}. Total de seguidores na semana anterior: {GR.formataNumero(yb_inc_2024_total[-2])}")
                 sublist.add_item(f"Seguidores adquiridos na semana: {GR.formataNumero(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]+yb_inc_2024_perdeu[-1])}. Deixaram de seguir: {GR.formataNumero(yb_inc_2024_perdeu[-1])}")
                 sublist.add_item(f"Taxa de fixação: {GR.fixacao(yb_inc_2024_total[-1]-yb_inc_2024_total[-2]+yb_inc_2024_perdeu[-1],yb_inc_2024_perdeu[-1])}")
-                sublist.add_item(NoEscape(r"O vídeo mais visto foi \textbf{'Motorista de caminhão envolvido em acidente com 41 mortos em MG se entrega à polícia'} com \textbf{110.843} visualizações, que representa \textbf{78.7\%} do total. Logo em seguida temos \textbf{'[TV TRIBUNA] Espanta conta Cabaré da Leila'} com \textbf{20.002} visualizações e \textbf{'Carro que utilizava botijão de gás de cozinha explode em Natal'} com \textbf{1.105} visualizações, com cada um representando, respectivamente, \textbf{14.2\% e 0.8\%} do total."))
-                sublist.add_item(NoEscape(r"O segundo e terceiro lugar da semana atual são, respectivamente, o primeiro e segundo da semana passada. Além disso, os dois estão com bem mais visualizações que na semana anterior."))
-                sublist.add_item(NoEscape(r"Os dosi videos mais vistos dessa semana sozinhos representam mais de 90\% das visualizações."))
+                # sublist.add_item(NoEscape(r"O vídeo mais visto foi \textbf{'Motorista de caminhão envolvido em acidente com 41 mortos em MG se entrega à polícia'} com \textbf{110.843} visualizações, que representa \textbf{78.7\%} do total. Logo em seguida temos \textbf{'[TV TRIBUNA] Espanta conta Cabaré da Leila'} com \textbf{20.002} visualizações e \textbf{'Carro que utilizava botijão de gás de cozinha explode em Natal'} com \textbf{1.105} visualizações, com cada um representando, respectivamente, \textbf{14.2\% e 0.8\%} do total."))
+                # sublist.add_item(NoEscape(r"O segundo e terceiro lugar da semana atual são, respectivamente, o primeiro e segundo da semana passada. Além disso, os dois estão com bem mais visualizações que na semana anterior."))
+                # sublist.add_item(NoEscape(r"Os dosi videos mais vistos dessa semana sozinhos representam mais de 90\% das visualizações."))
 
 doc.append(NewPage())
 

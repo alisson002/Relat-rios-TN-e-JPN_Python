@@ -3,8 +3,9 @@ from pylatex.utils import bold
 import graficosRelatorioSemanal as GR
 import pandas as pd
 import rpy2.robjects as robjects
-import numpy
+import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 
 
 
@@ -22,22 +23,22 @@ with doc.create(MiniPage(align='c')):
         doc.append(LineBreak())
 
 #YOUTUBE - TN: MONETIZAÇÃO
-impressoes_yb_TN=[16429,182696,85235,7141,45266,22621,24240,17580,22039,4936,5452,5090,4705,4982,9250,38802]
-visuMonetizadas_yb_TN=[15531,173212,85466,6561,45111,21762,23742,15037,21404,4285,4601,4339,4384,4343,8334,35509]
-receitaBruta_yb_TN=[73,1050,573,36,296,130,156,96,138,26,29,36,29,27,42,133]
-premium_yb_TN=[1,16,6,0,3,2,1,1,1,1,1,1,1,1,1,1]
-AdSense_yb_TN=[40,578,315,20,163,72,86,53,76,14,16,20,16,15,23,73]
+impressoes_yb_TN=[16429,182696,85235,7141,45266,22621,24240,17580,22039,4936,5452,5090,4705,4982,9250,38802,38261,31134,45619]
+visuMonetizadas_yb_TN=[15531,173212,85466,6561,45111,21762,23742,15037,21404,4285,4601,4339,4384,4343,8334,35509,35643,28654,42082]
+receitaBruta_yb_TN=[73,1050,573,36,296,130,156,96,138,26,29,36,29,27,42,133,122,138,229]
+premium_yb_TN=[1,16,6,0,3,2,1,1,1,1,1,1,1,1,1,1,1,1,1]
+AdSense_yb_TN=[40,578,315,20,163,72,86,53,76,14,16,20,16,15,23,73,67,64,126]
 
-visualizacoes_tn = [140900]
+visualizacoes_tn = [140900,53348,36570,50523]
 
 #YOUTUBE - JPN: MONETIZAÇÃO
-impressoes_yb_JPN=[39593,16737,42079,154350,109270,43500,574953,161484,15444,15701,26664,79852,23895,17988,42168]
-visuMonetizadas_yb_JPN=[33296,13781,36523,137373,93411,35514,488003,143579,12635,12359,22254,65113,19436,14406,34250]
-receitaBruta_yb_JPN=[185,90,147,515,430,215,2039,443,87,97,157,450,129,102,255] #receita de anuncios do ytb
-premium_yb_JPN=[7,6,6,31,16,11,75,11,65,7,24,7,7,41]
-AdSense_yb_JPN=[102,49,81,284,237,119,1123,244,48,53,86,249,71,56,140] #receita estimada GADS
+impressoes_yb_JPN=[39593,16737,42079,154350,109270,43500,574953,161484,15444,15701,26664,79852,23895,17988,42168,28541,13352,44299]
+visuMonetizadas_yb_JPN=[33296,13781,36523,137373,93411,35514,488003,143579,12635,12359,22254,65113,19436,14406,34250,24859,11543,38210]
+receitaBruta_yb_JPN=[185,90,147,515,430,215,2039,443,87,97,157,450,129,102,255,129,60,183] #receita de anuncios do ytb
+premium_yb_JPN=[7,6,6,31,16,11,75,11,65,7,24,7,7,41,13,4,8]
+AdSense_yb_JPN=[102,49,81,284,237,119,1123,244,48,53,86,249,71,56,140,71,23,100] #receita estimada GADS
 
-visualizacoes_jpn = [33268]
+visualizacoes_jpn = [33268,26335,12368,57455]
 
 def plot_stacked_bar_with_custom_colors(values):
     # Configuração dos dados para o gráfico
@@ -89,6 +90,70 @@ def plot_stacked_bar_with_custom_colors(values):
 def plot_stacked_bar_jpn(values):
     # Configuração dos dados para o gráfico
     categorias = ['Visualizações x Impressões de Anúncios', 'Visualizações x Visualizações Monetizadas']
+
+    valores_grupo1 = [values[1],values[0]]
+    valores_grupo2 = [values[2], values[3]]
+
+    # Criar gráfico de barras empilhadas
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    bar_width = 0.4
+
+    # Plotar as barras empilhadas sem somar os valores
+    bar1 = ax.bar(categorias[0], valores_grupo1[0], width=bar_width, color='#90A8C4', label='Visualizações')
+    bar2 = ax.bar(categorias[0], valores_grupo1[1], width=bar_width, color='#3B97D6', label='Impressões de anúncios')
+    
+    
+
+    bar3 = ax.bar(categorias[1], valores_grupo2[0], width=bar_width, color='#3B97D6', label='Visualizações')
+    bar4 = ax.bar(categorias[1], valores_grupo2[1], width=bar_width, color='#707070', label='Visualizações monetizadas')
+
+    # Adicionar os valores no topo das barras
+    for i, (bar, value) in enumerate(zip([bar1, bar2, bar3, bar4], [
+        valores_grupo1[0], valores_grupo1[1],
+        valores_grupo2[0], valores_grupo2[1]
+    ])):
+        ax.text(bar[0].get_x() + bar[0].get_width() / 2, 
+                value + 0.01 * max(values), 
+                f'{value}', 
+                ha='center', va='bottom')
+
+    # Adicionar porcentagem entre as barras
+    percentages = [
+        valores_grupo1[1] / valores_grupo1[0] * 100 if valores_grupo1[0] > 0 else 0,
+        valores_grupo2[1] / valores_grupo2[0] * 100 if valores_grupo2[0] > 0 else 0
+    ]
+
+    for i, (bar, percentage) in enumerate(zip([bar2, bar4], percentages)):
+        ax.text(bar[0].get_x() + bar[0].get_width() / 2, 
+                bar[0].get_y() + bar[0].get_height() / 2, 
+                f'{percentage:.1f}%', 
+                ha='center', va='center', color='white', fontsize=10)
+
+    # Criar legendas personalizadas
+    legend_patches = [
+        mpatches.Patch(color='#3B97D6', label='Visualizações'),
+        mpatches.Patch(color='#90A8C4', label='Impressões de Anúncios'),
+        mpatches.Patch(color='#707070', label='Visualizações Moonetizadas')
+    ]
+
+    # Configurar título, eixos e legendas
+    ax.set_title('Comparativo de Visualizações, Impressões e Monetização - JPN')
+    ax.set_ylabel('Valores')
+    ax.set_xticks(range(len(categorias)))
+    ax.set_xticklabels(categorias)
+    ax.legend(handles=legend_patches, loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=3)
+
+    # Ajustar layout e salvar o gráfico
+    plt.tight_layout()
+    visitasIG_plot_path = r"C:/Users/aliss/Documents/Repositórios/Imagens/TN/monetizacaoJPN.png"
+    plt.savefig(visitasIG_plot_path)
+
+    return visitasIG_plot_path
+
+def plot_stacked_bar_2(values):
+    # Configuração dos dados para o gráfico
+    categorias = ['Visualizações x Impressões de Anúncios', 'Visualizações x Visualizações Monetizadas']
     valores_grupo1 = [values[0], values[1]]
     valores_grupo2 = [values[2], values[3]]
 
@@ -97,11 +162,11 @@ def plot_stacked_bar_jpn(values):
 
     # Plotar as barras com largura reduzida e maior separação
     bar_width = 0.4
-    bar1 = ax.bar(categorias[0], valores_grupo1[0], width=bar_width, label='Visualizações', color='#DD0510')
-    bar2 = ax.bar(categorias[0], valores_grupo1[1], width=bar_width, label='Visualizações monetizadas', color='#3B97D6')
+    bar1 = ax.bar(categorias[0], valores_grupo1[0], width=bar_width, label='Visualizações', color='#3B97D6')
+    bar2 = ax.bar(categorias[0], valores_grupo1[1], width=bar_width, label='Visualizações monetizadas', color='#707070')
 
-    bar3 = ax.bar(categorias[1], valores_grupo2[0], width=bar_width, label='Visualizações',color='#DD0510')
-    bar4 = ax.bar(categorias[1], valores_grupo2[1], width=bar_width, label='Impressões de anúncios', color='#101CA0')
+    bar3 = ax.bar(categorias[1], valores_grupo2[0], width=bar_width, label='Visualizações',color='#3B97D6')
+    bar4 = ax.bar(categorias[1], valores_grupo2[1], width=bar_width, label='Impressões de anúncios', color='#90A8C4')
 
     # Adicionar os valores no topo das barras
     for bar, value in zip([bar1, bar2, bar3, bar4], values):
@@ -198,16 +263,16 @@ with doc.create(Subsection('Análise semanal', numbering=False)):
                 table.add_row((MultiRow(2, data='-'), GR.numeroPorExtensso(impressoes_yb_JPN[-1]), GR.numeroPorExtensso(visuMonetizadas_yb_JPN[-1]), GR.numeroPorExtensso(receitaBruta_yb_JPN[-1]), GR.numeroPorExtensso(premium_yb_JPN[-1]), GR.numeroPorExtensso(AdSense_yb_JPN[-1])))
                 table.add_row(('', FootnoteText(f'{GR.crescimento(impressoes_yb_JPN[-1],impressoes_yb_JPN[-2])}'), FootnoteText(f'{GR.crescimento(visuMonetizadas_yb_JPN[-1],visuMonetizadas_yb_JPN[-2])}'), FootnoteText(f'{GR.crescimento(receitaBruta_yb_JPN[-1],receitaBruta_yb_JPN[-2])}'), FootnoteText(f'{GR.crescimento(premium_yb_JPN[-1],premium_yb_JPN[-2])}'), FootnoteText(f'{GR.crescimento(AdSense_yb_JPN[-1],AdSense_yb_JPN[-2])}')))
 
-# path2 = plot_stacked_bar_jpn([visualizacoes_jpn[-1], impressoes_yb_JPN[-1], visualizacoes_jpn[-1], visuMonetizadas_yb_JPN[-1]])
+path2 = plot_stacked_bar_2([visualizacoes_jpn[-1], impressoes_yb_JPN[-1], visualizacoes_jpn[-1], visuMonetizadas_yb_JPN[-1]])
 
-# doc.append(NewPage())
-# with doc.create(Subsection('', numbering=False)):
-#     doc.append("Monetização - YTB: Comparativo")
-#     # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
-#     # Adiciona a figura ao documento
-#     with doc.create(Figure(position='h!')) as plot:
-#         plot.add_image(path2, width=NoEscape(r'1\textwidth'))
-# doc.append(NewPage())
+doc.append(NewPage())
+with doc.create(Subsection('', numbering=False)):
+    doc.append("Monetização - YTB: Comparativo")
+    # doc.append(NoEscape(r'\newline'))  # Adiciona uma nova linha
+    # Adiciona a figura ao documento
+    with doc.create(Figure(position='h!')) as plot:
+        plot.add_image(path2, width=NoEscape(r'1\textwidth'))
+doc.append(NewPage())
 
 # Adiciona informações extras
 # Adiciona uma lista com marcadores
